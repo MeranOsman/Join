@@ -140,6 +140,14 @@ hr {
     height: 24px;
     width: 24px;
     cursor: pointer;
+    background: url(../img/uncheck.svg);
+}
+
+.icon-checkbox-active{
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    background: url(../img/check.svg);
 }
 
 /*Buttons*/

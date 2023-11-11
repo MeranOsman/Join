@@ -11,5 +11,5 @@
 *** checked and unchecked image
 */
 function checkboxImgChange(){
-    document.getElementById('checkbox').src = '../img/check.svg';
+    document.getElementById('checkbox').classList.toggle('icon-checkbox-active');
 }
