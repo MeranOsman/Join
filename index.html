@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/include.js"></script>
+
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="shortcut icon" type="image/x-icon" href="asset/img/join-logo-login.svg">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="JOIN App">
+
+    <title>Join</title>
+</head>
+
+<body>
+    <div class="flex-row">
+        <p>Not a Join user?</p><button class="btn-sign-up">Sign up</button>
+    </div>
+
+    <section class="absolute">
+        <div class="flex-center flex-column login-bg">
+            <div>
+                <h1>Log in</h1>
+                <hr>
+            </div>
+            <input id="mail" required type="email" placeholder="Email" class="login icon-mail">
+            <input id="pass" required type="password" placeholder="Password" class="login icon-lock">
+            <div class="container-checkbox">
+                <div><img id="checkbox" onlick="checkboxImgChange()" class="icon-checkbox" src="img/uncheck.svg"/></div><span>Remember me</span>
+            </div>
+            <div>
+                <button class="btn-login">Log in</button>
+                <button class="btn-guest">Guest Log in</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
