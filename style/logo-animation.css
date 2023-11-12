@@ -1,0 +1,68 @@
+/*###############################
+###
+###     JOIN APP 
+###     version 1.0.0
+###     author: unsere Namen
+###
+#################################*/
+
+.bg-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: var(--summary-background);
+    z-index: 999;
+}
+
+.bg-overlay img {
+    width: 919px;
+    height: 240px;
+    padding: 8px;
+}
+
+.bg-overlay.animated {
+    animation: bg-overlay-animation 1s forwards;
+    animation-delay: 2000ms;
+}
+
+.main-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 320px;
+    width: auto;
+}
+
+.main-logo.animated {
+    animation: main-logo-animation 600ms forwards;
+    animation-delay: 2000ms;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes bg-overlay-animation {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes main-logo-animation {
+    0% {
+        height: 320px;
+        width: auto;
+    }
+    100% {
+        height: 80px;
+        width: auto;
+        left: 64px;
+        top: 32px;
+        transform: translateY(0);
+    }
+}
+

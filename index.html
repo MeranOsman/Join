@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/media.css">
     <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/logo-animation.css">
     <link rel="shortcut icon" type="image/x-icon" href="asset/img/join-logo-login.svg">
 
     <meta name="robots" content="noindex, nofollow">
@@ -20,12 +21,21 @@
 </head>
 
 <body>
+    <!-- animated logo START-->
+    <div class="bg-overlay animated">
+        <img class="animated main-logo" src="img/join-logo-login.svg">
+    </div>
+    <!-- animated logo END-->
+
     <div class="pos-logo"><img src="img/join-logo-login.svg"/></div>
 
-    <div class="flex-row pos-sign-up">
+    <!-- HEADER START-->
+    <header class="flex-row pos-sign-up">
         <p>Not a Join user?</p><button class="btn-sign-up">Sign up</button>
-    </div>
+    </header>
+    <!-- HEADER END-->
 
+    <!-- log-in SECTION START-->
     <section class="absolute">
         <div class="flex-center flex-column login-bg">
                 <div>
@@ -43,12 +53,14 @@
                 </div>
         </div>
     </section>
+    <!-- log-in SECTION END-->
 
-    <div class="pos-bottom">
+    <!-- FOOTER START-->
+    <footer class="pos-bottom">
         <p>Privacy Policy</p>
         <p>Legal notice</p>
-    </div>
+    </footer>
+    <!-- FOOTER END-->
 
 </body>
-
 </html>
