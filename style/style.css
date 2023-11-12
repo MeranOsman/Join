@@ -89,6 +89,10 @@ hr {
 .span-color {
     color: var(--summary-h2-color);
 }
+
+.display-line {
+    display: inline;
+}
 /**********************************
 *** MULTI CLASSES *** END
 ***********************************/
