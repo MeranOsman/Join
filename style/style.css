@@ -69,7 +69,15 @@ hr {
     justify-content: right;
     align-items: center;
     gap:32px;
-    padding:64px 64px 0 0;
+}
+
+.flex-row-btn{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:16px;
 }
 
 .flex-column {
@@ -87,14 +95,26 @@ hr {
 *** CLASSES *** START
 ***********************************/
 
-/*LOGIN*/
+/*Logo*/
+.pos-logo{
+    position: absolute;
+    top:32px;
+    left:64px;
+}
+.pos-logo img{
+    height: 100px;
+    width: auto;
+}
+
+/*Login*/
 .login-bg {
-    width: 40vw;
-    height: 50vh;
+    min-width: 40vw;
+    min-height: 50vh;
     background-color: white;
     gap: 30px;
     border-radius: 32px;
     box-shadow: 0px 0px 15px rgba(119, 119, 119, 0.1);
+    padding:16px;
 }
 
 .login {
@@ -187,6 +207,12 @@ hr {
     font-size: 21px;
 }
 
+.pos-sign-up{
+    position: absolute;
+    top:40px;
+    right:64px;
+}
+
 .btn-sign-up {
     all:unset;
     background-color: var(--sidebar-background);
@@ -202,6 +228,24 @@ hr {
     background-color: var(--summary-h2-color);
     border-color:var(--summary-h2-color);
     box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9); 
+}
+
+/*Legals*/
+.pos-bottom{
+    display: flex;
+    justify-content: center;
+    gap:32px;
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+}
+
+.pos-bottom p{
+    color:#a8a8a8;
+}
+.pos-bottom p:hover{
+    font-weight: 700;
+    color:var(--summary-h2-color);
 }
 
 /**********************************
