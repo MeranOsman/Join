@@ -27,7 +27,7 @@ body {
     font-family: 'Roboto', sans-serif;
     height: 100vh;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 h1 {
@@ -57,6 +57,12 @@ hr {
     align-items: center;
 }
 
+.flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .absolute {
     position: absolute;
     top: 50%;
@@ -80,7 +86,9 @@ hr {
 .height {
     height: 100vh;
 }
-
+.span-color {
+    color: var(--summary-h2-color);
+}
 /**********************************
 *** MULTI CLASSES *** END
 ***********************************/
@@ -312,7 +320,13 @@ hr {
     align-items: center;
     gap: 8px;
 }
-
+/*  */
+.section-position {
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%);
+}
 /**********************************
 *** CLASSES *** END
 ***********************************/
