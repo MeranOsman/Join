@@ -6,12 +6,8 @@
 ###
 #################################*/
 
-
-// Alte Version der Funktion muss noch um gewandelt werden :D
-
 async function init() {
   await includeHTML();
- 
 }
 
 async function includeHTML() {
