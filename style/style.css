@@ -90,9 +90,11 @@ hr {
 .display-line {
     display: inline;
 }
+
 .padding {
     padding: 16px;
 }
+
 /**********************************
 *** MULTI CLASSES *** END
 ***********************************/
@@ -290,18 +292,6 @@ hr {
     z-index: 1;
 }
 
-.sideboard a {
-    text-decoration: none;
-    color: var(--link-color);
-    font-size: 15px;
-    font-weight: 300;
-}
-
-.sideboard a:hover {
-    color: var(--summary-h2-color);
-    font-weight: 500;
-}
-
 .sideboard-logo {
     width: auto;
     height: 100px;
@@ -338,12 +328,25 @@ hr {
     width: 100%;
 }
 
-.sideboard-links {
+.info-links {
     gap: 20px;
     margin-bottom: 58px;
 }
 
+.info-links a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.info-links a:hover {
+    color: var(--summary-h2-color);
+    font-weight: 500;
+}
+
 .icon-center {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -411,6 +414,7 @@ header h4 {
     left: 50%;
     transform: translate(-50%);
 }
+
 .summary-container {
     background-color: #ffff;
     height: 12vh;
@@ -419,9 +423,11 @@ header h4 {
     gap: 12px;
 
 }
+
 .summary-container img {
     height: 9vh;
 }
+
 /**********************************
 *** CLASSES *** END
 ***********************************/
