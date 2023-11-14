@@ -358,14 +358,24 @@ hr {
     background-color: purple;
 }
 
-/*  */
+/* summary */
 .section-position {
     position: absolute;
     top: 20%;
     left: 50%;
     transform: translate(-50%);
 }
+.summary-container {
+    background-color: #ffff;
+    height: 12vh;
+    width: auto;
+    border-radius: 15px;
+    gap: 12px;
 
+}
+.summary-container img {
+    height: 9vh;
+}
 /**********************************
 *** CLASSES *** END
 ***********************************/
