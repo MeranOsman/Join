@@ -85,7 +85,9 @@ hr {
 .display-line {
     display: inline;
 }
-
+.padding {
+    padding: 16px;
+}
 /**********************************
 *** MULTI CLASSES *** END
 ***********************************/
