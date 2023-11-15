@@ -9,7 +9,8 @@
 :root{
     --sidebar-background: #2a3647;
     --sidebar-color: #cdcdcd;
-    --summary-background: rgb(244 245 246);
+    --sidebar-link-background: rgb(13, 24, 48);
+    --summary-background: rgb(244, 245, 246);
     --summary-color: #0000;
     --summary-h2-color: #29ABE2;
     --link-color: #a8a8a8;

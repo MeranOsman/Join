@@ -337,9 +337,13 @@ hr {
 .info-links {
     gap: 20px;
     margin-bottom: 58px;
+    width: 100%;
+    text-align: center;
 }
 
 .info-links a {
+    width: 100%;
+    padding: 8px 0;
     text-decoration: none;
     color: var(--link-color);
     font-size: 15px;
