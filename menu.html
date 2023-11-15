@@ -2,7 +2,7 @@
     <div>
         <img src="img/logo-white.svg" class="sideboard-logo" alt="logo">
     </div>
-    <div class="sideboard-space">
+    <nav class="sideboard-space">
         <div class="icon-container">
             <a href="summary.html" class="icon-center">
                 <img class="sideboard-icon" src="img/summary.svg" alt="summary">
@@ -23,18 +23,21 @@
         </div>
         <div class="flex-center flex-column info-links">
             <a href="privacyPolicy.html">Privacy Policy</a>
-            <a href="legalNotice.html">Legal notice</a>
+            <a href="legalNotice.html">Legal Notice</a>
         </div>
-    </div>
+    </nav>
 </section>
-
 <section class="header">
     <h4>Kanban Project Management Tool</h4>
     <div class="header-right">
         <a href="help.html">
             <img src="img/helpIcon.svg" alt="helpIcon">
         </a>
-        <span>SM</span>
-
+        <span onclick="showMenu()">SM</span>
     </div>
 </section>
+<nav id="menuNav" class="display-none menu-nav flex-column">
+    <a href="legalNotice.html">Legal Notice</a>
+    <a href="privacyPolicy.html">Privacy Policy</a>
+    <a href="index.html">Log out</a>
+</nav>
