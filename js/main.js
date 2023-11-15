@@ -16,17 +16,23 @@ function checkboxImgChange() {
 
 
 /**
- * Function to show and close menu from header
+ * Function to open, close menu and prevent an event
  */
-function showMenu() {
+function showMenu(event) {
     document.getElementById('menuNav').classList.toggle('display-none');
+
+    event.stopPropagation();
 }
 
 
 /**
- * Function to close menu from header outside
- * @param {*} event 
+ * Function should hide navigation bar when clicked elsewhere
  */
-function closeMenuOutsideClick(event) {
-
-}
+document.addEventListener('click', function(event) {
+    let menuNav = document.getElementById('menuNav');
+    let targetElement = event.target;
+    
+    if (!menuNav.contains(targetElement)) {
+        menuNav.classList.add('display-none');
+    }
+});
