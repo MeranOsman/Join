@@ -51,6 +51,14 @@ hr {
 /**********************************
 *** MULTI CLASSES *** START
 ***********************************/
+.margin-t{
+    margin-top:32px;
+}
+
+.padding-b{
+    padding: 72px;
+}
+
 .content-size {
     margin: 11% 0 0 13%;
     height: calc(100vh - 11%);
@@ -65,6 +73,7 @@ hr {
     justify-content: center;
     align-items: center;
 }
+
 
 .flex-start {
     display: flex;
@@ -133,7 +142,7 @@ hr {
 .login-bg {
     min-width: 40vw;
     min-height: 50vh;
-    background-color: white;
+    background-color: var(--header-bg);
     gap: 30px;
     border-radius: 32px;
     box-shadow: 0px 0px 15px rgba(119, 119, 119, 0.1);
@@ -206,7 +215,7 @@ hr {
 .btn-login {
     background-color: var(--sidebar-background);
     border: 1px solid var(--sidebar-background);
-    color: white;
+    color: var(--header-bg);
     font-size: 20px;
     padding: 12px 20px;
     border-radius: 8px;
@@ -221,7 +230,7 @@ hr {
 }
 
 .btn-guest {
-    background-color: white;
+    background-color: var(--header-bg);
     color: var(--sidebar-background);
     border: 1px solid var(--sidebar-background);
     font-size: 20px;
@@ -251,7 +260,7 @@ hr {
     all: unset;
     background-color: var(--sidebar-background);
     border: 1px solid var(--sidebar-background);
-    color: white;
+    color: var(--header-bg);
     font-size: 16px;
     padding: 8px 16px;
     border-radius: 8px;
@@ -374,7 +383,7 @@ hr {
 .header {
     height: 11%;
     width: calc(100% - 13%);
-    background-color: white;
+    background-color: var(--header-bg);
     box-shadow: 0px 4px 4px rgb(223, 223, 224);
     display: flex;
     align-items: center;
@@ -453,7 +462,7 @@ header h4 {
 }
 
 .summary-container {
-    background-color: #ffff;
+    background-color: var(--header-bg);
     height: 12vh;
     width: auto;
     border-radius: 15px;
@@ -463,6 +472,138 @@ header h4 {
 
 .summary-container img {
     height: 9vh;
+}
+
+/*CONTACTS*/
+.flex-contacts{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 32px;
+    /*margin-left: 52px;*/
+}
+
+.flex-contacts-inner-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-contacts-inner-li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:16px;
+    padding:4px 24px;
+}
+
+.flex-contacts-inner-li:hover{
+    background: #f3f3f3;
+    border-radius: 10px;
+    
+}
+
+.contacts-section{
+    background: var(--header-bg);
+    width: 20%;
+    height: calc(100vh - 110px);
+    margin-top: -105px;
+    padding:0 8px;
+    overflow:auto !important;
+}
+
+.contacts-section button{
+    width: 80%;
+    padding:12px 16px;
+    margin: 24px auto 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    color:var(--header-bg);
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--sidebar-background);
+    border-radius: 10px;
+    border: none;
+}
+.contacts-section button:hover{
+    background-color: var(--summary-h2-color);
+    box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
+}
+
+.contacts-section button img{
+    width: 24px;
+    height: 24px;
+}
+
+.contacts-section ul{
+    all:unset;
+    list-style: none;
+    color:black;
+    font-size: 20px;
+}
+
+.contacts-section li{
+    margin:16px 0;
+}
+
+.contact-icons{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: var(--header-bg);
+}
+
+.orange{
+    background: var(--orange);
+}
+.vio{
+    background: var(--vio);
+}
+.blue{
+    background: var(--blue);
+}
+.pink{
+    background: var(--pink);
+}
+.yell{
+    background: var(--yell);
+}
+.azur{
+    background: var(--azur);
+}
+.deep{
+    background: var(--deep);
+}
+.tango{
+    background: var(--tango);
+}
+
+.contacts-links{
+    color: var(--summary-h2-color);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.underline{
+    border-bottom: solid 1px #cdcdcd !important;
+    width: 100%;
+    text-align: left;
+    margin:8px 0;
+}
+
+.contacts-bg{
+    margin-top: -500px;
+    margin-left: 80px;
+}
+
+.divider{
+    border-left: 4px solid var(--summary-h2-color);
+    height: 100px;
 }
 
 /**********************************

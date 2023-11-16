@@ -14,6 +14,17 @@
     --summary-color: #0000;
     --summary-h2-color: #29ABE2;
     --link-color: #a8a8a8;
+    --header-bg:#ffffff;
+
+    /*colors for contacts profiles*/
+    --orange:#ff7f05;
+    --vio:#960cfe;
+    --blue:#6f48fe;
+    --pink:#ff70fe;
+    --yell:#ffbe2f;
+    --azur:#00d6c1;
+    --deep:#472b89;
+    --tango:#ff4f46;
 }
 
 /* roboto-100 - latin */
