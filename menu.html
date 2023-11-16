@@ -1,31 +1,43 @@
 <section class="sideboard">
-    <img src="img/logo-white.svg" class="sideboard-logo" alt="logo">
-    <div class="sideboard-space">
+    <div>
+        <img src="img/logo-white.svg" class="sideboard-logo" alt="logo">
+    </div>
+    <nav class="sideboard-space">
         <div class="icon-container">
-            <div class="flex-row-left">
+            <a id="summary" href="summary.html" class="icon-center">
                 <img class="sideboard-icon" src="img/summary.svg" alt="summary">
                 <span>Summary</span>
-            </div>
-            <div class="flex-row-left">
-                <img class="sideboard-icon" src="img/add-task.svg" alt="icons-add-task">
+            </a>
+            <a id="addTask" href="addTask.html" class="icon-center">
+                <img class="sideboard-icon" src="img/summary.svg" alt="summary">
                 <span>Add Task</span>
-            </div>
-            <div class="flex-row-left">
-                <img class="sideboard-icon" src="img/board.svg" alt="board">
+            </a>
+            <a id="board" href="board.html" class="icon-center">
+                <img class="sideboard-icon" src="img/summary.svg" alt="summary">
                 <span>Board</span>
-            </div>
-            <div class="flex-row-left">
-                <img class="sideboard-icon" src="img/contacts.svg" alt="contacts">
+            </a>
+            <a id="contacts" href="contacts.html" class="icon-center">
+                <img class="sideboard-icon" src="img/summary.svg" alt="summary">
                 <span>Contacts</span>
-            </div>
+            </a>
         </div>
-        <div class="flex-center flex-column gap-links">
-            <a href="">Privacy Policy</a>
-            <a href="">Legal notice</a>
+        <div class="flex-center flex-column info-links">
+            <a id="privacyPolicy" href="privacyPolicy.html">Privacy Policy</a>
+            <a id="legalNotice" href="legalNotice.html">Legal Notice</a>
         </div>
+    </nav>
+</section>
+<section class="header">
+    <h4>Kanban Project Management Tool</h4>
+    <div class="header-right">
+        <a href="help.html">
+            <img src="img/helpIcon.svg" alt="helpIcon">
+        </a>
+        <span onclick="showMenu(event)">SM</span>
     </div>
 </section>
-
-<section class="header">
-
-    </header>
+<nav id="menuNav" class="display-none menu-nav flex-column">
+    <a href="legalNotice.html">Legal Notice</a>
+    <a href="privacyPolicy.html">Privacy Policy</a>
+    <a href="index.html">Log out</a>
+</nav>
