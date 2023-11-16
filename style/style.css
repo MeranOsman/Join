@@ -110,6 +110,11 @@ hr {
     padding: 16px;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 /**********************************
 *** MULTI CLASSES *** END
 ***********************************/
@@ -470,8 +475,21 @@ header h4 {
 
 }
 
+.summary-container {
+    background-color: #ffff;
+    border-radius: 15px;
+    gap: 12px;
+    padding: 16px;
+}
 .summary-container img {
-    height: 9vh;
+    height: 6vh;
+}
+.summary-text {
+    text-align: center;
+}
+.summary-text p {
+    font-size: 32px !important;
+    margin: 0;
 }
 
 /*CONTACTS*/
