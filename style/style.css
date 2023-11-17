@@ -472,7 +472,6 @@ header h4 {
     width: auto;
     border-radius: 15px;
     gap: 12px;
-
 }
 
 .summary-container {
@@ -483,6 +482,33 @@ header h4 {
 }
 .summary-container img {
     height: 6vh;
+}
+.summary-pencil {
+    height: 48px;
+    width: 48px;
+    background-image: url(../img/pencil.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.summary-checkmark {
+    height: 48px;
+    width: 48px;
+    background-image: url(../img/check-mark.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.summary-pencil:hover { 
+    height: 48px;
+    width: 48px;
+    background-image: url(../img/pencil-white.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.summary-container:hover {
+    background-color: var(--sidebar-background);
+    color: #ffff;
 }
 .summary-text {
     text-align: center;

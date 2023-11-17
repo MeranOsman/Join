@@ -8,7 +8,7 @@
     <meta name="description" content="JOIN App">
     <title>Summary</title>
 
-    <script src="js/login.js"></script>
+    <script src="js/summary.js"></script>
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
 
@@ -41,16 +41,16 @@
         <section class="flex-center">
 
             <div class="summary-section">
-                <div class="flex-row">
+                <div class="flex-row" onmouseover="summaryImgChange()">
                     <div class="flex-center summary-container">
-                        <img src="img/pencil.png" alt="">
+                        <div id="summary-pencil" class="summary-pencil"></div>
                         <div class="summary-text">
                             <p>1</p>
                             <span>To-do</span>
                         </div>
                     </div>
                     <div class="flex-center summary-container">
-                        <img src="img/check-mark.png" alt="">
+                        <div class="summary-checkmark"></div>
                         <div class="summary-text">
                             <p>5</p>
                             <span>Done</span>
@@ -60,9 +60,9 @@
 
 
                 <div class="summary-container flex-row">
-                    <div class="flex-center summary-container">
+                    <div class="flex-row">
                         <img src="img/arrow-up.svg" alt="">
-                        <div class="summary-text">
+                        <div class="">
                             <p>3</p>
                             <span>Urgent</span>
                         </div>
@@ -85,7 +85,7 @@
 
                         <div class="summary-text">
                             <p>5</p>
-                            <span>Task in Bord</span>
+                            <span>Task <br>in Bord</span>
                         </div>
                       
                     </div>
@@ -93,7 +93,7 @@
 
                         <div class="summary-text">
                             <p>1</p>
-                            <span>Tasks in Progress</span>
+                            <span>Tasks in <br> Progress</span>
                         </div>
 
                     </div>
@@ -102,7 +102,7 @@
                         
                         <div class="summary-text">
                             <p>4</p>
-                            <span>Awaiting Feedback</span>
+                            <span>Awaiting <br>Feedback</span>
                         </div>
                     
                     </div>
