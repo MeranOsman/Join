@@ -77,8 +77,8 @@ hr {
 
 .flex-start {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .absolute {
@@ -462,17 +462,17 @@ header h4 {
 .section-position {
     position: absolute;
     top: 20%;
-    left: 50%;
-    transform: translate(-50%);
+    left: 20%;
     width: 100%;
 }
 
 .summary-section {
-    height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 12px;
+    padding: 12 0 12 0px;
+    margin-right: 16px;
+
 }
 
 .flex-row {
@@ -539,9 +539,11 @@ header h4 {
     font-size: 32px !important;
     margin: 0;
 }
-
+.summary-text h4 {
+    margin: 5px;
+}
 .greetings-summary {
-    margin-left: 60px;
+    margin-left: 100px;
 }
 .vertical-line {
     height: 30px;
