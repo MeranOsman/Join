@@ -489,7 +489,7 @@ header h4 {
     border-radius: 15px;
     padding: 16px;
     height: 50%;
-    margin-bottom: 12px; /* Abstand zwischen den Reihen */
+    margin-bottom: 12px;
 }
 
 .summary-container img {
@@ -542,6 +542,11 @@ header h4 {
 
 .greetings-summary {
     margin-left: 60px;
+}
+.vertical-line {
+    height: 30px;
+    width: 2px;
+    background-color:var(--sidebar-background); 
 }
 /*CONTACTS*/
 .flex-contacts{
