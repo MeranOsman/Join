@@ -464,60 +464,85 @@ header h4 {
     top: 20%;
     left: 50%;
     transform: translate(-50%);
+    width: 100%;
 }
 
-.summary-container {
-    background-color: var(--header-bg);
-    height: 12vh;
-    width: auto;
-    border-radius: 15px;
+.summary-section {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.flex-row {
+    display: flex;
     gap: 12px;
 }
 
 .summary-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     background-color: #ffff;
     border-radius: 15px;
-    gap: 12px;
     padding: 16px;
+    height: 50%;
+    margin-bottom: 12px; /* Abstand zwischen den Reihen */
 }
+
 .summary-container img {
     height: 6vh;
 }
-.summary-pencil {
-    height: 48px;
-    width: 48px;
-    background-image: url(../img/pencil.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.summary-checkmark {
-    height: 48px;
-    width: 48px;
-    background-image: url(../img/check-mark.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.summary-pencil:hover { 
-    height: 48px;
-    width: 48px;
-    background-image: url(../img/pencil-white.png);
-    background-repeat: no-repeat;
-    background-size: contain;
 
+#summary-pencil,
+#summary-checkmark {
+    height: 48px;
+    width: 48px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.summary-pencil {
+    background-image: url(../img/pencil.png);
+}
+
+.summary-checkmark {
+    background-image: url(../img/check-mark.png);
+}
+
+#summary-pencil:hover,
+.summary-container:hover #summary-pencil
+{
+    background-image: url(../img/pencil-white.png);
+}
+
+#summary-checkmark:hover,
+.summary-container:hover #summary-checkmark 
+{
+    background-image: url(../img/check-mark-white.png);
 }
 
 .summary-container:hover {
     background-color: var(--sidebar-background);
     color: #ffff;
+    box-shadow: 0 3px 5px var(--sidebar-background);
+    
 }
+
 .summary-text {
     text-align: center;
 }
+
 .summary-text p {
     font-size: 32px !important;
     margin: 0;
 }
 
+.greetings-summary {
+    margin-left: 60px;
+}
 /*CONTACTS*/
 .flex-contacts{
     display: flex;

@@ -25,10 +25,20 @@
     </style>
 </head>
 
-<body class="content-size" onload="init()">
+<body  onload="init()">
     <header w3-include-html="menu.html"></header>
-    <section class="section-position">
 
+    <div class="flex-center">
+        <div>
+            <h1>JOIN 360<span class="span-color"> | </span></h1>
+        </div>
+        <div class="padding">
+            Key Metrics at a Glance
+        </div>
+    </div>
+  
+    <div class="section-position">
+    
         <div class="flex-center">
             <div>
                 <h1>JOIN 360<span class="span-color"> | </span></h1>
@@ -37,11 +47,12 @@
                 Key Metrics at a Glance
             </div>
         </div>
+      
 
         <section class="flex-center">
 
-            <div class="summary-section">
-                <div class="flex-row" onmouseover="summaryImgChange()">
+            <div class="summary-section ">
+                <div class="flex-row">
                     <div class="flex-center summary-container">
                         <div id="summary-pencil" class="summary-pencil"></div>
                         <div class="summary-text">
@@ -49,8 +60,8 @@
                             <span>To-do</span>
                         </div>
                     </div>
-                    <div class="flex-center summary-container">
-                        <div class="summary-checkmark"></div>
+                    <div class="flex-center summary-container ">
+                        <div id="summary-checkmark" class="summary-checkmark"></div>
                         <div class="summary-text">
                             <p>5</p>
                             <span>Done</span>
@@ -62,7 +73,7 @@
                 <div class="summary-container flex-row">
                     <div class="flex-row">
                         <img src="img/arrow-up.svg" alt="">
-                        <div class="">
+                        <div class="summary-text">
                             <p>3</p>
                             <span>Urgent</span>
                         </div>
@@ -72,7 +83,7 @@
                     </div>
                     <div>
                         <div class="summary-text">
-                            <h4>Datum</h4>
+                            <h4>05.12.2023</h4>
                             <span>Upcomming Deadline</span>
                         </div>
                     </div>
@@ -108,13 +119,13 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="geetings-summery">
                 <h2>Good morning</h2>
             </div>
         </section>
 
 
-    </section>
+    </div>
 </body>
 
 </html>
