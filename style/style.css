@@ -490,20 +490,24 @@ header h4 {
     align-items: center;
 }
 .summary-margin{
- margin-bottom: 16px;
+ margin-bottom: 60px;
 }
 .summary-container {
     flex: 1;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 12px;
     background-color: #ffff;
     border-radius: 15px;
     padding: 16px;
-    height: 50%;
+    height: 60%;
     margin-bottom: 12px;
 }
-
+.summary {
+    height: 40vh;
+    width: 60vw;
+}
 .summary-container img {
     height: 6vh;
 }
