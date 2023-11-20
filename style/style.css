@@ -395,7 +395,7 @@ hr {
 /* Header */
 .header {
     height: 100px;
-    width: calc(100% - 100px);
+    width: calc(100% - 220px);
     background-color: var(--header-bg);
     box-shadow: 0px 4px 4px rgb(223, 223, 224);
     display: flex;
@@ -409,7 +409,7 @@ hr {
 
 header h4 {
     font-size: 19px;
-    font-weight: 300;
+    font-weight: 400;
     margin-left: 120px;
 }
 
@@ -714,14 +714,24 @@ header h4 {
 
 /* Add Task */
 .add-task {
-    background-color: lightgreen;
     width: 90%;
     margin: auto;
+    margin-top: 200px;
 }
 
 .left-section {
     width: 50%;
     border-right: 1px solid black;
+}
+
+.input-label {
+    font-size: 19px;
+    font-weight: 300;
+}
+
+.input-label::after {
+    content: "*";
+    color: rgb(239, 136, 146);
 }
 
 /**********************************
