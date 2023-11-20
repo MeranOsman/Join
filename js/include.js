@@ -8,7 +8,6 @@
 
 async function init() {
   await includeHTML();
-  backgroundLinks();
 }
 
 async function includeHTML() {
@@ -23,9 +22,4 @@ async function includeHTML() {
           element.innerHTML = 'Page not found';
       }
   }
-}
-
-
-function backgroundLinks() {
-  
 }
