@@ -51,11 +51,11 @@ hr {
 /**********************************
 *** MULTI CLASSES *** START
 ***********************************/
-.margin-t{
-    margin-top:32px;
+.margin-t {
+    margin-top: 32px;
 }
 
-.padding-b{
+.padding-b {
     padding: 72px;
 }
 
@@ -100,6 +100,7 @@ hr {
     flex-direction: column;
     align-items: flex-start;
 }
+
 .height {
     height: 100vh;
 }
@@ -121,6 +122,7 @@ hr {
     flex-direction: row;
     align-items: center;
 }
+
 /**********************************
 *** MULTI CLASSES *** END
 ***********************************/
@@ -403,7 +405,6 @@ hr {
     top: 0;
     left: 0;
     margin-left: 13%;
-    z-index: 1;
 }
 
 header h4 {
@@ -489,9 +490,11 @@ header h4 {
     justify-content: flex-start;
     align-items: center;
 }
-.summary-margin{
- margin-bottom: 60px;
+
+.summary-margin {
+    margin-bottom: 60px;
 }
+
 .summary-container {
     flex: 1;
     display: flex;
@@ -504,10 +507,12 @@ header h4 {
     height: 60%;
     margin-bottom: 12px;
 }
+
 .summary {
     height: 40vh;
     width: 60vw;
 }
+
 .summary-container img {
     height: 6vh;
 }
@@ -529,14 +534,12 @@ header h4 {
 }
 
 #summary-pencil:hover,
-.summary-container:hover #summary-pencil
-{
+.summary-container:hover #summary-pencil {
     background-image: url(../img/pencil-white.png);
 }
 
 #summary-checkmark:hover,
-.summary-container:hover #summary-checkmark 
-{
+.summary-container:hover #summary-checkmark {
     background-image: url(../img/check-mark-white.png);
 }
 
@@ -544,7 +547,7 @@ header h4 {
     background-color: var(--sidebar-background);
     color: #ffff;
     box-shadow: 0 3px 5px var(--sidebar-background);
-    
+
 }
 
 .summary-text {
@@ -555,20 +558,24 @@ header h4 {
     font-size: 32px !important;
     margin: 0;
 }
+
 .summary-text h4 {
     margin: 5px;
 }
+
 .greetings-summary {
     margin-left: 500px;
-    
+
 }
+
 .vertical-line {
     height: 30px;
     width: 2px;
-    background-color:var(--sidebar-background); 
+    background-color: var(--sidebar-background);
 }
+
 /*CONTACTS*/
-.flex-contacts{
+.flex-contacts {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -577,70 +584,71 @@ header h4 {
     /*margin-left: 52px;*/
 }
 
-.flex-contacts-inner-left{
+.flex-contacts-inner-left {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.flex-contacts-inner-li{
+.flex-contacts-inner-li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap:16px;
-    padding:4px 24px;
+    gap: 16px;
+    padding: 4px 24px;
 }
 
-.flex-contacts-inner-li:hover{
+.flex-contacts-inner-li:hover {
     background: #f3f3f3;
     border-radius: 10px;
-    
+
 }
 
-.contacts-section{
+.contacts-section {
     background: var(--header-bg);
     width: 20%;
     height: calc(100vh - 110px);
     margin-top: -105px;
-    padding:0 8px;
-    overflow:auto !important;
+    padding: 0 8px;
+    overflow: auto !important;
 }
 
-.contacts-section button{
+.contacts-section button {
     width: 80%;
-    padding:12px 16px;
+    padding: 12px 16px;
     margin: 24px auto 0 auto;
     display: inline-flex;
     justify-content: center;
-    color:var(--header-bg);
+    color: var(--header-bg);
     font-size: 16px;
     font-weight: 600;
     background: var(--sidebar-background);
     border-radius: 10px;
     border: none;
 }
-.contacts-section button:hover{
+
+.contacts-section button:hover {
     background-color: var(--summary-h2-color);
     box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
 }
 
-.contacts-section button img{
+.contacts-section button img {
     width: 24px;
     height: 24px;
 }
 
-.contacts-section ul{
-    all:unset;
+.contacts-section ul {
+    all: unset;
     list-style: none;
-    color:black;
+    color: black;
     font-size: 20px;
 }
 
-.contacts-section li{
-    margin:16px 0;
+.contacts-section li {
+    margin: 16px 0;
 }
 
-.contact-icons{
+.contact-icons {
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -651,50 +659,57 @@ header h4 {
     color: var(--header-bg);
 }
 
-.orange{
+.orange {
     background: var(--orange);
 }
-.vio{
+
+.vio {
     background: var(--vio);
 }
-.blue{
+
+.blue {
     background: var(--blue);
 }
-.pink{
+
+.pink {
     background: var(--pink);
 }
-.yell{
+
+.yell {
     background: var(--yell);
 }
-.azur{
+
+.azur {
     background: var(--azur);
 }
-.deep{
+
+.deep {
     background: var(--deep);
 }
-.tango{
+
+.tango {
     background: var(--tango);
 }
 
-.contacts-links{
+.contacts-links {
     color: var(--summary-h2-color);
     font-size: 14px;
     cursor: pointer;
 }
 
-.underline{
+.underline {
     border-bottom: solid 1px #cdcdcd !important;
     width: 100%;
     text-align: left;
-    margin:8px 0;
+    margin: 8px 0;
 }
 
-.contacts-bg{
+.contacts-bg {
     margin-top: -500px;
     margin-left: 80px;
 }
 
-.divider{
+.divider {
     border-left: 4px solid var(--summary-h2-color);
     height: 100px;
 }
