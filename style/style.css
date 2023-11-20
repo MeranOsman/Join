@@ -59,8 +59,9 @@ hr {
 }
 
 .content-size {
-    margin: 9% 0 0 15%;
+    margin: 8% 0 0 13%;
     height: calc(100vh - 11%);
+    width: calc(100vw - 13%);
 }
 
 .display-none {
@@ -546,7 +547,6 @@ header h4 {
     background-color: var(--sidebar-background);
     color: #ffff;
     box-shadow: 0 3px 5px var(--sidebar-background);
-
 }
 
 .summary-text {
@@ -711,6 +711,18 @@ header h4 {
 .divider {
     border-left: 4px solid var(--summary-h2-color);
     height: 100px;
+}
+
+/* Add Task */
+.add-task {
+    background-color: lightgreen;
+    width: 90%;
+    margin: auto;
+}
+
+.left-section {
+    width: 50%;
+    border-right: 1px solid black;
 }
 
 /**********************************
