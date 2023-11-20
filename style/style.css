@@ -59,9 +59,9 @@ hr {
 }
 
 .content-size {
-    margin: 8% 0 0 13%;
-    height: calc(100vh - 11%);
-    width: calc(100vw - 13%);
+    margin: 100px 0 0 220px;
+    height: calc(100vh - 100px);
+    width: calc(100vw - 220px);
 }
 
 .display-none {
@@ -308,7 +308,7 @@ hr {
 
 /* Sideboard */
 .sideboard {
-    width: 13%;
+    width: 220px;
     height: 100vh;
     background-color: var(--sidebar-background);
     display: flex;
@@ -394,8 +394,8 @@ hr {
 
 /* Header */
 .header {
-    height: 11%;
-    width: calc(100% - 13%);
+    height: 100px;
+    width: calc(100% - 100px);
     background-color: var(--header-bg);
     box-shadow: 0px 4px 4px rgb(223, 223, 224);
     display: flex;
@@ -404,7 +404,7 @@ hr {
     position: fixed;
     top: 0;
     left: 0;
-    margin-left: 13%;
+    margin-left: 220px;
 }
 
 header h4 {
@@ -580,7 +580,6 @@ header h4 {
     justify-content: left;
     align-items: center;
     gap: 32px;
-    /*margin-left: 52px;*/
 }
 
 .flex-contacts-inner-left {
