@@ -482,11 +482,8 @@ header h4 {
 }
 
 .summary-section {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 12 0 12 0px;
     margin-right: 60px;
 
 }
@@ -574,7 +571,9 @@ header h4 {
     margin-left: 500px;
 
 }
-
+.margin-left-summary {
+    margin-left: 25% !important;
+}
 .vertical-line {
     height: 30px;
     width: 2px;
