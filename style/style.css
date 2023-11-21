@@ -98,10 +98,11 @@ hr {
 }
 
 .flex-column-start {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex ;
+    max-width: 100% ;
+    justify-content: center ;
+    flex-direction: column ;
+    align-items: flex-start ;
 }
 
 .height {
@@ -470,7 +471,8 @@ header h4 {
 /* Summary */
 .section-position {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+    min-width: 16%;
     align-items: center;
     margin-top: 7%;
     /* position: absolute;
@@ -578,7 +580,11 @@ header h4 {
     width: 2px;
     background-color: var(--sidebar-background);
 }
-
+.legalNotice {
+    padding: 16px;
+    width: 80%;
+    margin: 10%;
+}
 /* Contacts */
 .flex-contacts {
     display: flex;
