@@ -74,6 +74,9 @@ hr {
     align-items: center;
 }
 
+.display-flex {
+    display: flex;
+}
 
 .flex-start {
     display: flex;
@@ -443,13 +446,11 @@ header h4 {
     justify-content: space-evenly;
     position: absolute;
     right: 25px;
-    top: 11%;
+    top: 100px;
     width: 145px;
     height: 155px;
     background-color: rgb(44, 54, 70);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
+    border-radius: 20px 0 20px 20px;
 }
 
 .menu-nav a {
@@ -714,24 +715,65 @@ header h4 {
 
 /* Add Task */
 .add-task {
-    width: 90%;
+    width: 80%;
     margin: auto;
     margin-top: 200px;
 }
 
 .left-section {
     width: 50%;
-    border-right: 1px solid black;
+    border-right: 1px solid lightgray;
 }
 
-.input-label {
-    font-size: 19px;
+.label-required {
+    font-size: 21px;
     font-weight: 300;
+    margin-bottom: 6px;
 }
 
-.input-label::after {
+.label-required::after {
     content: "*";
     color: rgb(239, 136, 146);
+}
+
+.task-input {
+    width: 70%;
+    height: 32px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 32px;
+}
+
+.task-input::placeholder {
+    color: lightgray;
+    font-size: 19px;
+    font-weight: 100;
+}
+
+.label-input {
+    font-size: 21px;
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+#description {
+    width: 70%;
+    height: 100px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 32px;
+}
+
+#description::placeholder {
+    color: lightgray;
+    font-size: 19px;
+    font-weight: 100;
+}
+
+.right-section {
+    width: 50%;
 }
 
 /**********************************

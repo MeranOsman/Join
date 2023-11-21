@@ -30,10 +30,22 @@
 
     <section class="add-task">
         <h1>Add Task</h1>
-        <form onsubmit="...()">
+        <form class="display-flex" onsubmit="...()">
             <div class="left-section flex-column-start">
-                <label class="input-label" for="title">Title</label>
-                <input id="title" type="text">
+                <label class="label-required" for="title">Title</label>
+                <input required class="task-input" id="title" type="text" placeholder="Enter a title">
+                <label class="label-input" for="description">Description</label>
+                <textarea id="description" placeholder="Enter a description"></textarea>
+                <label class="label-input" for="title">Assigned to</label>
+                <input id="" type="">
+            </div>
+            <div class="right-section flex-column-start">
+                <label class="label-required" for="title">Title</label>
+                <input required class="task-input" id="title" type="text" placeholder="Enter a title">
+                <label class="label-input" for="description">Description</label>
+                <textarea id="description" placeholder="Enter a description"></textarea>
+                <label class="label-input" for="title">Assigned to</label>
+                <input id="" type="" placeholder="">
             </div>
         </form>
     </section>
