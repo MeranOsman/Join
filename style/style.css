@@ -496,10 +496,6 @@ header h4 {
     align-items: center;
 }
 
-.summary-margin {
-    margin-bottom: 60px;
-}
-
 .summary-container {
     flex: 1;
     display: flex;
@@ -511,11 +507,6 @@ header h4 {
     padding: 16px;
     min-width: 16%;
     margin-bottom: 12px;
-}
-
-.summary {
-    height: 40vh;
-    width: 60vw;
 }
 
 .summary-container img {
@@ -574,6 +565,7 @@ header h4 {
 
 .margin-left-summary {
     margin-left: 25% !important;
+    margin-top: 10%;
 }
 
 .vertical-line {
@@ -585,7 +577,7 @@ header h4 {
 .legalNotice {
     padding: 16px;
     width: 80%;
-    margin: 10%;
+    margin-left: 10%;
 }
 
 /* Contacts */
