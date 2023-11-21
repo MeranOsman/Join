@@ -42,12 +42,6 @@ hr {
     border-radius: 30px;
 }
 
-input[type="date"] {
-    color: lightgray;
-    font-size: 19px;
-    font-weight: 100;
-}
-
 /**********************************
 *** GENEREL STYLING *** END
 ***********************************/
@@ -104,11 +98,11 @@ input[type="date"] {
 }
 
 .flex-column-start {
-    display: flex ;
-    max-width: 100% ;
-    justify-content: center ;
-    flex-direction: column ;
-    align-items: flex-start ;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .height {
@@ -477,7 +471,7 @@ header h4 {
 /* Summary */
 .section-position {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     min-width: 16%;
     align-items: center;
     margin-top: 7%;
@@ -577,19 +571,23 @@ header h4 {
     margin-left: 500px;
 
 }
+
 .margin-left-summary {
     margin-left: 25% !important;
 }
+
 .vertical-line {
     height: 30px;
     width: 2px;
     background-color: var(--sidebar-background);
 }
+
 .legalNotice {
     padding: 16px;
     width: 80%;
     margin: 10%;
 }
+
 /* Contacts */
 .flex-contacts {
     display: flex;
@@ -733,7 +731,7 @@ header h4 {
 .add-task {
     width: 80%;
     margin: auto;
-    margin-top: 200px;
+    padding-top: 56px;
 }
 
 .left-section {
@@ -745,7 +743,7 @@ header h4 {
 .label-required {
     font-size: 21px;
     font-weight: 300;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .label-required::after {
@@ -760,6 +758,7 @@ header h4 {
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 32px;
+    font-size: 19px;
 }
 
 .task-input::placeholder {
@@ -771,7 +770,7 @@ header h4 {
 .label-input {
     font-size: 21px;
     font-weight: 300;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 #description {
@@ -781,6 +780,7 @@ header h4 {
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 32px;
+    font-size: 19px;
 }
 
 #description::placeholder {
@@ -792,6 +792,47 @@ header h4 {
 .right-section {
     width: 50%;
     padding-left: 56px;
+}
+
+.right-section span {
+    font-size: 21px;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+#date {
+    color: lightgray;
+    font-weight: 100;
+}
+
+.prio {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.prio button {
+    background-color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 22px;
+    font-weight: 300;
+    padding: 16px 48px 16px 16px;
+    box-shadow: 0 0 5px lightgray;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.urgent-btn {
+    background-image: url(../img/prioUrgent.svg);
+}
+
+.medium-btn {
+    background-image: url(../img/prioMedium.svg);
+}
+
+.low-btn {
+    background-image: url(../img/prioLow.svg);
 }
 
 /**********************************

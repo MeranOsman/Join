@@ -40,12 +40,14 @@
                 <input id="" type="">
             </div>
             <div class="right-section flex-column-start">
-                <label class="label-required" for="title">Due date</label>
-                <input required class="task-input" id="title" type="date">
-                <label class="label-input" for="description">Description</label>
-                <textarea id="description" placeholder="Enter a description"></textarea>
-                <label class="label-input" for="title">Assigned to</label>
-                <input id="" type="" placeholder="">
+                <label class="label-required" for="date">Due date</label>
+                <input required class="task-input" id="date" type="date">
+                <span>Prio</span>
+                <div class="prio display-flex">
+                    <button class="urgent-btn">Urgent</button>
+                    <button class="medium-btn ">Medium</button>
+                    <button class="low-btn">Low</button>
+                </div>
             </div>
         </form>
     </section>
