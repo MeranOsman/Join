@@ -482,11 +482,8 @@ header h4 {
 }
 
 .summary-section {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 12 0 12 0px;
     margin-right: 60px;
 
 }
@@ -497,10 +494,6 @@ header h4 {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-}
-
-.summary-margin {
-    margin-bottom: 60px;
 }
 
 .summary-container {
@@ -514,11 +507,6 @@ header h4 {
     padding: 16px;
     min-width: 16%;
     margin-bottom: 12px;
-}
-
-.summary {
-    height: 40vh;
-    width: 60vw;
 }
 
 .summary-container img {
@@ -576,7 +564,8 @@ header h4 {
 }
 
 .margin-left-summary {
-    margin-left: 25%;;
+    margin-left: 25% !important;
+    margin-top: 10%;
 }
 
 .vertical-line {
@@ -588,7 +577,7 @@ header h4 {
 .legalNotice {
     padding: 16px;
     width: 80%;
-    margin: 10%;
+    margin-left: 10%;
 }
 
 /* Contacts */
