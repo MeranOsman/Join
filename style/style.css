@@ -786,11 +786,6 @@ header h4 {
     padding-left: 56px;
 }
 
-#date {
-    color: lightgray;
-    font-weight: 100;
-}
-
 .prio {
     width: 100%;
     justify-content: space-between;
@@ -823,6 +818,14 @@ header h4 {
 .low-btn {
     background-image: url(../img/prioLow.svg);
     background-position: calc(100% - 32px) 50%;
+}
+
+.lightgray {
+    color: lightgray;
+}
+
+.lightgray:valid {
+    color: black;
 }
 
 /**********************************
