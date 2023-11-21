@@ -729,7 +729,7 @@ header h4 {
 
 /* Add Task */
 .add-task {
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding-top: 56px;
 }
@@ -794,12 +794,6 @@ header h4 {
     padding-left: 56px;
 }
 
-.right-section span {
-    font-size: 21px;
-    font-weight: 300;
-    margin-bottom: 8px;
-}
-
 #date {
     color: lightgray;
     font-weight: 100;
@@ -811,6 +805,7 @@ header h4 {
 }
 
 .prio button {
+    width: 140px;
     background-color: white;
     border: none;
     border-radius: 9px;
@@ -820,19 +815,22 @@ header h4 {
     box-shadow: 0 0 5px lightgray;
     background-size: 24px;
     background-repeat: no-repeat;
-    background-position: calc(100% - 16px) 50%;
+    margin-bottom: 32px;
 }
 
 .urgent-btn {
     background-image: url(../img/prioUrgent.svg);
+    background-position: calc(100% - 20px) 50%;
 }
 
 .medium-btn {
     background-image: url(../img/prioMedium.svg);
+    background-position: calc(100% - 14px) 50%;
 }
 
 .low-btn {
     background-image: url(../img/prioLow.svg);
+    background-position: calc(100% - 32px) 50%;
 }
 
 /**********************************
