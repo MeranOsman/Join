@@ -70,6 +70,10 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     display: block;
 }
 
+.margin-zero {
+    margin: 0 !important;
+}
+
 .margin-t {
     margin-top: 32px;
 }
@@ -674,7 +678,7 @@ header h4 {
 
 .add-task h1 {
     margin-top: 0;
-    padding-top: 32px;
+    padding-top: 24px;
 }
 
 .add-task button:hover {
@@ -682,9 +686,9 @@ header h4 {
 }
 
 .left-section {
-    width: 40%;
+    width: 50%;
     border-right: 1px solid lightgray;
-    padding-right: 80px;
+    padding-right: 42px;
     justify-content: flex-start;
 }
 
@@ -700,8 +704,9 @@ header h4 {
 }
 
 .task-input {
+    box-sizing: border-box;
     width: 100%;
-    height: 32px;
+    height: 52px;
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 12px 20px;
@@ -722,8 +727,9 @@ header h4 {
 }
 
 #description {
+    box-sizing: border-box;
     width: 100%;
-    height: 100px;
+    height: 120px;
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 12px 20px;
@@ -738,13 +744,13 @@ header h4 {
 }
 
 .right-section {
-    width: 40%;
+    width: 50%;
     padding-left: 42px;
     justify-content: flex-start;
 }
 
 .prio {
-    width: 108%;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -786,8 +792,9 @@ header h4 {
 }
 
 .select {
+    box-sizing: border-box;
     width: 100%;
-    height: 32px;
+    height: 52px;
     border: 1px solid lightgray;
     border-radius: 10px;
     margin-bottom: 32px;
@@ -814,8 +821,8 @@ header h4 {
 
 .plus {
     position: absolute;
-    top: 16px;
-    right: -18px;
+    top: 14px;
+    right: 21px;
 }
 
 .plus:hover {
@@ -843,8 +850,8 @@ header h4 {
 }
 
 .lower-area {
-    width: 96%;
-    margin-top: 120px;
+    width: 100%;
+    margin-top: 160px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
