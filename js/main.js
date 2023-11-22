@@ -6,6 +6,7 @@
 ###
 #################################*/
 
+
 /*
 * Function for changing the checkbox image on click
 * checked and unchecked image

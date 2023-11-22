@@ -19,6 +19,7 @@
 /**********************************
 *** GENEREL STYLING *** START
 ***********************************/
+
 body {
     margin: 0;
     color: black;
@@ -68,6 +69,7 @@ input[type="date" i]::-webkit-calendar-picker-indicator:hover {
 /**********************************
 *** MULTI CLASSES *** START
 ***********************************/
+
 .hide {
     display: none;
 }
