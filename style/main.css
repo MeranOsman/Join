@@ -8,6 +8,7 @@
 
 :root{
     --sidebar-background: #2a3647;
+    --contacts-modal:rgba(42, 54, 71, 0.5);
     --sidebar-color: #cdcdcd;
     --sidebar-link-background: rgb(13, 24, 48);
     --summary-background: rgb(244, 245, 246);
@@ -25,6 +26,7 @@
     --azur:#00d6c1;
     --deep:#472b89;
     --tango:#ff4f46;
+    --ci-blue:#29ABE2;
 }
 
 /* roboto-100 - latin */

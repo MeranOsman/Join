@@ -11,10 +11,12 @@
     <script src="js/login.js"></script>
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/addContacts.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/contacts.css">
     <link rel="stylesheet" href="style/logo-animation.css">
     <link rel="shortcut icon" type="image/x-icon" href="asset/img/join-logo-login.svg">
 
@@ -30,64 +32,119 @@
     
     <div class="flex-contacts">
         <div id="contacts-section" class="contacts-section flex-contacts-inner-left">
-            <button class="flex-row-btn">Add new contact<span><img src="img/person_add.svg"/></span></button>
+
+            <button onclick="addContact()" class="flex-row-btn">Add new contact<span><img src="img/person_add.svg"/></span></button>
+
             <ul class="margin-t">
                 <div class="margin-t"><span>A</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="0" onclick="infoBox()">
                     <li><span class="contact-icons orange">AM</span></li></span>
                     <li>Anton Mayer<br><span class="contacts-links">antom@gmail.com</span></li>
                 </div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="1">
                     <li><span class="contact-icons vio">AS</span></li></span>
                     <li>Anja Schulz<br><span class="contacts-links">Schulz@hotmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>B</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="2">
                     <li><span class="contact-icons blue">BZ</span></li></span>
                     <li>Benedikt Ziegler<br><span class="contacts-links">benedikt@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>D</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="3">
                     <li><span class="contact-icons pink">DE</span></li></span>
                     <li>David Eisenberg<br><span class="contacts-links">davidberg@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>E</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="4">
                     <li><span class="contact-icons yell">EF</span></li></span>
                     <li>Eva Fischer<br><span class="contacts-links">eva@gmail.com</span></li>
                 </div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="5">
                     <li><span class="contact-icons azur">EM</span></li></span>
                     <li>Emmanuel Mauer<br><span class="contacts-links">emmanuelma@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>M</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="6">
                     <li><span class="contact-icons deep">MB</span></li></span>
                     <li>Marcel Bauer<br><span class="contacts-links">bauer@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>T</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li">
+                <div class="flex-contacts-inner-li" tabindex="7">
                     <li><span class="contact-icons tango">TW</span></li></span>
                     <li>Tatjana Wolf<br><span class="contacts-links">wolf@gmail.com</span></li>
                 </div>
             </ul>
         </div>
-
-        <div id="contacts-bg" class="contacts-bg flex-contacts">
-            <h1>Contacts</h1><div class="divider"></div><h2>Better with a team</h2>
+        <div>
+            <div id="contacts-bg" class="contacts-bg flex-row margin-t">
+                <h1>Contacts</h1><div class="divider"></div><h2>Better with a team</h2>
+            </div>
+            
+            <!-- infomodal for contacts, appears on contact click ### START -->
+            <div id="infobox-outer" class="hide">
+                <div id="infobox-inner" class="move-to-left">
+                    <div class="margin-l flex-row-contacts">
+                        <span class="contact-icons-info orange">AM</span></span>
+                        <div>
+                            <p class="heading-info">Anton Mayer</p>
+                            <div class="flex-row-contacts">
+                                <div class="flex-row-contacts gap links"><div class="icon-edit">Edit</div></div>
+                                <div class="flex-row-contacts gap links"><div class="icon-delete">Delete</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="margin-l subline-info">Contact information</p>
+                    <p class="margin-l margin-t-xl"><b>Email</b></p>
+                    <p class="margin-l ci-blue">antom@gmail.com</p>
+                    <p class="margin-l margin-t"><b>Phone</b></p>
+                    <p class="margin-l">+491562258745628</p>
+                </div>
+            </div>
+            <!-- infomodal for contacts, appears on contact click ### END -->
         </div>
     </div>
+
+    <!-- modal for new contacts, appears on button click ### START -->
+     <div id="contacts-modal" class="hide">
+        <div class="modal-outer">
+            <div id="modal-inner" class="modal-inner flex-row-contacts move-to-left">
+               <div class="flex-col-contacts">
+                    <div>
+                        <img class="logo-contacts" src="img/logo-white.svg"/>
+                        <p class="heading-contacts">Add contact</p>
+                        <p class="subline-contacts">Tasks are better with a team!</p>
+                        <div class="divider-hori"></div>
+                    </div>
+               </div>
+               <div class="flex-row-contacts">
+                    <img src="img/join-avatar.svg" />
+                    <div class="flex-col-contacts-inner">
+                        <div onclick="closeContactsModal()" class="close-btn-contacts">X</div>
+                        <input id="contacts-name" required type="text" placeholder="Name" class="login icon-person">
+                        <input id="contacts-mail" required type="email" placeholder="Email" class="login icon-mail">
+                        <input id="contacts-phone" required type="text" placeholder="Phone" class="login icon-call">
+                        <div class="margin-t"> 
+                            <button class="btn-guest">X Cancel</button>
+                            <button class="btn-login">Create Contact</button>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- ### modal for new contacts ### END -->
 </body>
 
 </html>
