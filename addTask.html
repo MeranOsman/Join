@@ -36,8 +36,11 @@
                 <input required class="task-input" id="title" type="text" placeholder="Enter a title">
                 <label class="label-input" for="description">Description</label>
                 <textarea id="description" placeholder="Enter a description"></textarea>
-                <label class="label-input" for="title">Assigned to</label>
-                <input id="" type="">
+                <label class="label-input">Assigned to</label>
+                <div class="select">
+                    <span>Select contacts to assign</span>
+                    <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                </div>
             </div>
             <div class="right-section flex-column-start">
                 <label class="label-required" for="date">Due date</label>
@@ -49,6 +52,15 @@
                     <button class="low-btn">Low</button>
                 </div>
                 <label class="label-required">Category</label>
+                <div class="select">
+                    <span>Select task categorys</span>
+                    <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                </div>
+                <label class="label-input" for="subtasks">subtasks</label>
+                <div class="width subtasks">
+                    <input required class="task-input" id="subtasks" type="text" placeholder="Add new subtask">
+                    <img class="plus" src="img/plusAddTask.svg" alt="plus-task">
+                </div>
             </div>
         </form>
     </section>
