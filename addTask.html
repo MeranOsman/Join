@@ -30,39 +30,49 @@
 
     <section class="add-task">
         <h1>Add Task</h1>
-        <form class="display-flex" onsubmit="...()">
-            <div class="left-section flex-column-start">
-                <label class="label-required" for="title">Title</label>
-                <input required class="task-input" id="title" type="text" placeholder="Enter a title">
-                <label class="label-input" for="description">Description</label>
-                <textarea id="description" placeholder="Enter a description"></textarea>
-                <label class="label-input">Assigned to</label>
-                <div class="select">
-                    <span>Select contacts to assign</span>
-                    <img src="img/arrow_drop_down.svg" alt="arrow-down">
+        <form onsubmit="...()">
+            <div class="display-flex">
+                <div class="left-section flex-column-start">
+                    <label class="label-required" for="title">Title</label>
+                    <input required class="task-input" id="title" type="text" placeholder="Enter a title">
+                    <label class="label-input" for="description">Description</label>
+                    <textarea id="description" placeholder="Enter a description"></textarea>
+                    <label class="label-input">Assigned to</label>
+                    <div class="select">
+                        <span>Select contacts to assign</span>
+                        <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                    </div>
+                </div>
+                <div class="right-section flex-column-start">
+                    <label class="label-required" for="date">Due date</label>
+                    <input required class="task-input lightgray" id="date" type="date">
+                    <label class="label-input">Prio</label>
+                    <div class="prio display-flex">
+                        <button class="urgent-btn">Urgent</button>
+                        <button class="medium-btn ">Medium</button>
+                        <button class="low-btn">Low</button>
+                    </div>
+                    <label class="label-required">Category</label>
+                    <div class="select">
+                        <span>Select task categorys</span>
+                        <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                    </div>
+                    <label class="label-input" for="subtasks">subtasks</label>
+                    <div class="width subtasks">
+                        <input class="task-input" id="subtasks" type="text" placeholder="Add new subtask">
+                        <img class="plus" src="img/plusAddTask.svg" alt="plus-task">
+                    </div>
                 </div>
             </div>
-            <div class="right-section flex-column-start">
-                <label class="label-required" for="date">Due date</label>
-                <input required class="task-input lightgray" id="date" type="date">
-                <label class="label-input">Prio</label>
-                <div class="prio display-flex">
-                    <button class="urgent-btn">Urgent</button>
-                    <button class="medium-btn ">Medium</button>
-                    <button class="low-btn">Low</button>
-                </div>
-                <label class="label-required">Category</label>
-                <div class="select">
-                    <span>Select task categorys</span>
-                    <img src="img/arrow_drop_down.svg" alt="arrow-down">
-                </div>
-                <label class="label-input" for="subtasks">subtasks</label>
-                <div class="width subtasks">
-                    <input required class="task-input" id="subtasks" type="text" placeholder="Add new subtask">
-                    <img class="plus" src="img/plusAddTask.svg" alt="plus-task">
+            <div class="lower-area">
+                <span class="required">This field is required</span>
+                <div class="display-flex gap">
+                    <button class="btn-guest">Clear X</button>
+                    <button class="btn-login">Create Task &check;</button>
                 </div>
             </div>
         </form>
+
     </section>
 </body>
 

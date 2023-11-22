@@ -205,7 +205,7 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
 .login {
     padding: 10px 12px;
     border: 1px solid lightgray;
-    border-radius: 8px;
+    border-radius: 10px;
     width: 50%;
     height: 24px;
 }
@@ -318,7 +318,7 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     color: var(--header-bg);
     font-size: 20px;
     padding: 12px 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     margin-right: 24px;
 }
@@ -336,7 +336,7 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     border: 1px solid var(--sidebar-background);
     font-size: 20px;
     padding: 12px 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
 }
 
@@ -365,7 +365,7 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     color: var(--header-bg);
     font-size: 16px;
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 500;
     height: 32px;
 }
@@ -830,6 +830,24 @@ header h4 {
 
 .subtasks{
     position: relative;
+}
+
+.required {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.required::before {
+    content: "*";
+    color: rgb(239, 136, 146);
+}
+
+.lower-area {
+    width: 96%;
+    margin-top: 120px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 /**********************************
