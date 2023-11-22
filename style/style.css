@@ -54,6 +54,12 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
+input[type="date" i]::-webkit-calendar-picker-indicator:hover {
+    background-color: rgb(227, 230, 235);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
 /**********************************
 *** GENEREL STYLING *** END
 ***********************************/
@@ -62,11 +68,19 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
 /**********************************
 *** MULTI CLASSES *** START
 ***********************************/
-.hide{
+.hide {
     display: none;
 }
 
-.show{
+.position-relative {
+    position: relative;
+}
+
+.z-index {
+    z-index: 999;
+}
+
+.show {
     display: block;
 }
 
@@ -82,7 +96,7 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     margin-top: 80px;
 }
 
-.margin-l{
+.margin-l {
     margin-left: 48px;
 }
 
@@ -94,8 +108,8 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     padding: 16px;
 }
 
-.gap{
-    gap:16px !important;
+.gap {
+    gap: 16px !important;
 }
 
 .content-size {
@@ -257,8 +271,9 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     background-size: 18px 18px;
     height: 24px;
     width: 24px;
-    padding-left:24px;
+    padding-left: 24px;
 }
+
 .icon-edit:hover {
     background: url(../img/edit-link.svg);
     background-repeat: no-repeat;
@@ -273,8 +288,9 @@ input[type="date" i]::-webkit-calendar-picker-indicator {
     background-size: 18px 18px;
     height: 24px;
     width: 24px;
-    padding-left:24px;
+    padding-left: 24px;
 }
+
 .icon-delete:hover {
     background: url(../img/delete-link.svg);
     background-repeat: no-repeat;
@@ -668,193 +684,6 @@ header h4 {
     padding: 16px;
     width: 80%;
     margin-left: 10%;
-}
-
-/* Add Task */
-.add-task {
-    width: 80%;
-    margin: auto;
-}
-
-.add-task h1 {
-    margin-top: 0;
-    padding-top: 24px;
-}
-
-.add-task button:hover {
-    box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
-}
-
-.left-section {
-    width: 50%;
-    border-right: 1px solid lightgray;
-    padding-right: 42px;
-    justify-content: flex-start;
-}
-
-.label-required {
-    font-size: 21px;
-    font-weight: 300;
-    margin-bottom: 8px;
-}
-
-.label-required::after {
-    content: "*";
-    color: rgb(239, 136, 146);
-}
-
-.task-input {
-    box-sizing: border-box;
-    width: 100%;
-    height: 52px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding: 12px 20px;
-    margin-bottom: 32px;
-    font-size: 19px;
-}
-
-.task-input::placeholder {
-    color: lightgray;
-    font-size: 19px;
-    font-weight: 100;
-}
-
-.label-input {
-    font-size: 21px;
-    font-weight: 300;
-    margin-bottom: 8px;
-}
-
-#description {
-    box-sizing: border-box;
-    width: 100%;
-    height: 120px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding: 12px 20px;
-    margin-bottom: 32px;
-    font-size: 19px;
-}
-
-#description::placeholder {
-    color: lightgray;
-    font-size: 19px;
-    font-weight: 100;
-}
-
-.right-section {
-    width: 50%;
-    padding-left: 42px;
-    justify-content: flex-start;
-}
-
-.prio {
-    width: 100%;
-    justify-content: space-between;
-}
-
-.prio button {
-    width: 140px;
-    background-color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 22px;
-    font-weight: 300;
-    padding: 16px 48px 16px 16px;
-    box-shadow: 0 0 5px lightgray;
-    background-size: 24px;
-    background-repeat: no-repeat;
-    margin-bottom: 32px;
-}
-
-.urgent-btn {
-    background-image: url(../img/prioUrgent.svg);
-    background-position: calc(100% - 20px) 50%;
-}
-
-.medium-btn {
-    background-image: url(../img/prioMedium.svg);
-    background-position: calc(100% - 14px) 50%;
-}
-
-.low-btn {
-    background-image: url(../img/prioLow.svg);
-    background-position: calc(100% - 32px) 50%;
-}
-
-.lightgray {
-    color: lightgray;
-}
-
-.lightgray:valid {
-    color: black;
-}
-
-.select {
-    box-sizing: border-box;
-    width: 100%;
-    height: 52px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin-bottom: 32px;
-    font-size: 22px;
-    font-weight: 300;
-    background-color: white;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.select img {
-    width: 32px;
-
-}
-
-.select img:hover {
-    background-color: rgb(227, 230, 235);
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.plus {
-    position: absolute;
-    top: 14px;
-    right: 21px;
-}
-
-.plus:hover {
-    background-color: rgb(227, 230, 235);
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-#subtasks {
-    margin-bottom: 8px;
-}
-
-.subtasks{
-    position: relative;
-}
-
-.required {
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.required::before {
-    content: "*";
-    color: rgb(239, 136, 146);
-}
-
-.lower-area {
-    width: 100%;
-    margin-top: 160px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
 }
 
 /**********************************

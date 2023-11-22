@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/logo-animation.css">
+    <link rel="stylesheet" href="style/addTask.css">
     <link rel="shortcut icon" type="image/x-icon" href="asset/img/join-logo-login.svg">
 
     <style>
@@ -38,9 +38,21 @@
                     <label class="label-input" for="description">Description</label>
                     <textarea id="description" placeholder="Enter a description"></textarea>
                     <label class="label-input">Assigned to</label>
-                    <div class="select">
-                        <span>Select contacts to assign</span>
-                        <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                    <div class="position-relative width">
+                        <div class="select">
+                            <span>Select contacts to assign</span>
+                            <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                        </div>
+                        <div class="dropdown-contacts">
+                            <ul>
+                                <li><span class="contacts orange">AM</span></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+
+                        </div>
                     </div>
                 </div>
                 <div class="right-section flex-column-start">
@@ -67,7 +79,7 @@
             <div class="lower-area">
                 <span class="required">This field is required</span>
                 <div class="display-flex gap">
-                    <button class="btn-guest">Clear X</button>
+                    <button class="btn-guest cross">Clear </button>
                     <button class="btn-login margin-zero">Create Task &check;</button>
                 </div>
             </div>
