@@ -54,12 +54,36 @@ button {
 /**********************************
 *** MULTI CLASSES *** START
 ***********************************/
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
 .margin-t {
     margin-top: 32px;
 }
 
+.margin-t-xl {
+    margin-top: 80px;
+}
+
+.margin-l{
+    margin-left: 48px;
+}
+
 .padding-b {
     padding: 72px;
+}
+
+.padding {
+    padding: 16px;
+}
+
+.gap{
+    gap:16px !important;
 }
 
 .content-size {
@@ -119,10 +143,6 @@ button {
 
 .display-line {
     display: inline;
-}
-
-.padding {
-    padding: 16px;
 }
 
 .flex-row {
@@ -200,6 +220,53 @@ button {
     background-size: 22px 22px;
     background-position: calc(100% - 16px) 50%;
 }
+
+.icon-call {
+    background: url(../img/call.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.icon-person {
+    background: url(../img/person.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.icon-edit {
+    background: url(../img/edit.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left:24px;
+}
+.icon-edit:hover {
+    background: url(../img/edit-link.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+}
+
+.icon-delete {
+    background: url(../img/delete.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left:24px;
+}
+.icon-delete:hover {
+    background: url(../img/delete-link.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+}
+
 
 .login::placeholder {
     color: #a8a8a8;
@@ -295,6 +362,7 @@ button {
     background-color: var(--summary-h2-color);
     border-color: var(--summary-h2-color);
     box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
+    transition: all 250ms;
 }
 
 /* Legals */

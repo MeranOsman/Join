@@ -23,3 +23,10 @@ function hideAgain(){
     document.getElementById('modal-inner').classList.remove('move-to-right');
     clearTimeout(hideAgain);
 }
+
+
+
+function infoBox(){
+    document.getElementById('infobox-outer').classList.remove('hide');
+    document.getElementById('infobox-inner').style.setProperty('animation-direction','normal');
+}

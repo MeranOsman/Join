@@ -18,7 +18,7 @@ h2{
     display: flex;
     flex-direction: row;
     justify-content: left;
-    align-items: center;
+    align-items: flex-start;
     gap: 32px;
 }
 
@@ -93,6 +93,7 @@ h2{
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    border:solid 2px #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,6 +133,10 @@ h2{
     background: var(--tango);
 }
 
+.ci-blue{
+    color: var(--ci-blue);
+}
+
 .contacts-links {
     color: var(--summary-h2-color);
     font-size: 14px;
@@ -146,20 +151,13 @@ h2{
 }
 
 .contacts-bg {
-    margin-top: -500px;
-    margin-left: 80px;
+    margin-left: 48px;
 }
 
 .divider {
     border-left: 4px solid var(--summary-h2-color);
     height: 70px;
 }
-
-.divider-hori{
-    border-bottom: 4px solid var(--summary-h2-color);
-    width: 70px;
-}
-
 
 /*add contacts modal*/
 .modal-outer{
@@ -195,11 +193,6 @@ h2{
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-}
-
-.hide{
-    display: none;
-    opacity: 0;
 }
 
 .flex-row-contacts{
@@ -255,6 +248,11 @@ h2{
     color:var(--summary-background);
 }
 
+.divider-hori{
+    border-bottom: 4px solid var(--summary-h2-color);
+    width: 70px;
+}
+
 .close-btn-contacts{
     position: absolute;
     top: 60px;
@@ -276,15 +274,46 @@ h2{
   color:var(--summary-background)
 }
 
+/* infobox */
+.heading-info{
+    font-size: 40px;
+    color:black;
+    font-weight: 500;
+    line-height: 0;
+}
+
+.contact-icons-info {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: var(--header-bg);
+    border:solid 3px #fff;
+}
+
+.links:hover{
+    color: var(--summary-h2-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.subline-info{
+    font-size: 22px;
+    line-height: 0;
+    margin-top: 80px;
+}
+
+/*animations*/
 .move-to-left {
     animation: move-to-left-animation 600ms;
 }
 .move-to-right {
     animation: move-to-right-animation 600ms;
-    animation-direction: reverse;
 }
 
-/*animations*/
 @keyframes move-to-left-animation {
     from {
         margin-right: -5000px;
@@ -294,7 +323,6 @@ h2{
     }
 }
 
-/*animations*/
 @keyframes move-to-right-animation {
     from {
         margin-right: -5000px;
