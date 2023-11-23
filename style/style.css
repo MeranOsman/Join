@@ -110,12 +110,20 @@ input::-webkit-datetime-edit {
     margin-top: 32px;
 }
 
+.margin-b {
+    margin-bottom: 32px;
+}
+
 .margin-t-xl {
     margin-top: 80px;
 }
 
 .margin-l {
     margin-left: 48px;
+}
+
+.margin-l-s {
+    margin-left: 16px;
 }
 
 .padding-b {

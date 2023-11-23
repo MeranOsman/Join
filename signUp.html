@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="JOIN App">
+    <title>Join Sign up</title>
+
+    <script src="js/login.js"></script>
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/media.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/logoAnimation.css">
+    <link rel="shortcut icon" type="image/x-icon" href="asset/img/join-logo-login.svg">
+</head>
+
+<body onload="init();">
+
+    <div class="pos-logo"><img src="img/join-logo-login.svg" /></div>
+
+    <!-- log-in SECTION START-->
+    <section class="absolute">
+        <div class="flex-center flex-column login-bg">
+            <div>
+                <h1>Sign up</h1>
+                <hr>
+            </div>
+            <input id="name-sign-up" required type="text" placeholder="Name" class="login icon-person">
+            <input id="mail-sign-up" required type="email" placeholder="Email" class="login icon-mail">
+            <input id="pass-sign-up" required type="password" placeholder="Password" class="login icon-lock">
+            <input id="pass-sign-up-2" required type="password" placeholder="Password" class="login icon-lock">
+            <div class="container-checkbox">
+                <div id="checkbox-sign-up" onclick="checkboxImgChange()" class="icon-checkbox"></div><span>I accept the <span class="link" >Privacy policy</span></span>
+            </div>
+            <div class="flex-row-btn">
+                <button class="btn-login margin-b">Log in</button>
+            </div>
+        </div>
+    </section>
+    <!-- log-in SECTION END-->
+
+    <!-- FOOTER START-->
+    <footer class="pos-bottom">
+        <p>Privacy Policy</p>
+        <p>Legal notice</p>
+    </footer>
+    <!-- FOOTER END-->
+
+</body>
+
+</html>
