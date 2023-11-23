@@ -24,16 +24,3 @@ function showMenu(event) {
 
     event.stopPropagation();
 }
-
-
-/**
- * Function should hide navigation bar when clicked elsewhere
- */
-document.addEventListener('click', function(event) {
-    let menuNav = document.getElementById('menuNav');
-    let targetElement = event.target;
-    
-    if (!menuNav.contains(targetElement)) {
-        menuNav.classList.add('display-none');
-    }
-});

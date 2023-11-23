@@ -12,6 +12,7 @@
     <script src="js/include.js"></script>
     <script src="js/addTask.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/closeDropdown.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
@@ -40,63 +41,68 @@
                     <textarea id="description" placeholder="Enter a description"></textarea>
                     <label class="label-input">Assigned to</label>
                     <div class="position-relative width">
-                        <div class="select">
+                        <div onclick="showCloseContacts(event)" class="select">
                             <span>Select contacts to assign</span>
                             <img src="img/arrow_drop_down.svg" alt="arrow-down">
                         </div>
-                        <div class="dropdown-contacts">
-                            <ul>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                                <li>
-                                    <div class="flex-center gap">
-                                        <span class="contacts-icon">AM</span>
-                                        <span class="contacts orange">Anton Mayer</span>
-                                    </div>
-                                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                                </li>
-                            </ul>
-
+                        <div id="dropdownContact" class="dropdown display-none">
+                            <div class="contacts-filter">
+                                <input class="input-filter" type="text" placeholder="Search...">
+                                <img onclick="showCloseContacts(event)" src="img/arrow_drop_up.svg" alt="arrow-up">
+                            </div>
+                            <div class="dropdown-contacts">
+                                <ul>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-center gap">
+                                            <span class="contacts-icon">AM</span>
+                                            <span class="contacts orange">Anton Mayer</span>
+                                        </div>
+                                        <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
