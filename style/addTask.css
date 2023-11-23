@@ -170,6 +170,7 @@
 
 .subtasks {
     position: relative;
+    z-index: 3;
 }
 
 .required {
@@ -211,7 +212,7 @@
 .dropdown-category {
     position: absolute;
     top: 42px;
-    z-index: 1;
+    z-index: 9;
     width: 100%;
     max-height: 290px;
     background-color: white;
@@ -220,12 +221,28 @@
     overflow: auto;
 }
 
+.dropdown-sub {
+    position: absolute;
+    top: 15px;
+    z-index: 1;
+    width: 100%;
+    max-height: 160px;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: auto;
+    box-shadow: 0 0 3px lightgrey;
+}
+
 .dropdown-contacts ul {
     padding: 0;
 }
 
 .dropdown-category ul {
     padding: 0;
+}
+
+.dropdown-sub ul {
+    padding: 22px 0 0 18px;
+    margin-bottom: 0;
 }
 
 .dropdown-contacts li {
@@ -238,12 +255,14 @@
 }
 
 .dropdown-category li {
-    padding: 0 24px;
+    padding: 10px 24px;
     list-style: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+}
+
+.dropdown-sub li {
+    padding: 8px 0 8px 8px;
+    cursor: pointer;
 }
 
 .dropdown-contacts li:hover {
@@ -256,10 +275,19 @@
     border-radius: 10px;
 }
 
+.dropdown-sub li:hover {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+}
+
 .dropdown-category span {
     font-size: 22px;
     font-weight: 300;
     margin: 10px 0;
+}
+
+.dropdown-sub span {
+    font-size: 18px;
 }
 
 .contacts {
