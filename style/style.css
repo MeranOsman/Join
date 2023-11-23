@@ -33,6 +33,12 @@ body {
 
 h1 {
     font-size: 56px;
+    line-height: 0;
+}
+
+a{
+    all:unset;
+    cursor: pointer;
 }
 
 hr {
@@ -100,6 +106,11 @@ input::-webkit-datetime-edit {
 
 .show {
     display: block;
+}
+
+.link-decoration:hover{
+    text-decoration: underline var(--link-color);
+    cursor: pointer;
 }
 
 .margin-zero {
@@ -343,6 +354,17 @@ input::-webkit-datetime-edit {
     width: 45%;
 }
 
+.container-checkbox-sign-up {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    height: 32px;
+    width: 45%;
+}
+
 .icon-checkbox {
     height: 24px;
     width: 24px;
@@ -433,13 +455,14 @@ input::-webkit-datetime-edit {
     width: 100%;
 }
 
-.pos-bottom p {
+.pos-bottom p ,.pos-bottom a{
     color: var(--link-color);
 }
 
-.pos-bottom p:hover {
+.pos-bottom p:hover  ,.pos-bottom a:hover{
     font-weight: 700;
     color: var(--summary-h2-color);
+    cursor: pointer;
 }
 
 /* Sideboard */
