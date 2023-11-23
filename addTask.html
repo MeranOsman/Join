@@ -115,9 +115,21 @@
                         <button class="low-btn">Low</button>
                     </div>
                     <label class="label-required">Category</label>
-                    <div class="select">
-                        <span>Select task categorys</span>
-                        <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                    <div class="position-relative width">
+                        <div onclick="showCloseCategory(event)" class="select position-relative z-index">
+                            <span>Select task categorys</span>
+                            <img id="arrow" src="img/arrow_drop_down.svg" alt="arrow-down">
+                        </div>
+                        <div id="dropdownCategory" class="dropdown-category display-none">
+                            <ul>
+                                <li>
+                                    <span>Technical Task</span>
+                                </li>
+                                <li>
+                                    <span>User Story</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <label class="label-input" for="subtasks">subtasks</label>
                     <div class="width subtasks">

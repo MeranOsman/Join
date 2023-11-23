@@ -202,7 +202,19 @@
     top: 42px;
     z-index: 1;
     width: 100%;
-    height: 290px;
+    max-height: 290px;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 5px lightgray;
+    overflow: auto;
+}
+
+.dropdown-category {
+    position: absolute;
+    top: 42px;
+    z-index: 1;
+    width: 100%;
+    max-height: 290px;
     background-color: white;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 5px lightgray;
@@ -210,16 +222,46 @@
 }
 
 .dropdown-contacts ul {
-    padding: 0 24px;
+    padding: 0;
+}
+
+.dropdown-category ul {
+    padding: 0;
 }
 
 .dropdown-contacts li {
+    padding: 0 24px;
     list-style: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+}
+
+.dropdown-category li {
+    padding: 0 24px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.dropdown-contacts li:hover {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+}
+
+.dropdown-category li:hover {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+}
+
+.dropdown-category span {
+    font-size: 22px;
+    font-weight: 300;
 }
 
 .contacts {
