@@ -51,8 +51,6 @@
 
 .task-input::placeholder {
     color: lightgray;
-    font-size: 19px;
-    font-weight: 100;
 }
 
 .label-input {
@@ -74,8 +72,9 @@
 
 #description::placeholder {
     color: lightgray;
-    font-size: 19px;
-    font-weight: 100;
+    font-size: 21px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
 }
 
 .right-section {
@@ -236,7 +235,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
 }
 
 .dropdown-category li {
@@ -246,7 +244,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
 }
 
 .dropdown-contacts li:hover {
@@ -262,11 +259,13 @@
 .dropdown-category span {
     font-size: 22px;
     font-weight: 300;
+    margin: 10px 0;
 }
 
 .contacts {
     font-size: 22px;
     font-weight: 300;
+    margin: 16px 0;
 }
 
 .contacts-icon {

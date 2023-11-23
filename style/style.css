@@ -47,6 +47,12 @@ button {
     cursor: pointer;
 }
 
+input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-weight: 300;
+}
+
 input[type="date"] {
     cursor: pointer;
 }
@@ -59,6 +65,12 @@ input[type="date" i]::-webkit-calendar-picker-indicator:hover {
     background-color: rgb(227, 230, 235);
     cursor: pointer;
     border-radius: 50%;
+}
+
+input::-webkit-datetime-edit {
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-weight: 300;
 }
 
 /**********************************
