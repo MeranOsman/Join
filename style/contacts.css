@@ -102,42 +102,6 @@ h2{
     color: var(--header-bg);
 }
 
-.orange {
-    background: var(--orange);
-}
-
-.vio {
-    background: var(--vio);
-}
-
-.blue {
-    background: var(--blue);
-}
-
-.pink {
-    background: var(--pink);
-}
-
-.yell {
-    background: var(--yell);
-}
-
-.azur {
-    background: var(--azur);
-}
-
-.deep {
-    background: var(--deep);
-}
-
-.tango {
-    background: var(--tango);
-}
-
-.ci-blue{
-    color: var(--ci-blue);
-}
-
 .contacts-links {
     color: var(--summary-h2-color);
     font-size: 14px;

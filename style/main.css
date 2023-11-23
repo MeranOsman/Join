@@ -29,6 +29,42 @@
     --ci-blue:#29ABE2;
 }
 
+.orange {
+  background: var(--orange);
+}
+
+.vio {
+  background: var(--vio);
+}
+
+.blue {
+  background: var(--blue);
+}
+
+.pink {
+  background: var(--pink);
+}
+
+.yell {
+  background: var(--yell);
+}
+
+.azur {
+  background: var(--azur);
+}
+
+.deep {
+  background: var(--deep);
+}
+
+.tango {
+  background: var(--tango);
+}
+
+.ci-blue{
+  color: var(--ci-blue);
+}
+
 /* roboto-100 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
