@@ -302,6 +302,23 @@ input::-webkit-datetime-edit {
     background-position: calc(100% - 16px) 50%;
 }
 
+.icon-cross {
+    background: url(../img/cross.svg);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
+.icon-check-new {
+    background: url(../img/check-new.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
+
 .icon-edit {
     background: url(../img/edit.svg);
     background-repeat: no-repeat;
@@ -338,7 +355,7 @@ input::-webkit-datetime-edit {
 
 
 .login::placeholder {
-    color: #a8a8a8;
+    color: var(--link-color);
     font-size: 16px;
 }
 
@@ -415,6 +432,14 @@ input::-webkit-datetime-edit {
     transition: all 250ms;
 }
 
+.btn-guest:hover span {
+    background: url(../img/cross-blue.svg);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
 /* Sign up */
 .flex-row p {
     font-size: 21px;
@@ -443,6 +468,22 @@ input::-webkit-datetime-edit {
     border-color: var(--summary-h2-color);
     box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
     transition: all 250ms;
+}
+
+.back-to-index{
+    position: absolute;
+    top:32px;
+    left:32px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-to-index:hover{
+    border-radius: 20px;
+    background: #f3f3f3;
 }
 
 /* Legals */
@@ -501,7 +542,7 @@ input::-webkit-datetime-edit {
 
 .icon-container span {
     font-size: 16px;
-    color: #cdcdcd;
+    color: var(--sidebar-color);
     font-weight: 300;
     width: 69px;
 }
@@ -612,7 +653,7 @@ header h4 {
 .menu-nav a {
     text-decoration: none;
     width: 90%;
-    color: #cdcdcd;
+    color: var(--sidebar-color);
     text-align: center;
     font-size: 16px;
     font-weight: 300;
