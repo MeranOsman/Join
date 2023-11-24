@@ -238,7 +238,10 @@
 }
 
 .dropdown-category li {
-    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 28px 4px 24px;
     list-style: none;
     cursor: pointer;
 }
@@ -247,7 +250,7 @@
     position: relative;
     padding: 4px 0 4px 8px;
     cursor: pointer;
-    margin: 2px 0;
+    margin: 4px 0;
 }
 
 .dropdown-contacts li:hover {
@@ -385,4 +388,20 @@
 
 .dropdown-sub li:hover .edit {
     opacity: 1;
+}
+
+.circle-purple {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: purple;
+    border: solid 2px white;
+}
+
+.circle-blue {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: blue;
+    border: solid 2px white;
 }
