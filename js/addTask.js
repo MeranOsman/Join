@@ -3,18 +3,27 @@ let subtasks = [];
 
 function addsubtask() {
     let tasks = document.getElementById('subtasks');
-    let inputValue = document.getElementById('subtask');
+    let input = document.getElementById('subtask');
 
-    tasks.innerHTML = '';
-    subtasks.push(inputValue.value);
-    inputValue.value = '';
+    if (input.value === '') {
+        return;
+    } else {
+        tasks.innerHTML = '';
+        subtasks.push(input.value);
+        input.value = '';
 
-    for (let i = 0; i < subtasks.length; i++) {
-        tasks.innerHTML += `
-        <li>
-            <span>${subtasks[i]}</span>
-        </li>
-        `;
+        for (let i = 0; i < subtasks.length; i++) {
+            tasks.innerHTML += /*html*/ `
+            <li>
+                <span>${subtasks[i]}</span>
+                <div class="edit">
+                    <img class="editDelete " onclick="" src="img/edit.svg">
+                    <div class="line"></div>
+                    <img onclick="" class="editDelete " src="img/delete.svg">
+                </div>
+            </li>
+            `;
+        } 
     }
 }
 
