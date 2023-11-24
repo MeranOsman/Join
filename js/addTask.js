@@ -36,12 +36,24 @@ function showCloseCategory(event) {
 }
 
 
-function addSubtask() {
+/**
+ * Function change the input img from subtask 
+ */
+function changeSubtaskImg() {
     document.getElementById('imgChange').innerHTML = /*html*/ `
     <div class="add-subtask">
-        <img class="crossPlus" src="img/cross.svg">
+        <img class="crossPlus" onclick="cancel()" src="img/cross.svg">
         <div class="line"></div>
         <img class="crossPlus" src="img/cross.svg">
     </div>
     `;
+}
+
+
+/**
+ * Function cancel adding subtasks
+ */
+function cancel() {
+    document.getElementById('imgChange').innerHTML = '<img src="img/plusAddTask.svg" alt="plus-task">';
+    document.getElementById('subtask').value = '';
 }
