@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="JOIN App">
-    <title>Summary</title>
+    <title>JOIN Summary</title>
 
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style/summary.css">
     <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/logoAnimation.css">
+    <link rel="stylesheet" href="style/contacts.css">
     <link rel="shortcut icon" type="image/x-icon" href="asset/img/join-logo-login.svg">
 
     <style>
@@ -25,88 +25,94 @@
     </style>
 </head>
 
-<body class="content-size"  onload="init()">
+<body class="content-size" onload="init()">
     <header w3-include-html="menu.html"></header>
-<section class="legalNotice">   
-<div class="summary-flex-row">
-    <div>
+
+    <section class="legalNotice">
+
         <div class="summary-flex-row">
-            <h1>JOIN 360</h1><div class="divider"></div>
-            <div class="padding">
-                Key Metrics at a Glance
+            <div class="summary-flex-row">
+                <div id="contacts-bg" class="flex-row margin-t">
+                    <h1>Join 360</h1>
+                    <div class="divider"></div>
+                    <h2>Key Metrics at a Glance</h2>
+                </div>
             </div>
         </div>
-        
 
-    </div>
-  
-</div>
-<section class="flex-start">
-<div class="summary-section">
-    <div class="summary-flex-row">
-        <div class="flex-center summary-container">
-            <div id="summary-pencil" class="summary-pencil"></div>
-            <div class="summary-text">
-                <p>1</p>
-                <span>To-do</span>
-            </div>
-        </div>
-        <div class="flex-center summary-container ">
-            <div id="summary-checkmark" class="summary-checkmark"></div>
-            <div class="summary-text">
-                <p>5</p>
-                <span>Done</span>
-            </div>
-        </div>
-    </div>
-    <div class="summary-container summary-flex-row">
-        <div class="summary-flex-row">
-            <img src="img/arrow-up.svg" alt="">
-            <div class="summary-text">
-                <p>3</p>
-                <span>Urgent</span>
-            </div>
-        </div>
-        <div>
-            <div class="vertical-line"></div>
-        </div>
-        <div>
-            <div class="summary-text">
-                <h4>05.12.2023</h4>
-                <span>Upcomming Deadline</span>
-            </div>
-        </div>
-    </div>
-    <div class="summary-todo-footer flex-row">
+        <section class="flex-start margin-t">
 
-        <div class="summary-container">
+            <div class="summary-section">
+                <div class="summary-flex-row">
+                    <div class="flex-center summary-container">
+                        <div id="summary-pencil" class="summary-pencil"></div>
+                        <div class="summary-text">
+                            <p><b class="counts-sum">1</b></p><br>
+                            <span>To-do</span>
+                        </div>
+                    </div>
+                    <div class="flex-center summary-container ">
+                        <div id="summary-checkmark" class="summary-checkmark"></div>
+                        <div class="summary-text">
+                            <p class="subline-sum"><b class="counts-sum">5</b></p><br>
+                            <span>Done</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="summary-text">
-                <p>5</p>
-                <span>Task <br>in Bord</span>
-            </div>       
-        </div>
-        <div class="summary-container">
+                <div class="summary-container summary-flex-row mp">
+                    <div class="summary-flex-row">
+                        <img src="img/arrow-up.svg" alt="">
+                        <div class="summary-text">
+                            <p class="subline-sum"><b class="counts-sum">3</b></p><br>
+                            <span>Urgent</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div>
+                        <div class="summary-text">
+                            <div class="flex-column-start">
+                                <h4>November 24, 2023</h4>
+                                <span class="deadline">Upcomming Deadline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="summary-text">
-                <p>1</p>
-                <span>Tasks in <br> Progress</span>
+                <div class="summary-todo-footer flex-row-sum">
+
+                    <div class="summary-container">
+
+                        <div class="summary-text">
+                            <p class="subline-sum"><b class="counts-sum">5</b></p><br>
+                            <span>Task <br>in Bord</span>
+                        </div>
+                    </div>
+                    <div class="summary-container">
+
+                        <div class="summary-text">
+                            <p class="subline-sum"><b class="counts-sum">1</b></p><br>
+                            <span>Tasks in <br> Progress</span>
+                        </div>
+                    </div>
+                    <div class="summary-container">
+
+                        <div class="summary-text">
+                            <p class="subline-sum"><b class="counts-sum">4</b></p><br>
+                            <span>Awaiting <br>Feedback</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="summary-container">
-            
-            <div class="summary-text">
-                <p>4</p>
-                <span>Awaiting <br>Feedback</span>
-            </div>                  
-        </div>
-    </div>
-</div>
-<div class="geetings-summery summary-section">
-    <h2>Good morning</h2>
-</div>
-</section>
-</section>
+            <div class="geetings-summery summary-section">
+                <p class="subline-sum">Good morning,</p><br><h2 class="headline-sum"><b>Sofia Müller</b></h2>
+            </div>
+
+        </section>
+
+    </section>
 </body>
 
 </html>

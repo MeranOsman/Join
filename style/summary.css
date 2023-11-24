@@ -1,3 +1,17 @@
+h2{
+    all:unset;
+    line-height: 1;
+}
+
+h4{
+    line-height: 1;
+    margin: 0;
+}
+
+p{
+    all:unset;
+}
+
 .section-position {
     display: flex;
     flex-direction: column;
@@ -10,7 +24,9 @@
     display: flex;
     flex-direction: column;
     margin-right: 60px;
-
+    flex-wrap: wrap;
+    flex:1 0 50%;
+    width: 100%;
 }
 
 .summary-flex-row {
@@ -26,16 +42,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     background-color: #ffff;
-    border-radius: 15px;
-    padding: 16px;
+    border-radius: 20px;
+    padding: 8px;
     min-width: 16%;
+    height:120px;
     margin-bottom: 12px;
 }
 
+.summary-container.mp{
+    padding:32px 0;
+}
+
 .summary-container img {
-    height: 6vh;
+    height:48px;
+    width: 100%;
 }
 
 #summary-pencil,
@@ -47,27 +69,34 @@
 }
 
 .summary-pencil {
-    background-image: url(../img/pencil.png);
+    background-image: url(../img/pencil-sum.svg);
 }
 
 .summary-checkmark {
-    background-image: url(../img/check-mark.png);
+    background-image: url(../img/ckeckbox-round.svg);
 }
 
 #summary-pencil:hover,
 .summary-container:hover #summary-pencil {
-    background-image: url(../img/pencil-white.png);
+    background-image: url(../img/pencil-sum-hover.svg);
+    transition:all 250ms;
 }
 
 #summary-checkmark:hover,
 .summary-container:hover #summary-checkmark {
-    background-image: url(../img/check-mark-white.png);
+    background-image: url(../img/ckeckbox-round-hover.svg);
+    transition:all 250ms;
 }
 
-.summary-container:hover {
+.summary-container:hover{
     background-color: var(--sidebar-background);
     color: #ffff;
     box-shadow: 0 3px 5px var(--sidebar-background);
+    transition:all 250ms;
+}
+
+.summary-container:hover .counts-sum{
+    color: #ffff;
 }
 
 .summary-text {
@@ -80,7 +109,12 @@
 }
 
 .summary-text h4 {
-    margin: 5px;
+    text-align: left;
+}
+
+.deadline {
+    font-size: 10pt;
+    text-align: left;
 }
 
 .greetings-summary {
@@ -94,13 +128,37 @@
 }
 
 .vertical-line {
-    height: 30px;
-    width: 2px;
-    background-color: var(--sidebar-background);
+    height: 80px;
+    width: 1px;
+    background-color: var(--link-color);
+    margin:0 24px;
 }
 
 .legalNotice {
     padding: 16px;
     width: 80%;
     margin-left: 10%;
+}
+
+.headline-sum{
+    font-size: 35pt;
+    color: var(--summary-h2-color);
+}
+
+.subline-sum{
+    font-size: 24pt;
+    color: var(--sidebar-background);
+}
+
+.counts-sum{
+    font-size: 35pt;
+    color:black;
+}
+
+.flex-row-sum {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
