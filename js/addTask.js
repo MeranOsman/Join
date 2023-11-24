@@ -1,3 +1,24 @@
+let subtasks = [];
+
+
+function addsubtask() {
+    let tasks = document.getElementById('subtasks');
+    let inputValue = document.getElementById('subtask').value;
+
+    subtasks.push(inputValue);
+    inputValue = '';
+
+    for (let i = 0; i < i.length; i++) {
+        tasks.innerHTML = '';
+        tasks.innerHTML = `
+        <li>
+            <span>${subtasks[i]}</span>
+        </li>
+        `;
+    }
+}
+
+
 /**
  * Function opens, closes dropdown menu
  * @param {*} event 
@@ -7,6 +28,7 @@ function showCloseContacts(event) {
 
     event.stopPropagation();
 }
+
 
 /**
  * Function opens, closes dropdown menu and changes the arrow img
@@ -36,7 +58,7 @@ function changeSubtaskImg() {
     <div class="add-subtask">
         <img class="crossPlus" onclick="cancel()" src="img/cross.svg">
         <div class="line"></div>
-        <img class="crossPlus" src="img/cross.svg">
+        <img onclick="addsubtask()" class="crossPlus" src="img/cross.svg">
     </div>
     `;
 }

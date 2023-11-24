@@ -247,7 +247,7 @@
 }
 
 .dropdown-sub li {
-    padding: 8px 0 8px 8px;
+    padding: 6px 0 6px 8px;
     cursor: pointer;
 }
 
@@ -273,7 +273,7 @@
 }
 
 .dropdown-sub span {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .contacts {
@@ -361,7 +361,7 @@
 
 .add-subtask {
     position: absolute;
-    right: 9px;
+    right: 2px;
     width: 60px;
     display: flex;
     align-items: center;
