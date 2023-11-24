@@ -342,7 +342,9 @@
 }
 
 .crossPlus {
-    width: 14px;
+    width: 18px;
+    border-radius: 50%;
+    padding: 4px;
 }
 
 .crossPlus:hover {
@@ -360,7 +362,7 @@
 .add-subtask {
     position: absolute;
     right: 9px;
-    width: 48px;
+    width: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
