@@ -173,7 +173,7 @@
 
 .lower-area {
     width: 100%;
-    margin-top: 150px;
+    margin-top: 160px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -205,13 +205,14 @@
 
 .dropdown-sub {
     position: absolute;
-    top: 15px;
+    top: 13px;
     z-index: 1;
     width: 100%;
     max-height: 190px;
     background-color: rgba(0, 0, 0, 0);
     overflow: auto;
     box-shadow: 0 0 3px lightgrey;
+    border-radius: 10px;
 }
 
 .dropdown-contacts ul {

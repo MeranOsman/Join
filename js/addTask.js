@@ -3,13 +3,13 @@ let subtasks = [];
 
 function addsubtask() {
     let tasks = document.getElementById('subtasks');
-    let inputValue = document.getElementById('subtask').value;
+    let inputValue = document.getElementById('subtask');
 
-    subtasks.push(inputValue);
-    inputValue = ' ';
+    tasks.innerHTML = '';
+    subtasks.push(inputValue.value);
+    inputValue.value = '';
 
     for (let i = 0; i < subtasks.length; i++) {
-        // tasks.innerHTML = '';
         tasks.innerHTML += `
         <li>
             <span>${subtasks[i]}</span>
