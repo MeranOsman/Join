@@ -156,10 +156,6 @@
     border-radius: 50%;
 }
 
-#subtasks {
-    margin-bottom: 8px;
-}
-
 .subtasks {
     position: relative;
     z-index: 3;
@@ -361,7 +357,7 @@
 
 .add-subtask {
     position: absolute;
-    right: 2px;
+    right: 0px;
     width: 60px;
     display: flex;
     align-items: center;

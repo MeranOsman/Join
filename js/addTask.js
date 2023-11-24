@@ -6,11 +6,11 @@ function addsubtask() {
     let inputValue = document.getElementById('subtask').value;
 
     subtasks.push(inputValue);
-    inputValue = '';
+    inputValue = ' ';
 
-    for (let i = 0; i < i.length; i++) {
-        tasks.innerHTML = '';
-        tasks.innerHTML = `
+    for (let i = 0; i < subtasks.length; i++) {
+        // tasks.innerHTML = '';
+        tasks.innerHTML += `
         <li>
             <span>${subtasks[i]}</span>
         </li>
@@ -58,7 +58,7 @@ function changeSubtaskImg() {
     <div class="add-subtask">
         <img class="crossPlus" onclick="cancel()" src="img/cross.svg">
         <div class="line"></div>
-        <img onclick="addsubtask()" class="crossPlus" src="img/cross.svg">
+        <img onclick="addsubtask()" class="crossPlus" src="img/check-black.svg">
     </div>
     `;
 }
