@@ -41,14 +41,6 @@ a{
     cursor: pointer;
 }
 
-hr {
-    border: none;
-    height: 3px;
-    width: 75%;
-    background-color: var(--summary-h2-color);
-    border-radius: 30px;
-}
-
 button {
     cursor: pointer;
 }
@@ -247,6 +239,14 @@ input::-webkit-datetime-edit {
 }
 
 /* Login */
+.hrLog {
+    border: none;
+    height: 3px;
+    width: 75%;
+    background-color: var(--summary-h2-color);
+    border-radius: 30px;
+}
+
 .login-bg {
     min-width: 40vw;
     min-height: 50vh;

@@ -12,7 +12,7 @@
  */
 function showCloseContacts(event) {
     document.getElementById('dropdownContact').classList.toggle('display-none');
-    
+
     event.stopPropagation();
 }
 
@@ -25,7 +25,7 @@ function showCloseCategory(event) {
     dropdownCategory.classList.toggle('display-none');
 
     let arrowImage = document.getElementById('arrow');
-    
+
     if (arrowImage.src.endsWith('arrow_drop_down.svg')) {
         arrowImage.src = 'img/arrow_drop_up.svg';
     } else {
@@ -33,4 +33,15 @@ function showCloseCategory(event) {
     }
 
     event.stopPropagation();
+}
+
+
+function addSubtask() {
+    document.getElementById('imgChange').innerHTML = /*html*/ `
+    <div class="add-subtask">
+        <img class="crossPlus" src="img/cross.svg">
+        <div class="line"></div>
+        <img class="crossPlus" src="img/cross.svg">
+    </div>
+    `;
 }
