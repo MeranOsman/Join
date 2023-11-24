@@ -1,12 +1,3 @@
-/*###############################
-###
-###     JOIN APP 
-###     version 1.0.0
-###     author: unsere Namen
-###
-#################################*/
-
-
 /*
 *** function to show the contacts input
 */

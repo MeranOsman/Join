@@ -1,11 +1,3 @@
-/*###############################
-###
-###     JOIN APP 
-###     version 1.0.0
-###     author: unsere Namen
-###
-#################################*/
-
 async function init() {
   await includeHTML();
 }

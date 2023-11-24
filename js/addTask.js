@@ -1,11 +1,3 @@
-/*###############################
-###
-###     JOIN APP 
-###     version 1.0.0
-###     author: unsere Namen
-###
-#################################*/
-
 /**
  * Function opens, closes dropdown menu
  * @param {*} event 
