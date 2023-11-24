@@ -272,7 +272,7 @@
 }
 
 .dropdown-sub span {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .contacts {
@@ -375,13 +375,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.editDelete {
-    width: 16px;
+    opacity: 0;
 }
 
 .editDelete:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.dropdown-sub li:hover .edit {
+    opacity: 1;
 }
