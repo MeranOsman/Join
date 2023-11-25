@@ -66,6 +66,7 @@ input#search-board{
     border-radius: 10px;
     color:#ffffff;
     width: fit-content;
+    font-size: 11pt;
 }
 
 .task-card-title{
@@ -155,3 +156,68 @@ input#search-board{
 .on-hover:hover img{
     content: url('../img/add-btn-hover.svg');
 }
+
+/* POP UP TASKS*/
+.task-container-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:16px;
+    background: var(--summary-background);
+    height:80%;
+    max-width: 450px;
+    width: 450px;
+    border-radius: 25px;
+    padding:32px;
+    position: relative;
+}
+
+.task-pop-category{
+    padding:6px 16px;
+    border-radius: 13px;
+    color:#ffffff;
+    width: fit-content;
+    font-size: 18pt;
+}
+
+.close-task-pop {
+    position: absolute;
+    top: 40px;
+    right: 32px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 250ms;
+}
+
+.close-task-pop:hover{
+    background: var(--sidebar-background);
+    border-radius: 20px;
+    color:var(--summary-background)
+  }
+
+  .task-pop-heading{
+    color: black;
+    font-size: 50pt;
+    font-weight: 600;
+  }
+
+  .pop-task-description{
+    color: black;
+    font-size: 16pt;
+  }
+
+  .info-col{
+    color:#9a9a9a;
+  }
+
+  .flex-btw-pop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }

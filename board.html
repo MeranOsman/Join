@@ -11,6 +11,7 @@
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
     <script src="js/addTask.js"></script>
+    <script src="js/board.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
@@ -47,7 +48,7 @@
         </div>
         <div class="flex-column-board gap">
             <div class="flex-btw-board on-hover"><p class="tasks-heading">In progress</p><img src="img/add-btn.svg" /></div>
-            <div class="tasks-card">
+            <div class="tasks-card" onclick="showTaskInfo()">
                 <p class="task-card-heading blue">User story</p>
                 <p class="task-card-title">Kochwelt Page & Recipe Recommender</p>
                 <p class="task-card-note">Build start page with recipe recommendation...</p>
@@ -128,6 +129,26 @@
             </div>
         </div>
     </div>
+
+    <!-- INSERT INFO POP UP FROM SINGLE TAST ### START ### -->
+    <div id="task-info-modal" class=" modal-outer">
+        <div class="task-container-card">
+                <div class="task-pop-category blue">User Story</div>
+                <div onclick="closeTaskModal()" class="close-task-pop">X</div>
+                <div class="task-pop-heading">Kochwelt Page & Recipe Recommender</div>
+                <div class="pop-task-description">Build start page with recipe recommendation.</div>
+                <div class="flex-btw-pop pop-task-description">
+                    <div class="info-col">Due date:</div><div>10/05/2023</div>
+                </div>
+                <div class="flex-btw-pop pop-task-description">
+                    <div class="info-col">Priority:</div><div>Medium<img src="img/prioMedium.svg"/></div>
+                </div>
+                
+        </div>
+     
+    </div>
+    <!-- INSERT INFO POP UP FROM SINGLE TAST ### END ### -->
+
 
 </body>
 </html>

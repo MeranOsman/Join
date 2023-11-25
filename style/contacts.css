@@ -126,6 +126,7 @@ h2{
     margin:auto;
     position: absolute;
     top:0;
+    left:0;
 
     display: flex;
     flex-direction: row;
@@ -136,8 +137,6 @@ h2{
 .modal-inner{
     width:1200px;
     height:500px;
-
-    margin-left:-300px;
 
     background:var(--summary-background);
 
