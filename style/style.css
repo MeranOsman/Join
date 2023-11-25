@@ -112,6 +112,10 @@ input::-webkit-datetime-edit {
     margin-left: 16px;
 }
 
+.margin-left-neg{
+    margin-left: -8px;
+}
+
 .padding-b {
     padding: 72px;
 }
