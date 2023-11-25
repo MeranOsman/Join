@@ -132,7 +132,7 @@
 
     <!-- INSERT INFO POP UP FROM SINGLE TAST ### START ### -->
     <div id="task-info-modal" class="hide modal-outer">
-        <div class="task-container-card">
+        <div id="task-pop-up" class="task-container-card move-to-left-pop">
             <div class="task-pop-category blue">User Story</div>
             <div onclick="closeTaskModal()" class="close-task-pop">X</div>
             <div class="task-pop-heading">Kochwelt Page & Recipe Recommender</div>
@@ -168,14 +168,12 @@
             </div>
 
             <div class="position-end">
-                <img src="img/delete.svg"/><div class="subtask">Delete</div>
+                <div class="flex-start gap-s links link-pop-del"><img src="img/delete.svg"/><div class="subtask">Delete</div></div>
                 <div class="divider-pop"></div>
-                <img src="img/edit.svg"/><div class="subtask">Edit</div>
+                <div class="flex-start gap-s links link-pop-edit"><img src="img/edit.svg"/><div class="subtask">Edit</div></div>
             </div>
         </div>
     </div>
     <!-- INSERT INFO POP UP FROM SINGLE TAST ### END ### -->
-
-
 </body>
 </html>

@@ -132,6 +132,10 @@ input::-webkit-datetime-edit {
     gap: 16px !important;
 }
 
+.gap-s {
+    gap: 8px !important;
+}
+
 .content-size {
     margin: 100px 0 0 220px;
     height: calc(100vh - 100px);
