@@ -1,6 +1,25 @@
 let subtasks = [];
+let category = ['Technical Task', 'User Story'];
 
 
+function showCategory() {
+    let elements = document.getElementById('categories');
+
+    for (let i = 0; i < category.length; i++) {
+        elements.innerHTML += `
+        <li>
+            <span>${category[i]}</span>
+            <div class="circle-blue"></div>
+        </li>
+        `;
+    }
+}
+
+
+/**
+ * Function push subtask to array and render array
+ * @returns 
+ */
 function addsubtask() {
     let tasks = document.getElementById('subtasks');
     let input = document.getElementById('subtask');
@@ -29,7 +48,7 @@ function addsubtask() {
 
 
 /**
- * Function opens, closes dropdown menu
+ * Function opens, closes dropdown menu contacts
  * @param {*} event 
  */
 function showCloseContacts(event) {
@@ -40,7 +59,7 @@ function showCloseContacts(event) {
 
 
 /**
- * Function opens, closes dropdown menu and changes the arrow img
+ * Function opens, closes dropdown menu and changes the images + text
  * @param {*} event 
  */
 function showCloseCategory(event) {
@@ -77,6 +96,6 @@ function changeSubtaskImg() {
  * Function cancel adding subtasks
  */
 function cancel() {
-    document.getElementById('imgChange').innerHTML = '<img src="img/plusAddTask.svg" alt="plus-task">';
+    document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
 }

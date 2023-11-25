@@ -118,26 +118,31 @@
                     <label class="label-required">Category</label>
                     <div class="position-relative width">
                         <div onclick="showCloseCategory(event)" class="select position-relative z-index">
-                            <span>Select task categorys</span>
-                            <img id="arrow" src="img/arrow_drop_down.svg" alt="arrow-down">
+                            <span id="categoryText">Select or create new task category</span>
+                            <div class="add-category">
+                                <img class="plus-category" src="img/plusAddTask.svg" alt="plus">
+                                <div class="line"></div>
+                                <img id="arrow" src="img/arrow_drop_down.svg" alt="arrow-down">
+                            </div>
                         </div>
                         <div id="dropdownCategory" class="dropdown-category display-none">
-                            <ul>
-                                <li>
+                            <ul id="categories">
+                                <!-- <li>
                                     <span>Technical Task</span>
                                     <div class="circle-purple"></div>
                                 </li>
                                 <li>
                                     <span>User Story</span>
                                     <div class="circle-blue"></div>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
                     <label class="label-input" for="subtask">Subtasks</label>
                     <div class="width position-relative">
                         <div class="width subtasks">
-                            <input oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text" placeholder="Add new subtask">
+                            <input oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
+                                placeholder="Add new subtask">
                             <div class="plus" id="imgChange">
                                 <img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">
                             </div>
