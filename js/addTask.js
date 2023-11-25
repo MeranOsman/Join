@@ -3,7 +3,7 @@ let category = ['Technical Task', 'User Story'];
 
 
 /**Function for render all render functions */
-function render() {
+function renderAddtask() {
     renderSubtask();
     renderCategory();
 }
@@ -12,6 +12,8 @@ function render() {
 /**Function for render categories */
 function renderCategory() {
     let elements = document.getElementById('categories');
+
+    elements.innerHTML = '';
 
     for (let i = 0; i < category.length; i++) {
         elements.innerHTML += `
@@ -61,15 +63,19 @@ function addSubtask() {
         return;
     } else {
         subtasks.push(input.value);
-        render();
+        renderAddtask();
     }
 }
 
 
+/**
+ * Function delete subtask
+ * @param {*} i 
+ */
 function deleteSubtask(i) {
     subtasks.splice(i, 1);
 
-    render();
+    renderAddtask();
 }
 
 
@@ -85,22 +91,51 @@ function showCloseContacts(event) {
 
 
 /**
- * Function opens, closes dropdown menu and changes the images + text
+ * Function opens, closes dropdown menu category and arrow img + text
  * @param {*} event 
  */
-function showCloseCategory(event) {
+function showCloseCategory() {
     let dropdownCategory = document.getElementById('dropdownCategory');
-    dropdownCategory.classList.toggle('display-none');
+    let input = document.getElementById('categoryText');
 
+    dropdownCategory.classList.toggle('display-none');
+    input.classList.toggle('light-gray-placeholder');
+    
     let arrowImage = document.getElementById('arrow');
 
     if (arrowImage.src.endsWith('arrow_drop_down.svg')) {
         arrowImage.src = 'img/arrow_drop_up.svg';
+        input.placeholder = 'Create new task category';
+        // input.classList.add('light-gray-placeholder');
     } else {
         arrowImage.src = 'img/arrow_drop_down.svg';
+        input.placeholder = 'Select or create new task category';
     }
+}
 
-    event.stopPropagation();
+
+function changeCategoryImg() {
+    document.getElementById('addCancel').innerHTML = /*html*/ `
+    <div class="addCancel">
+        <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
+        <div class="line"></div>
+        <img onclick="addSubtask()" class="crossPlus" src="img/check-black.svg">
+    </div>
+    `;
+}
+
+
+function cancelCategory() {
+    document.getElementById('addCancel').innerHTML = `
+    <div id="addCancel" class="add-category">
+    <img onclick="changeCategoryImg()" class="plus-category" src="img/plusAddTask.svg"
+        alt="plus-task">
+    <div class="line"></div>
+    <img id="arrow" class="arrow" onclick="showCloseCategory()"
+        src="img/arrow_drop_down.svg" alt="arrow-up">
+</div>
+`;
+    // document.getElementById('subtask').value = '';
 }
 
 
@@ -110,7 +145,7 @@ function showCloseCategory(event) {
 function changeSubtaskImg() {
     document.getElementById('imgChange').innerHTML = /*html*/ `
     <div class="add-subtask">
-        <img class="crossPlus" onclick="cancel()" src="img/cross.svg">
+        <img class="crossPlus" onclick="cancelSubtask()" src="img/cross.svg">
         <div class="line"></div>
         <img onclick="addSubtask()" class="crossPlus" src="img/check-black.svg">
     </div>
@@ -121,7 +156,7 @@ function changeSubtaskImg() {
 /**
  * Function cancel adding subtasks
  */
-function cancel() {
+function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
 }

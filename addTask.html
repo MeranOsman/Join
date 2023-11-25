@@ -116,25 +116,20 @@
                         <button class="low-btn">Low</button>
                     </div>
                     <label class="label-required">Category</label>
-                    <div class="position-relative width">
-                        <div onclick="showCloseCategory(event)" class="select position-relative z-index">
-                            <span id="categoryText">Select or create new task category</span>
-                            <div class="add-category">
-                                <img class="plus-category" src="img/plusAddTask.svg" alt="plus">
+                    <div class="width position-relative z-index">
+                        <div class="width categories">
+                            <input id="categoryText" onclick="showCloseCategory()" class="task-input-category"
+                                type="text" placeholder="Select or create new task category">
+                            <div id="addCancel" class="add-category">
+                                <img onclick="changeCategoryImg()" class="plus-category" src="img/plusAddTask.svg"
+                                    alt="plus-task">
                                 <div class="line"></div>
-                                <img id="arrow" src="img/arrow_drop_down.svg" alt="arrow-down">
+                                <img id="arrow" class="arrow" onclick="showCloseCategory()"
+                                    src="img/arrow_drop_down.svg" alt="arrow-up">
                             </div>
                         </div>
                         <div id="dropdownCategory" class="dropdown-category display-none">
                             <ul id="categories">
-                                <!-- <li>
-                                    <span>Technical Task</span>
-                                    <div class="circle-purple"></div>
-                                </li>
-                                <li>
-                                    <span>User Story</span>
-                                    <div class="circle-blue"></div>
-                                </li> -->
                             </ul>
                         </div>
                     </div>

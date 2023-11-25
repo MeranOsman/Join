@@ -30,7 +30,7 @@ function showMenu(event) {
  * Function should hide dropdown menu when clicked elsewhere
  */
 document.addEventListener('click', function(event) {
-    let menuIds = ['menuNav','dropdownContact', 'dropdownCategory'];
+    let menuIds = ['menuNav','dropdownContact'];
 
     for (let i = 0; i < menuIds.length; i++) {
         let currentMenu = document.getElementById(menuIds[i]);
