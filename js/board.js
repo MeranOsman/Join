@@ -1,3 +1,7 @@
+function showTaskInfo(){
+
+}
+
 function closeTaskModal(){
-    
+
 }

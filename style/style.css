@@ -68,7 +68,11 @@ input::-webkit-datetime-edit {
 ***********************************/
 
 .hide {
-    display: none;
+    display: none !important;
+}
+
+.show {
+    display: block !important;
 }
 
 .position-relative {
@@ -81,10 +85,6 @@ input::-webkit-datetime-edit {
 
 .z-index {
     z-index: 999;
-}
-
-.show {
-    display: block;
 }
 
 .link-decoration:hover{

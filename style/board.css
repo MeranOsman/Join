@@ -163,7 +163,7 @@ input#search-board{
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap:16px;
+    gap:8px;
     background: var(--summary-background);
     height:80%;
     max-width: 450px;
@@ -219,5 +219,30 @@ input#search-board{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 60%;
+  }
+
+  .prio-pop{
+    margin-left:8px;
+  }
+
+  .subtask{
+    font-size: 12pt;
+  }
+
+  .position-end{
+    position:absolute;
+    bottom:32px;
+    right:32px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:8px;
+  }
+
+  .divider-pop{
+    border-left: solid 1px #9a9a9a;
+    height:16pt;
+    margin:0 8px;
   }
