@@ -140,6 +140,12 @@ input::-webkit-datetime-edit {
     align-items: center;
 }
 
+.flex-btw{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .display-flex {
     display: flex;
 }
@@ -185,12 +191,6 @@ input::-webkit-datetime-edit {
 
 .display-line {
     display: inline;
-}
-
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
 
 /**********************************
@@ -301,6 +301,21 @@ input::-webkit-datetime-edit {
     padding-left: 48px;
 }
 
+.icon-search {
+    background: url(../img/search.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
+.icon-plus {
+    background: url(../img/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
 
 .icon-edit {
     background: url(../img/edit.svg);
