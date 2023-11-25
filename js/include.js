@@ -1,6 +1,6 @@
 async function init() {
   await includeHTML();
-  showCategory();
+  render();
 }
 
 async function includeHTML() {

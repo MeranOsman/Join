@@ -2,7 +2,15 @@ let subtasks = [];
 let category = ['Technical Task', 'User Story'];
 
 
-function showCategory() {
+/**Function for render all render functions */
+function render() {
+    renderSubtask();
+    renderCategory();
+}
+
+
+/**Function for render categories */
+function renderCategory() {
     let elements = document.getElementById('categories');
 
     for (let i = 0; i < category.length; i++) {
@@ -17,33 +25,51 @@ function showCategory() {
 
 
 /**
- * Function push subtask to array and render array
+ * Function for render subtasks
+ */
+function renderSubtask() {
+    let tasks = document.getElementById('subtasks');
+    let input = document.getElementById('subtask');
+
+    tasks.innerHTML = '';
+    input.value = '';
+
+    for (let i = 0; i < subtasks.length; i++) {
+        tasks.innerHTML += /*html*/ `
+        <li>
+            <span>${subtasks[i]}</span>
+            <div class="edit">
+                <img class="editDelete " onclick="" src="img/edit.svg">
+                <div class="line"></div>
+                <img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
+            </div>
+        </li>
+        `;
+    }
+}
+
+
+/**
+ * Function push subtask to array
  * @returns 
  */
-function addsubtask() {
+function addSubtask() {
     let tasks = document.getElementById('subtasks');
     let input = document.getElementById('subtask');
 
     if (input.value === '') {
         return;
     } else {
-        tasks.innerHTML = '';
         subtasks.push(input.value);
-        input.value = '';
-
-        for (let i = 0; i < subtasks.length; i++) {
-            tasks.innerHTML += /*html*/ `
-            <li>
-                <span>${subtasks[i]}</span>
-                <div class="edit">
-                    <img class="editDelete " onclick="" src="img/edit.svg">
-                    <div class="line"></div>
-                    <img onclick="" class="editDelete " src="img/delete.svg">
-                </div>
-            </li>
-            `;
-        } 
+        render();
     }
+}
+
+
+function deleteSubtask(i) {
+    subtasks.splice(i, 1);
+
+    render();
 }
 
 
@@ -86,7 +112,7 @@ function changeSubtaskImg() {
     <div class="add-subtask">
         <img class="crossPlus" onclick="cancel()" src="img/cross.svg">
         <div class="line"></div>
-        <img onclick="addsubtask()" class="crossPlus" src="img/check-black.svg">
+        <img onclick="addSubtask()" class="crossPlus" src="img/check-black.svg">
     </div>
     `;
 }
