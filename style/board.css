@@ -57,8 +57,76 @@ input#search-board{
     background: #ffffff;
     height: fit-content;
     width: 200px;
-    padding:16px;
+    padding:0 16px 16px 16px;
     border-radius: 20px;
+}
+
+.task-card-heading{
+    padding:6px 16px;
+    border-radius: 10px;
+    color:#ffffff;
+    width: fit-content;
+}
+
+.task-card-title{
+    color: black;
+    font-weight: 600;
+    font-size: 12pt;
+}
+
+.task-card-note{
+    color:#9a9a9a;
+    font-size: 11pt;
+}
+
+/* PROGRESS BAR SETTINGS START*/
+.flex-start-progress {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 55%;
+    position: relative;
+    margin:24px 0;
+}
+
+.task-progress-bar-bg{
+    background: #e7e7e7;
+    border-radius: 5px;
+    height:5px;
+    width: 100%;
+    position: absolute;
+}
+
+.task-progress-bar{
+    background: var(--ci-blue);
+    border-radius: 5px;
+    height:5px;
+    width: 50%;
+    position: absolute;
+}
+/* PROGRESS BAR SETTINGS END*/
+
+.task-progress-task{
+    color: black;
+    font-size: 8pt;
+}
+
+.contact-icons-task {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border:solid 2px #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: var(--header-bg);
+}
+
+.flex-icons-task{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .tasks-card-empty{
