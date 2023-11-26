@@ -126,14 +126,14 @@ function changeCategoryImg() {
 
 
 function cancelCategory() {
-    document.getElementById('addCancel').innerHTML = `
+    document.getElementById('addCancel').innerHTML = '
     <div id="addCancel" class="add-category">
         <img onclick="changeCategoryImg()" class="plus-category" src="img/plusAddTask.svg" alt="plus-task">
         <div class="line"></div>
         <img id="arrow" class="arrow" onclick="showCloseCategory()"
         src="img/arrow_drop_down.svg" alt="arrow-up">
     </div>
-    `;
+    ';
 }
 
 

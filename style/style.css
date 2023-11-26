@@ -541,6 +541,19 @@ input::-webkit-datetime-edit {
     cursor: pointer;
 }
 
+.return {
+    position: fixed;
+    right: 55px;
+    top: 150px;
+    padding: 4px;
+}
+
+.return:hover {
+    background-color: rgb(227, 230, 235);
+    transform: scale(1.2);
+    border-radius: 50%;
+}
+
 /* Sideboard */
 .sideboard {
     width: 220px;
