@@ -12,8 +12,10 @@ function renderAddtask() {
 /**Function for render categories */
 function renderCategory() {
     let elements = document.getElementById('categories');
+    let input = document.getElementById('inputCategory'); 
 
     elements.innerHTML = '';
+    input.value = '';
 
     for (let i = 0; i < category.length; i++) {
         elements.innerHTML += `
@@ -91,47 +93,13 @@ function showCloseContacts(event) {
 
 
 /**
- * Function opens, closes dropdown menu category and arrow img + text
+ * Function opens, closes dropdown menu category
  * @param {*} event 
  */
-function showCloseCategory() {
-    let dropdownCategory = document.getElementById('dropdownCategory');
-    let input = document.getElementById('categoryText');
+function showCloseCategory(event) {
+    document.getElementById('dropdownCategory').classList.toggle('display-none');
 
-    dropdownCategory.classList.toggle('display-none');
-    input.classList.toggle('light-gray-placeholder');
-    
-    let arrowImage = document.getElementById('arrow');
-
-    if (arrowImage.src.endsWith('arrow_drop_down.svg')) {
-        arrowImage.src = 'img/arrow_drop_up.svg';
-        input.placeholder = 'Create new task category';
-        // input.classList.add('light-gray-placeholder');
-    } else {
-        arrowImage.src = 'img/arrow_drop_down.svg';
-        input.placeholder = 'Select or create new task category';
-    }
-}
-
-
-function changeCategoryImg() {
-    document.getElementById('addCancel').innerHTML = /*html*/ `
-    <div class="addCancel">
-        <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
-        <div class="line"></div>
-        <img onclick="addSubtask()" class="crossPlus" src="img/check-black.svg">
-    </div>
-    `;
-}
-
-
-function cancelCategory() {
-    document.getElementById('addCancel').innerHTML = `
-        <img onclick="changeCategoryImg()" class="plus-category" src="img/plusAddTask.svg" alt="plus-task">
-        <div class="line"></div>
-        <img id="arrow" class="arrow" onclick="showCloseCategory()"
-        src="img/arrow_drop_down.svg" alt="arrow-up">
-    `;
+    event.stopPropagation();
 }
 
 

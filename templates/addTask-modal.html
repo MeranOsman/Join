@@ -1,5 +1,6 @@
 <section class="add-task">
-    <h1>Add Task</h1><div id="close-btn-addTask" onclick="closeAddTaskModal()" class="close-task-pop pos hide">X</div>
+    <h1>Add Task</h1>
+    <div id="close-btn-addTask" onclick="closeAddTaskModal()" class="close-task-pop pos hide">X</div>
     <form onsubmit="...()">
         <div class="display-flex">
             <div class="left-section flex-column-start">
@@ -84,21 +85,38 @@
                     <button class="low-btn">Low</button>
                 </div>
                 <label class="label-required">Category</label>
-                <div class="width position-relative z-index">
-                    <div class="width categories">
-                        <input id="categoryText" onclick="showCloseCategory()" class="task-input-category"
-                            type="text" placeholder="Select or create new task category">
-                        <div id="addCancel" class="add-category">
-                            <img onclick="changeCategoryImg()" class="plus-category" src="img/plusAddTask.svg"
-                                alt="plus-task">
-                            <div class="line"></div>
-                            <img id="arrow" class="arrow" onclick="showCloseCategory()"
-                                src="img/arrow_drop_down.svg" alt="arrow-up">
-                        </div>
+                <div class="position-relative width">
+                    <div onclick="showCloseCategory(event)" class="select">
+                        <span>Select task category</span>
+                        <img src="img/arrow_drop_down.svg" alt="arrow-down">
                     </div>
-                    <div id="dropdownCategory" class="dropdown-category display-none">
-                        <ul id="categories">
-                        </ul>
+                    <div id="dropdownCategory" class="dropdown z-index display-none">
+                        <div class="position">
+                            <input id="inputCategory" class="input-category" type="text"
+                                placeholder="Create new task category">
+                                <div class="add-category">
+                                    <img class="crossPlus" onclick="cancelSubtask()" src="img/cross.svg">
+                                    <div class="line"></div>
+                                    <img class="crossPlus" src="img/check-black.svg">
+                                    <div class="line"></div>
+                                    <img id="arrow" onclick="showCloseCategory(event)" src="img/arrow_drop_up.svg" alt="arrow-up">
+                                </div>
+                            <div class="color-section">
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                                <div class="circle-blue"></div>
+                            </div>
+                        </div>
+                        <div class="dropdown-category">
+                            <ul id="categories">
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <label class="label-input" for="subtask">Subtasks</label>
@@ -112,14 +130,6 @@
                     </div>
                     <div id="dropdownSub" class="dropdown-sub">
                         <ul id="subtasks">
-                            <li>
-                                <span>jkekdjed</span>
-                                <div class="edit">
-                                    <img class="editDelete " onclick="" src="img/edit.svg">
-                                    <div class="line"></div>
-                                    <img onclick="" class="editDelete " src="img/delete.svg">
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -134,3 +144,11 @@
         </div>
     </form>
 </section>
+
+
+
+
+
+<div id="dropdownCategory" class="dropdown-category display-none">
+
+</div>
