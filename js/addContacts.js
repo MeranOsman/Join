@@ -13,7 +13,7 @@ function addContact(){
 function closeContactsModal(){
     document.getElementById('modal-inner').classList.add('move-to-right');
     document.getElementById('modal-inner').style.setProperty('animation-direction','reverse');
-    setTimeout(hideAgain,500);
+    setTimeout(hideAgain,250);
 }
 
 
