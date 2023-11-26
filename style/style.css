@@ -1,7 +1,4 @@
-/**********************************
-*** GENEREL STYLING *** START
-***********************************/
-
+/* GENEREL STYLING */
 body {
     margin: 0;
     color: black;
@@ -58,15 +55,7 @@ input::-webkit-datetime-edit {
     font-weight: 300;
 }
 
-/**********************************
-*** GENEREL STYLING *** END
-***********************************/
-
-
-/**********************************
-*** MULTI CLASSES *** START
-***********************************/
-
+/* MULTI CLASSES  */
 .hide {
     display: none !important;
 }
@@ -152,6 +141,12 @@ input::-webkit-datetime-edit {
     align-items: center;
 }
 
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .flex-btw{
     display: flex;
     justify-content: space-between;
@@ -201,14 +196,7 @@ input::-webkit-datetime-edit {
     display: inline;
 }
 
-/**********************************
-*** MULTI CLASSES *** END
-***********************************/
-
-/**********************************
-*** CLASSES *** START
-***********************************/
-
+/* CLASSES */
 /* Logo */
 .flex-row {
     display: flex;

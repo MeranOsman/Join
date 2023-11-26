@@ -59,6 +59,7 @@ input#search-board {
     width: 200px;
     padding: 0 16px 16px 16px;
     border-radius: 20px;
+    box-shadow: 0 0 5px lightgray;
 }
 
 .task-card-heading {
@@ -261,7 +262,7 @@ input#search-board {
 
 
 
-/*animations*/
+/* animations */
 .move-to-left-pop {
     animation: move-to-left-animation-pop 600ms;
 }
