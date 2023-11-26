@@ -167,7 +167,7 @@ input#search-board {
     align-items: flex-start;
     gap: 8px;
     background: var(--summary-background);
-    height: 80%;
+    height: 800px;
     max-width: 450px;
     width: 450px;
     border-radius: 25px;
