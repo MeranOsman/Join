@@ -6,6 +6,10 @@
     .login{
         width: 75%;
     }
+    .login-bg{
+        min-width: 80vw;
+        min-height: 50vh;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -17,22 +21,50 @@
     .flex-row p{
         font-size:16px;
     }
-
-    .login-bg{
-        min-width: 80vw;
-        min-height: 60vh;
-    }
 }
 
 @media screen and (max-width: 650px) {
     h1{
         font-size:40px;
     }
+    .bg-overlay{
+        background: var(--sidebar-background) !important;
+    }
+
+    .main-logo.animated{
+        content: url(../img/logo-white.svg);
+    }
+    .flex-row-btn{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .btn-login{
+        margin:0;
+        width: 200px;
+    }
+    .btn-guest{
+        width: 200px;
+    }
+    .media-hide{
+        display:flex !important;
+    }
+    .media-show{
+        display: none !important;
+    }
+    .pos-logo img{
+        height:70px !important;
+        width: auto;
+    }
+
+
+  
 }
 
 @media screen and (max-width: 400px) {
     h1{
         font-size:26px;
     }
-
+    .btn-login{
+        font-size:16px;
+    }
 }

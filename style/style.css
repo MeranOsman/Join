@@ -60,8 +60,16 @@ input::-webkit-datetime-edit {
     display: none !important;
 }
 
+.media-hide{
+    display: none !important;
+}
+
 .show {
     display: block !important;
+}
+
+.media-show{
+    display: flex !important;
 }
 
 .position-relative {
@@ -119,6 +127,10 @@ input::-webkit-datetime-edit {
 
 .gap {
     gap: 16px !important;
+}
+
+.gap-32{
+    gap:32px;
 }
 
 .gap-s {
@@ -233,7 +245,7 @@ input::-webkit-datetime-edit {
     gap: 30px;
     border-radius: 32px;
     box-shadow: 0px 0px 15px rgba(119, 119, 119, 0.1);
-    padding: 16px;
+    padding: 24px 16px;
 }
 
 .login {
@@ -373,7 +385,7 @@ input::-webkit-datetime-edit {
     gap: 8px;
     position: relative;
     height: 32px;
-    width: 45%;
+    width: 100%;
 }
 
 .icon-checkbox {
@@ -708,6 +720,10 @@ header h4 {
 .pos-bot{
     position: absolute;
     bottom:0;
+}
+
+.divider-hori.signUp{
+    width: 70%;
 }
 
 /**********************************

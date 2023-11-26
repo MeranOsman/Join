@@ -27,6 +27,7 @@
 
 input#search-board {
     padding-left: 16px !important;
+    background-color:#fff;
 }
 
 .btn-board {
