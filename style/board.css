@@ -167,7 +167,7 @@ input#search-board {
     align-items: flex-start;
     gap: 8px;
     background: var(--summary-background);
-    height: 80%;
+    height: 800px;
     max-width: 450px;
     width: 450px;
     border-radius: 25px;
@@ -284,29 +284,29 @@ input#search-board {
 
 /* animations */
 .move-to-left-pop {
-    animation: move-to-left-animation-pop 600ms;
+    animation: move-to-left-animation-pop 300ms;
 }
 
 .move-to-right-pop {
-    animation: move-to-right-animation-pop 600ms;
+    animation: move-to-right-animation-pop 300ms;
 }
 
 @keyframes move-to-left-animation-pop {
     from {
-        margin-right: -5000px;
+        margin-left: 5000px;
     }
 
     to {
-        margin-right: 0;
+        margin-left: 0;
     }
 }
 
 @keyframes move-to-right-animation-pop {
     from {
-        margin-right: -5000px;
+        margin-left: 5000px;
     }
 
     to {
-        margin-right: 0;
+        margin-left: 0;
     }
 }

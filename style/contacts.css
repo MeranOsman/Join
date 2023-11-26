@@ -263,10 +263,10 @@ h2{
 
 /*animations*/
 .move-to-left {
-    animation: move-to-left-animation 600ms;
+    animation: move-to-left-animation 300ms;
 }
 .move-to-right {
-    animation: move-to-right-animation 600ms;
+    animation: move-to-right-animation 300ms;
 }
 
 @keyframes move-to-left-animation {
