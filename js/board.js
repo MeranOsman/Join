@@ -25,3 +25,19 @@ function hideAgainPop(){
     document.getElementById('task-pop-up').classList.remove('move-to-right-pop');
     clearTimeout(hideAgainPop);
 }
+
+/*
+*** function to show add task modal
+*/
+function addTaskOnBoard(){
+    document.getElementById('add-task-board').classList.remove('hide');
+    document.getElementById('close-btn-addTask').classList.remove('hide');
+}
+
+
+/*
+*** function to close add task modal
+*/
+function closeAddTaskModal(){
+    document.getElementById('add-task-board').classList.add('hide');
+}

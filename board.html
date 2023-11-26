@@ -12,12 +12,14 @@
     <script src="js/main.js"></script>
     <script src="js/addTask.js"></script>
     <script src="js/board.js"></script>
+    <script src="js/addTask.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/contacts.css">
     <link rel="stylesheet" href="style/board.css">
+    <link rel="stylesheet" href="style/addTask.css">
     <link href="img/logo-white.svg" rel="icon" media="(prefers-color-scheme: dark)" />
     <link href="img/join-logo-loading.svg" rel="icon" media="(prefers-color-scheme: light)" />
 
@@ -29,13 +31,17 @@
 </head>
 
 <body class="content-size" onload="init()">
-    <header w3-include-html="menu.html"></header>
+    <header w3-include-html="templates/menu.html"></header>
+
+    <div id="add-task-board" class="modal-outer hide">
+        <div class="add-task-modal-inner" w3-include-html="templates/addTask-modal.html"></div>
+    </div>
 
     <div class="flex-btw">
         <h1 class="headline-board">Board</h1>
         <div class="flex-start-board gap">
             <input id="search-board" required type="text" placeholder="Find Task" class="login icon-search">
-            <button class="btn-board">Add Task<span class="icon-plus"></span></button>
+            <button onclick="addTaskOnBoard()" class="btn-board">Add Task<span class="icon-plus"></span></button>
         </div>
     </div>
 

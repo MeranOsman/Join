@@ -196,6 +196,19 @@ input#search-board {
     transition: all 250ms;
 }
 
+.close-task-pop.pos {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 250ms;
+}
+
 .close-task-pop:hover {
     background: var(--sidebar-background);
     border-radius: 20px;
@@ -260,7 +273,14 @@ input#search-board {
     height: 19px;
 }
 
-
+/* add task modal */
+.add-task-modal-inner{
+    background: var(--summary-background);
+    width: 65%;
+    height:85%;
+    border-radius: 20px;
+    position: relative;
+}
 
 /* animations */
 .move-to-left-pop {
