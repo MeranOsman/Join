@@ -705,6 +705,11 @@ header h4 {
     background-color: rgb(46, 61, 87);
 }
 
+.pos-bot{
+    position: absolute;
+    bottom:0;
+}
+
 /**********************************
 *** CLASSES *** END
 ***********************************/
