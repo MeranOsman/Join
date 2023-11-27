@@ -32,16 +32,18 @@
             w3-include-html="templates/addTaskModal.html"></div>
     </div>
 
-    <div class="flex-btw">
+    <div class="flex-btw board">
         <h1 class="headline-board">Board</h1>
         <div class="flex-start-board gap">
             <input id="search-board" required type="text" placeholder="Find Task" class="login icon-search">
-            <button onclick="addTaskOnBoard()" class="btn-board margin-l-s">Add Task<span
-                    class="icon-plus"></span></button>
+            <button onclick="addTaskOnBoard()" class="btn-board margin-l-s media-show board">Add Task<span class="icon-plus"></span></button>
         </div>
+        <!-- media btn-->
+        <button onclick="addTaskOnBoard()" class="btn-board media-hide board"><img src="img/plus.svg" /></button>
     </div>
 
-    <div class="flex-container-board margin-t-xl">
+    <div class="flex-container-board margin-t-xl gap-32">
+    <div class="flex-flow">
         <div class="flex-column-board">
             <div class="flex-btw-board on-hover">
                 <p class="tasks-heading">To do</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
@@ -95,6 +97,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="flex-flow">
         <div class="flex-column-board">
             <div class="flex-btw-board on-hover">
                 <p class="tasks-heading">Await feedback</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
@@ -139,6 +143,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <!-- INSERT INFO POP UP FROM SINGLE TAST ### START ### -->
     <div id="task-info-modal" class="hide modal-outer">

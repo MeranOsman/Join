@@ -1,6 +1,12 @@
-@media screen and (max-width: 1440px) {}
+@media screen and (max-width: 1440px) {
+    /*board*/
+    .flex-flow{
+        flex-direction: column;
+    }
+}
 
 @media screen and (max-width: 1200px) {
+    /*login area on index*/
     .login {
         width: 75%;
     }
@@ -12,6 +18,8 @@
 }
 
 @media screen and (max-width: 767px) {
+    /* general multiclasses adjustments*/
+    /* sign in and login*/
     .flex-row {
         justify-content: center;
         padding: 0;
@@ -20,9 +28,62 @@
     .flex-row p {
         font-size: 16px;
     }
+
+    /*board*/
+    .flex-container-board {
+        flex-direction: column;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+    .flex-btw.board{
+        min-width:100%;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .flex-btw-board {
+        min-width:88%;
+    }
+    .flex-column-board{
+        align-items: flex-start !important;
+    }
+    .tasks-card-empty{
+        width: 70% !important;
+    }
+    .flex-start-board{
+        min-width: 90%;
+    }
+    .media-hide.board {
+        display: flex !important;
+    }
+    .media-show.board {
+        display: none !important;
+    }
+    .login{
+        min-width: 80% !important;
+        margin: 0 0 0 32px;
+    }
+    .btn-board{
+        position: absolute;
+        top: 128px;
+        right: 64px;
+        padding: 0 !important;
+        min-width: 44px !important;
+        min-height: 40px !important;
+        justify-content: center!important;
+        align-items: center!important;
+    }
+    .headline-board {
+        margin: 64px 0 0 32px !important;
+    }
+    .margin-t-xl{
+        margin-top: 16px;
+    }
 }
 
 @media screen and (max-width: 650px) {
+    /* general multiclasses adjustments*/
+    /* sign in, login and start-animation*/
     h1 {
         font-size: 40px;
     }
@@ -61,13 +122,12 @@
         height: 70px !important;
         width: auto;
     }
-
-
-
 }
 
 @media screen and (max-width: 400px) {
-    h1 {
+    /* general multiclasses adjustments*/
+    /* sign in and login*/
+    .headline-board {
         font-size: 26px;
     }
 

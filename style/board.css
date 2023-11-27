@@ -11,20 +11,23 @@
     filter: brightness(10);
 }
 
-#contacts, #addTask, #spanContacts, #spanAddtask #contacts img, #addTask img {
+#contacts, #addTask {
     background-color: var(--sidebar-background) !important;
-    filter:none !important;
-    color: white !important;
 }
-
-.test{
-    display:none;
+#spanContacts, #spanAddtask{
+    color:var(--sidebar-color) !important;
+    filter:none !important;
+}
+#contacts img, #addTask img{
+    filter:none !important;
 }
 
 .flex-container-board {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-left:32px;
+    margin-right: 32px;
 }
 
 .flex-start-board {
@@ -44,6 +47,15 @@
     align-items: center;
 }
 
+.flex-flow{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex:1 1 auto;
+    width: 100%;
+    gap:32px;
+}
+
 .headline-board {
     margin: 64px 0 0 64px;
 }
@@ -51,6 +63,7 @@
 input#search-board {
     padding-left: 16px !important;
     background-color:#fff;
+    min-width: 250px;
 }
 
 .btn-board {
@@ -61,6 +74,7 @@ input#search-board {
     padding: 12px 0 12px 20px;
     border-radius: 10px;
     font-weight: 600;
+    min-width: 160px;
 }
 
 .btn-board:hover {
@@ -334,3 +348,4 @@ input#search-board {
         margin-left: 0;
     }
 }
+
