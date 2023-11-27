@@ -11,15 +11,15 @@
     filter: brightness(10);
 }
 
-#contacts, #addTask, #spanContacts, #spanAddtask #contacts img, #addTask img {
+#contacts, #addTask {
     background-color: var(--sidebar-background) !important;
-    filter:none !important;
-    color: white !important;
 }
-
-/*BLABLABLABLABLABLABLA*/
-.test{
-    display:none;
+#spanContacts, #spanAddtask{
+    color:var(--sidebar-color) !important;
+    filter:none !important;
+}
+#contacts img, #addTask img{
+    filter:none !important;
 }
 
 .flex-container-board {
