@@ -11,6 +11,11 @@
     filter: brightness(10);
 }
 
+#contacts, #addTask, #board img, #addTask img {
+    background-color: var(--sidebar-background) !important;
+    filter:none !important;
+}
+
 .flex-container-board {
     display: flex;
     justify-content: center;
