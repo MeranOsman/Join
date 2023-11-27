@@ -297,7 +297,7 @@ input::-webkit-datetime-edit {
     background: url(../img/cross.svg);
     background-repeat: no-repeat;
     background-size: 14px 14px;
-    background-position: calc(100% - 16px) 50%;
+    background-position: calc(100% - 10px) 50%;
     padding-left: 48px;
 }
 
@@ -305,8 +305,8 @@ input::-webkit-datetime-edit {
     background: url(../img/check-new.svg);
     background-repeat: no-repeat;
     background-size: 18px 18px;
-    background-position: calc(100% - 16px) 50%;
-    padding-left: 48px;
+    background-position: calc(100% - 10px) 50%;
+    padding-left: 40px;
 }
 
 .icon-search {
@@ -408,7 +408,7 @@ input::-webkit-datetime-edit {
     border: 1px solid var(--sidebar-background);
     color: var(--header-bg);
     font-size: 20px;
-    padding: 12px 20px;
+    padding: 14px 12px;
     border-radius: 10px;
     font-weight: 600;
     margin-right: 24px;
