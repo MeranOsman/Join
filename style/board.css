@@ -11,9 +11,10 @@
     filter: brightness(10);
 }
 
-#contacts, #addTask, #board img, #addTask img {
+#contacts, #addTask, #spanContacts, #spanAddtask #contacts img, #addTask img {
     background-color: var(--sidebar-background) !important;
     filter:none !important;
+    color: white !important;
 }
 
 /*BLABLABLABLABLABLABLA*/
