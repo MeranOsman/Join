@@ -16,6 +16,11 @@
     filter:none !important;
 }
 
+/*BLABLABLABLABLABLABLA*/
+.test{
+    display:none;
+}
+
 .flex-container-board {
     display: flex;
     justify-content: center;
