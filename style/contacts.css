@@ -1,6 +1,16 @@
-/**********************************
-*** CLASSES ***               START
-***********************************/
+/* classes */
+#contacts {
+    background-color: var(--sidebar-link-background);
+}
+
+#contacts img {
+    filter: brightness(10);
+}
+
+#spanContacts {
+    color: white !important;
+    filter: brightness(10);
+}
 
 h2{
     font-weight: 400;
@@ -115,7 +125,7 @@ h2{
     height: 70px;
 }
 
-/*add contacts modal*/
+/* add contacts modal */
 .modal-outer{
     width: 100vw;
     height: 100vh;
@@ -261,7 +271,7 @@ h2{
     margin-top: 80px;
 }
 
-/*animations*/
+/* animations */
 .move-to-left {
     animation: move-to-left-animation 300ms;
 }

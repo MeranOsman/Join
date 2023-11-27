@@ -1,3 +1,16 @@
+#board {
+    background-color: var(--sidebar-link-background);
+}
+
+#board img {
+    filter: brightness(10);
+}
+
+#spanBoard {
+    color: white !important;
+    filter: brightness(10);
+}
+
 .flex-container-board {
     display: flex;
     justify-content: center;
@@ -82,7 +95,7 @@ input#search-board {
     font-size: 11pt;
 }
 
-/* PROGRESS BAR SETTINGS START*/
+/* PROGRESS BAR SETTINGS START */
 .flex-start-progress {
     display: flex;
     justify-content: flex-start;
@@ -108,7 +121,7 @@ input#search-board {
     position: absolute;
 }
 
-/* PROGRESS BAR SETTINGS END*/
+/* PROGRESS BAR SETTINGS END */
 
 .task-progress-task {
     color: black;
@@ -160,7 +173,7 @@ input#search-board {
     content: url('../img/add-btn-hover.svg');
 }
 
-/* POP UP TASKS*/
+/* POP UP TASKS */
 .task-container-card {
     display: flex;
     flex-direction: column;

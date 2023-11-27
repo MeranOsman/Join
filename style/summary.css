@@ -1,3 +1,16 @@
+#summary {
+    background-color: var(--sidebar-link-background);
+}
+
+#summary img {
+    filter: brightness(10);
+}
+
+#spanSummary {
+    color: white !important;
+    filter: brightness(10);
+}
+
 h4 {
     line-height: 1;
     margin: 0;
@@ -119,7 +132,8 @@ p {
     transition: all 250ms;
 }
 
-.summary-container:hover, .medium-container:hover {
+.summary-container:hover,
+.medium-container:hover {
     background-color: var(--sidebar-background);
     color: #ffff;
     box-shadow: 0 3px 5px var(--sidebar-background);
@@ -128,7 +142,8 @@ p {
     transform: scale(1.1);
 }
 
-.summary-container:hover .counts-sum,  .medium-container:hover .counts-sum{
+.summary-container:hover .counts-sum,
+.medium-container:hover .counts-sum {
     color: #ffff;
 }
 

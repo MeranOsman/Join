@@ -1,3 +1,16 @@
+#addTask {
+    background-color: var(--sidebar-link-background);
+}
+
+#addTask img {
+    filter: brightness(10);
+}
+
+#spanAddtask {
+    color: white !important;
+    filter: brightness(10);
+}
+
 .add-task {
     width: 80%;
     margin: auto;
@@ -304,12 +317,14 @@
     padding: 12px 20px;
 }
 
-.input-filter::placeholder, .input-category {
+.input-filter::placeholder,
+.input-category {
     color: lightgray;
     cursor: text;
 }
 
-.contacts-filter, .position {
+.contacts-filter,
+.position {
     position: absolute;
     z-index: 100;
     width: 100%;
@@ -327,7 +342,8 @@
     width: 32px;
 }
 
-.contacts-filter img:hover, #arrow:hover {
+.contacts-filter img:hover,
+#arrow:hover {
     background-color: rgb(227, 230, 235);
     cursor: pointer;
     border-radius: 50%;
