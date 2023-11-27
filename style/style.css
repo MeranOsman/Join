@@ -754,6 +754,7 @@ header h4 {
     width: 75px !important;
     height: 55px !important;
     border-radius: 10px;
+    padding: 8px;
 }
 
 .sideboard-bottom img {

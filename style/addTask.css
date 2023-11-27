@@ -17,7 +17,7 @@
 }
 
 .add-task h1 {
-    padding-top: 56px;
+    padding-top: 72px;
     margin: 0 0 72px 0;
 }
 
@@ -526,7 +526,7 @@
         width: 80%;
     }
 
-    body {
+    .content-size  {
         overflow: auto;
     }
 
