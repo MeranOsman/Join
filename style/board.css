@@ -26,6 +26,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-left:32px;
+    margin-right: 32px;
 }
 
 .flex-start-board {
@@ -45,6 +47,15 @@
     align-items: center;
 }
 
+.flex-flow{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex:1 1 auto;
+    width: 100%;
+    gap:32px;
+}
+
 .headline-board {
     margin: 64px 0 0 64px;
 }
@@ -52,6 +63,7 @@
 input#search-board {
     padding-left: 16px !important;
     background-color:#fff;
+    min-width: 250px;
 }
 
 .btn-board {
@@ -62,6 +74,7 @@ input#search-board {
     padding: 12px 0 12px 20px;
     border-radius: 10px;
     font-weight: 600;
+    min-width: 160px;
 }
 
 .btn-board:hover {
@@ -335,3 +348,4 @@ input#search-board {
         margin-left: 0;
     }
 }
+
