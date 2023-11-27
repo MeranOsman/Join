@@ -662,7 +662,13 @@ input::-webkit-datetime-edit {
 header h4 {
     font-size: 19px;
     font-weight: 400;
-    margin-left: 120px;
+    margin-left: 10%;
+}
+
+.header-logo {
+    width: 32px;
+    margin-left: 24px;
+    display: none;
 }
 
 .header-right {
@@ -726,6 +732,37 @@ header h4 {
     width: 70%;
 }
 
-/**********************************
-*** CLASSES *** END
-***********************************/
+/* footer */
+.sideboard-bottom {
+    display: none;
+    height: 80px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--sidebar-background);
+}
+
+.sideboard-bottom nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.sideboard-bottom a {
+    flex-direction: column;
+    width: 75px !important;
+    height: 55px !important;
+    border-radius: 10px;
+}
+
+.sideboard-bottom img {
+    width: 24px;
+    height: 24px;
+}
+
+.sideboard-bottom span {
+    font-size: 16px !important;
+    font-weight: 300;
+    color: var(--sidebar-color) !important;
+}

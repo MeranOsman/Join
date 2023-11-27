@@ -34,26 +34,32 @@
     <header w3-include-html="templates/menu.html"></header>
 
     <div id="add-task-board" class="modal-outer hide">
-        <div id="addTask-inner-modal" class="add-task-modal-inner move-to-left-pop" w3-include-html="templates/addTask-modal.html"></div>
+        <div id="addTask-inner-modal" class="add-task-modal-inner move-to-left-pop"
+            w3-include-html="templates/addTaskModal.html"></div>
     </div>
 
     <div class="flex-btw">
         <h1 class="headline-board">Board</h1>
         <div class="flex-start-board gap">
             <input id="search-board" required type="text" placeholder="Find Task" class="login icon-search">
-            <button onclick="addTaskOnBoard()" class="btn-board margin-l-s">Add Task<span class="icon-plus"></span></button>
+            <button onclick="addTaskOnBoard()" class="btn-board margin-l-s">Add Task<span
+                    class="icon-plus"></span></button>
         </div>
     </div>
 
     <div class="flex-container-board margin-t-xl">
         <div class="flex-column-board">
-            <div class="flex-btw-board on-hover"><p class="tasks-heading">To do</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" /></div>
+            <div class="flex-btw-board on-hover">
+                <p class="tasks-heading">To do</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+            </div>
             <div class="tasks-card-empty">
                 <p>No tasks To do</p>
             </div>
         </div>
         <div class="flex-column-board gap">
-            <div class="flex-btw-board on-hover"><p class="tasks-heading">In progress</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" /></div>
+            <div class="flex-btw-board on-hover">
+                <p class="tasks-heading">In progress</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+            </div>
             <div class="tasks-card" onclick="showTaskInfo()">
                 <p class="task-card-heading blue">User story</p>
                 <p class="task-card-title">Kochwelt Page & Recipe Recommender</p>
@@ -63,7 +69,7 @@
                         <div class="task-progress-bar-bg"></div>
                         <div class="task-progress-bar"></div>
                     </div>
-                        <p class="task-progress-task">1/2 Subtasks</p>
+                    <p class="task-progress-task">1/2 Subtasks</p>
                 </div>
                 <div class="flex-btw">
                     <div class="flex-icons-task">
@@ -71,7 +77,7 @@
                         <div class="contact-icons-task blue margin-left-neg">AS</div>
                         <div class="contact-icons-task pink margin-left-neg">DE</div>
                     </div>
-                    <img src="img/prioLow.svg"/>
+                    <img src="img/prioLow.svg" />
                 </div>
             </div>
             <div class="tasks-card">
@@ -83,7 +89,7 @@
                         <div class="task-progress-bar-bg"></div>
                         <div class="task-progress-bar"></div>
                     </div>
-                        <p class="task-progress-task">1/2 Subtasks</p>
+                    <p class="task-progress-task">1/2 Subtasks</p>
                 </div>
                 <div class="flex-btw">
                     <div class="flex-icons-task">
@@ -91,12 +97,14 @@
                         <div class="contact-icons-task deep margin-left-neg">MB</div>
                         <div class="contact-icons-task tango margin-left-neg">TW</div>
                     </div>
-                    <img src="img/prioMedium.svg"/>
+                    <img src="img/prioMedium.svg" />
                 </div>
             </div>
         </div>
         <div class="flex-column-board">
-            <div class="flex-btw-board on-hover"><p class="tasks-heading">Await feedback</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" /></div>
+            <div class="flex-btw-board on-hover">
+                <p class="tasks-heading">Await feedback</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+            </div>
             <div class="tasks-card">
                 <p class="task-card-heading azur">Technical Task</p>
                 <p class="task-card-title">CSS Architecture Planning</p>
@@ -107,12 +115,14 @@
                         <div class="contact-icons-task vio margin-left-neg">AS</div>
                         <div class="contact-icons-task blue margin-left-neg">BZ</div>
                     </div>
-                    <img src="img/prioUrgent.svg"/>
+                    <img src="img/prioUrgent.svg" />
                 </div>
             </div>
         </div>
         <div class="flex-column-board">
-            <div class="flex-btw-board on-hover"><p class="tasks-heading">Done</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" /></div>
+            <div class="flex-btw-board on-hover">
+                <p class="tasks-heading">Done</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+            </div>
             <div class="tasks-card">
                 <p class="task-card-heading blue">User story</p>
                 <p class="task-card-title">Daily Kochwelt Recipe</p>
@@ -122,7 +132,7 @@
                         <div class="task-progress-bar-bg"></div>
                         <div class="task-progress-bar"></div>
                     </div>
-                        <p class="task-progress-task">1/2 Subtasks</p>
+                    <p class="task-progress-task">1/2 Subtasks</p>
                 </div>
                 <div class="flex-btw">
                     <div class="flex-icons-task">
@@ -130,7 +140,7 @@
                         <div class="contact-icons-task blue margin-left-neg">AS</div>
                         <div class="contact-icons-task pink margin-left-neg">DE</div>
                     </div>
-                    <img src="img/prioLow.svg"/>
+                    <img src="img/prioLow.svg" />
                 </div>
             </div>
         </div>
@@ -138,8 +148,11 @@
 
     <!-- INSERT INFO POP UP FROM SINGLE TAST ### START ### -->
     <div id="task-info-modal" class="hide modal-outer">
-        <div w3-include-html="templates/board-info-modal.html"></div>
+        <div w3-include-html="templates/boardInfoModal.html"></div>
     </div>
     <!-- INSERT INFO POP UP FROM SINGLE TAST ### END ### -->
+
+    <footer w3-include-html="templates/sideboardResponsive.html"></footer>
 </body>
+
 </html>
