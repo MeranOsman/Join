@@ -226,7 +226,7 @@
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 570px) {
     .sideboard {
         display: none;
     }
@@ -273,7 +273,9 @@
         width: 100% !important;
     }
 
-    .privacy h1, .legal h1, .help h1 {
+    .privacy h1,
+    .legal h1,
+    .help h1 {
         line-height: normal;
         margin-top: 14px;
         margin-right: 42px;
