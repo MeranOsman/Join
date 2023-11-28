@@ -514,6 +514,10 @@ input::-webkit-datetime-edit {
     color: var(--summary-h2-color);
 }
 
+.privacy {
+    overflow: auto;
+}
+
 .privacy h1, .legal  h1{
     margin-bottom: 72px;
 }

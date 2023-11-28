@@ -319,12 +319,15 @@
     font-size: 22px;
     font-weight: 300;
     background-color: white;
-    padding: 12px 20px;
+    padding: 12px 80px 12px 20px;
+}
+
+.input-category::placeholder {
+    font-size: 20px;
 }
 
 .input-filter::placeholder,
 .input-category {
-    color: lightgray;
     cursor: text;
 }
 
@@ -428,7 +431,7 @@
     border: 1px solid lightgray;
     border-radius: 10px;
     margin-bottom: 32px;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 300;
     background-color: white;
     padding: 12px 16px;
@@ -452,7 +455,7 @@
 .add-category {
     position: absolute;
     right: 17px;
-    top: 10px;
+    top: 14px;
     width: 68px;
     display: flex;
     align-items: center;
@@ -503,6 +506,11 @@
 
     .medium-btn {
         background-position: calc(100% - 10%) 50%;
+    }
+
+    .add-category {
+        right: 1px;
+        width: 80px;
     }
 
     .urgent-btn {
@@ -569,7 +577,16 @@
 
 @media (max-width: 610px) {
     .input-category::placeholder {
-        font-size: 17px;
+        font-size: 19px;
+    }
+
+    .add-category {
+        right: 1px;
+        width: 80px;
+    }
+
+    .input-category {
+        font-size: 19px;
     }
 
     .sideboard-bottom {
@@ -579,5 +596,61 @@
     .lower-area {
         padding-bottom: 120px;
 
+    }
+
+    .contacts {
+        font-size: 19px;
+    }
+
+    .dropdown-category span {
+        font-size: 19px;
+    }
+
+    input::-webkit-datetime-edit {
+        font-size: 19px;
+    }
+
+    input::placeholder {
+        font-size: 19px;
+    }
+
+    #description::placeholder {
+        font-size: 19px;
+    }
+
+    .select {
+        font-size: 19px;
+    }
+
+    .add-task h1 {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .prio {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 32px;
+        gap: 10px;
+    }
+
+    .input-category::placeholder {
+        font-size: 16px;
+    }
+
+    .input-category {
+        padding: 12px 80px 12px 12px;
+    }
+
+    .prio button {
+        width: 80%;
+        margin: 0;
+    }
+
+    .urgent-btn,
+    .medium-btn,
+    .low-btn {
+        background-position: calc(100% - 20%) 50%;
     }
 }
