@@ -282,3 +282,9 @@
         margin: 10px 42px 48px 0;
     }
 }
+
+@media screen and (max-width: 360px) {
+    .sideboard-bottom a {
+        padding: 7px 0;
+    }
+}
