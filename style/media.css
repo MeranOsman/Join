@@ -272,4 +272,11 @@
     .add-task {
         width: 100% !important;
     }
+
+    .privacy h1, .legal h1, .help h1 {
+        line-height: normal;
+        margin-top: 14px;
+        margin-right: 42px;
+        margin: 10px 42px 48px 0;
+    }
 }

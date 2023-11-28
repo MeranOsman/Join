@@ -497,7 +497,7 @@ input::-webkit-datetime-edit {
     padding: 32px 110px 16px 110px;
 }
 
-.help {
+.help, .privacy, .legal {
     overflow: auto;
 }
 
@@ -514,11 +514,7 @@ input::-webkit-datetime-edit {
     color: var(--summary-h2-color);
 }
 
-.privacy {
-    overflow: auto;
-}
-
-.privacy h1, .legal  h1{
+.privacy h1, .legal  h1, .help h1 {
     margin-bottom: 72px;
 }
 
