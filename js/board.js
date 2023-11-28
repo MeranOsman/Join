@@ -4,6 +4,7 @@
 function showTaskInfo(){
     document.getElementById('task-info-modal').classList.remove('hide');
     document.getElementById('task-pop-up').style.setProperty('animation-direction','normal');
+    document.body.style.overflow = 'hidden';
 }
 
 
@@ -13,6 +14,7 @@ function showTaskInfo(){
 function closeTaskModal(){
     document.getElementById('task-pop-up').classList.add('move-to-right-pop');
     document.getElementById('task-pop-up').style.setProperty('animation-direction','reverse');
+    document.body.style.overflow = 'auto';
     setTimeout(hideAgainPop,250);
 }
 
@@ -34,6 +36,7 @@ function addTaskOnBoard(){
     document.getElementById('add-task-board').classList.remove('hide');
     document.getElementById('close-btn-addTask').classList.remove('hide');
     document.getElementById('addTask-inner-modal').style.setProperty('animation-direction','normal');
+    document.body.style.overflow = 'hidden';
 }
 
 
@@ -43,6 +46,7 @@ function addTaskOnBoard(){
 function closeAddTaskModal(){
     document.getElementById('addTask-inner-modal').classList.add('move-to-right-pop');
     document.getElementById('addTask-inner-modal').style.setProperty('animation-direction','reverse');
+    document.body.style.overflow = 'auto';
     setTimeout(hideAgainAddTask,250);
 }
 
@@ -54,3 +58,4 @@ function hideAgainAddTask(){
     document.getElementById('addTask-inner-modal').classList.remove('move-to-right-pop');
     clearTimeout(hideAgainAddTask);
 }
+
