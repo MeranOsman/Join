@@ -499,7 +499,7 @@
     width: 92px;
 }
 
-@media (max-width: 1250px) {
+@media screen and (max-width: 1250px) {
     .low-btn {
         background-position: calc(100% - 25%) 50%;
     }
@@ -522,7 +522,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
     .flex {
         flex-direction: column;
         align-items: center;
@@ -562,7 +562,7 @@
     }
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
     .lower-area {
         flex-direction: column;
         align-items: flex-start;
@@ -627,7 +627,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
     .prio {
         flex-direction: column;
         align-items: center;

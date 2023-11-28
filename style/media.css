@@ -159,7 +159,7 @@
 }
 
 /* sideboard, header, help, privacyPolicy, legalNotice */
-@media (max-width: 1050px) {
+@media screen and (max-width: 1050px) {
     .sideboard {
         width: 175px;
     }
@@ -181,7 +181,7 @@
     }
 }
 
-@media (max-width: 850px) {
+@media screen and (max-width: 850px) {
     .sideboard {
         width: 150px;
     }
@@ -226,7 +226,7 @@
 }
 
 
-@media (max-width: 550px) {
+@media screen and (max-width: 550px) {
     .sideboard {
         display: none;
     }
