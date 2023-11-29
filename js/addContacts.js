@@ -4,6 +4,7 @@
 function addContact(){
     document.getElementById('contacts-modal').classList.remove('hide');
     document.getElementById('modal-inner').style.setProperty('animation-direction','normal');
+    document.body.style.overflow = 'hidden';
 }
 
 
@@ -13,6 +14,7 @@ function addContact(){
 function closeContactsModal(){
     document.getElementById('modal-inner').classList.add('move-to-right');
     document.getElementById('modal-inner').style.setProperty('animation-direction','reverse');
+    document.body.style.overflow = 'auto';
     setTimeout(hideAgain,250);
 }
 
