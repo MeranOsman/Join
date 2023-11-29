@@ -5,7 +5,7 @@
         <div class="flex">
             <div class="left-section flex-column-start">
                 <label class="label-required" for="title">Title</label>
-                <input required class="task-input" id="title" type="text" placeholder="Enter a title">
+                <input required maxlength="22" min="4" class="task-input" id="title" type="text" placeholder="Enter a title">
                 <label class="label-input" for="description">Description</label>
                 <textarea id="description" placeholder="Enter a description"></textarea>
                 <label class="label-input">Assigned to</label>
@@ -92,7 +92,7 @@
                     </div>
                     <div id="dropdownCategory" class="dropdown z-index display-none">
                         <div class="position">
-                            <input id="inputCategory" class="input-category" type="text"
+                            <input maxlength="22" min="3" id="inputCategory" class="input-category" type="text"
                                 placeholder="Create new task category">
                             <div class="add-category">
                                 <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
@@ -123,7 +123,7 @@
                 <label class="label-input" for="subtask">Subtasks</label>
                 <div class="width position-relative">
                     <div class="width subtasks">
-                        <input required oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
+                        <input required minlength="3" maxlength="16" oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
                             placeholder="Add new subtask">
                         <div class="plus" id="imgChange">
                             <img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: addTask.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: addTask.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let subtasks = [];
+let category = ['Technical Task', 'User Story'];
+
+
+/**
+ * Function for render all render functions
+ */
+function renderAddtask() {
+    renderSubtask();
+    renderCategory();
+}
+
+
+/**
+ * Function opens, closes dropdown menu contacts
+ * 
+ * @param {click} event - This is a cursor click
+ */
+function showCloseContacts(event) {
+    document.getElementById('dropdownContact').classList.toggle('display-none');
+
+    event.stopPropagation();
+}
+
+
+/**
+ * Function for render categories
+ */
+function renderCategory() {
+    let elements = document.getElementById('categories');
+    let input = document.getElementById('inputCategory');
+
+    elements.innerHTML = '';
+    input.value = '';
+
+    for (let i = 0; i &lt; category.length; i++) {
+        elements.innerHTML += /*html*/ `
+        &lt;li>
+            &lt;span>${category[i]}&lt;/span>
+            &lt;div class="edit-category">
+                &lt;img onclick="editCategory(${i})" class="editDelete "  src="img/edit.svg">
+                &lt;div class="line">&lt;/div>
+                &lt;img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
+            &lt;/div>
+            &lt;div class="circle-blue">&lt;/div>
+        &lt;/li>
+        `;
+    }
+}
+
+
+/**
+ * Function opens, closes dropdown menu category
+ * 
+ * @param {*} event 
+ */
+function showCloseCategory(event) {
+    document.getElementById('dropdownCategory').classList.toggle('display-none');
+
+    event.stopPropagation();
+}
+
+
+/**
+ * Function cancel adding category
+ */
+function cancelCategory() {
+    document.getElementById('inputCategory').value = '';
+}
+
+
+function editCategory(i) {
+     
+}
+
+
+/**
+ * Function push category to array
+ * 
+ * @returns 
+ */
+function addCategory() {
+    let input = document.getElementById('inputCategory');
+
+    if (input.value === '') {
+        return;
+    } else {
+        category.push(input.value);
+        renderCategory();
+    }
+}
+
+
+/**
+ * Function delete category
+ */
+function deleteCategory(event, i) {
+    category.splice(i, 1);
+
+    renderCategory();
+    event.stopPropagation();
+}
+
+
+/**
+ * Function for render subtasks
+ */
+function renderSubtask() {
+    let tasks = document.getElementById('subtasks');
+    let input = document.getElementById('subtask');
+
+    tasks.innerHTML = '';
+    input.value = '';
+
+    for (let i = 0; i &lt; subtasks.length; i++) {
+        tasks.innerHTML += /*html*/ `
+        &lt;li>
+            &lt;span>${subtasks[i]}&lt;/span>
+            &lt;div class="edit-subtask">
+                &lt;img class="editDelete " onclick="" src="img/edit.svg">
+                &lt;div class="line">&lt;/div>
+                &lt;img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
+            &lt;/div>
+        &lt;/li>
+        `;
+    }
+}
+
+
+/**
+ * Function push subtask to array
+ * 
+ * @returns 
+ */
+function addSubtask() {
+    let input = document.getElementById('subtask');
+
+    if (input.value === '') {
+        return;
+    } else {
+        subtasks.push(input.value);
+        renderAddtask();
+    }
+}
+
+
+/**
+ * Function delete subtask
+ * 
+ * @param {*} i 
+ */
+function deleteSubtask(i) {
+    subtasks.splice(i, 1);
+
+    renderAddtask();
+}
+
+
+/**
+ * Function change the input img from subtask
+ *  
+ */
+function changeSubtaskImg() {
+    document.getElementById('imgChange').innerHTML = /*html*/ `
+    &lt;div class="add-subtask">
+        &lt;img class="crossPlus" onclick="cancelSubtask()" src="img/cross.svg">
+        &lt;div class="line">&lt;/div>
+        &lt;img onclick="addSubtask()" class="crossPlus" src="img/check-black.svg">
+    &lt;/div>
+    `;
+}
+
+
+/**
+ * Function cancel adding subtasks
+ * 
+ */
+function cancelSubtask() {
+    document.getElementById('imgChange').innerHTML = '&lt;img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
+    document.getElementById('subtask').value = '';
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addCategory">addCategory</a></li><li><a href="global.html#addSubtask">addSubtask</a></li><li><a href="global.html#cancelCategory">cancelCategory</a></li><li><a href="global.html#cancelSubtask">cancelSubtask</a></li><li><a href="global.html#changeSubtaskImg">changeSubtaskImg</a></li><li><a href="global.html#deleteCategory">deleteCategory</a></li><li><a href="global.html#deleteSubtask">deleteSubtask</a></li><li><a href="global.html#renderAddtask">renderAddtask</a></li><li><a href="global.html#renderCategory">renderCategory</a></li><li><a href="global.html#renderSubtask">renderSubtask</a></li><li><a href="global.html#showCloseCategory">showCloseCategory</a></li><li><a href="global.html#showCloseContacts">showCloseContacts</a></li><li><a href="global.html#showMenu">showMenu</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Nov 29 2023 19:01:05 GMT+0100 (GMT+01:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

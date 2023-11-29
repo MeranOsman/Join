@@ -2,7 +2,9 @@ let subtasks = [];
 let category = ['Technical Task', 'User Story'];
 
 
-/**Function for render all render functions */
+/**
+ * Function for render all render functions
+ */
 function renderAddtask() {
     renderSubtask();
     renderCategory();
@@ -11,7 +13,8 @@ function renderAddtask() {
 
 /**
  * Function opens, closes dropdown menu contacts
- * @param {*} event 
+ * 
+ * @param {click} event - This is a cursor click
  */
 function showCloseContacts(event) {
     document.getElementById('dropdownContact').classList.toggle('display-none');
@@ -20,23 +23,25 @@ function showCloseContacts(event) {
 }
 
 
-/**Function for render categories */
+/**
+ * Function for render categories
+ */
 function renderCategory() {
     let elements = document.getElementById('categories');
-    let input = document.getElementById('inputCategory'); 
+    let input = document.getElementById('inputCategory');
 
     elements.innerHTML = '';
     input.value = '';
 
     for (let i = 0; i < category.length; i++) {
-        elements.innerHTML += `
+        elements.innerHTML += /*html*/ `
         <li>
             <span>${category[i]}</span>
             <div class="edit-category">
-            <img class="editDelete " onclick="" src="img/edit.svg">
-            <div class="line"></div>
-            <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
-        </div>
+                <img onclick="editCategory(${i})" class="editDelete "  src="img/edit.svg">
+                <div class="line"></div>
+                <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
+            </div>
             <div class="circle-blue"></div>
         </li>
         `;
@@ -46,6 +51,7 @@ function renderCategory() {
 
 /**
  * Function opens, closes dropdown menu category
+ * 
  * @param {*} event 
  */
 function showCloseCategory(event) {
@@ -63,8 +69,14 @@ function cancelCategory() {
 }
 
 
+function editCategory(i) {
+     
+}
+
+
 /**
  * Function push category to array
+ * 
  * @returns 
  */
 function addCategory() {
@@ -117,6 +129,7 @@ function renderSubtask() {
 
 /**
  * Function push subtask to array
+ * 
  * @returns 
  */
 function addSubtask() {
@@ -133,6 +146,7 @@ function addSubtask() {
 
 /**
  * Function delete subtask
+ * 
  * @param {*} i 
  */
 function deleteSubtask(i) {
@@ -143,7 +157,8 @@ function deleteSubtask(i) {
 
 
 /**
- * Function change the input img from subtask 
+ * Function change the input img from subtask
+ *  
  */
 function changeSubtaskImg() {
     document.getElementById('imgChange').innerHTML = /*html*/ `
@@ -158,6 +173,7 @@ function changeSubtaskImg() {
 
 /**
  * Function cancel adding subtasks
+ * 
  */
 function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
