@@ -9,6 +9,17 @@ function renderAddtask() {
 }
 
 
+/**
+ * Function opens, closes dropdown menu contacts
+ * @param {*} event 
+ */
+function showCloseContacts(event) {
+    document.getElementById('dropdownContact').classList.toggle('display-none');
+
+    event.stopPropagation();
+}
+
+
 /**Function for render categories */
 function renderCategory() {
     let elements = document.getElementById('categories');
@@ -21,10 +32,61 @@ function renderCategory() {
         elements.innerHTML += `
         <li>
             <span>${category[i]}</span>
+            <div class="edit-category">
+            <img class="editDelete " onclick="" src="img/edit.svg">
+            <div class="line"></div>
+            <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
+        </div>
             <div class="circle-blue"></div>
         </li>
         `;
     }
+}
+
+
+/**
+ * Function opens, closes dropdown menu category
+ * @param {*} event 
+ */
+function showCloseCategory(event) {
+    document.getElementById('dropdownCategory').classList.toggle('display-none');
+
+    event.stopPropagation();
+}
+
+
+/**
+ * Function cancel adding category
+ */
+function cancelCategory() {
+    document.getElementById('inputCategory').value = '';
+}
+
+
+/**
+ * Function push category to array
+ * @returns 
+ */
+function addCategory() {
+    let input = document.getElementById('inputCategory');
+
+    if (input.value === '') {
+        return;
+    } else {
+        category.push(input.value);
+        renderCategory();
+    }
+}
+
+
+/**
+ * Function delete category
+ */
+function deleteCategory(event, i) {
+    category.splice(i, 1);
+
+    renderCategory();
+    event.stopPropagation();
 }
 
 
@@ -42,7 +104,7 @@ function renderSubtask() {
         tasks.innerHTML += /*html*/ `
         <li>
             <span>${subtasks[i]}</span>
-            <div class="edit">
+            <div class="edit-subtask">
                 <img class="editDelete " onclick="" src="img/edit.svg">
                 <div class="line"></div>
                 <img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
@@ -58,7 +120,6 @@ function renderSubtask() {
  * @returns 
  */
 function addSubtask() {
-    let tasks = document.getElementById('subtasks');
     let input = document.getElementById('subtask');
 
     if (input.value === '') {
@@ -78,28 +139,6 @@ function deleteSubtask(i) {
     subtasks.splice(i, 1);
 
     renderAddtask();
-}
-
-
-/**
- * Function opens, closes dropdown menu contacts
- * @param {*} event 
- */
-function showCloseContacts(event) {
-    document.getElementById('dropdownContact').classList.toggle('display-none');
-
-    event.stopPropagation();
-}
-
-
-/**
- * Function opens, closes dropdown menu category
- * @param {*} event 
- */
-function showCloseCategory(event) {
-    document.getElementById('dropdownCategory').classList.toggle('display-none');
-
-    event.stopPropagation();
 }
 
 
