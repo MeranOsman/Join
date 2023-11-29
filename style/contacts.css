@@ -300,8 +300,53 @@ h2{
 
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
+    .modal-inner{
+        width:95%;
+        padding-right: 16px;
+    }
+    .close-btn-contacts{
+        top:32px;
+        right: 3%;
+    }
+    .flex-col-contacts-inner input {
+        width: 80%;
+    }
+    .flex-col-contacts-inner{
+        width: 100%;
+        align-items: center;
+        padding:0 16px;
+        padding:0;
+    }
+    .flex-row-contacts{
+        gap:32px;
+        width: 90%;
+    }
+    .flex-row.media{
+        gap:0;
+    }
+    .flex-col-contacts{
+        min-width: 280px;
+    }
 
-  
+    .heading-contacts{
+        font-size: 40px;
+    }
+    .subline-contacts{
+        font-size: 20px;
+    }
+    .flex-row.media{
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap:8px;
+    }
+    .btn-login.media{
+        font-size: 16px;
+        margin-right: 0;
+    }
+    .btn-guest.media{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 1020px) {
@@ -310,7 +355,10 @@ h2{
 }
 
 @media screen and (max-width: 960px) {
-
+    .media-pos{
+        height:100px;
+        width: 100px;
+    }
 }
 
 
@@ -332,6 +380,58 @@ h2{
         width: 100%;
         padding: 0;
     }
+
+    /*add contact modal*/
+    .modal-inner{
+        width: 100vw;
+        height: 100%;
+        border-radius: 0;
+    }
+    .flex-row-contacts{
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden !important;
+    }
+    .flex-col-contacts{
+        width:100vw;
+        max-height: 50vh!important;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .media-pos{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .btn-login.media{
+        min-width: 200px;
+    }
+   
+    .close-btn-contacts:hover{
+        background-color: #fff;
+        color: black;
+    }
+
+    .heading-contacts{
+        font-size: 30pt;
+        margin-left: 8px;
+    }
+    .subline-contacts{
+        font-size: 14pt;
+        margin-left: 8px;
+    }
+    .divider-hori{
+        margin-left: 8px;
+    }
+    .media-hide.btn {
+        display: flex !important;
+        position: absolute;
+        bottom:50px;
+        right:8%;
+    }
    
 }
 
@@ -340,6 +440,17 @@ h2{
     .contacts-section{
         height: calc(100vh - 166px);
     }
-   
+    .media-hide.btn {
+        bottom:100px;
+    }
+    .media-hide img{
+        width: 48px;
+        height: 48px;
+    }
+    .media-hide img:hover{
+        width: 50px;
+        height: 50px;
+    }
+    
     
 }
