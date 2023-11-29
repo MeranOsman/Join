@@ -33,7 +33,6 @@
 .flex-start-board {
     display: flex;
     flex-wrap: nowrap;
-    flex: 0 1 35%;
     justify-content: flex-start;
     align-items: center;
     margin: 64px 64px 0 0;
@@ -320,6 +319,21 @@ input#search-board {
     position: relative;
 }
 
+.prio button{
+    font-size:12pt !important;
+    padding:0 56px 0 8px !important; 
+}
+
+.low-btn{
+    background-position: calc(100% - 20%) 50% !important;
+}
+.medium-btn{
+    background-position: calc(100% - 15%) 50% !important;
+}
+.urgent-btn{
+    background-position: calc(100% - 15%) 50% !important;
+}
+
 /* animations */
 .move-to-left-pop {
     animation: move-to-left-animation-pop 300ms;
@@ -349,3 +363,190 @@ input#search-board {
     }
 }
 
+/*MEDIA QUERRYS*/
+@media screen and (max-width: 1440px) {
+
+    .flex-flow {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+
+    .add-task h1{
+        font-size: 40pt;
+        margin-top: 32px;
+    }
+
+    .close-task-pop.pos{
+        top:32px;
+        right:32px;
+    }
+
+    .add-task-modal-inner{
+        width: 90%;
+        height: 95%;
+        overflow-y: auto;
+        
+    }
+
+    .lower-area{
+        padding-bottom:64px !important;
+        margin:48px auto 0 auto !important;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    input#search-board{
+        min-width: 100px !important;
+        margin-left:16px;
+    }
+
+    .headline-board{
+        font-size: 48px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+
+    .flex-container-board {
+        flex-direction: column;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    .flex-btw.board {
+        min-width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .flex-btw-board {
+        min-width: 88%;
+    }
+
+    .flex-column-board {
+        align-items: flex-start !important;
+    }
+
+    .tasks-card-empty {
+        width: 80% !important;
+    }
+
+    .flex-start-board {
+        min-width: 90%;
+    }
+
+    .media-hide.board {
+        display: flex !important;
+    }
+
+    .media-show.board {
+        display: none !important;
+    }
+
+    .login {
+        width: 80% !important;
+        margin: 0 0 0 32px;
+    }
+
+    .btn-board {
+        position: absolute;
+        top: 128px;
+        right: 64px;
+        padding: 0 !important;
+        min-width: 44px !important;
+        min-height: 40px !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .headline-board {
+        margin: 64px 0 0 32px !important;
+    }
+
+    .margin-t-xl {
+        margin-top: 16px;
+    }
+
+    input#search-board{
+        margin-left:32px;
+    }
+
+    .task-container-card{
+        max-width: 350px;
+    }
+
+    .task-pop-heading{
+        font-size:30pt;
+    }
+
+    .add-task h1{
+        font-size: 30pt;
+        margin-top: 32px;
+    }
+
+    .close-task-pop.pos{
+        top:16px;
+        right:16px;
+    }
+
+    .add-task-modal-inner{
+        width: 90%;
+        height: 95%;
+        overflow-y: auto;
+        
+    }
+
+    .lower-area{
+        padding-bottom:16px !important;
+        margin:32px auto 0 auto !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .task-container-card{
+        max-width: 240px;
+        border-radius: 0;
+    }
+
+    .task-pop-heading{
+        font-size:26pt;
+    }
+
+    .btn-board{
+        top:120px;
+        right:32px;
+    }
+
+    .flex-btw-board{
+        width: 230px;
+    }
+    
+    .add-task h1{
+        font-size: 26pt;
+        margin-top: 32px;
+    }
+
+    .close-task-pop.pos{
+        top:16px;
+        right:16px;
+    }
+
+    .add-task-modal-inner{
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .lower-area{
+        padding-bottom:16px !important;
+        margin:32px auto 0 auto !important;
+    }
+    
+}

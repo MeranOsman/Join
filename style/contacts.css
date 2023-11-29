@@ -296,3 +296,50 @@ h2{
         margin-right: 0;
     }
 }
+
+
+/*MEDIA QUERRYS*/
+@media screen and (max-width: 1440px) {
+
+  
+}
+
+@media screen and (max-width: 1020px) {
+
+
+}
+
+@media screen and (max-width: 960px) {
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .media-hide.contacts {
+        display: flex !important;
+    }
+
+    .media-show.contacts {
+        display: none !important;
+    }
+
+    .flex-contacts{
+        flex-direction: column;
+        gap:0;
+    }
+
+    .contacts-section{
+        width: 100%;
+        padding: 0;
+    }
+   
+}
+
+@media screen and (max-width: 570px) {
+
+    .contacts-section{
+        height: calc(100vh - 166px);
+    }
+   
+    
+}
