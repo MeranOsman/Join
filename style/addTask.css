@@ -302,8 +302,7 @@
     height: 52px;
     border: 1px solid lightgray;
     border-radius: 10px;
-    font-size: 22px;
-    font-weight: 300;
+    font-size: 19px;
     background-color: white;
     padding: 12px 20px;
 }
@@ -534,6 +533,17 @@
     align-items: center;
     width: 92px;
 }
+
+.active-contact {
+    background-color: var(--sidebar-background);
+    border-radius: 10px;
+    color: white;
+}
+
+.active-contact:hover {
+    background-color: rgb(13, 25, 47) !important;
+}
+
 
 /* media */
 @media screen and (max-width: 1250px) {

@@ -1,3 +1,4 @@
+let contacts = ['Anton Mayer', 'Anja Schulz', 'Benedikt Ziegler', 'David Eisenberg', 'Eva Fischer', 'Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf', 'Anton Mayer', 'Anton Mayer'];
 let subtasks = [];
 let category = ['Technical Task', 'User Story'];
 
@@ -8,6 +9,71 @@ let category = ['Technical Task', 'User Story'];
 function renderAddtask() {
     renderSubtask();
     renderCategory();
+    renderContacts()
+}
+
+
+/**
+ * Function for render contacts
+ */
+function renderContacts() {
+    let elements = document.getElementById('contactAll');
+    elements.innerHTML = '';
+
+    for (let i = 0; i < contacts.length; i++) {
+        elements.innerHTML += /*html*/ `
+        <li onclick="activeContact(${i})" id="liContact${i}">
+            <div class="flex-center gap">
+                <span class="contacts-icon">AM</span>
+                <span class="contacts">${contacts[i]}</span>
+            </div>
+            <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+        </li>
+        `;
+    }
+}
+
+
+/**
+ * Function to change the design when selecting a contact
+ * 
+ * @param {*} i 
+ */
+function activeContact(i) {
+    let contact = document.getElementById(`contactCheckbox${i}`);
+    let list = document.getElementById(`liContact${i}`);
+
+    contact.classList.toggle('icon-checkbox-active');
+    contact.classList.toggle('filter-invert');
+    list.classList.toggle('active-contact');
+}
+
+
+/**
+ * Filter function for contact-list
+ */
+function searchContact() {
+    input = document.getElementById('inputSearch');
+    search = input.value.trim().toLowerCase();
+
+    let elements = document.getElementById('contactAll');
+    elements.innerHTML = '';
+
+    for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].toLocaleLowerCase().includes(search)) {
+            elements.innerHTML += /*html*/ `
+        <li onclick="activeContact(${i})" id="liContact${i}">
+            <div class="flex-center gap">
+                <span class="contacts-icon">AM</span>
+                <span class="contacts">${contacts[i]}</span>
+            </div>
+            <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+        </li>
+        `;
+        }
+    }
+
+
 }
 
 

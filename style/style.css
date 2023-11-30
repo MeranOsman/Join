@@ -151,6 +151,10 @@ input::-webkit-datetime-edit {
     display: none !important;
 }
 
+.filter-invert {
+    filter: invert(1);
+}
+
 .flex-center {
     display: flex;
     justify-content: center;
