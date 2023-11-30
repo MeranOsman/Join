@@ -28,6 +28,10 @@ button {
     cursor: pointer;
 }
 
+input, textarea {
+    border: unset !important;
+}
+
 input::placeholder {
     font-family: 'Roboto', sans-serif;
     font-size: 21px;
@@ -149,6 +153,10 @@ input::-webkit-datetime-edit {
 
 .display-none {
     display: none !important;
+}
+
+.filter-invert {
+    filter: invert(1);
 }
 
 .flex-center {
