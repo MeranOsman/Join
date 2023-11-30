@@ -13,6 +13,7 @@
     <script src="js/addTask.js"></script>
     <script src="js/board.js"></script>
     <script src="js/addTask.js"></script>
+    <script src="js/modalAnimation.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
@@ -36,17 +37,17 @@
         <h1 class="headline-board">Board</h1>
         <div class="flex-start-board gap">
             <input id="search-board" required type="text" placeholder="Find Task" class="login icon-search">
-            <button onclick="addTaskOnBoard()" class="btn-board margin-l-s media-show board">Add Task<span class="icon-plus"></span></button>
+            <button onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'), removeHide('close-btn-addTask')" class="btn-board margin-l-s media-show board">Add Task<span class="icon-plus"></span></button>
         </div>
         <!-- media btn-->
-        <button onclick="addTaskOnBoard()" class="btn-board media-hide board"><img src="img/plus.svg" /></button>
+        <button onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" class="btn-board media-hide board"><img src="img/plus.svg" /></button>
     </div>
 
     <div class="flex-container-board margin-t-xl gap-32">
     <div class="flex-flow">
         <div class="flex-column-board">
             <div class="flex-btw-board on-hover">
-                <p class="tasks-heading">To do</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+                <p class="tasks-heading">To do</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
             </div>
             <div class="tasks-card-empty">
                 <p>No tasks To do</p>
@@ -54,9 +55,9 @@
         </div>
         <div class="flex-column-board gap">
             <div class="flex-btw-board on-hover">
-                <p class="tasks-heading">In progress</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+                <p class="tasks-heading">In progress</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
             </div>
-            <div class="tasks-card" onclick="showTaskInfo()">
+            <div class="tasks-card" onclick="showModal('task-info-modal','task-pop-up')">
                 <p class="task-card-heading blue">User story</p>
                 <p class="task-card-title">Kochwelt Page & Recipe Recommender</p>
                 <p class="task-card-note">Build start page with recipe recommendation...</p>
@@ -101,7 +102,7 @@
     <div class="flex-flow">
         <div class="flex-column-board">
             <div class="flex-btw-board on-hover">
-                <p class="tasks-heading">Await feedback</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+                <p class="tasks-heading">Await feedback</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
             </div>
             <div class="tasks-card">
                 <p class="task-card-heading azur">Technical Task</p>
@@ -119,7 +120,7 @@
         </div>
         <div class="flex-column-board">
             <div class="flex-btw-board on-hover">
-                <p class="tasks-heading">Done</p><img onclick="addTaskOnBoard()" src="img/add-btn.svg" />
+                <p class="tasks-heading">Done</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
             </div>
             <div class="tasks-card">
                 <p class="task-card-heading blue">User story</p>

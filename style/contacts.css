@@ -148,7 +148,7 @@ h2{
     width:1200px;
     height:500px;
 
-    background:var(--summary-background);
+    background:var(--header-bg);
 
     border-radius: 20px;
     position: relative;
@@ -351,7 +351,6 @@ h2{
 
 @media screen and (max-width: 1020px) {
 
-
 }
 
 @media screen and (max-width: 960px) {
@@ -432,7 +431,6 @@ h2{
         bottom:50px;
         right:8%;
     }
-   
 }
 
 @media screen and (max-width: 570px) {
@@ -451,6 +449,4 @@ h2{
         width: 50px;
         height: 50px;
     }
-    
-    
 }

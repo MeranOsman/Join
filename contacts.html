@@ -11,6 +11,7 @@
     <script src="js/login.js"></script>
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/modalAnimation.js"></script>
     <script src="js/addContacts.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
@@ -28,7 +29,7 @@
     <div class="flex-contacts">
         <div id="contacts-section" class="contacts-section flex-contacts-inner-left">
 
-            <button onclick="addContact()" class="flex-row-btn media-show contacts">Add new contact<span><img src="img/person_add.svg"/></span></button>
+            <button onclick="showModal('contacts-modal','modal-inner')" class="flex-row-btn media-show contacts">Add new contact<span><img src="img/person_add.svg"/></span></button>
 
             <ul class="margin-t">
                 <div class="margin-t"><span>A</span></div>
@@ -119,7 +120,7 @@
 
     <!-- media btn for add contact ### START -->
     <div class="media-hide btn">
-        <img onclick="addContact()" src="img/add-contact-media.svg" />
+        <img onclick="showModal('contacts-modal','modal-inner')" src="img/add-contact-media.svg" />
     </div>
     <!-- ### media btn for add contact ### END -->
 
