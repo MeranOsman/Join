@@ -37,12 +37,12 @@ function renderCategory() {
         elements.innerHTML += /*html*/ `
         <li>
             <span>${category[i]}</span>
+            <div class="display-flex">
             <div class="edit-category">
-                <img onclick="editCategory(${i})" class="editDelete "  src="img/edit.svg">
-                <div class="line"></div>
                 <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
             </div>
-            <div class="circle-blue"></div>
+                <div class="circle-blue"></div>
+            </div>
         </li>
         `;
     }
@@ -69,11 +69,6 @@ function cancelCategory() {
 }
 
 
-function editCategory(i) {
-     
-}
-
-
 /**
  * Function push category to array
  * 
@@ -82,9 +77,7 @@ function editCategory(i) {
 function addCategory() {
     let input = document.getElementById('inputCategory');
 
-    if (input.value === '') {
-        return;
-    } else {
+    if (input.value.trim() !== '') {
         category.push(input.value);
         renderCategory();
     }
@@ -114,15 +107,49 @@ function renderSubtask() {
 
     for (let i = 0; i < subtasks.length; i++) {
         tasks.innerHTML += /*html*/ `
-        <li>
+        <li id="listnumber${i}">
             <span>${subtasks[i]}</span>
             <div class="edit-subtask">
-                <img class="editDelete " onclick="" src="img/edit.svg">
+                <img onclick="editSubtask(${i})" class="editDelete " onclick="" src="img/edit.svg">
                 <div class="line"></div>
                 <img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
             </div>
         </li>
         `;
+    }
+}
+
+
+/**
+ * Function edit subtask
+ * 
+ * @param {*} i 
+ */
+function editSubtask(i) {
+    document.getElementById(`listnumber${i}`).innerHTML = /*html*/ `
+    <div>
+        <input id="input-edit" class="input-edit" type="text" minlength="3">
+        <div class="trash-checkmark">
+            <img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
+            <div class="line"></div>
+            <img onclick="addChange(${i})" class="crossPlus" src="img/check-black.svg">
+        </div>
+    </div>        
+    `;
+}
+
+
+/**
+ * Function for add change subtask
+ * 
+ * @param {*} i 
+ */
+function addChange(i) {
+    let input = document.getElementById('input-edit');
+
+    if (input.value.trim() !== '') {
+        subtasks.splice(i, 1, input.value);
+        renderSubtask();
     }
 }
 
@@ -135,9 +162,7 @@ function renderSubtask() {
 function addSubtask() {
     let input = document.getElementById('subtask');
 
-    if (input.value === '') {
-        return;
-    } else {
+    if (input.value.trim() !== '') {
         subtasks.push(input.value);
         renderAddtask();
     }

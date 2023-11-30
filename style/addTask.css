@@ -394,6 +394,26 @@
     opacity: 0;
 }
 
+.trash-checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: -5px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.trash-checkmark img {
+    padding: 0;
+}
+
+.trash-checkmark img:hover {
+    background-color: white;
+    cursor: pointer;
+    transform: scale(1.2);
+}
 
 .edit-category {
     width: 50px;
@@ -483,6 +503,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.input-edit {
+    height: 26px;
+    border: unset;
+    font-size: 18px;
+    width: 98%;
+    border-bottom: 2px solid var(--summary-h2-color);
 }
 
 .color-section {
