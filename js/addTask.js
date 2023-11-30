@@ -50,7 +50,7 @@ function activeContact(i) {
 
 
 /**
- * Filter function for contact-list
+ * Filter function for contact list
  */
 function searchContact() {
     input = document.getElementById('inputSearch');
@@ -62,14 +62,14 @@ function searchContact() {
     for (let i = 0; i < contacts.length; i++) {
         if (contacts[i].toLocaleLowerCase().includes(search)) {
             elements.innerHTML += /*html*/ `
-        <li onclick="activeContact(${i})" id="liContact${i}">
-            <div class="flex-center gap">
-                <span class="contacts-icon">AM</span>
-                <span class="contacts">${contacts[i]}</span>
-            </div>
-            <div id="contactCheckbox${i}" class="icon-checkbox"></div>
-        </li>
-        `;
+                <li onclick="activeContact(${i})" id="liContact${i}">
+                    <div class="flex-center gap">
+                        <span class="contacts-icon">AM</span>
+                        <span class="contacts">${contacts[i]}</span>
+                    </div>
+                    <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+                </li>
+                `;
         }
     }
 
