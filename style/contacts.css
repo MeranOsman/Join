@@ -254,32 +254,6 @@ h2{
     margin-top: 80px;
 }
 
-/* animations */
-.move-to-left {
-    animation: move-to-left-animation 300ms;
-}
-.move-to-right {
-    animation: move-to-right-animation 300ms;
-}
-
-@keyframes move-to-left-animation {
-    from {
-        margin-right: -5000px;
-    }
-    to {
-        margin-right: 0;
-    }
-}
-
-@keyframes move-to-right-animation {
-    from {
-        margin-right: -5000px;
-    }
-    to {
-        margin-right: 0;
-    }
-}
-
 
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
