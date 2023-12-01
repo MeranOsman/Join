@@ -240,24 +240,7 @@ h2{
 }
 
 /* infobox */
-.heading-info{
-    font-size: 40px;
-    color:black;
-    font-weight: 500;
-    line-height: 0;
-}
 
-.contact-icons-info {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    color: var(--header-bg);
-    border:solid 3px #fff;
-}
 
 .links:hover{
     color: var(--summary-h2-color);
@@ -425,11 +408,40 @@ h2{
     .divider-hori{
         margin-left: 8px;
     }
+    .divider-hori.modal{
+        margin-left: 0;
+    }
     .media-hide.btn {
         display: flex !important;
         position: absolute;
         bottom:50px;
         right:8%;
+    }
+    .modal-inner.modal{
+        height:50% !important;
+        position: absolute;
+        top:80px;
+        height:810px !important;
+        background: var(--summary-background);
+        justify-content: flex-start;
+        padding-left: 32px;
+    }
+    .return.modal{
+        z-index:2;
+    }
+    #contacts-bg h2{
+        font-size: 14pt;
+        line-height: 1;
+    }
+    .contact-icons.modal{
+        height: 80px;
+        width: 80px;
+        font-size: 20pt;
+    }
+    .names{
+        color: black;
+        font-size: 26pt;
+        font-weight: 600;
     }
 }
 

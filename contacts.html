@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/contacts.css">
-    <link rel="stylesheet" href="style/logoAnimation.css">
     <link href="img/logo-white.svg" rel="icon" media="(prefers-color-scheme: dark)" />
     <link href="img/join-logo-loading.svg" rel="icon" media="(prefers-color-scheme: light)" />
 </head>
@@ -34,50 +33,50 @@
             <ul class="margin-t">
                 <div class="margin-t"><span>A</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="0" onclick="infoBox()">
+                <div class="flex-contacts-inner-li" tabindex="0" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons orange">AM</span></li></span>
                     <li>Anton Mayer<br><span class="contacts-links">antom@gmail.com</span></li>
                 </div>
-                <div class="flex-contacts-inner-li" tabindex="1">
+                <div class="flex-contacts-inner-li" tabindex="1" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons vio">AS</span></li></span>
                     <li>Anja Schulz<br><span class="contacts-links">Schulz@hotmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>B</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="2">
+                <div class="flex-contacts-inner-li" tabindex="2" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons blue">BZ</span></li></span>
                     <li>Benedikt Ziegler<br><span class="contacts-links">benedikt@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>D</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="3">
+                <div class="flex-contacts-inner-li" tabindex="3" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons pink">DE</span></li></span>
                     <li>David Eisenberg<br><span class="contacts-links">davidberg@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>E</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="4">
+                <div class="flex-contacts-inner-li" tabindex="4" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons yell">EF</span></li></span>
                     <li>Eva Fischer<br><span class="contacts-links">eva@gmail.com</span></li>
                 </div>
-                <div class="flex-contacts-inner-li" tabindex="5">
+                <div class="flex-contacts-inner-li" tabindex="5" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons azur">EM</span></li></span>
                     <li>Emmanuel Mauer<br><span class="contacts-links">emmanuelma@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>M</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="6">
+                <div class="flex-contacts-inner-li" tabindex="6" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons deep">MB</span></li></span>
                     <li>Marcel Bauer<br><span class="contacts-links">bauer@gmail.com</span></li>
                 </div>
 
                 <div class="margin-t"><span>T</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="7">
+                <div class="flex-contacts-inner-li" tabindex="7" onclick="removeHide('contacts-modal-info')">
                     <li><span class="contact-icons tango">TW</span></li></span>
                     <li>Tatjana Wolf<br><span class="contacts-links">wolf@gmail.com</span></li>
                 </div>
@@ -89,24 +88,8 @@
             </div>
             
             <!-- infomodal for contacts, appears on contact click ### START -->
-            <div id="infobox-outer" class="hide">
-                <div id="infobox-inner">
-                    <div class="margin-l flex-row-contacts">
-                        <span class="contact-icons-info orange">AM</span></span>
-                        <div>
-                            <p class="heading-info">Anton Mayer</p>
-                            <div class="flex-row-contacts">
-                                <div class="flex-row-contacts gap links"><div class="icon-edit">Edit</div></div>
-                                <div class="flex-row-contacts gap links"><div class="icon-delete">Delete</div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="margin-l subline-info">Contact information</p>
-                    <p class="margin-l margin-t-xl"><b>Email</b></p>
-                    <p class="margin-l ci-blue">antom@gmail.com</p>
-                    <p class="margin-l margin-t"><b>Phone</b></p>
-                    <p class="margin-l">+491562258745628</p>
-                </div>
+            <div id="contacts-modal-info" class="hide">
+                <div class="add-task-modal-inner" w3-include-html="templates/contactInfoModal.html"></div>
             </div>
             <!-- infomodal for contacts, appears on contact click ### END -->
         </div>
