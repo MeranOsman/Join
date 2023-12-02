@@ -35,3 +35,11 @@ function hideAgain(outer, inner){
 function removeHide(remove){
     document.getElementById(remove).classList.remove('hide');
 }
+
+
+/*
+*** help function to move z-index from 0 to -1
+*/
+function addZindex(add){
+    document.getElementById(add).style.setProperty('z-index','-1');
+}

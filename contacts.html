@@ -33,7 +33,7 @@
             <ul class="margin-t">
                 <div class="margin-t"><span>A</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="0" onclick="removeHide('contacts-modal-info')">
+                <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info')">
                     <li><span class="contact-icons orange">AM</span></li></span>
                     <li>Anton Mayer<br><span class="contacts-links">antom@gmail.com</span></li>
                 </div>
@@ -89,7 +89,7 @@
             
             <!-- infomodal for contacts, appears on contact click ### START -->
             <div id="contacts-modal-info" class="hide">
-                <div class="add-task-modal-inner" w3-include-html="templates/contactInfoModal.html"></div>
+                <div w3-include-html="templates/contactInfoModal.html"></div>
             </div>
             <!-- infomodal for contacts, appears on contact click ### END -->
         </div>
@@ -97,12 +97,12 @@
 
     <!-- modal for new contacts, appears on button click ### START -->
      <div id="contacts-modal" class="hide">
-        <div class="add-task-modal-inner" w3-include-html="templates/addContactsModal.html"></div>
+        <div w3-include-html="templates/addContactsModal.html"></div>
     </div>
     <!-- ### modal for new contacts ### END -->
 
     <!-- media btn for add contact ### START -->
-    <div class="media-hide btn">
+    <div id="addContact-btn" class="media-hide btn">
         <img onclick="showModal('contacts-modal','modal-inner')" src="img/add-contact-media.svg" />
     </div>
     <!-- ### media btn for add contact ### END -->

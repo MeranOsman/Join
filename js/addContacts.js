@@ -1,7 +1,7 @@
 /*
-*** function to show the contacts infobox
+*** function for show and hide dropdown menu on contact info via opacity
 */
-function infoBox(){
-    document.getElementById('infobox-outer').classList.remove('hide');
-    document.getElementById('infobox-outer').style.setProperty('animation-direction','normal');
+function showDropdown() {
+    var dropdown = document.getElementById('dropdown-contacts');
+    dropdown.classList.toggle('show-dropdown');
 }

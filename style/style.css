@@ -117,6 +117,10 @@ input::-webkit-datetime-edit {
     margin-left: 48px;
 }
 
+.margin-l-32 {
+    margin-left: 32px;
+}
+
 .margin-l-s {
     margin-left: 16px;
 }
@@ -353,6 +357,15 @@ input::-webkit-datetime-edit {
     height: 24px;
     width: 24px;
 }
+.icon-edit.text:hover {
+    cursor: pointer;
+    background: url(../img/edit.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left: 24px;
+}
 
 .icon-delete {
     background: url(../img/delete.svg);
@@ -369,6 +382,15 @@ input::-webkit-datetime-edit {
     background-size: 18px 18px;
     height: 24px;
     width: 24px;
+}
+.icon-delete.text:hover {
+    cursor: pointer;
+    background: url(../img/delete.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left: 24px;
 }
 
 

@@ -334,35 +334,6 @@ input#search-board {
     background-position: calc(100% - 15%) 50% !important;
 }
 
-/* animations */
-.move-to-left-pop {
-    animation: move-to-left-animation-pop 300ms;
-}
-
-.move-to-right-pop {
-    animation: move-to-right-animation-pop 300ms;
-}
-
-@keyframes move-to-left-animation-pop {
-    from {
-        margin-left: 5000px;
-    }
-
-    to {
-        margin-left: 0;
-    }
-}
-
-@keyframes move-to-right-animation-pop {
-    from {
-        margin-left: 5000px;
-    }
-
-    to {
-        margin-left: 0;
-    }
-}
-
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
 

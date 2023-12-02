@@ -254,6 +254,50 @@ h2{
     margin-top: 80px;
 }
 
+/* dropdown edit contacts*/
+.dropdown-contacts{
+    width:120px;
+    height:110px;
+    background: var(--header-bg);
+    border-radius: 15px 15px 0 15px;
+    box-shadow: 0 3px 5px rgba(119, 119, 119, 0.7);
+    position: absolute;
+    bottom:160px;
+    right:8%;
+    display: flex;
+    flex-direction: column;
+    color:var(--sidebar-background);
+    font-weight: 600;
+    opacity:0;
+    transition: all 250ms;
+}
+
+.show-dropdown {
+    opacity: 1;
+}
+
+.bg-color{
+    width: 100%;
+    height:55px;
+}
+.bg-color:hover{
+    background-color:#f3f3f3;
+    height:55px;
+    border-radius: 15px 15px 0 0;
+}
+.bg-color.snd:hover{
+    background-color:#f3f3f3;
+    height:55px;
+    border-radius: 0 0 0 15px;
+}
+
+.contact-bold{
+    font-weight: 600;
+}
+
+.link{
+    color: var(--summary-h2-color);
+}
 
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
@@ -275,7 +319,6 @@ h2{
         padding:0;
     }
     .flex-row-contacts{
-        gap:32px;
         width: 90%;
     }
     .flex-row.media{
@@ -315,6 +358,9 @@ h2{
         height:100px;
         width: 100px;
     }
+    .flex-row-contacts{
+        gap:24px;
+    }
 }
 
 
@@ -342,6 +388,7 @@ h2{
         width: 100vw;
         height: 100%;
         border-radius: 0;
+        padding:0;
     }
     .flex-row-contacts{
         flex-direction: column;
@@ -390,6 +437,7 @@ h2{
         position: absolute;
         bottom:50px;
         right:8%;
+        z-index: 0;
     }
     .modal-inner.modal{
         height:50% !important;
@@ -398,7 +446,6 @@ h2{
         height:810px !important;
         background: var(--summary-background);
         justify-content: flex-start;
-        padding-left: 32px;
     }
     .return.modal{
         z-index:2;
