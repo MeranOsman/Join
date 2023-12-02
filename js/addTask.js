@@ -155,10 +155,10 @@ function showCloseContacts(event) {
  * @param {*} newClass 
  */
 function SelectPrioBtn(btnId, newClass) {
+    let btn = document.getElementById(btnId);
     let urgentBtn = document.getElementById('urgentBtn');
     let mediumBtn = document.getElementById('mediumBtn');
     let lowBtn = document.getElementById('lowBtn');
-    let btn = document.getElementById(btnId);
 
     if (!urgentBtn.classList.contains('urgent-color') && !mediumBtn.classList.contains('medium-color') && !lowBtn.classList.contains('low-color')) {
         btn.classList.add(newClass);

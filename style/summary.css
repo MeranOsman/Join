@@ -243,6 +243,11 @@ p {
         gap: 6px;
     }
 
+    .summary-section {
+        margin-right: 0;
+        align-content: center;
+    }
+
     .name {
         margin: 0;
         font-size: 32px;
