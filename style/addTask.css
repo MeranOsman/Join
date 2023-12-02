@@ -292,6 +292,12 @@
     color: white;
 }
 
+.contacts-icon:hover {
+    cursor: pointer;
+    border: solid 2px gray;
+    color: gray;
+}
+
 .dropdown {
     position: absolute;
     top: 0;

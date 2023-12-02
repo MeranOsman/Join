@@ -1,4 +1,5 @@
 let contacts = ['Anton Mayer', 'Anja Schulz', 'Benedikt Ziegler', 'David Eisenberg', 'Eva Fischer', 'Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf', 'Anton Mayer', 'Anton Mayer'];
+let selectedContacts = ['AM', 'BZ'];
 let subtasks = [];
 let category = ['Technical Task', 'User Story'];
 
@@ -14,7 +15,7 @@ function renderAddtask() {
 
 
 /**
- * Function for render contacts
+ * Function for render contacts and selected Contacts
  */
 function renderContacts() {
     let elements = document.getElementById('contactAll');
@@ -22,7 +23,7 @@ function renderContacts() {
 
     for (let i = 0; i < contacts.length; i++) {
         elements.innerHTML += /*html*/ `
-        <li onclick="activeContact(${i})" id="liContact${i}">
+        <li onclick="toggleFunction(${i})" id="liContact${i}">
             <div class="flex-center gap">
                 <span class="contacts-icon">AM</span>
                 <span class="contacts">${contacts[i]}</span>
@@ -30,7 +31,67 @@ function renderContacts() {
             <div id="contactCheckbox${i}" class="icon-checkbox"></div>
         </li>
         `;
+
+        renderSelectedContacts();
     }
+}
+
+
+/**
+ * Function for only render selected Contacts
+ */
+function renderSelectedContacts() {
+    let list = document.getElementById('selectedContacts');
+    list.innerHTML = '';
+
+    for (let i = 0; i < selectedContacts.length; i++) {
+        list.innerHTML += `
+        <span onclick="deleteSelectedContact(${i})" class="contacts-icon">${selectedContacts[i]}</span>
+        `;
+    }
+}
+
+/**
+ * Toggle-function for add or delete contact
+ * 
+ * @param {*} i 
+*/
+function toggleFunction(i) {
+    let list = document.getElementById(`liContact${i}`);
+    
+    if (!list.classList.contains('active-contact')) {
+        selectContact(i);
+    } else {
+        deleteSelectedContact(i);
+        activeContact(i);
+    }
+}
+
+
+
+
+/**
+ * Function for push selected contact to array
+ * 
+ * @param {*} i 
+ */
+function selectContact(i) {
+    selectedContacts.push(contacts[i]);
+
+    activeContact(i);
+    renderSelectedContacts();
+}
+
+
+/**
+ * Function for delete selected contact
+ * 
+ * @param {*} i 
+ */
+function deleteSelectedContact(i) {
+    selectedContacts.splice(i, 1)
+
+    renderSelectedContacts();
 }
 
 
@@ -72,8 +133,6 @@ function searchContact() {
                 `;
         }
     }
-
-
 }
 
 
