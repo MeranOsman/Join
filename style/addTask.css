@@ -563,15 +563,25 @@
 }
 
 .urgent-color {
-    background-color: rgb(235, 79, 39);
+    background-color: #FF3D00 !important;
+    background-image: url(../img/prioUrgent-white.svg);
+    color: white;
 }
 
 .medium-color {
-    background-color: rgb(243, 172, 60);
+    background-color: #FFA800 !important;
+    background-image: url(../img/prioMedium-white.svg);
+    color: white;
 }
 
 .low-color {
-    background-color: rgb(148, 223, 79);
+    background-color: #7BE129 !important;
+    background-image: url(../img/prioLow_white.svg);
+    color: white;
+}
+
+.urgent-color:hover, .medium-color:hover, .low-color:hover {
+    box-shadow: none !important;
 }
 
 

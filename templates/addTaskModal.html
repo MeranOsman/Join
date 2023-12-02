@@ -38,9 +38,9 @@
                 <input required class="task-input lightgray" id="date" type="date">
                 <label class="label-input">Prio</label>
                 <div class="prio display-flex">
-                    <button onclick="urgentPrioBtn()" id="urgentBtn" class="urgent-btn">Urgent</button>
-                    <button onclick="mediumPrioBtn()" id="mediumBtn" class="medium-btn">Medium</button>
-                    <button onclick="lowPrioBtn()" id="lowBtn" class="low-btn">Low</button>
+                    <button onclick="SelectPrioBtn('urgentBtn', 'urgent-color')" id="urgentBtn" class="urgent-btn">Urgent</button>
+                    <button onclick="SelectPrioBtn('mediumBtn', 'medium-color')" id="mediumBtn" class="medium-btn">Medium</button>
+                    <button onclick="SelectPrioBtn('lowBtn', 'low-color')" id="lowBtn" class="low-btn">Low</button>
                 </div>
                 <label class="label-required">Category</label>
                 <div class="position-relative width">
