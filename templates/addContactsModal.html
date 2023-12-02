@@ -11,13 +11,17 @@
         <div class="flex-row-contacts">
             <img class="media-pos" src="img/join-avatar.svg" />
             <div class="flex-col-contacts-inner">
-                <div onclick="closeModal('contacts-modal','modal-inner')" class="close-btn-contacts">X</div>
+                <div onclick="closeModal('contacts-modal','modal-inner'), wait('edit-btn')" class="close-btn-contacts">X</div>
                 <input id="contacts-name" required type="text" placeholder="Name" class="login icon-person">
                 <input id="contacts-mail" required type="email" placeholder="Email" class="login icon-mail">
                 <input id="contacts-phone" required type="text" placeholder="Phone" class="login icon-call">
-                <div class="margin-t flex-row media">
+                <div id="add-btn" class="margin-t flex-row media">
                     <button class="btn-guest media show contacts">Cancel<span class="icon-cross"></span></button>
                     <button class="btn-login media">Create Contact<span class="icon-check-new"></span></button>
+                </div>
+                <div id="edit-btn" class="margin-t flex-row media">
+                    <button class="btn-guest media show contacts">Delete</button>
+                    <button class="btn-login media">Save<span class="icon-check-new"></span></button>
                 </div>
             </div>
         </div>
