@@ -1,0 +1,40 @@
+<div id="infobox-outer" class="margin-t">
+    <a class="return modal" href="../contacts.html"><img src="img/arrow.svg" alt="blue-arrow"></a>
+    <div id="modal-inner-info" class="modal-inner modal move-to-left">
+        <div class="margin-l-32">
+            <div class="flex-column-start">
+                <div id="contacts-bg" class="margin-t">
+                    <h1>Contacts</h1><h2>Better with a team</h2>
+                    <div class="divider-hori modal"></div>
+                </div>
+                <div class="flex-row margin-t">
+                    <div class="contact-icons modal orange">AM</div>
+                    <div class="names">Anton Mayer</div>
+                </div>
+                <div>
+                    <div class="margin-t subline-info">Contact information</div>
+                    <div class="margin-t contact-bold">Email</div>
+                    <div class="margin-t link">antom@gmail.com</div>
+                    <div class="margin-t contact-bold">Phone</div>
+                    <div class="margin-t">+49 1111 111 11 1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- media btn for contact info modal ### START -->
+        <div class="media-hide btn" onclick="showDropdown()">
+            <img src="../img/contact-options.svg" />
+        </div>
+    <!-- ### media btn for contact info modal ### END -->
+
+    <!-- dropdown menu for contact info modal ### START -->
+    <div id="dropdown-contacts" class="dropdown-contacts">
+        <div class="bg-color flex-center">
+            <div class="icon-edit text" onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn')">Edit</div>
+        </div>
+        <div class="bg-color snd flex-center">
+            <div class="icon-delete text" onclick="">Delete</div>
+        </div>
+    </div>
+    <!-- ### dropdown menu for contact info modal ### END -->
+</div>

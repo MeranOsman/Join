@@ -89,7 +89,7 @@
             
             <!-- infomodal for contacts, appears on contact click ### START -->
             <div id="contacts-modal-info" class="hide">
-                <div w3-include-html="templates/contactInfoModal.html"></div>
+                <div w3-include-html="templates/contactInfoModalMedia.html"></div>
             </div>
             <!-- infomodal for contacts, appears on contact click ### END -->
         </div>
@@ -103,7 +103,7 @@
 
     <!-- media btn for add contact ### START -->
     <div id="addContact-btn" class="media-hide btn">
-        <img onclick="showModal('contacts-modal','modal-inner')" src="img/add-contact-media.svg" />
+        <img onclick="showModal('contacts-modal','modal-inner'), addHide('edit-btn')" src="img/add-contact-media.svg" />
     </div>
     <!-- ### media btn for add contact ### END -->
 

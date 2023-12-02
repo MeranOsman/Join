@@ -33,7 +33,16 @@ function hideAgain(outer, inner){
 *** help function to remove single hide classes from elements
 */
 function removeHide(remove){
+    document.getElementById(remove).style.setProperty('opacity','1');
     document.getElementById(remove).classList.remove('hide');
+}
+
+/*
+*** help function to add single hide classes to elements
+*/
+function addHide(hide){
+    document.getElementById(hide).classList.add('hide');
+    document.getElementById(hide).style.setProperty('opacity','0');
 }
 
 
@@ -43,3 +52,14 @@ function removeHide(remove){
 function addZindex(add){
     document.getElementById(add).style.setProperty('z-index','-1');
 }
+
+
+/*
+*** help function to remove hide classes with time delay
+*/
+function wait(remove) {
+    // Verzögere den Funktionsaufruf um 250 Millisekunden
+    setTimeout(function () {
+      removeHide(remove); // Deine Funktion, die aufgerufen werden soll
+    }, 250);
+  }
