@@ -62,7 +62,7 @@ function toggleFunction(i) {
     if (!list.classList.contains('active-contact')) {
         selectContact(i);
     } else {
-        deleteSelectedContact(i);
+        deleteSelectedContact();
         activeContact(i);
     }
 }
@@ -96,7 +96,7 @@ function deleteSelectedContact(i) {
 
 
 /**
- * Function to change the design when selecting a contact
+ * Toggle-function to change the design when selecting a contact
  * 
  * @param {*} i 
  */
@@ -145,6 +145,24 @@ function showCloseContacts(event) {
     document.getElementById('dropdownContact').classList.toggle('display-none');
 
     event.stopPropagation();
+}
+
+
+function urgentPrioBtn() {
+    btn = document.getElementById('urgentBtn');
+    btn.classList.toggle('urgent-color');
+}
+
+
+function mediumPrioBtn() {
+    btn = document.getElementById('mediumBtn');
+    btn.classList.toggle('medium-color');
+}
+
+
+function lowPrioBtn() {
+    btn = document.getElementById('lowBtn');
+    btn.classList.toggle('low-color');
 }
 
 

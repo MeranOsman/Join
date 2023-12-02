@@ -562,6 +562,18 @@
     padding: 6px 0 4px 0;
 }
 
+.urgent-color {
+    background-color: rgb(235, 79, 39);
+}
+
+.medium-color {
+    background-color: rgb(243, 172, 60);
+}
+
+.low-color {
+    background-color: rgb(148, 223, 79);
+}
+
 
 /* media */
 @media screen and (max-width: 1250px) {
