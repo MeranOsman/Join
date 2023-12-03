@@ -349,3 +349,16 @@ function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
 }
+
+
+/**
+ * If you press Enter in the input field, onsubmit is prevented and another function is called
+ * 
+ * @param {*} event 
+ */
+function pressEnter(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        addSubtask();
+    }
+}
