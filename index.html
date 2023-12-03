@@ -9,6 +9,7 @@
     <title>Join</title>
 
     <script src="js/login.js"></script>
+    <script src="js/signUp.js"></script>
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
 
@@ -41,15 +42,19 @@
                 <h1>Log in</h1>
                 <hr class="hrLog">
             </div>
-            <input id="mail" required type="email" placeholder="Email" class="login icon-mail">
-            <input id="pass" required type="password" placeholder="Password" class="login icon-lock">
-            <div class="container-checkbox">
-                <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div><span>Remember me</span>
-            </div>
-            <div class="flex-row-btn">
-                <button class="btn-login">Log in</button>
-                <button class="btn-guest" onclick="location.href='summary.html';">Guest Log in</button>
-            </div>
+            <form onsubmit="login()">
+                <input id="mail" required type="email" placeholder="Email" class="login icon-mail">
+                <input id="pass" required type="password" placeholder="Password" class="login icon-lock">
+                <div class="container-checkbox">
+                    <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div><span>Remember
+                        me</span>
+                </div>
+                <div class="flex-row-btn">
+                    <button type="submit" class="btn-login">Log in</button>
+                    <button class="btn-guest" onclick="location.href='summary.html';">Guest Log in</button>
+                </div>
+            </form>
+            <div id="msgBox"></div>
         </div>
     </section>
 
@@ -61,8 +66,12 @@
             <p>Not a Join user?</p><a href="signUp.html"><button class="btn-sign-up">Sign up</button></a>
         </div>
         <div class="flex-center gap-32">
-          <a href="sign-outs/sign-out-privacyPolicy.html"><p>Privacy Policy</p></a>
-          <a href="sign-outs/sign-out-legalNotice.html"><p>Legal notice</p></a>
+            <a href="sign-outs/sign-out-privacyPolicy.html">
+                <p>Privacy Policy</p>
+            </a>
+            <a href="sign-outs/sign-out-legalNotice.html">
+                <p>Legal notice</p>
+            </a>
         </div>
     </footer>
     <!-- FOOTER END-->

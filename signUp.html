@@ -11,6 +11,7 @@
     <script src="js/login.js"></script>
     <script src="js/include.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/signUp.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/main.css">
@@ -27,22 +28,25 @@
     <!-- log-in SECTION START-->
     <section class="absolute">
         <div class="flex-center flex-column login-bg">
-            <div class="back-to-index"><a href="index.html"><img src="img/arrow.svg"/></a></div>
+            <div class="back-to-index"><a href="index.html"><img src="img/arrow.svg" /></a></div>
             <div class="flex-column">
                 <h1>Sign up</h1>
                 <div class="divider-hori signUp"></div>
             </div>
-            <input id="name-sign-up" required type="text" placeholder="Name" class="login icon-person">
-            <input id="mail-sign-up" required type="email" placeholder="Email" class="login icon-mail">
-            <input id="pass-sign-up" required type="password" placeholder="Password" class="login icon-lock">
-            <input id="pass-sign-up-2" required type="password" placeholder="Password" class="login icon-lock">
-            <div class="container-checkbox-sign-up">
-                <div id="checkbox-sign-up" onclick="checkboxImgChange()" class="icon-checkbox"></div>
-                <span>I accept the <a href="privacyPolicy.html"><span class="ci-blue link-decoration">Privacy policy</span></a></span>
-            </div>
-            <div class="flex-row-btn">
-                <button class="btn-login margin-b">Sign up</button>
-            </div>
+            <form onsubmit="addUser(); return false;">
+                <input id="name-sign-up" required type="text" placeholder="Name" class="login icon-person">
+                <input id="mail-sign-up" required type="email" placeholder="Email" class="login icon-mail">
+                <input id="pass-sign-up" required type="password" placeholder="Password" class="login icon-lock">
+                <input id="pass-sign-up-2" required type="password" placeholder="Confirm Password" class="login icon-lock">
+                <div class="container-checkbox-sign-up">
+                    <div id="checkbox-sign-up" onclick="checkboxImgChange()" class="icon-checkbox"></div>
+                    <span>I accept the <a href="privacyPolicy.html" target="_blank"><span class="ci-blue link-decoration">Privacy
+                                policy</span></a></span>
+                </div>
+                <div class="flex-row-btn">
+                    <button type="submit" class="btn-login margin-b">Sign up</button>
+                </div>
+            </form>
         </div>
     </section>
     <!-- log-in SECTION END-->
