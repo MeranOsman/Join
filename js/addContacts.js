@@ -19,8 +19,8 @@ let letterHeading = [];
 *** function for show and hide dropdown menu on contact info via opacity
 */
 function showDropdown(event) {
-    var dropdown = document.getElementById('dropdown-contacts');
-    dropdown.classList.toggle('show-dropdown');
+    var dropdown = document.getElementById('dropContacts');
+    dropdown.classList.toggle('display-none');
 
     event.stopPropagation();
 }

@@ -30,15 +30,13 @@ function showMenu(event) {
  * Function should hide dropdown menu when clicked elsewhere
  */
 document.addEventListener('click', function(event) {
-    let menuIds = ['menuNav','dropdownContact', 'dropdownCategory', 'dropdown-contacts'];
+    let menuIds = ['menuNav', 'dropdownContact', 'dropdownCategory', 'dropContacts'];
 
     for (let i = 0; i < menuIds.length; i++) {
         let currentMenu = document.getElementById(menuIds[i]);
 
         if (!currentMenu.contains(event.target)) {
             currentMenu.classList.add('display-none');
-        }  else {
-            return;
         }
     }
 });
