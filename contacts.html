@@ -22,7 +22,7 @@
     <link href="img/join-logo-loading.svg" rel="icon" media="(prefers-color-scheme: light)" />
 </head>
 
-<body class="content-size" onload="init()">
+<body class="content-size" onload="init(), renderContactList();">
     <header w3-include-html="templates/menu.html"></header>
     
     <div class="flex-contacts">
@@ -30,57 +30,8 @@
 
             <button onclick="showModal('contacts-modal','modal-inner'), addHide('edit-btn')" class="flex-row-btn media-show contacts">Add new contact<span><img src="img/person_add.svg"/></span></button>
 
-            <ul class="margin-t">
-                <div class="margin-t"><span>A</span></div>
-                <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg')">
-                    <li><span class="contact-icons orange">AM</span></li></span>
-                    <li>Anton Mayer<br><span class="contacts-links">antom@gmail.com</span></li>
-                </div>
-                <div class="flex-contacts-inner-li" tabindex="1" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons vio">AS</span></li></span>
-                    <li>Anja Schulz<br><span class="contacts-links">Schulz@hotmail.com</span></li>
-                </div>
-
-                <div class="margin-t"><span>B</span></div>
-                <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="2" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons blue">BZ</span></li></span>
-                    <li>Benedikt Ziegler<br><span class="contacts-links">benedikt@gmail.com</span></li>
-                </div>
-
-                <div class="margin-t"><span>D</span></div>
-                <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="3" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons pink">DE</span></li></span>
-                    <li>David Eisenberg<br><span class="contacts-links">davidberg@gmail.com</span></li>
-                </div>
-
-                <div class="margin-t"><span>E</span></div>
-                <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="4" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons yell">EF</span></li></span>
-                    <li>Eva Fischer<br><span class="contacts-links">eva@gmail.com</span></li>
-                </div>
-                <div class="flex-contacts-inner-li" tabindex="5" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons azur">EM</span></li></span>
-                    <li>Emmanuel Mauer<br><span class="contacts-links">emmanuelma@gmail.com</span></li>
-                </div>
-
-                <div class="margin-t"><span>M</span></div>
-                <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="6" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons deep">MB</span></li></span>
-                    <li>Marcel Bauer<br><span class="contacts-links">bauer@gmail.com</span></li>
-                </div>
-
-                <div class="margin-t"><span>T</span></div>
-                <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="7" onclick="removeHide('contacts-modal-info')">
-                    <li><span class="contact-icons tango">TW</span></li></span>
-                    <li>Tatjana Wolf<br><span class="contacts-links">wolf@gmail.com</span></li>
-                </div>
-            </ul>
+            <div id="contacts-list"></div>
+            
         </div>
         <div>
             <div id="contacts-bg" class="contacts-bg flex-row margin-t contacts">
