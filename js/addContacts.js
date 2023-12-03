@@ -6,7 +6,7 @@
 */
 function showDropdown(event) {
     var dropdown = document.getElementById('dropdown-contacts');
-    dropdown.classList.toggle('show-dropdown');
+    dropdown.classList.toggle('display-none');
 
     event.stopPropagation();
 }
