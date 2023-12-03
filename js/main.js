@@ -37,8 +37,6 @@ document.addEventListener('click', function(event) {
 
         if (!currentMenu.contains(event.target)) {
             currentMenu.classList.add('display-none');
-        }  else {
-            return;
         }
     }
 });
