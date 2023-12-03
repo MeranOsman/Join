@@ -50,14 +50,14 @@ h2{
 
 .contacts-section {
     background: var(--header-bg);
-    width: 23%;
+    min-width: 25%;
     height: calc(100vh - 110px);
-    padding: 0 16px 16px 16px;
+    padding: 0 24px 24px 24px;
     overflow: auto !important;
 }
 
 .contacts-section button {
-    width: 80%;
+    min-width: 80%;
     padding: 12px 16px;
     margin: 24px auto 0 auto;
     display: inline-flex;
@@ -298,6 +298,10 @@ h2{
 .link{
     color: var(--summary-h2-color);
 }
+.modal-inner.modal{
+    background: var(--summary-background);
+    height: 600px;
+}
 
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
@@ -315,8 +319,8 @@ h2{
     .flex-col-contacts-inner{
         width: 100%;
         align-items: center;
-        padding:0 16px;
         padding:0;
+        min-height: 300px;
     }
     .flex-row-contacts{
         width: 90%;
@@ -350,21 +354,38 @@ h2{
 }
 
 @media screen and (max-width: 1020px) {
-
+    .contacts-section{
+        width: 50%;
+        height: calc(100vh - 90px);
+        padding: 0;
+    }
+    .flex-row-btn{
+        max-width: 300px;
+    }
+    
+    .contacts-bg {
+        margin-left: 0 !important;
+    }
+   
 }
 
 @media screen and (max-width: 960px) {
+    .media-show-icons{
+        display: none;
+    }
+    .contacts-modal-info{
+        width: 100%;
+    }
     .media-pos{
         height:100px;
         width: 100px;
     }
     .flex-row-contacts{
-        gap:24px;
+        gap:0;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden !important;
     }
-}
-
-
-@media screen and (max-width: 767px) {
     .media-hide.contacts {
         display: flex !important;
     }
@@ -385,16 +406,12 @@ h2{
 
     /*add contact modal*/
     .modal-inner{
-        width: 100vw;
-        height: 100%;
-        border-radius: 0;
+        width: 75%;
+        height: 90%;
         padding:0;
+        border-radius: 20px;
     }
-    .flex-row-contacts{
-        flex-direction: column;
-        width: 100%;
-        overflow: hidden !important;
-    }
+
     .flex-col-contacts{
         width:100vw;
         max-height: 50vh!important;
@@ -404,7 +421,7 @@ h2{
 
     .media-pos{
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -443,9 +460,13 @@ h2{
         height:50% !important;
         position: absolute;
         top:80px;
-        height:810px !important;
-        background: var(--summary-background);
+        height:900px !important;
         justify-content: flex-start;
+    }
+    .modal-inner.info{
+        width:100%;
+        height: 100vh;
+        padding:0; 
     }
     .return.modal{
         z-index:2;
@@ -464,6 +485,28 @@ h2{
         font-size: 26pt;
         font-weight: 600;
     }
+    .dropdown-contacts{
+        bottom: 130px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+
+    /*add contact modal*/
+    .modal-inner{
+        width: 100vw;
+        height: 100%;
+        border-radius: 0;
+        padding:0;
+    }
+
+    .media-pos{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 @media screen and (max-width: 570px) {
@@ -481,5 +524,15 @@ h2{
     .media-hide img:hover{
         width: 50px;
         height: 50px;
+    }
+    .modal-inner.modal{
+        height:50% !important;
+        position: absolute;
+        top:80px;
+        height:830px !important;
+        justify-content: flex-start;
+    }
+    .dropdown-contacts{
+        bottom: 160px;
     }
 }

@@ -80,6 +80,10 @@ input::-webkit-datetime-edit {
     display: block !important;
 }
 
+.media-show-icons{
+    display: block;
+}
+
 .position-relative {
     position: relative;
 }

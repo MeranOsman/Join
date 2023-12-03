@@ -1,21 +1,44 @@
-  <!-- infomodal for contacts, appears on contact click ### START -->
-  <div id="infobox-outer" class="hide">
-    <div id="infobox-inner">
-        <div class="margin-l flex-row-contacts">
-            <span class="contact-icons-info orange">AM</span></span>
-            <div>
-                <p class="heading-info">Anton Mayer</p>
-                <div class="flex-row-contacts">
+<div id="infobox-outer" class="margin-">
+    <a class="return modal" href="../contacts.html"><img src="img/arrow.svg" alt="blue-arrow"></a>
+    <div id="modal-inner-info" class="modal-inner info modal move-to-left">
+        <div class="margin-l-32">
+            <div class="flex-column-start">
+                <div id="contacts-bg" class="margin-t">
+                    <h1>Contacts</h1><h2>Better with a team</h2>
+                    <div class="divider-hori modal"></div>
+                </div>
+                <div class="flex-row margin-t">
+                    <div class="contact-icons modal orange">AM</div>
+                    <div class="names">Anton Mayer</div>
+                </div>
+                <div class="flex-row-contacts margin-t media-show-icons">
                     <div class="flex-row-contacts gap links"><div class="icon-edit">Edit</div></div>
                     <div class="flex-row-contacts gap links"><div class="icon-delete">Delete</div></div>
                 </div>
+                <div>
+                    <div class="margin-t subline-info">Contact information</div>
+                    <div class="margin-t contact-bold">Email</div>
+                    <div class="margin-t link">antom@gmail.com</div>
+                    <div class="margin-t contact-bold">Phone</div>
+                    <div class="margin-t">+49 1111 111 11 1</div>
+                </div>
             </div>
         </div>
-        <p class="margin-l subline-info">Contact information</p>
-        <p class="margin-l margin-t-xl"><b>Email</b></p>
-        <p class="margin-l ci-blue">antom@gmail.com</p>
-        <p class="margin-l margin-t"><b>Phone</b></p>
-        <p class="margin-l">+491562258745628</p>
     </div>
+    <!-- media btn for contact info modal ### START -->
+        <div class="media-hide btn" onclick="showDropdown()">
+            <img src="../img/contact-options.svg" />
+        </div>
+    <!-- ### media btn for contact info modal ### END -->
+
+    <!-- dropdown menu for contact info modal ### START -->
+    <div id="dropdown-contacts" class="dropdown-contacts">
+        <div class="bg-color flex-center">
+            <div class="icon-edit text" onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn'), changeText('heading-contacts-modal','subline-contact-modal'), removeHide('edit-btn')">Edit</div>
+        </div>
+        <div class="bg-color snd flex-center">
+            <div class="icon-delete text" onclick="">Delete</div>
+        </div>
+    </div>
+    <!-- ### dropdown menu for contact info modal ### END -->
 </div>
-<!-- infomodal for contacts, appears on contact click ### END -->

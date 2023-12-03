@@ -28,12 +28,12 @@
     <div class="flex-contacts">
         <div id="contacts-section" class="contacts-section flex-contacts-inner-left">
 
-            <button onclick="showModal('contacts-modal','modal-inner')" class="flex-row-btn media-show contacts">Add new contact<span><img src="img/person_add.svg"/></span></button>
+            <button onclick="showModal('contacts-modal','modal-inner'), addHide('edit-btn')" class="flex-row-btn media-show contacts">Add new contact<span><img src="img/person_add.svg"/></span></button>
 
             <ul class="margin-t">
                 <div class="margin-t"><span>A</span></div>
                 <div class="underline"></div>
-                <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info')">
+                <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg')">
                     <li><span class="contact-icons orange">AM</span></li></span>
                     <li>Anton Mayer<br><span class="contacts-links">antom@gmail.com</span></li>
                 </div>
@@ -83,13 +83,13 @@
             </ul>
         </div>
         <div>
-            <div id="contacts-bg" class="contacts-bg flex-row margin-t media-show contacts">
+            <div id="contacts-bg" class="contacts-bg flex-row margin-t contacts">
                 <h1>Contacts</h1><div class="divider"></div><h2>Better with a team</h2>
             </div>
             
             <!-- infomodal for contacts, appears on contact click ### START -->
             <div id="contacts-modal-info" class="hide">
-                <div w3-include-html="templates/contactInfoModalMedia.html"></div>
+                <div w3-include-html="templates/contactInfoModal.html"></div>
             </div>
             <!-- infomodal for contacts, appears on contact click ### END -->
         </div>
