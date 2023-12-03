@@ -5,7 +5,7 @@
 *** function for show and hide dropdown menu on contact info via opacity
 */
 function showDropdown(event) {
-    var dropdown = document.getElementById('dropdown-contacts');
+    var dropdown = document.getElementById('dropdownContacts');
     dropdown.classList.toggle('display-none');
 
     event.stopPropagation();
