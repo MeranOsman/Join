@@ -4,6 +4,13 @@ const msg = urlParams.get('msg');
 function login() {
     let email = document.getElementById('mail');
     let password = document.getElementById('pass');
+    let user = user.find(u => u.email == email.value && u.password == password.value);
+
+    if(user) {
+        // wenn gefunden dann ...
+    } else {
+        // wenn nicht gefunden dann ...
+    }
 }
 
 
