@@ -65,6 +65,10 @@ input#search-board {
     min-width: 250px;
 }
 
+.media-hide-plus{
+    display: none;
+}
+
 .btn-board {
     background-color: var(--sidebar-background);
     border: 1px solid var(--sidebar-background);
@@ -403,6 +407,10 @@ input#search-board {
         align-items: flex-start !important;
     }
 
+    .media-hide-plus{
+        display: flex;
+    }
+
     .tasks-card-empty {
         width: 80% !important;
     }
@@ -426,7 +434,7 @@ input#search-board {
 
     .btn-board {
         position: absolute;
-        top: 128px;
+        top: 134px;
         right: 64px;
         padding: 0 !important;
         min-width: 44px !important;
@@ -490,7 +498,7 @@ input#search-board {
     }
 
     .btn-board{
-        top:120px;
+        top:120px !important;
         right:32px;
     }
 
