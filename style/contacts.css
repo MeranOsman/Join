@@ -159,6 +159,9 @@ h2{
     align-items: flex-start;
     text-align: left;
 }
+.modal-inner.info{
+    max-width:560px !important;
+}
 
 .flex-row-contacts{
     display: flex;
@@ -305,6 +308,14 @@ h2{
 
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
+    .hide.info{
+        display: flex !important;
+        flex-direction: column;
+        line-height: 0;
+    }
+    .media-show.info {
+        display: none !important;
+    }
     .modal-inner{
         width:95%;
         padding-right: 16px;
@@ -324,6 +335,9 @@ h2{
     }
     .flex-row-contacts{
         width: 90%;
+    }
+    .flex-row-contacts.info{
+        width: 0;
     }
     .flex-row.media{
         gap:0;
@@ -464,7 +478,7 @@ h2{
         justify-content: flex-start;
     }
     .modal-inner.info{
-        width:100%;
+        min-width:100%;
         height: 100vh;
         padding:0; 
     }
