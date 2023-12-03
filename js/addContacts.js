@@ -1,3 +1,7 @@
+let contactss = [];
+let contactLetters = [];
+
+
 /*
 *** function for show and hide dropdown menu on contact info via opacity
 */

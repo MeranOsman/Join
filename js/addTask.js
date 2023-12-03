@@ -58,7 +58,7 @@ function renderSelectedContacts() {
 */
 function toggleFunction(i) {
     let list = document.getElementById(`liContact${i}`);
-    
+
     if (!list.classList.contains('active-contact')) {
         selectContact(i);
     } else {
@@ -114,8 +114,8 @@ function activeContact(i) {
  * Filter function for contact list
  */
 function searchContact() {
-    input = document.getElementById('inputSearch');
-    search = input.value.trim().toLowerCase();
+    let input = document.getElementById('inputSearch');
+    let search = input.value.trim().toLowerCase();
 
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
@@ -148,21 +148,23 @@ function showCloseContacts(event) {
 }
 
 
-function urgentPrioBtn() {
-    btn = document.getElementById('urgentBtn');
-    btn.classList.toggle('urgent-color');
-}
+/**
+ * Function for select only one prio and change design from prio-button
+ * 
+ * @param {*} btnId 
+ * @param {*} newClass 
+ */
+function SelectPrioBtn(btnId, newClass) {
+    let btn = document.getElementById(btnId);
+    let urgentBtn = document.getElementById('urgentBtn');
+    let mediumBtn = document.getElementById('mediumBtn');
+    let lowBtn = document.getElementById('lowBtn');
 
-
-function mediumPrioBtn() {
-    btn = document.getElementById('mediumBtn');
-    btn.classList.toggle('medium-color');
-}
-
-
-function lowPrioBtn() {
-    btn = document.getElementById('lowBtn');
-    btn.classList.toggle('low-color');
+    if (!urgentBtn.classList.contains('urgent-color') && !mediumBtn.classList.contains('medium-color') && !lowBtn.classList.contains('low-color')) {
+        btn.classList.add(newClass);
+    } else {
+        btn.classList.remove(newClass);
+    }
 }
 
 
@@ -346,4 +348,17 @@ function changeSubtaskImg() {
 function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
+}
+
+
+/**
+ * If you press Enter in the input field, onsubmit is prevented and another function is called
+ * 
+ * @param {*} event 
+ */
+function pressEnter(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        addSubtask();
+    }
 }
