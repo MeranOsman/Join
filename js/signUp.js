@@ -3,7 +3,7 @@ let users = [
         name:'Vorname Nachname',
         email: 'meran@test.de',
         password: 'test0000',
-        confirmPassword: 'test000'
+        confirmPassword: 'test0000'
     }
 ];
 

@@ -1,5 +1,6 @@
 async function init() {
   await includeHTML();
+  await greeting();
   await renderAddtask();
   await renderContactList();
 }
