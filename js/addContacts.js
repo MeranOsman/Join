@@ -15,6 +15,12 @@ const alphabet = [  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 let letterHeading = [];
 
 
+async function initContacts() {
+    await includeHTML();
+    await renderContactList();
+}
+
+
 /*
 *** function for show and hide dropdown menu on contact info via opacity
 */

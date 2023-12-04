@@ -7,7 +7,8 @@ let category = ['Technical Task', 'User Story'];
 /**
  * Function for render all render functions
  */
-async function renderAddtask() {
+async function initAddtask() {
+    await includeHTML();
     await renderSubtask();
     await renderCategory();
     await renderContacts()

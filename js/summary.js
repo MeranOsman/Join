@@ -1,3 +1,12 @@
+async function initSummary() {
+    await includeHTML();
+    await greeting();
+}
+
+
+/**
+ * Function changes greeting according to time
+ */
 async function greeting() {
     let greet = document.getElementById('greeting');
     const currentHour = new Date().getHours();

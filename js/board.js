@@ -9,3 +9,8 @@ let tasks = [
         subtasks: ['Implement Recipe recommendation', 'Start Page Layout']
     }
 ];
+
+
+async function initBoard() {
+    await includeHTML();
+}

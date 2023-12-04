@@ -19,8 +19,8 @@ h2 {
     font-size: 28px;
 }
 
-a{
-    all:unset;
+a {
+    all: unset;
     cursor: pointer;
 }
 
@@ -64,7 +64,7 @@ input::-webkit-datetime-edit {
     display: none !important;
 }
 
-.media-hide{
+.media-hide {
     display: none !important;
 }
 
@@ -72,15 +72,15 @@ input::-webkit-datetime-edit {
     display: block !important;
 }
 
-.media-show{
+.media-show {
     display: flex !important;
 }
 
-.media-show.board{
+.media-show.board {
     display: block !important;
 }
 
-.media-show-icons{
+.media-show-icons {
     display: block;
 }
 
@@ -96,7 +96,7 @@ input::-webkit-datetime-edit {
     z-index: 999;
 }
 
-.link-decoration:hover{
+.link-decoration:hover {
     text-decoration: underline var(--link-color);
     cursor: pointer;
 }
@@ -129,7 +129,7 @@ input::-webkit-datetime-edit {
     margin-left: 16px;
 }
 
-.margin-left-neg{
+.margin-left-neg {
     margin-left: -8px;
 }
 
@@ -145,8 +145,8 @@ input::-webkit-datetime-edit {
     gap: 16px !important;
 }
 
-.gap-32{
-    gap:32px;
+.gap-32 {
+    gap: 32px;
 }
 
 .gap-s {
@@ -179,7 +179,7 @@ input::-webkit-datetime-edit {
     align-items: center;
 }
 
-.flex-btw{
+.flex-btw {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -370,6 +370,7 @@ input::-webkit-datetime-edit {
     height: 24px;
     width: 24px;
 }
+
 .icon-edit.text:hover {
     cursor: pointer;
     background: url(../img/edit.svg);
@@ -396,6 +397,7 @@ input::-webkit-datetime-edit {
     height: 24px;
     width: 24px;
 }
+
 .icon-delete.text:hover {
     cursor: pointer;
     background: url(../img/delete.svg);
@@ -523,10 +525,10 @@ input::-webkit-datetime-edit {
     transition: all 250ms;
 }
 
-.back-to-index{
+.back-to-index {
     position: absolute;
-    top:32px;
-    left:32px;
+    top: 32px;
+    left: 32px;
     width: 40px;
     height: 40px;
     display: flex;
@@ -534,7 +536,7 @@ input::-webkit-datetime-edit {
     align-items: center;
 }
 
-.back-to-index:hover{
+.back-to-index:hover {
     border-radius: 20px;
     background: #f3f3f3;
 }
@@ -544,8 +546,11 @@ input::-webkit-datetime-edit {
     padding: 32px 110px 16px 110px;
 }
 
-.help, .privacy, .legal {
+.help,
+.privacy,
+.legal {
     overflow: auto;
+    overflow-y: scroll;
 }
 
 .help h2 {
@@ -556,12 +561,15 @@ input::-webkit-datetime-edit {
     margin-bottom: 0;
 }
 
-.help span, .legal span {
+.help span,
+.legal span {
     font-size: 18px;
     color: var(--summary-h2-color);
 }
 
-.privacy h1, .legal  h1, .help h1 {
+.privacy h1,
+.legal h1,
+.help h1 {
     margin-bottom: 72px;
 }
 
@@ -582,11 +590,13 @@ input::-webkit-datetime-edit {
     width: 100%;
 }
 
-.pos-bottom p ,.pos-bottom a{
+.pos-bottom p,
+.pos-bottom a {
     color: var(--link-color);
 }
 
-.pos-bottom p:hover  ,.pos-bottom a:hover{
+.pos-bottom p:hover,
+.pos-bottom a:hover {
     font-weight: 700;
     color: var(--summary-h2-color);
     cursor: pointer;
@@ -728,11 +738,15 @@ header h4 {
 }
 
 .header-right span {
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     font-weight: 500;
     border: 3px solid black;
     border-radius: 50%;
-    padding: 10px 8px;
+    padding: 10px;
 }
 
 .header-right span:hover {
@@ -754,7 +768,7 @@ header h4 {
     height: 155px;
     background-color: rgb(44, 54, 70);
     border-radius: 20px 0 20px 20px;
-    z-index:999;
+    z-index: 999;
 }
 
 .menu-nav a {
@@ -771,12 +785,12 @@ header h4 {
     background-color: rgb(46, 61, 87);
 }
 
-.pos-bot{
+.pos-bot {
     position: absolute;
-    bottom:0;
+    bottom: 0;
 }
 
-.divider-hori.signUp{
+.divider-hori.signUp {
     width: 70%;
 }
 
@@ -1006,7 +1020,8 @@ header h4 {
     }
 
     .header-right span {
-        font-size: 16px;
+        width: 22px;
+        font-size: 18px;
     }
 
     .distance {
