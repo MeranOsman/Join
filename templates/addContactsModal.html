@@ -12,17 +12,21 @@
             <img class="media-pos" src="img/join-avatar.svg" />
             <div class="flex-col-contacts-inner">
                 <div onclick="closeModal('contacts-modal','modal-inner'), wait('edit-btn')" class="close-btn-contacts">X</div>
-                <input id="contacts-name" required type="text" placeholder="Name" class="login icon-person">
-                <input id="contacts-mail" required type="email" placeholder="Email" class="login icon-mail">
-                <input id="contacts-phone" required type="text" placeholder="Phone" class="login icon-call">
-                <div id="add-btn" class="margin-t flex-row media">
-                    <button id="cancel-btn" class="btn-guest media show contacts" onclick="closeModal('contacts-modal','modal-inner')">Cancel<span class="icon-cross"></span></button>
-                    <button id="create-btn" class="btn-login media" onclick="createContact()">Create Contact<span class="icon-check-new"></span></button>
-                </div>
-                <div id="edit-btn" class="margin-t flex-row media modal">
-                    <button class="btn-guest media show contacts">Delete</button>
-                    <button class="btn-login media">Save<span class="icon-check-new"></span></button>
-                </div>
+
+                <form class="flex-col-contacts-inner" onsubmit="javascript:history.back(); return false;">
+                    <input id="contacts-name" required type="text" minlength="3" placeholder="Name" class="login icon-person">
+                    <input id="contacts-mail" required type="email" placeholder="Email" class="login icon-mail">
+                    <input id="contacts-phone" required type="text" placeholder="Phone" class="login icon-call">
+                    <div id="add-btn" class="margin-t flex-row media">
+                        <button id="cancel-btn" class="btn-guest media show contacts" onclick="closeAndClearModal(), closeModal('contacts-modal','modal-inner')">Cancel<span class="icon-cross"></span></button>
+                        <button id="create-btn" class="btn-login media" onclick="createContact()" type="submit">Create Contact<span class="icon-check-new"></span></button>
+                    </div>
+                    <div id="edit-btn" class="margin-t flex-row media modal">
+                        <button class="btn-guest media show contacts" onclick="closeAndClearModal()">Delete</button>
+                        <button class="btn-login media" type="submit">Save<span class="icon-check-new"></span></button>
+                    </div>
+                </form>
+                
             </div>
         </div>
     </div>

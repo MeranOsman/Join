@@ -84,7 +84,7 @@ async function renderContactList() {
     const sortedContacts = sortContacts();
 
     for (const [header, contactsByHeader] of sortedContacts) {
-        cList.innerHTML += `<div class="margin-t"><span>${header}</span></div>`;
+        cList.innerHTML += `<div class="margin-t"><span>${header}</span><div class="underline"></div></div>`;
 
         for (const contact of contactsByHeader) {
             const initials = getInitials(contact.firstName, contact.lastName);
@@ -92,10 +92,9 @@ async function renderContactList() {
 
             cList.innerHTML += `
                 <ul class="margin-t">
-                    <div class="underline"></div>
                     <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg')">
                         <li><span class="contact-icons ${backgroundColorClass}">${initials}</span></li>
-                        <li>${contact.firstName} ${contact.lastName}<br><span class="contacts-links">${contact.email}</span></li>
+                        <li class="upper-text">${contact.firstName} ${contact.lastName}<br><span class="contacts-links lower-text">${contact.email}</span></li>
                     </div>
                 </ul>  
             `;
@@ -201,8 +200,42 @@ function createContact() {
     const { fullName, email, phone } = getContactInputValues();
     const [firstName, lastName] = splitName(fullName);
 
-    updateContactArrays(firstName, lastName, email, phone);
-    closeAndClearModal();
+    // Find the correct index to insert the new contact
+    const insertIndex = findInsertIndex(firstName);
 
+    // Insert the new contact at the correct position in the contacts array
+    contacts[0].firstName.splice(insertIndex, 0, firstName);
+    contacts[0].lastName.splice(insertIndex, 0, lastName);
+    contacts[0].email.splice(insertIndex, 0, email);
+    contacts[0].phone.splice(insertIndex, 0, phone);
+
+    closeAndClearModal();
     renderContactList();
 }
+
+
+/* 
+*** function for finding the correct index for inserting the new contact
+*/
+function findInsertIndex(firstName) {
+    for (let i = 0; i < contacts[0].firstName.length; i++) {
+        if (contacts[0].firstName[i].localeCompare(firstName) > 0) {
+            return i;
+        }
+    }
+    return contacts[0].firstName.length;
+}
+
+
+/* #############################################################################  FORM VALIDATION ADD NEW CONTACT ### BLOCK */
+/*
+*** function for create the new contact with validation
+*/
+
+
+/*
+*** function for form validation
+*/
+
+
+

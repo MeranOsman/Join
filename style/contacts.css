@@ -1,4 +1,5 @@
 /* classes */
+
 #contacts {
     background-color: var(--sidebar-link-background);
 }
@@ -244,6 +245,12 @@ h2{
 
 /* infobox */
 
+.upper-text{
+    text-transform: capitalize;
+}
+.lower-text{
+    text-transform: lowercase;
+}
 
 .links:hover{
     color: var(--summary-h2-color);
