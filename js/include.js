@@ -1,12 +1,18 @@
 async function init() {
-  try {
-    await includeHTML();
-    renderAddtask();
-    renderTasks();
-  } catch (error) {
-    
-  }
+  await includeHTML();
+  await renderAddtask();
+  await renderContactList();
 }
+// async function init() {
+//   try {
+//     await includeHTML();
+//     renderContactList();
+//     renderAddtask();
+//   } 
+//   catch (error) {
+
+//   }
+// }
 
 
 async function includeHTML() {

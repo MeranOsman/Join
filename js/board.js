@@ -9,8 +9,3 @@ let tasks = [
         subtasks: ['Implement Recipe recommendation', 'Start Page Layout']
     }
 ];
-
-
-function renderTasks() {
-    
-}

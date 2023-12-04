@@ -63,7 +63,7 @@ function getInitials(firstName, lastName) {
 *** function for render contact list
 *** letterHeading array for save valid header values
 */
-function renderContactList() {
+async function renderContactList() {
     let cList = document.getElementById('contacts-list');
     cList.innerHTML = '';
 

@@ -1,4 +1,4 @@
-let contacts = ['Anton Mayer', 'Anja Schulz', 'Benedikt Ziegler', 'David Eisenberg', 'Eva Fischer', 'Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf', 'Anton Mayer', 'Anton Mayer'];
+let contactss = ['Anton Mayer', 'Anja Schulz', 'Benedikt Ziegler', 'David Eisenberg', 'Eva Fischer', 'Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf', 'Anton Mayer', 'Anton Mayer'];
 let selectedContacts = ['AM', 'BZ'];
 let subtasks = [];
 let category = ['Technical Task', 'User Story'];
@@ -7,32 +7,45 @@ let category = ['Technical Task', 'User Story'];
 /**
  * Function for render all render functions
  */
-function renderAddtask() {
-    renderSubtask();
-    renderCategory();
-    renderContacts()
+async function renderAddtask() {
+    await renderSubtask();
+    await renderCategory();
+    await renderContacts()
+}
+
+
+/**
+ * If you press Enter in the input field, onsubmit is prevented and another function is called
+ * 
+ * @param {*} event 
+ */
+function pressEnter(callback, event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        callback();
+    }
 }
 
 
 /**
  * Function for render contacts and selected Contacts
  */
-function renderContacts() {
+async function renderContacts() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
 
-    for (let i = 0; i < contacts.length; i++) {
+    for (let i = 0; i < contactss.length; i++) {
         elements.innerHTML += /*html*/ `
         <li onclick="toggleFunction(${i})" id="liContact${i}">
             <div class="flex-center gap">
                 <span class="contacts-icon">AM</span>
-                <span class="contacts">${contacts[i]}</span>
+                <span class="contacts">${contactss[i]}</span>
             </div>
             <div id="contactCheckbox${i}" class="icon-checkbox"></div>
         </li>
         `;
 
-        renderSelectedContacts();
+        await renderSelectedContacts();
     }
 }
 
@@ -40,7 +53,7 @@ function renderContacts() {
 /**
  * Function for only render selected Contacts
  */
-function renderSelectedContacts() {
+async function renderSelectedContacts() {
     let list = document.getElementById('selectedContacts');
     list.innerHTML = '';
 
@@ -76,7 +89,7 @@ function toggleFunction(i) {
  * @param {*} i 
  */
 function selectContact(i) {
-    selectedContacts.push(contacts[i]);
+    selectedContacts.push(contactss[i]);
 
     activeContact(i);
     renderSelectedContacts();
@@ -120,13 +133,13 @@ function searchContact() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
 
-    for (let i = 0; i < contacts.length; i++) {
-        if (contacts[i].toLocaleLowerCase().includes(search)) {
+    for (let i = 0; i < contactss.length; i++) {
+        if (contactss[i].toLocaleLowerCase().includes(search)) {
             elements.innerHTML += /*html*/ `
                 <li onclick="activeContact(${i})" id="liContact${i}">
                     <div class="flex-center gap">
                         <span class="contacts-icon">AM</span>
-                        <span class="contacts">${contacts[i]}</span>
+                        <span class="contacts">${contactss[i]}</span>
                     </div>
                     <div id="contactCheckbox${i}" class="icon-checkbox"></div>
                 </li>
@@ -171,7 +184,7 @@ function SelectPrioBtn(btnId, newClass) {
 /**
  * Function for render categories
  */
-function renderCategory() {
+async function renderCategory() {
     let elements = document.getElementById('categories');
     let input = document.getElementById('inputCategory');
 
@@ -243,7 +256,7 @@ function deleteCategory(event, i) {
 /**
  * Function for render subtasks
  */
-function renderSubtask() {
+async function renderSubtask() {
     let tasks = document.getElementById('subtasks');
     let input = document.getElementById('subtask');
 
@@ -348,17 +361,4 @@ function changeSubtaskImg() {
 function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
-}
-
-
-/**
- * If you press Enter in the input field, onsubmit is prevented and another function is called
- * 
- * @param {*} event 
- */
-function pressEnter(event) {
-    if(event.keyCode === 13) {
-        event.preventDefault();
-        addSubtask();
-    }
 }

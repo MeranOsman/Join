@@ -35,7 +35,7 @@ document.addEventListener('click', function(event) {
     for (let i = 0; i < menuIds.length; i++) {
         let currentMenu = document.getElementById(menuIds[i]);
 
-        if (!currentMenu.contains(event.target)) {
+        if (currentMenu && !currentMenu.contains(event.target)) {
             currentMenu.classList.add('display-none');
         }
     }

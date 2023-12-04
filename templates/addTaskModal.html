@@ -50,7 +50,7 @@
                     </div>
                     <div id="dropdownCategory" class="dropdown z-index display-none">
                         <div class="position">
-                            <input maxlength="22" min="3" id="inputCategory" class="input-category" type="text"
+                            <input onkeydown="pressEnter(addCategory, event)" maxlength="22" min="3" id="inputCategory" class="input-category" type="text"
                                 placeholder="Create new task category">
                             <div class="add-category">
                                 <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
@@ -82,7 +82,7 @@
                 <label class="label-input" for="subtask">Subtasks</label>
                 <div class="width position-relative">
                     <div class="width subtasks">
-                        <input onkeydown="pressEnter(event)" required minlength="3" maxlength="16" oninput="changeSubtaskImg()"
+                        <input onkeydown="pressEnter(addSubtask, event)" required minlength="3" maxlength="16" oninput="changeSubtaskImg()"
                             class="task-input margin-zero" id="subtask" type="text" placeholder="Add new subtask">
                         <div class="plus" id="imgChange">
                             <img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">
