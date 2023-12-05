@@ -16,24 +16,6 @@ async function includeHTML() {
   }
 
 
-/*
-* Function for changing the checkbox image on click
-* checked and unchecked image
-*/
-function checkboxImgChange() {
-    let checkboxLogIn = document.getElementById('checkbox');
-    let checkboxSignUp = document.getElementById('checkbox-sign-up');
-
-    if(checkboxLogIn){
-        checkboxLogIn.classList.toggle('icon-checkbox-active');
-    }
-
-    if(checkboxSignUp){
-        checkboxSignUp.classList.toggle('icon-checkbox-active');
-    }
-}
-
-
 /**
  * Function to open, close menu and prevent an event
  */
