@@ -13,17 +13,17 @@
             <div class="flex-col-contacts-inner">
                 <div onclick="closeModal('contacts-modal','modal-inner'), wait('edit-btn')" class="close-btn-contacts">X</div>
 
-                <form class="flex-col-contacts-inner" onsubmit="javascript:history.back(); return false;">
-                    <input id="contacts-name" required type="text" minlength="3" placeholder="Name" class="login icon-person">
-                    <input id="contacts-mail" required type="email" placeholder="Email" class="login icon-mail">
-                    <input id="contacts-phone" required type="text" placeholder="Phone" class="login icon-call">
+                <form class="flex-col-contacts-inner" onsubmit="createContact();return false;">
+                    <input id="contacts-name"  required type="text"  placeholder="Name"  class="login icon-person" minlength="3">
+                    <input id="contacts-mail"  required type="email" placeholder="Email" class="login icon-mail">
+                    <input id="contacts-phone" required type="text"  placeholder="Phone" class="login icon-call" pattern="[0-9+ ]*">
                     <div id="add-btn" class="margin-t flex-row media">
-                        <button id="cancel-btn" class="btn-guest media show contacts" onclick="closeAndClearModal(), closeModal('contacts-modal','modal-inner')">Cancel<span class="icon-cross"></span></button>
-                        <button id="create-btn" class="btn-login media" onclick="createContact()" type="submit">Create Contact<span class="icon-check-new"></span></button>
+                        <button type="button" id="cancel-btn" class="btn-guest media show contacts" onclick="closeAndClearModal(), closeModal('contacts-modal','modal-inner')">Cancel<span class="icon-cross"></span></button>
+                        <button type="submit" id="create-btn" class="btn-login media">Create Contact<span class="icon-check-new"></span></button>
                     </div>
                     <div id="edit-btn" class="margin-t flex-row media modal">
-                        <button class="btn-guest media show contacts" onclick="closeAndClearModal()">Delete</button>
-                        <button class="btn-login media" type="submit">Save<span class="icon-check-new"></span></button>
+                        <button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal()">Delete</button>
+                        <button type="submit" class="btn-login media">Save<span class="icon-check-new"></span></button>
                     </div>
                 </form>
                 

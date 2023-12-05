@@ -1,23 +1,3 @@
-let contacts = [{
-    'firstName':['Anton','Anja','Benedikt','David','Eva','Emmanuel','Marcel','Tatjana','Benjamin'],
-    'lastName':['Mayer','Schulz','Ziegler','Eisenberg','Fischer','Mauer','Bauer','Wolf','Bennewitz'],
-    'email':[   'antom@gmail.com','schulz@hotmail.com','benedikt@gmail.com','davidberg@gmail.com',
-                'eva@gmail.com','mauer@web.de','bauer@live.com','wolfi@gmx.de','b.benneewitz@gmail.com'
-            ],
-    'phone':[   '+49 0152 123 456 789','+49 0156 123 456 789','+49 0172 123 456 789','+49 0156 123 456 789',
-                '+49 0163 123 456 789','+49 0152 123 456 789','+49 0154 123 456 789','+49 0157 123 456 789',
-                '+49 01522 94 315 789'
-            ]
-}]
-let bgColors = ['orange','vio','blue','pink','yell','azur','deep','tango'];
-const alphabet = [  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-                    'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-                ];
-let letterHeading = [];
-
-let currentColorIndex = 0;
-
-
 /* ########################################################################################   GENERALS AND HELPS ### BLOCK */
 /*
 *** INITIALISATION
@@ -91,12 +71,12 @@ async function renderContactList() {
             const backgroundColorClass = getNextBackgroundColorClass();
 
             cList.innerHTML += `
-                <ul class="margin-t">
+                <div class="margin-t" onclick=" insertContactInfos('${initials}','${backgroundColorClass}','${contact.firstName}', '${contact.lastName}', '${contact.email}', '${contact.phone}')">
                     <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg')">
                         <li><span class="contact-icons ${backgroundColorClass}">${initials}</span></li>
                         <li class="upper-text">${contact.firstName} ${contact.lastName}<br><span class="contacts-links lower-text">${contact.email}</span></li>
                     </div>
-                </ul>  
+                </div>  
             `;
         }
     }
@@ -115,6 +95,7 @@ function sortContacts() {
             firstName: contacts[0].firstName[i],
             lastName: contacts[0].lastName[i],
             email: contacts[0].email[i],
+            phone: contacts[0].phone[i],
         };
 
         // find the index of the header in the sortedContacts array
@@ -227,15 +208,14 @@ function findInsertIndex(firstName) {
 }
 
 
-/* #############################################################################  FORM VALIDATION ADD NEW CONTACT ### BLOCK */
+/* #############################################################################  INSERT CONTACTS DATAS IN INFO MODAL ### BLOCK */
 /*
-*** function for create the new contact with validation
+*** function to insert the contacts datas in info modal
 */
-
-
-/*
-*** function for form validation
-*/
-
-
-
+function insertContactInfos(initials, bgColors, firstName, lastName, email, phone){
+    document.getElementById('initials-info').innerHTML = `${initials}`;
+    document.getElementById('initials-info').classList.add (`${bgColors}`);
+    document.getElementById('names-info').innerHTML = `${firstName} ${lastName}`;
+    document.getElementById('mail-info').innerHTML = `${email}`;
+    document.getElementById('phone-info').innerHTML = `${phone}`;
+}
