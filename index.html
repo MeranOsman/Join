@@ -8,9 +8,11 @@
     <meta name="description" content="JOIN App">
     <title>Join</title>
 
+    <script src="js/utils.js"></script>
     <script src="js/login.js"></script>
     <script src="js/signUp.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/main.css">
@@ -19,9 +21,9 @@
     <link href="img/join-logo-loading.svg" rel="icon" media="(prefers-color-scheme: light)" />
 </head>
 
-<body>
+<body onload="initLogin()">
     <!-- animated logo START-->
-    <div class="bg-overlay animated">
+    <div class=" bg-overlay animated">
         <img class="main-logo animated" src="img/join-logo-login.svg">
     </div>
     <!-- animated logo END-->
@@ -50,10 +52,11 @@
                 </div>
                 <div class="flex-row-btn">
                     <button type="submit" class="btn-login">Log in</button>
-                    <button type="button" class="btn-guest" onclick="window.location.href='summary.html';">Guest Log in</button>
+                    <button type="button" class="btn-guest" onclick="window.location.href='summary.html';">Guest Log
+                        in</button>
                 </div>
             </form>
-            <div id="msgBox"></div>
+            <span id="msgBox"></span>
         </div>
     </section>
 

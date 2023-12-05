@@ -1,9 +1,3 @@
-let contactss = ['Anton Mayer', 'Anja Schulz', 'Benedikt Ziegler', 'David Eisenberg', 'Eva Fischer', 'Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf', 'Anton Mayer', 'Anton Mayer'];
-let selectedContacts = ['AM', 'BZ'];
-let subtasks = [];
-let category = ['Technical Task', 'User Story'];
-
-
 /**
  * Function for render all render functions
  */
