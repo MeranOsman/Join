@@ -9,6 +9,8 @@ async function addUser() {
     let confirmPassword = document.getElementById('pass-sign-up-2');
     let checkbox = document.getElementById('checkbox-sign-up');
     let span = document.getElementById('noticeSpan');
+    let policy = document.getElementById('signUpPolicy');
+    let success = document.getElementById('success');
 
     if (checkbox.classList.contains('icon-checkbox-active')) {
         if (confirmPassword.value !== password.value) {
@@ -22,10 +24,13 @@ async function addUser() {
             });
 
             await setItem('users', JSON.stringify(users));
-
-            window.location.href = 'index.html?msg=Du hast dich erfolgreich registriert';
+            success.classList.remove('display-none');
+            setTimeout(function () {
+                window.location.href = 'index.html';
+            }, 3000);
         }
     } else {
-        alert('bitte ankreuzen');
+        policy.style.color = 'red';
+        policy.style.textDecoration = 'underline';
     }
 }

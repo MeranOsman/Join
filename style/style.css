@@ -427,6 +427,27 @@ input::-webkit-datetime-edit {
     font-size: 12px;
 }
 
+.success-container {
+    position: absolute;
+    z-index: 900;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.success {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: var(--sidebar-background);
+    padding: 24px;
+    color: white;
+    font-size: 24px;
+    border-radius: 28px;
+}
+
 /* Checkbox */
 .container-checkbox {
     display: flex;

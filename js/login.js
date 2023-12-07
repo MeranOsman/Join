@@ -7,7 +7,7 @@ async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
     } catch (error) {
-
+        console.log('anmeldedaten nicht gefunden');
     }
 }
 
@@ -21,13 +21,6 @@ function login() {
     } else {
         // wenn nicht gefunden dann ...
     }
-}
-
-
-if (msg) {
-    msgBox.innerHTML = msg;
-} else {
-    // display-none
 }
 
 

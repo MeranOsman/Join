@@ -45,7 +45,10 @@
             </div>
             <form onsubmit="login(); return false;">
                 <input id="mail" required type="email" placeholder="Email" class="login icon-mail">
-                <input id="pass" required type="password" placeholder="Password" class="login icon-lock">
+                <div class="notice">
+                    <input id="pass" required type="password" placeholder="Password" class="login icon-lock">
+                    <span>Wrong email or password Ups! Try again.</span>
+                </div>
                 <div class="container-checkbox">
                     <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div><span>Remember
                         me</span>
@@ -56,7 +59,6 @@
                         in</button>
                 </div>
             </form>
-            <span id="msgBox"></span>
         </div>
     </section>
 

@@ -1,7 +1,5 @@
 // login / sign up
 let users = [];
-const urlParams = new URLSearchParams(window.location.search);
-const msg = urlParams.get('msg');
 
 // add task
 let selectedContacts = [];
