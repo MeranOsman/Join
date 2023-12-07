@@ -328,6 +328,13 @@ li{
     height: 600px;
 }
 
+.media-pos{
+    color:#fff;
+    font-size: 18pt;
+    height:100px;
+    width: 100px;
+}
+
 /*MEDIA QUERRYS*/
 @media screen and (max-width: 1440px) {
     .hide.info{
@@ -411,10 +418,6 @@ li{
     }
     .contacts-modal-info{
         width: 100%;
-    }
-    .media-pos{
-        height:100px;
-        width: 100px;
     }
     .flex-row-contacts{
         gap:0;

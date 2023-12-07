@@ -20,7 +20,15 @@
                     <div id="names-info" class="names upper-text">insert name</div>
                 </div>
                 <div class="flex-row-contacts info margin-t media-show-icons">
-                    <div class="flex-row-contacts gap links"><div onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn'), changeText('heading-contacts-modal','subline-contact-modal'), removeHide('edit-btn')"  class="icon-edit">Edit</div></div>
+                    <div class="flex-row-contacts gap links">
+                        <div onclick="  showModal('contacts-modal','modal-inner'), addHide('add-btn'),
+                                        changeText('heading-contacts-modal','subline-contact-modal'),
+                                        removeHide('edit-btn'),
+                                        editContacts('${initials}','${backgroundColorClass}','${contact.firstName}', '${contact.lastName}', '${contact.email}', '${contact.phone}')"
+                                        class="icon-edit">Edit
+                        </div>
+                    </div>
+                                        
                     <div class="flex-row-contacts gap links"><div class="icon-delete">Delete</div></div>
                 </div>
                 <div>

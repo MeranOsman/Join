@@ -63,23 +63,26 @@ async function renderContactList() {
 
     const sortedContacts = sortContacts();
 
-    for (const [header, contactsByHeader] of sortedContacts) {
+    // sort the contacts bei first name
+    sortedContacts.forEach(([header, contactsByHeader]) => {
+        contactsByHeader.sort((a, b) => a.firstName.localeCompare(b.firstName));
+
         cList.innerHTML += `<div class="margin-t"><span>${header}</span><div class="underline"></div></div>`;
 
-        for (const contact of contactsByHeader) {
+        contactsByHeader.forEach(contact => {
             const initials = getInitials(contact.firstName, contact.lastName);
             const backgroundColorClass = getNextBackgroundColorClass();
 
             cList.innerHTML += `
-                <div class="margin-t" onclick=" insertContactInfos('${initials}','${backgroundColorClass}','${contact.firstName}', '${contact.lastName}', '${contact.email}', '${contact.phone}')">
+                <div class="margin-t" onclick="insertContactInfos('${initials}','${backgroundColorClass}','${contact.firstName}', '${contact.lastName}', '${contact.email}', '${contact.phone}')">
                     <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg')">
                         <li><span class="contact-icons ${backgroundColorClass}">${initials}</span></li>
                         <li class="upper-text">${contact.firstName} ${contact.lastName}<br><span class="contacts-links lower-text">${contact.email}</span></li>
                     </div>
                 </div>  
             `;
-        }
-    }
+        });
+    });
 }
 
 
@@ -122,11 +125,14 @@ function sortContacts() {
 *** retunr the next available color class
 */
 function getNextBackgroundColorClass() {
+    
     const nextColorClass = bgColors[currentColorIndex];
-    // updates the index
+    
+    // updates the index and resets to the beginning if at the end of the array
     currentColorIndex = (currentColorIndex + 1) % bgColors.length;
 
     return nextColorClass;
+
 }
 
 
@@ -208,14 +214,38 @@ function findInsertIndex(firstName) {
 }
 
 
-/* #############################################################################  INSERT CONTACTS DATAS IN INFO MODAL ### BLOCK */
+/* #############################################################################  INSERT CONTACTS DATAS IN OTHER TEMPLATES ### BLOCK */
 /*
-*** function to insert the contacts datas in info modal
+*** function to insert the contacts datas in info modal template
 */
 function insertContactInfos(initials, bgColors, firstName, lastName, email, phone){
+    resetColor();
     document.getElementById('initials-info').innerHTML = `${initials}`;
     document.getElementById('initials-info').classList.add (`${bgColors}`);
     document.getElementById('names-info').innerHTML = `${firstName} ${lastName}`;
     document.getElementById('mail-info').innerHTML = `${email}`;
     document.getElementById('phone-info').innerHTML = `${phone}`;
+}
+
+function resetColor(){
+    document.getElementById('initials-info').classList.remove ('orange','vio','blue','pink','yell','azur','deep','tango');
+}
+
+
+/*
+*** function to insert the contacts datas in edit mode
+*/
+async function editContacts(initials, bgColors, firstName, lastName, email, phone){
+    console.log('Initials:', initials);
+    console.log('Background Colors:', bgColors);
+    console.log('First Name:', firstName);
+    console.log('Last Name:', lastName);
+    console.log('Email:', email);
+    console.log('Phone:', phone);
+
+    document.getElementById('profile-contacts').innerHTML = `${initials}`;
+    document.getElementById('profile-contacts').classList.add (`${bgColors}`);
+    document.getElementById('contacts-name').value = `${firstName} ${lastName}`;
+    document.getElementById('contacts-mail').value = `${email}`;
+    document.getElementById('contacts-phone').value = `${phone}`;
 }
