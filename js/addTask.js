@@ -330,7 +330,7 @@ function addSubtask() {
 
     if (input.value.trim() !== '') {
         subtasks.push(input.value);
-        renderAddtask();
+        initAddtask();
     }
 }
 
@@ -343,7 +343,7 @@ function addSubtask() {
 function deleteSubtask(i) {
     subtasks.splice(i, 1);
 
-    renderAddtask();
+    initAddtask();
 }
 
 

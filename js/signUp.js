@@ -8,11 +8,12 @@ async function addUser() {
     let password = document.getElementById('pass-sign-up');
     let confirmPassword = document.getElementById('pass-sign-up-2');
     let checkbox = document.getElementById('checkbox-sign-up');
+    let span = document.getElementById('noticeSpan');
 
     if (checkbox.classList.contains('icon-checkbox-active')) {
         if (confirmPassword.value !== password.value) {
             confirmPassword.style.border = '1px solid red';
-            alert('The passwords do not match!');
+            span.innerHTML = `Ups! your password don't match`;
         } else {
             users.push({
                 name: name.value,

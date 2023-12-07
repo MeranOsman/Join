@@ -414,6 +414,19 @@ input::-webkit-datetime-edit {
     font-size: 16px;
 }
 
+.notice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
+.notice span {
+    color: red;
+    font-size: 12px;
+}
+
 /* Checkbox */
 .container-checkbox {
     display: flex;
@@ -843,6 +856,11 @@ header h4 {
         min-width: 80vw;
         min-height: 50vh;
     }
+
+    .pos-logo img {
+        height: 70px !important;
+        width: auto;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -896,11 +914,6 @@ header h4 {
     .media-show {
         display: none !important;
     }
-
-    .pos-logo img {
-        height: 70px !important;
-        width: auto;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -909,6 +922,11 @@ header h4 {
     /* sign in and login*/
     .headline-board {
         font-size: 26px;
+    }
+
+    .back-to-index {
+        left: 7px;
+        top: 17px;
     }
 
     .btn-login,

@@ -33,17 +33,21 @@
                 <div class="divider-hori signUp"></div>
             </div>
             <form onsubmit="addUser(); return false;">
-                <input id="name-sign-up" minlength="3" required type="text" placeholder="Name" class="login icon-person">
+                <input id="name-sign-up" minlength="3" required type="text" placeholder="Name"
+                    class="login icon-person">
                 <input id="mail-sign-up" required type="email" placeholder="Email" class="login icon-mail">
                 <input id="pass-sign-up" minlength="4" maxlength="8" required type="password" placeholder="Password"
                     class="login icon-lock">
-                <input id="pass-sign-up-2" minlength="4" maxlength="8" required type="password"
-                    placeholder="Confirm Password" class="login icon-lock">
+                <div class="notice">
+                    <input id="pass-sign-up-2" minlength="4" maxlength="8" required type="password"
+                        placeholder="Confirm Password" class="login icon-lock">
+                    <span id="noticeSpan"></span>
+                </div>
                 <div class="container-checkbox-sign-up">
                     <div id="checkbox-sign-up" onclick="checkboxImgChange()" class="icon-checkbox"></div>
                     <span>I accept the <a href="privacyPolicy.html" target="_blank"><span
                                 class="ci-blue link-decoration">Privacy
-                                policy</span></a></span>
+                                Policy</span></a></span>
                 </div>
                 <div class="flex-row-btn">
                     <button id="registerBtn" type="submit" class="btn-login margin-b">Sign up</button>
@@ -56,10 +60,10 @@
     <!-- FOOTER START-->
     <footer class="pos-bottom">
         <a href="/sign-outs/sign-out-privacyPolicy.html">Privacy Policy</a>
-        <a href="/sign-outs/sign-out-legalNotice.html">Legal notice</a>
+        <a href="/sign-outs/sign-out-legalNotice.html">Legal Notice</a>
     </footer>
     <!-- FOOTER END-->
 
-</body>
+    </body>
 
 </html>

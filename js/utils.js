@@ -4,12 +4,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const msg = urlParams.get('msg');
 
 // add task
-let contactss = [];
 let selectedContacts = [];
 let subtasks = [];
 let category = ['Technical Task', 'User Story'];
 
-//contacts
+// contacts
 let contacts = [{
     'firstName':['Anton','Anja','Benedikt','David','Eva','Emmanuel','Marcel','Tatjana','Benjamin'],
     'lastName':['Mayer','Schulz','Ziegler','Eisenberg','Fischer','Mauer','Bauer','Wolf','Bennewitz'],
