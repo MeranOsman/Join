@@ -2,8 +2,9 @@
  * Function set the first letter of the name to uppercase and insert the data into the api array
  */
 async function addUser() {
-    let inputName = document.getElementById('name-sign-up');
-    let name = inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1).toLowerCase();
+    let name = document.getElementById('name-sign-up');
+    let nameParts = name.value.trim().split(' ');
+    let fullName = nameParts.map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()).join(' ');
     let email = document.getElementById('mail-sign-up');
     let password = document.getElementById('pass-sign-up');
     let confirmPassword = document.getElementById('pass-sign-up-2');
@@ -18,7 +19,7 @@ async function addUser() {
             span.innerHTML = `Ups! your password don't match`;
         } else {
             users.push({
-                name: name.value,
+                name: fullName,
                 email: email.value,
                 password: password.value
             });

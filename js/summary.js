@@ -2,6 +2,18 @@ async function initSummary() {
     await includeHTML();
     await greeting();
     await loadUsers();
+    await renderUserName();
+}
+
+
+async function renderUserName() {
+    userName = document.getElementById('userName');
+
+    if(users['name']) {
+        userName.innerHTML = `${users['name']}`;
+    } else {
+        userName.innerHTML = `Guest`;
+    }
 }
 
 

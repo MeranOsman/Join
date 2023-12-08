@@ -2,7 +2,7 @@ async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
     } catch (error) {
-        console.log('anmeldedaten nicht gefunden');
+        console.log('Anmeldedaten nicht gefunden');
     }
 }
 
