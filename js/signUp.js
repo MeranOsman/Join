@@ -3,7 +3,7 @@
  */
 async function addUser() {
     let inputName = document.getElementById('name-sign-up');
-    let name = inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1).toLowerCase();;
+    let name = inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1).toLowerCase();
     let email = document.getElementById('mail-sign-up');
     let password = document.getElementById('pass-sign-up');
     let confirmPassword = document.getElementById('pass-sign-up-2');

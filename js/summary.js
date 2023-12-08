@@ -1,6 +1,7 @@
 async function initSummary() {
     await includeHTML();
     await greeting();
+    await loadUsers();
 }
 
 

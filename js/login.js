@@ -1,8 +1,3 @@
-async function initLogin() {
-    await loadUsers();
-}
-
-
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -11,15 +6,19 @@ async function loadUsers() {
     }
 }
 
+
 function login() {
     let email = document.getElementById('mail');
     let password = document.getElementById('pass');
-    let user = user.find(u => u.email == email.value && u.password == password.value);
+    let span = document.getElementById('wrong');
+    let user = users.find(u => u.email == email.value && u.password == password.value);
 
     if (user) {
-       alert('success');
+       window.location.href ='summary.html';
     } else {
-        alert('fehlschlag');
+        email.style.border = '1px solid red';
+        password.style.border = '1px solid red';
+        span.innerHTML = 'Wrong email or password Ups! Try again.';
     }
 }
 

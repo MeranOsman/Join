@@ -21,7 +21,7 @@
     <link href="img/join-logo-loading.svg" rel="icon" media="(prefers-color-scheme: light)" />
 </head>
 
-<body onload="initLogin()">
+<body onload="loadUsers()">
     <!-- animated logo START-->
     <div class=" bg-overlay animated">
         <img class="main-logo animated" src="img/join-logo-login.svg">
@@ -47,7 +47,7 @@
                 <input id="mail" required type="email" placeholder="Email" class="login icon-mail">
                 <div class="notice">
                     <input id="pass" required type="password" placeholder="Password" class="login icon-lock">
-                    <span>Wrong email or password Ups! Try again.</span>
+                    <span id="wrong"></span>
                 </div>
                 <div class="container-checkbox">
                     <div id="checkbox" onclick="checkboxImgChange()" class="icon-checkbox"></div><span>Remember
