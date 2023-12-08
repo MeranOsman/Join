@@ -17,9 +17,9 @@ function login() {
     let user = user.find(u => u.email == email.value && u.password == password.value);
 
     if (user) {
-        // wenn gefunden dann ...
+       alert('success');
     } else {
-        // wenn nicht gefunden dann ...
+        alert('fehlschlag');
     }
 }
 

@@ -13,7 +13,7 @@
             <div class="flex-col-contacts-inner">
                 <div onclick="closeModal('contacts-modal','modal-inner'), wait('edit-btn')" class="close-btn-contacts">X</div>
 
-                <form class="flex-col-contacts-inner" onsubmit="createContact();return false;">
+                <form class="flex-col-contacts-inner" onsubmit="createContact(); return false;">
                     <input id="contacts-name"  required type="text"  placeholder="Name"  class="login icon-person" minlength="3">
                     <input id="contacts-mail"  required type="email" placeholder="Email" class="login icon-mail">
                     <input id="contacts-phone" required type="text"  placeholder="Phone" class="login icon-call" pattern="[0-9+ ]*">
