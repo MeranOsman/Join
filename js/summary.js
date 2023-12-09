@@ -5,7 +5,9 @@ async function initSummary() {
     await renderUserName();
 }
 
-
+/**
+ * Function for render user name in summary-html
+ */
 async function renderUserName() {
     userName = document.getElementById('userName');
     userLetter = document.getElementById('userLetter');

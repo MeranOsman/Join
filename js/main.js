@@ -1,4 +1,14 @@
 /**
+ * Function for render several render functions
+ */
+async function initInfoPages() {
+  await includeHTML();
+  await loadUsers();
+  await renderUserLetters();
+}
+
+
+/**
  * Function for include templates
  */
 async function includeHTML() {
@@ -13,13 +23,6 @@ async function includeHTML() {
       element.innerHTML = 'Page not found';
     }
   }
-}
-
-
-async function renderInfoPages() {
-  await includeHTML();
-  await loadUsers();
-  await renderUserLetters();
 }
 
 
@@ -49,6 +52,9 @@ document.addEventListener('click', function (event) {
 });
 
 
+/**
+ * Function for render letters from user in header
+ */
 async function renderUserLetters() {
   userLetter = document.getElementById('userLetter');
 

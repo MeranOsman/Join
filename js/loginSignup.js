@@ -1,3 +1,6 @@
+/**
+ * Function for load user data
+ */
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -7,6 +10,9 @@ async function loadUsers() {
 }
 
 
+/**
+ * Function for login with user data
+ */
 function login() {
     let email = document.getElementById('mail');
     let password = document.getElementById('pass');
@@ -22,7 +28,9 @@ function login() {
     }
 }
 
-
+/**
+ * Function for guest login
+ */
 function guestLogin() {
     users.splice(0, users.length);
     setItem('users', JSON.stringify(users));
