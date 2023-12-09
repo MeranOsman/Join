@@ -10,7 +10,7 @@ async function renderUserName() {
     userName = document.getElementById('userName');
     userLetter = document.getElementById('userLetter');
   
-    if(users[0]['name']) {
+    if(users[0]) {
         userName.innerHTML = `${users[0]['name']}`;
         userLetter.innerHTML = `${users[0]['nameLetters']}`;
     } else {

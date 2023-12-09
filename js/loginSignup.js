@@ -23,6 +23,13 @@ function login() {
 }
 
 
+function guestLogin() {
+    users.splice(0, users.length);
+    setItem('users', JSON.stringify(users));
+    window.location.href='summary.html';
+}
+
+
 /*
 * Function for changing the checkbox image on click
 * checked and unchecked image

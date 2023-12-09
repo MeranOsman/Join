@@ -52,7 +52,7 @@ document.addEventListener('click', function (event) {
 async function renderUserLetters() {
   userLetter = document.getElementById('userLetter');
 
-  if (users[0]['name']) {
+  if (users[0]) {
     userLetter.innerHTML = `${users[0]['nameLetters']}`;
   } else {
     userLetter.innerHTML = `G`;
