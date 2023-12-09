@@ -2,6 +2,7 @@ async function initSummary() {
     await includeHTML();
     await loadUsers();
     await renderUserName();
+    await renderUserLetters();
     await greeting();
 }
 

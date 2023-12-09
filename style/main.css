@@ -54,7 +54,7 @@
 }
 
 .ci-blue{
-  color: var(--ci-blue);
+  color: var(--ci-blue) !important;
 }
 
 

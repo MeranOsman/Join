@@ -62,6 +62,7 @@ function getInitials(firstName, lastName) {
 async function renderContactList() {
     let cList = document.getElementById('contacts-list');
     cList.innerHTML = '';
+    let i = 0;
 
     const sortedContacts = sortContacts();
 
@@ -76,7 +77,7 @@ async function renderContactList() {
             const backgroundColorClass = getNextBackgroundColorClass();
 
             cList.innerHTML += `
-                <div class="margin-t" onclick="insertContactInfos('${initials}','${backgroundColorClass}','${contact.firstName}', '${contact.lastName}', '${contact.email}', '${contact.phone}')">
+                <div class="margin-t" onclick="insertContactInfos('${initials}','${backgroundColorClass}','${contact.firstName}', '${contact.lastName}', '${contact.email}', '${contact.phone}'), editContacts(${i})">
                     <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg')">
                         <li><span class="contact-icons ${backgroundColorClass}">${initials}</span></li>
                         <li class="upper-text">${contact.firstName} ${contact.lastName}<br><span class="contacts-links lower-text">${contact.email}</span></li>
@@ -237,17 +238,12 @@ function resetColor(){
 /*
 *** function to insert the contacts datas in edit mode
 */
-async function editContacts(initials, bgColors, firstName, lastName, email, phone){
-    console.log('Initials:', initials);
-    console.log('Background Colors:', bgColors);
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Email:', email);
-    console.log('Phone:', phone);
-
-    document.getElementById('profile-contacts').innerHTML = `${initials}`;
-    document.getElementById('profile-contacts').classList.add (`${bgColors}`);
-    document.getElementById('contacts-name').value = `${firstName} ${lastName}`;
-    document.getElementById('contacts-mail').value = `${email}`;
-    document.getElementById('contacts-phone').value = `${phone}`;
+async function editContacts(i){
+    for (let j = 0; j < contacts[0]['firstName'].length; j++) {
+        document.getElementById('profile-contacts').innerHTML = contacts[0]['phone'][i];
+        document.getElementById('profile-contacts').classList.add(`${bgColors}`);
+        document.getElementById('contacts-name').value = contacts[0]['firstName'][i];
+        document.getElementById('contacts-mail').value = contacts[0]['email'][i];
+        document.getElementById('contacts-phone').value = contacts[0]['phone'][i];
+    }
 }
