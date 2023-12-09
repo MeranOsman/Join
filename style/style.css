@@ -583,7 +583,6 @@ input::-webkit-datetime-edit {
 .help,
 .privacy,
 .legal {
-    overflow: auto;
     overflow-y: scroll;
 }
 

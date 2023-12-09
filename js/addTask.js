@@ -5,7 +5,9 @@ async function initAddtask() {
     await includeHTML();
     await renderSubtask();
     await renderCategory();
-    await renderContacts()
+    await renderContacts();
+    await loadUsers();
+    await renderUserLetters();
 }
 
 

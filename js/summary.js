@@ -8,13 +8,16 @@ async function initSummary() {
 
 async function renderUserName() {
     userName = document.getElementById('userName');
-
-    if(users['name']) {
-        userName.innerHTML = `${users['name']}`;
+    userLetter = document.getElementById('userLetter');
+  
+    if(users[0]['name']) {
+        userName.innerHTML = `${users[0]['name']}`;
+        userLetter.innerHTML = `${users[0]['nameLetters']}`;
     } else {
         userName.innerHTML = `Guest`;
+        userLetter.innerHTML = `G`;
     }
-}
+  }
 
 
 /**
