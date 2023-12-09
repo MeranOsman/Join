@@ -1,7 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     document.querySelector(".welcome").classList.add("opacity");
-// });
-
 async function initSummary() {
     await includeHTML();
     await loadUsers();
@@ -27,7 +23,7 @@ async function renderUserName() {
 
 
 /**
- * Function changes greeting according to time
+ * Function changes greeting according to time and add opacity
  */
 async function greeting() {
     let name = document.getElementById('welcome');
