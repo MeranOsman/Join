@@ -1,8 +1,12 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//     document.querySelector(".welcome").classList.add("opacity");
+// });
+
 async function initSummary() {
     await includeHTML();
-    await greeting();
     await loadUsers();
     await renderUserName();
+    await greeting();
 }
 
 /**
@@ -26,6 +30,7 @@ async function renderUserName() {
  * Function changes greeting according to time
  */
 async function greeting() {
+    let name = document.getElementById('welcome');
     let greet = document.getElementById('greeting');
     const currentHour = new Date().getHours();
    
@@ -36,4 +41,6 @@ async function greeting() {
     } else {
         greet.innerHTML = `Good evening,`;
     }
+
+    name.classList.add('opacity');
 }

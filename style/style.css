@@ -72,6 +72,10 @@ input::-webkit-datetime-edit {
     display: block !important;
 }
 
+.opacity {
+    opacity: 1 !important;
+}
+
 .media-show {
     display: flex !important;
 }

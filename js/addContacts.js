@@ -4,9 +4,9 @@
 */
 async function initContacts() {
     await includeHTML();
-    await renderContactList();
     await loadUsers();
     await renderUserLetters();
+    await renderContactList();
 }
 
 

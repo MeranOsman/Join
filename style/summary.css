@@ -199,6 +199,8 @@ p {
 }
 
 .welcome {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
     margin: 0;
     display: flex;
     flex-direction: column;

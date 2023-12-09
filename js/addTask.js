@@ -3,11 +3,11 @@
  */
 async function initAddtask() {
     await includeHTML();
+    await loadUsers();
+    await renderUserLetters();
     await renderSubtask();
     await renderCategory();
     await renderContacts();
-    await loadUsers();
-    await renderUserLetters();
 }
 
 
