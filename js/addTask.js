@@ -182,7 +182,11 @@ function SelectPrioBtn(btnId, newClass, prio, imgName) {
     let mediumBtn = document.getElementById('mediumBtn');
     let lowBtn = document.getElementById('lowBtn');
     let prioLabel = document.getElementById('prio');
+    let requiredBtn = document.querySelectorAll('.requiredBtn');
 
+    requiredBtn.forEach(function (btn) {
+        btn.style.border = 'none';
+    })
     prioLabel.style.color = 'black';
     urgentBtn.classList.remove('urgent-color');
     mediumBtn.classList.remove('medium-color');
@@ -233,7 +237,9 @@ function addSelectedCategory(i) {
     let background = document.getElementById('selectedColor');
     let number = category[i]['numberColor'];
     let categoryLabel = document.getElementById('category');
+    let requiredCategory = document.getElementById('selectedColor');
 
+    requiredCategory.style.border = '1px solid lightgray';
     categoryLabel.style.color = 'black';
     for (let i = 0; i < 8; i++) {
         background.classList.remove(`${bgColors[i]}`)
@@ -450,6 +456,8 @@ function createTask() {
     let prio = document.getElementById('prio');
     let category = document.getElementById('category');
     let requiredText = document.getElementById('required');
+    let requiredCategory = document.getElementById('selectedColor');
+    let requiredBtn = document.querySelectorAll('.requiredBtn');
 
     if (priority.length !== 0 && selectedCategory.length !== 0) {
         alert(`
@@ -465,9 +473,13 @@ function createTask() {
         location.reload();
     } else if (priority.length === 0) {
         prio.style.color = 'rgb(239, 136, 146)';
-        requiredText.style.color ='rgb(239, 136, 146)'
+        requiredBtn.forEach(function (btn) {
+            btn.style.border = '1px solid rgb(239, 136, 146)';
+        })
+        requiredText.style.color = 'rgb(239, 136, 146)'
     } else if (selectedCategory.length === 0) {
         category.style.color = 'rgb(239, 136, 146)';
-        requiredText.style.color ='rgb(239, 136, 146)'
+        requiredText.style.color = 'rgb(239, 136, 146)'
+        requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
     }
 }
