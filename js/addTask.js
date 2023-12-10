@@ -207,7 +207,7 @@ async function renderCategory() {
         let number = category[i]['numberColor'];
 
         elements.innerHTML += /*html*/ `
-        <li onclick="pushSelectedCategory(${i})">
+        <li onclick="addSelectedCategory(${i})">
             <span>${category[i]['name']}</span>
             <div class="display-flex">
                 <div class="edit-category">
@@ -221,7 +221,12 @@ async function renderCategory() {
 }
 
 
-function pushSelectedCategory(i) {
+/**
+ * Function push category and color-number in array, show selected category and color
+ * 
+ * @param {*} i 
+ */
+function addSelectedCategory(i) {
     let selectBox = document.getElementById('selectedCategory');
     let background = document.getElementById('selectedColor');
     let number = category[i]['numberColor'];
@@ -436,12 +441,16 @@ function createTask() {
     descriptionValue = document.getElementById('description').value;
     dateValue = document.getElementById('date').value;
     prioValue = priority[0]['prio'];
+    categoryValue = selectedCategory[0]['name'];
+    categoryColor = bgColors[selectedCategory[0]['numberColor']]; 
 
 
     alert(`
     Title: ${titelValue},
     Description: ${descriptionValue},
     Date: ${dateValue},
-    Prio: ${prioValue}
+    Prio: ${prioValue},
+    Category:${categoryValue},
+    CategoryColor: ${categoryColor}
     `)
 }
