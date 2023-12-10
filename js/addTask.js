@@ -208,17 +208,36 @@ async function renderCategory() {
         let number = category[i]['numberColor'];
 
         elements.innerHTML += /*html*/ `
-        <li>
+        <li onclick="pushSelectedCategory(${i})">
             <span>${category[i]['name']}</span>
             <div class="display-flex">
-            <div class="edit-category">
-                <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
-            </div>
+                <div class="edit-category">
+                    <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
+                </div>
                 <div class="render-circle ${bgColors[number]}"></div>
             </div>
         </li>
         `;
     }
+}
+
+
+function pushSelectedCategory(i) {
+    let selectBox = document.getElementById('selectedCategory');
+    let background = document.getElementById('selectedColor');
+    let number = category[i]['numberColor'];
+
+    for (let i = 0; i < 8; i++) {
+        background.classList.remove(`${bgColors[i]}`)     
+    }
+    selectBox.innerHTML = `${category[i]['name']}`;
+    background.classList.add(`${bgColors[number]}`);
+    showCloseCategory();
+
+    selectedCategory[0] = {
+        name: category[i]['name'],
+        numberColor: category[i]['numberColor']
+    };
 }
 
 
@@ -229,8 +248,11 @@ async function renderCategory() {
  */
 function showCloseCategory(event) {
     document.getElementById('dropdownCategory').classList.toggle('display-none');
-
-    event.stopPropagation();
+    try {
+        event.stopPropagation();
+    } catch (error) {
+        
+    }
 }
 
 
@@ -404,8 +426,13 @@ function createTask() {
     titelValue = document.getElementById('title').value;
     descriptionValue = document.getElementById('description').value;
     dateValue = document.getElementById('date').value;
-    prioValue =
+    prioValue = priority[0]['prio'];
 
 
-    alert('titel: ')
+    alert(`
+    Title: ${titelValue},
+    Description: ${descriptionValue},
+    Date: ${dateValue},
+    Prio: ${prioValue}
+    `)
 }

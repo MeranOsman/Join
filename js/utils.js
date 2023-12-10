@@ -12,6 +12,7 @@ let category = [{
     name: 'User Story',
     numberColor: 5
 }];
+let selectedCategory = [];
 let selectedColor = [];
 let priority = [];
 

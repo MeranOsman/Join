@@ -9,7 +9,7 @@
                 <input required maxlength="22" min="4" class="task-input" id="title" type="text"
                     placeholder="Enter a title">
                 <label class="label-input" for="description">Description</label>
-                <textarea id="description" placeholder="Enter a description"></textarea>
+                <textarea required id="description" placeholder="Enter a description"></textarea>
                 <label class="label-input">Assigned to</label>
                 <div class="position-relative width">
                     <div onclick="showCloseContacts(event)" class="select margin-zero">
@@ -47,8 +47,8 @@
                 </div>
                 <label class="label-required">Category</label>
                 <div class="position-relative width">
-                    <div onclick="showCloseCategory(event)" class="select">
-                        <span>Select task category</span>
+                    <div id="selectedColor" onclick="showCloseCategory(event)" class="select">
+                        <span id="selectedCategory">Select task category</span>
                         <img src="img/arrow_drop_down.svg" alt="arrow-down">
                     </div>
                     <div id="dropdownCategory" class="dropdown z-index display-none">
@@ -84,7 +84,7 @@
                 <label class="label-input" for="subtask">Subtasks</label>
                 <div class="width position-relative">
                     <div class="width subtasks">
-                        <input onkeydown="pressEnter(addSubtask, event)" required minlength="3" maxlength="16"
+                        <input onkeydown="pressEnter(addSubtask, event)" minlength="3" maxlength="16"
                             oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
                             placeholder="Add new subtask">
                         <div class="plus" id="imgChange">
