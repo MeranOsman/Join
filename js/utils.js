@@ -13,6 +13,7 @@ let category = [{
     numberColor: 5
 }];
 let selectedColor = [];
+let priority = [];
 
 // contacts
 let contacts = [{

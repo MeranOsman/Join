@@ -177,7 +177,7 @@ function showCloseContacts(event) {
  * @param {*} btnId 
  * @param {*} newClass 
  */
-function SelectPrioBtn(btnId, newClass) {
+function SelectPrioBtn(btnId, newClass, prio, imgName) {
     let btn = document.getElementById(btnId);
     let urgentBtn = document.getElementById('urgentBtn');
     let mediumBtn = document.getElementById('mediumBtn');
@@ -187,12 +187,10 @@ function SelectPrioBtn(btnId, newClass) {
     mediumBtn.classList.remove('medium-color');
     lowBtn.classList.remove('low-color');
     btn.classList.add(newClass);
-
-    // if (!urgentBtn.classList.contains('urgent-color') && !mediumBtn.classList.contains('medium-color') && !lowBtn.classList.contains('low-color')) {
-    //     btn.classList.add(newClass);
-    // } else {
-    //     btn.classList.remove(newClass);
-    // }
+    priority[0] = {
+        prio: prio,
+        imgName: imgName
+    };
 }
 
 
@@ -216,7 +214,7 @@ async function renderCategory() {
             <div class="edit-category">
                 <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
             </div>
-                <div class="circle ${bgColors[number]}"></div>
+                <div class="render-circle ${bgColors[number]}"></div>
             </div>
         </li>
         `;
@@ -244,6 +242,12 @@ function cancelCategory() {
 }
 
 
+/**
+ * Function change selected circle border and push color-number in the first position from array
+ * 
+ * @param {*} id 
+ * @param {*} number 
+ */
 function selectColor(id, number) {
     let color = document.getElementById(id);
 
@@ -257,7 +261,7 @@ function selectColor(id, number) {
 
 
 /**
- * Function push category to array
+ * Function push category with color-number to array
  * 
  * @returns 
  */
@@ -393,4 +397,15 @@ function changeSubtaskImg() {
 function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
+}
+
+
+function createTask() {
+    titelValue = document.getElementById('title').value;
+    descriptionValue = document.getElementById('description').value;
+    dateValue = document.getElementById('date').value;
+    prioValue =
+
+
+    alert('titel: ')
 }
