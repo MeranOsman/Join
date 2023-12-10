@@ -228,7 +228,7 @@ function pushSelectedCategory(i) {
     let number = category[i]['numberColor'];
 
     for (let i = 0; i < 8; i++) {
-        background.classList.remove(`${bgColors[i]}`)     
+        background.classList.remove(`${bgColors[i]}`)
     }
     selectBox.innerHTML = `${category[i]['name']}`;
     background.classList.add(`${bgColors[number]}`);
@@ -251,7 +251,7 @@ function showCloseCategory(event) {
     try {
         event.stopPropagation();
     } catch (error) {
-        
+
     }
 }
 
@@ -288,14 +288,22 @@ function selectColor(id, number) {
  * @returns 
  */
 function addCategory() {
-    let input = document.getElementById('inputCategory');
+    let colorBar = document.getElementById('color-section');
+    let inputId = document.getElementById('inputCategory');
+    let inputParts = inputId.value.trim().split(' ');
+    let input = inputParts.map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()).join(' ');
 
-    if (input.value.trim() !== '') {
-        category.push({
-            name: input.value,
-            numberColor: selectedColor[0]
-        });
-        renderCategory();
+    if (inputId.value.trim() !== '') {
+        if (selectedColor.length !== 0) {
+            category.push({
+                name: input,
+                numberColor: selectedColor[0]
+            });
+            colorBar.style.border = '1px solid lightgray';
+            renderCategory();
+        } else {
+            colorBar.style.border = '1px solid red';
+        }
     }
 }
 
@@ -376,10 +384,12 @@ function addChange(i) {
  * @returns 
  */
 function addSubtask() {
-    let input = document.getElementById('subtask');
+    let inputId = document.getElementById('subtask');
+    let inputParts = inputId.value.trim().split(' ');
+    let input = inputParts.map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()).join(' ');
 
-    if (input.value.trim() !== '') {
-        subtasks.push(input.value);
+    if (inputId.value.trim() !== '') {
+        subtasks.push(input);
         initAddtask();
     }
 }
