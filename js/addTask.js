@@ -181,7 +181,9 @@ function SelectPrioBtn(btnId, newClass, prio, imgName) {
     let urgentBtn = document.getElementById('urgentBtn');
     let mediumBtn = document.getElementById('mediumBtn');
     let lowBtn = document.getElementById('lowBtn');
+    let prioLabel = document.getElementById('prio');
 
+    prioLabel.style.color = 'black';
     urgentBtn.classList.remove('urgent-color');
     mediumBtn.classList.remove('medium-color');
     lowBtn.classList.remove('low-color');
@@ -230,7 +232,9 @@ function addSelectedCategory(i) {
     let selectBox = document.getElementById('selectedCategory');
     let background = document.getElementById('selectedColor');
     let number = category[i]['numberColor'];
+    let categoryLabel = document.getElementById('category');
 
+    categoryLabel.style.color = 'black';
     for (let i = 0; i < 8; i++) {
         background.classList.remove(`${bgColors[i]}`)
     }
@@ -394,7 +398,7 @@ function addSubtask() {
 
     if (inputId.value.trim() !== '') {
         subtasks.push(input);
-        initAddtask();
+        renderSubtask();
     }
 }
 
@@ -436,21 +440,31 @@ function cancelSubtask() {
 }
 
 
-function createTask() {
-    titelValue = document.getElementById('title').value;
-    descriptionValue = document.getElementById('description').value;
-    dateValue = document.getElementById('date').value;
-    prioValue = priority[0]['prio'];
-    categoryValue = selectedCategory[0]['name'];
-    categoryColor = bgColors[selectedCategory[0]['numberColor']]; 
+function createTask(event) {
+    event.preventDefault();
 
+    let titelValue = document.getElementById('title').value.trim();
+    let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
+    let descriptionValue = document.getElementById('description').value.trim();
+    let description = descriptionValue.charAt(0).toUpperCase() + descriptionValue.slice(1);
+    let dateValue = document.getElementById('date').value;
+    let subtaskValue = subtasks.join(', ');
+    let prio = document.getElementById('prio');
+    let category = document.getElementById('category');
 
-    alert(`
-    Title: ${titelValue},
-    Description: ${descriptionValue},
+    if (priority.length !== 0 && selectedCategory.length !== 0) {
+        alert(`
+    Title: ${titel},
+    Description: ${description},
     Date: ${dateValue},
-    Prio: ${prioValue},
-    Category:${categoryValue},
-    CategoryColor: ${categoryColor}
+    Prio: ${priority[0]['prio']},
+    Category:${selectedCategory[0]['name']},
+    CategoryColor: ${bgColors[selectedCategory[0]['numberColor']]},
+    Subtasks: ${subtaskValue}
     `)
+    } else if (priority.length === 0) {
+        prio.style.color = 'rgb(239, 136, 146)';
+    } else if (selectedCategory.length === 0) {
+        category.style.color = 'rgb(239, 136, 146)';
+    }
 }

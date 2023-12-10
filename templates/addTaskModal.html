@@ -2,15 +2,15 @@
     <h1>Add Task</h1>
     <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
         class="close-task-pop pos hide">X</div>
-    <form id="addTaskForm" onsubmit="createTask()">
+    <form id="addTaskForm" onsubmit="createTask(event)">
         <div class="flex">
             <div class="left-section flex-column-start">
                 <label class="label-required" for="title">Title</label>
                 <input required maxlength="22" min="4" class="task-input" id="title" type="text"
                     placeholder="Enter a title">
-                <label class="label-input" for="description">Description</label>
+                <label class="label-required" for="description">Description</label>
                 <textarea required id="description" placeholder="Enter a description"></textarea>
-                <label class="label-input">Assigned to</label>
+                <label class="label-required">Assigned to</label>
                 <div class="position-relative width">
                     <div onclick="showCloseContacts(event)" class="select margin-zero">
                         <span>Select contacts to assign</span>
@@ -36,16 +36,18 @@
             <div class="right-section flex-column-start">
                 <label class="label-required" for="date">Due date</label>
                 <input required class="task-input lightgray" id="date" type="date">
-                <label class="label-input">Prio</label>
+                <label id="prio" class="label-required">Prio</label>
                 <div class="prio display-flex">
-                    <button type="button" onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
+                    <button type="button"
+                        onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
                         class="urgent-btn">Urgent</button>
-                    <button type="button" onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
+                    <button type="button"
+                        onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
                         class="medium-btn">Medium</button>
-                    <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')" id="lowBtn"
-                        class="low-btn">Low</button>
+                    <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')"
+                        id="lowBtn" class="low-btn">Low</button>
                 </div>
-                <label class="label-required">Category</label>
+                <label id="category" class="label-required">Category</label>
                 <div class="position-relative width">
                     <div id="selectedColor" onclick="showCloseCategory(event)" class="select">
                         <span id="selectedCategory">Select task category</span>
@@ -102,7 +104,8 @@
         <div class="lower-area">
             <span class="required">This field is required</span>
             <div class="btn-addTask">
-                <button type="button" class="btn-guest">Clear<span class="icon-cross"></span></button>
+                <button onclick="location.reload()" type="button" class="btn-guest">Clear<span
+                        class="icon-cross"></span></button>
                 <button type="submit" class="btn-login margin-zero">Create Task<span
                         class="icon-check-new"></span></button>
             </div>
