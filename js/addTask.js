@@ -58,8 +58,6 @@ async function renderContacts() {
 }
 
 
-
-
 /**
  * Function for only render selected Contacts
  */
@@ -73,6 +71,7 @@ async function renderSelectedContacts() {
         `;
     }
 }
+
 
 /**
  * Toggle-function for add or delete contact
@@ -99,7 +98,7 @@ function toggleFunction(i) {
  * @param {*} i 
  */
 function selectContact(i) {
-    selectedContacts.push(contactss[i]);
+    selectedContacts.push(contacts[i]);
 
     activeContact(i);
     renderSelectedContacts();
@@ -143,13 +142,13 @@ function searchContact() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
 
-    for (let i = 0; i < contactss.length; i++) {
-        if (contactss[i].toLocaleLowerCase().includes(search)) {
+    for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].toLocaleLowerCase().includes(search)) {
             elements.innerHTML += /*html*/ `
                 <li onclick="activeContact(${i})" id="liContact${i}">
                     <div class="flex-center gap">
                         <span class="contacts-icon">AM</span>
-                        <span class="contacts">${contactss[i]}</span>
+                        <span class="contacts">${contacts[i]}</span>
                     </div>
                     <div id="contactCheckbox${i}" class="icon-checkbox"></div>
                 </li>

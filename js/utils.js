@@ -26,13 +26,10 @@ let contacts = [{
     'phone': ['+49 0152 123 456 789', '+49 0156 123 456 789', '+49 0172 123 456 789', '+49 0156 123 456 789',
         '+49 0163 123 456 789', '+49 0152 123 456 789', '+49 0154 123 456 789', '+49 0157 123 456 789',
         '+49 01522 94 315 789'
-    ]
+    ],
+    'color':[   'orange','azur','blue','pink','yell','vio','deep','tango','tango']
 }];
 
-let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
-const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-    'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-];
-let letterHeading = [];
+let bgColors = ['orange','vio','blue','pink','yell','azur','deep','tango'];
 
 let currentColorIndex = 0;

@@ -63,3 +63,8 @@ function wait(remove) {
       removeHide(remove); // Deine Funktion, die aufgerufen werden soll
     }, 250);
   }
+
+
+function resetColorModal(colorClass){
+    document.getElementById(colorClass).classList.remove ('orange','vio','blue','pink','yell','azur','deep','tango');
+}
