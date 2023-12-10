@@ -32,6 +32,4 @@ let contacts = [{
 
 let bgColors = ['orange','vio','blue','pink','yell','azur','deep','tango'];
 
-let letterHeading = [];
-
 let currentColorIndex = 0;
