@@ -2,7 +2,6 @@ async function initSummary() {
     await includeHTML();
     await loadUsers();
     await renderUserName();
-    await renderUserLetters();
     await greeting();
 }
 
@@ -12,6 +11,8 @@ async function initSummary() {
 async function renderUserName() {
     userName = document.getElementById('userName');
     userLetter = document.getElementById('userLetter');
+
+    userLetter.style.setProperty('color','var(--ci-blue)','important');
   
     if(users[0]) {
         userName.innerHTML = `${users[0]['name']}`;

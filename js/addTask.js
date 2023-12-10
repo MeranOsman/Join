@@ -17,7 +17,7 @@ async function initAddtask() {
  * @param {*} event 
  */
 function pressEnter(callback, event) {
-    if(event.keyCode === 13) {
+    if (event.keyCode === 13) {
         event.preventDefault();
         callback();
     }
@@ -176,17 +176,20 @@ function showCloseContacts(event) {
  * @param {*} btnId 
  * @param {*} newClass 
  */
-function SelectPrioBtn(btnId, newClass) {
+function SelectPrioBtn(btnId, newClass, prio, imgName) {
     let btn = document.getElementById(btnId);
     let urgentBtn = document.getElementById('urgentBtn');
     let mediumBtn = document.getElementById('mediumBtn');
     let lowBtn = document.getElementById('lowBtn');
 
-    if (!urgentBtn.classList.contains('urgent-color') && !mediumBtn.classList.contains('medium-color') && !lowBtn.classList.contains('low-color')) {
-        btn.classList.add(newClass);
-    } else {
-        btn.classList.remove(newClass);
-    }
+    urgentBtn.classList.remove('urgent-color');
+    mediumBtn.classList.remove('medium-color');
+    lowBtn.classList.remove('low-color');
+    btn.classList.add(newClass);
+    priority[0] = {
+        prio: prio,
+        imgName: imgName
+    };
 }
 
 
@@ -201,18 +204,39 @@ async function renderCategory() {
     input.value = '';
 
     for (let i = 0; i < category.length; i++) {
+        let number = category[i]['numberColor'];
+
         elements.innerHTML += /*html*/ `
-        <li>
-            <span>${category[i]}</span>
+        <li onclick="pushSelectedCategory(${i})">
+            <span>${category[i]['name']}</span>
             <div class="display-flex">
-            <div class="edit-category">
-                <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
-            </div>
-                <div class="circle-blue"></div>
+                <div class="edit-category">
+                    <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
+                </div>
+                <div class="render-circle ${bgColors[number]}"></div>
             </div>
         </li>
         `;
     }
+}
+
+
+function pushSelectedCategory(i) {
+    let selectBox = document.getElementById('selectedCategory');
+    let background = document.getElementById('selectedColor');
+    let number = category[i]['numberColor'];
+
+    for (let i = 0; i < 8; i++) {
+        background.classList.remove(`${bgColors[i]}`)     
+    }
+    selectBox.innerHTML = `${category[i]['name']}`;
+    background.classList.add(`${bgColors[number]}`);
+    showCloseCategory();
+
+    selectedCategory[0] = {
+        name: category[i]['name'],
+        numberColor: category[i]['numberColor']
+    };
 }
 
 
@@ -223,8 +247,11 @@ async function renderCategory() {
  */
 function showCloseCategory(event) {
     document.getElementById('dropdownCategory').classList.toggle('display-none');
-
-    event.stopPropagation();
+    try {
+        event.stopPropagation();
+    } catch (error) {
+        
+    }
 }
 
 
@@ -237,7 +264,25 @@ function cancelCategory() {
 
 
 /**
- * Function push category to array
+ * Function change selected circle border and push color-number in the first position from array
+ * 
+ * @param {*} id 
+ * @param {*} number 
+ */
+function selectColor(id, number) {
+    let color = document.getElementById(id);
+
+    for (let i = 0; i < 8; i++) {
+        document.getElementById('color' + i).classList.remove('select-circle');
+    }
+
+    color.classList.add('select-circle');
+    selectedColor[0] = number;
+}
+
+
+/**
+ * Function push category with color-number to array
  * 
  * @returns 
  */
@@ -245,7 +290,10 @@ function addCategory() {
     let input = document.getElementById('inputCategory');
 
     if (input.value.trim() !== '') {
-        category.push(input.value);
+        category.push({
+            name: input.value,
+            numberColor: selectedColor[0]
+        });
         renderCategory();
     }
 }
@@ -370,4 +418,20 @@ function changeSubtaskImg() {
 function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
     document.getElementById('subtask').value = '';
+}
+
+
+function createTask() {
+    titelValue = document.getElementById('title').value;
+    descriptionValue = document.getElementById('description').value;
+    dateValue = document.getElementById('date').value;
+    prioValue = priority[0]['prio'];
+
+
+    alert(`
+    Title: ${titelValue},
+    Description: ${descriptionValue},
+    Date: ${dateValue},
+    Prio: ${prioValue}
+    `)
 }

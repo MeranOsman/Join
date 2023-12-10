@@ -55,7 +55,7 @@ document.addEventListener('click', function (event) {
 /**
  * Function for render letters from user in header
  */
-function renderUserLetters() {
+async function renderUserLetters() {
   userLetter = document.getElementById('userLetter');
   userLetter.style.setProperty('color','var(--ci-blue)','important');
   

@@ -2,14 +2,14 @@
     <h1>Add Task</h1>
     <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
         class="close-task-pop pos hide">X</div>
-    <form id="addTaskForm" onsubmit="...()">
+    <form id="addTaskForm" onsubmit="createTask()">
         <div class="flex">
             <div class="left-section flex-column-start">
                 <label class="label-required" for="title">Title</label>
                 <input required maxlength="22" min="4" class="task-input" id="title" type="text"
                     placeholder="Enter a title">
                 <label class="label-input" for="description">Description</label>
-                <textarea id="description" placeholder="Enter a description"></textarea>
+                <textarea required id="description" placeholder="Enter a description"></textarea>
                 <label class="label-input">Assigned to</label>
                 <div class="position-relative width">
                     <div onclick="showCloseContacts(event)" class="select margin-zero">
@@ -38,20 +38,23 @@
                 <input required class="task-input lightgray" id="date" type="date">
                 <label class="label-input">Prio</label>
                 <div class="prio display-flex">
-                    <button type="button" onclick="SelectPrioBtn('urgentBtn', 'urgent-color')" id="urgentBtn" class="urgent-btn">Urgent</button>
-                    <button type="button" onclick="SelectPrioBtn('mediumBtn', 'medium-color')" id="mediumBtn" class="medium-btn">Medium</button>
-                    <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color')" id="lowBtn" class="low-btn">Low</button>
+                    <button type="button" onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
+                        class="urgent-btn">Urgent</button>
+                    <button type="button" onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
+                        class="medium-btn">Medium</button>
+                    <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')" id="lowBtn"
+                        class="low-btn">Low</button>
                 </div>
                 <label class="label-required">Category</label>
                 <div class="position-relative width">
-                    <div onclick="showCloseCategory(event)" class="select">
-                        <span>Select task category</span>
+                    <div id="selectedColor" onclick="showCloseCategory(event)" class="select">
+                        <span id="selectedCategory">Select task category</span>
                         <img src="img/arrow_drop_down.svg" alt="arrow-down">
                     </div>
                     <div id="dropdownCategory" class="dropdown z-index display-none">
                         <div class="position">
-                            <input onkeydown="pressEnter(addCategory, event)" maxlength="22" min="3" id="inputCategory" class="input-category" type="text"
-                                placeholder="Create new task category">
+                            <input onkeydown="pressEnter(addCategory, event)" maxlength="22" min="3" id="inputCategory"
+                                class="input-category" type="text" placeholder="Create new task category">
                             <div class="add-category">
                                 <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
                                 <div class="line"></div>
@@ -61,15 +64,14 @@
                                     alt="arrow-up">
                             </div>
                             <div class="color-section">
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
-                                <div class="circle-blue"></div>
+                                <div id="color0" onclick="selectColor('color0', 0)" class="circle orange"></div>
+                                <div id="color1" onclick="selectColor('color1', 1)" class="circle vio"></div>
+                                <div id="color2" onclick="selectColor('color2', 2)" class="circle blue"></div>
+                                <div id="color3" onclick="selectColor('color3', 3)" class="circle pink"></div>
+                                <div id="color4" onclick="selectColor('color4', 4)" class="circle yell"></div>
+                                <div id="color5" onclick="selectColor('color5', 5)" class="circle azur"></div>
+                                <div id="color6" onclick="selectColor('color6', 6)" class="circle deep"></div>
+                                <div id="color7" onclick="selectColor('color7', 7)" class="circle tango"></div>
                             </div>
                         </div>
                         <div class="dropdown-category">
@@ -82,8 +84,9 @@
                 <label class="label-input" for="subtask">Subtasks</label>
                 <div class="width position-relative">
                     <div class="width subtasks">
-                        <input onkeydown="pressEnter(addSubtask, event)" required minlength="3" maxlength="16" oninput="changeSubtaskImg()"
-                            class="task-input margin-zero" id="subtask" type="text" placeholder="Add new subtask">
+                        <input onkeydown="pressEnter(addSubtask, event)" minlength="3" maxlength="16"
+                            oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
+                            placeholder="Add new subtask">
                         <div class="plus" id="imgChange">
                             <img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">
                         </div>
@@ -100,7 +103,8 @@
             <span class="required">This field is required</span>
             <div class="btn-addTask">
                 <button type="button" class="btn-guest">Clear<span class="icon-cross"></span></button>
-                <button type="submit" class="btn-login margin-zero">Create Task<span class="icon-check-new"></span></button>
+                <button type="submit" class="btn-login margin-zero">Create Task<span
+                        class="icon-check-new"></span></button>
             </div>
         </div>
     </form>

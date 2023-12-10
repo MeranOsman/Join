@@ -22,35 +22,35 @@
 }
 
 .orange {
-  background: var(--orange);
+  background: var(--orange) !important;
 }
 
 .vio {
-  background: var(--vio);
+  background: var(--vio) !important;
 }
 
 .blue {
-  background: var(--blue);
+  background: var(--blue) !important;
 }
 
 .pink {
-  background: var(--pink);
+  background: var(--pink) !important;
 }
 
 .yell {
-  background: var(--yell);
+  background: var(--yell) !important;
 }
 
 .azur {
-  background: var(--azur);
+  background: var(--azur) !important;
 }
 
 .deep {
-  background: var(--deep);
+  background: var(--deep) !important;
 }
 
 .tango {
-  background: var(--tango);
+  background: var(--tango) !important;
 }
 
 .ci-blue{
