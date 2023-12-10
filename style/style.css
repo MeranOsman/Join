@@ -587,7 +587,7 @@ input::-webkit-datetime-edit {
 .help,
 .privacy,
 .legal {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .help h2 {

@@ -17,7 +17,7 @@ async function initAddtask() {
  * @param {*} event 
  */
 function pressEnter(callback, event) {
-    if(event.keyCode === 13) {
+    if (event.keyCode === 13) {
         event.preventDefault();
         callback();
     }
@@ -183,11 +183,16 @@ function SelectPrioBtn(btnId, newClass) {
     let mediumBtn = document.getElementById('mediumBtn');
     let lowBtn = document.getElementById('lowBtn');
 
-    if (!urgentBtn.classList.contains('urgent-color') && !mediumBtn.classList.contains('medium-color') && !lowBtn.classList.contains('low-color')) {
-        btn.classList.add(newClass);
-    } else {
-        btn.classList.remove(newClass);
-    }
+    urgentBtn.classList.remove('urgent-color');
+    mediumBtn.classList.remove('medium-color');
+    lowBtn.classList.remove('low-color');
+    btn.classList.add(newClass);
+
+    // if (!urgentBtn.classList.contains('urgent-color') && !mediumBtn.classList.contains('medium-color') && !lowBtn.classList.contains('low-color')) {
+    //     btn.classList.add(newClass);
+    // } else {
+    //     btn.classList.remove(newClass);
+    // }
 }
 
 
@@ -202,14 +207,16 @@ async function renderCategory() {
     input.value = '';
 
     for (let i = 0; i < category.length; i++) {
+        let number = category[i]['numberColor'];
+
         elements.innerHTML += /*html*/ `
         <li>
-            <span>${category[i]}</span>
+            <span>${category[i]['name']}</span>
             <div class="display-flex">
             <div class="edit-category">
                 <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
             </div>
-                <div class="circle-blue"></div>
+                <div class="circle ${bgColors[number]}"></div>
             </div>
         </li>
         `;
@@ -237,6 +244,18 @@ function cancelCategory() {
 }
 
 
+function selectColor(id, number) {
+    let color = document.getElementById(id);
+
+    for (let i = 0; i < 8; i++) {
+        document.getElementById('color' + i).classList.remove('select-circle');
+    }
+
+    color.classList.add('select-circle');
+    selectedColor[0] = number;
+}
+
+
 /**
  * Function push category to array
  * 
@@ -246,7 +265,10 @@ function addCategory() {
     let input = document.getElementById('inputCategory');
 
     if (input.value.trim() !== '') {
-        category.push(input.value);
+        category.push({
+            name: input.value,
+            numberColor: selectedColor[0]
+        });
         renderCategory();
     }
 }
