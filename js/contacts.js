@@ -31,10 +31,28 @@ function changeText(id1, id2){
 
 
 /*
-*** function for clear the inputs
+*** function for change the text on contact modal
+*/
+function changeTextAddContact(id1, id2){
+    document.getElementById(id1).innerHTML = 'Add contact';
+    document.getElementById(id2).innerHTML = 'Tasks are better with a team!';
+}
+
+/*
+*** function for clear and close the inputs
 */
 function closeAndClearModal() {
     closeModal('contacts-modal', 'modal-inner');
+    document.getElementById('contacts-name').value = '';
+    document.getElementById('contacts-mail').value = '';
+    document.getElementById('contacts-phone').value = '';
+}
+
+
+/*
+*** function for clear the inputs
+*/
+function clearModal() {
     document.getElementById('contacts-name').value = '';
     document.getElementById('contacts-mail').value = '';
     document.getElementById('contacts-phone').value = '';
@@ -105,6 +123,7 @@ function renderContactInfos(entryIndex) {
     let contactPhone = document.getElementById('phone-info');
     let edit = document.getElementById('contact-edit');
     let del = document.getElementById('contact-delete');
+    let editDrop = document.getElementById('dropContacts');
 
     let firstName = contacts[0]['firstName'][entryIndex];
     let lastName = contacts[0]['lastName'][entryIndex];
@@ -121,8 +140,19 @@ function renderContactInfos(entryIndex) {
     edit.innerHTML = `
             <div onclick="  showModal('contacts-modal','modal-inner'), addHide('add-btn'),
                             changeText('heading-contacts-modal','subline-contact-modal'),
-                            removeHide('edit-btn'), editContact(${entryIndex})"class="icon-edit">Edit</div>`
+                            removeHide('edit-btn'), removeHide('profile-contacts'),
+                            editContact(${entryIndex})" class="icon-edit">Edit</div>`
     del.innerHTML = `<div class="icon-delete" onclick="deleteContact(${entryIndex})">Delete</div>`
+    editDrop.innerHTML = `
+                <div class="bg-color flex-center">
+                    <div class="icon-edit text" onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn'),
+                                                        changeText('heading-contacts-modal','subline-contact-modal'),
+                                                        removeHide('edit-btn'), removeHide('profile-contacts'),
+                                                        editContact(${entryIndex})">Edit</div>
+                </div>
+                <div class="bg-color snd flex-center">
+                    <div class="icon-delete text" onclick="deleteContact(${entryIndex})">Delete</div>
+                </div>`
 }
 
 
@@ -156,15 +186,33 @@ function editContact(entryIndex){
     deleteContact.innerHTML = `<button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal(),resetColorModal('profile-contacts'),deleteContact(${entryIndex})">Delete</button>`;
 
     let saveContact = document.getElementById('save-btn');
-    saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="closeAndClearModal(),saveEdits(${entryIndex})">Save<span class="icon-check-new"></span></button>`;
+    saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${entryIndex}),wait(wait),closeAndClearModal()">Save<span class="icon-check-new"></span></button>`;
 }
 
+
+/*
+*** function for save the edits on contact
+*/
 function saveEdits(entryIndex) {
+    let inputName = document.getElementById('contacts-name');
+    let inputMail = document.getElementById('contacts-mail');
+    let inputPhone = document.getElementById('contacts-phone');
 
+    let firstName = inputName.value.split(' ');
+    let lastName = firstName.slice(1).join('') || '';
+    firstName = firstName[0] || '';
 
+    let contact = contacts[0];
+
+    contact['firstName'][entryIndex] = firstName;
+    contact['lastName'][entryIndex] = lastName;
+    contact['email'][entryIndex] = inputMail.value;
+    contact['phone'][entryIndex] = inputPhone.value;
 
     renderContactList();
+    renderContactInfos(entryIndex);
 }
+
 
 
 /*
@@ -210,13 +258,3 @@ function addContact() {
     renderContactInfos(0);
     closeAndClearModal();
 }
-
-
-
-
-
-
-
-
-
-

@@ -11,18 +11,20 @@
         <div class="flex-row-contacts margin-t-xl">
             <div id="profile-contacts" class="media-pos contact-icons"></div>
             <div class="flex-col-contacts-inner">
-                <div onclick="closeModal('contacts-modal','modal-inner'), wait('edit-btn'),resetColorModal('profile-contacts')" class="close-btn-contacts">X</div>
+                <div onclick="  closeModal('contacts-modal','modal-inner'),
+                                wait('edit-btn'),
+                                resetColorModal('profile-contacts')"
+                     class="close-btn-contacts">X</div>
 
-                <form class="flex-col-contacts-inner" onsubmit="createContact(); return false;">
+                <form class="flex-col-contacts-inner" onsubmit="addContact(); return false;">
                     <input id="contacts-name"  required type="text"  placeholder="Name"  class="login icon-person" minlength="3">
                     <input id="contacts-mail"  required type="email" placeholder="Email" class="login icon-mail">
                     <input id="contacts-phone" required type="text"  placeholder="Phone" class="login icon-call" pattern="[0-9+ ]*">
                     <div id="add-btn" class="margin-t flex-row media">
-                        <button type="button" id="cancel-btn" class="btn-guest media show contacts" onclick="closeAndClearModal(),
-                                                                                                            closeModal('contacts-modal','modal-inner'),
+                        <button type="button" id="cancel-btn" class="btn-guest media show contacts" onclick="closeAndClearModal(),                                                                                       
                                                                                                             resetColorModal('profile-contacts')">
                                                                                                             Cancel<span class="icon-cross"></span></button>
-                        <button type="submit" id="create-btn" class="btn-login media" onclick="addContact()">Create Contact<span class="icon-check-new"></span></button>
+                        <button type="submit" id="create-btn" class="btn-login media">Create Contact<span class="icon-check-new"></span></button>
                     </div>
                     <div id="edit-btn" class="margin-t flex-row media modal">
                         <div id="del-btn"></div>

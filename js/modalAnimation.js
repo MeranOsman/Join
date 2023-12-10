@@ -14,7 +14,8 @@ function showModal(outer, inner){
 function closeModal(outer,inner){
     document.getElementById(inner).classList.add('move-to-right');
     document.getElementById(inner).style.setProperty('animation-direction','reverse');
-    document.body.style.overflow = 'auto';
+    document.body.style.overflowY = 'auto';
+    document.body.style.overflowX = 'hidden';
     setTimeout(function() {hideAgain(outer, inner);}, 250);
 }
 
@@ -58,9 +59,8 @@ function addZindex(add){
 *** help function to remove hide classes with time delay
 */
 function wait(remove) {
-    // Verzögere den Funktionsaufruf um 250 Millisekunden
     setTimeout(function () {
-      removeHide(remove); // Deine Funktion, die aufgerufen werden soll
+      removeHide(remove);
     }, 250);
   }
 
