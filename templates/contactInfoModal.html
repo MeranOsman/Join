@@ -15,26 +15,24 @@
                     <!-- Mobile heading ### END-->
 
                 </div>
-                <div class="flex-row margin-t">
-                    <div id="initials-info" class="contact-icons info modal">insert initials</div>
-                    <div id="names-info" class="names upper-text">insert name</div>
+                <!-- injecting the contacts infos part 1-->
+                <div id="info-header" class="flex-row margin-t">
+                    <div id="initials-info" class="contact-icons cap-text info modal">Insert initials</div>
+                    <div id="names-info" class="names upper-text">Insert name</div>
                 </div>
+                <!-- injecting the buttons-->
                 <div class="flex-row-contacts info margin-t media-show-icons">
-                    <div class="flex-row-contacts gap links">
-                        <div onclick="  showModal('contacts-modal','modal-inner'), addHide('add-btn'),
-                                        changeText('heading-contacts-modal','subline-contact-modal'),
-                                        removeHide('edit-btn')"
-                                        class="icon-edit">Edit
-                        </div>
-                    </div>
-                                        
-                    <div class="flex-row-contacts gap links"><div class="icon-delete">Delete</div></div>
+                    <div id="contact-edit" class="flex-row-contacts gap links"></div>               
+                    <div id="contact-delete" class="flex-row-contacts gap links"></div>
                 </div>
+
                 <div>
                     <div class="margin-t subline-info">Contact information</div>
                     <div class="margin-t contact-bold">Email</div>
+                    <!-- injecting the contacts infos part 2-->
                     <div id="mail-info" class="margin-t link lower-text">insert mail</div>
                     <div class="margin-t contact-bold">Phone</div>
+                    <!-- injecting the contacts infos part 3-->
                     <div id="phone-info" class="margin-t">insert phone number</div>
                 </div>
             </div>

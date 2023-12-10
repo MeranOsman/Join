@@ -263,6 +263,9 @@ li{
 .upper-text{
     text-transform: capitalize;
 }
+.cap-text{
+    text-transform: uppercase;
+}
 .lower-text{
     text-transform: lowercase;
 }
