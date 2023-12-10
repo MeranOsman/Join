@@ -2,7 +2,7 @@
     <h1>Add Task</h1>
     <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
         class="close-task-pop pos hide">X</div>
-    <form id="addTaskForm" onsubmit="createTask(event)">
+    <form id="addTaskForm" onsubmit="createTask(); return false;">
         <div class="flex">
             <div class="left-section flex-column-start">
                 <label class="label-required" for="title">Title</label>
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="lower-area">
-            <span class="required">This field is required</span>
+            <span id="required" class="required">This field is required</span>
             <div class="btn-addTask">
                 <button onclick="location.reload()" type="button" class="btn-guest">Clear<span
                         class="icon-cross"></span></button>

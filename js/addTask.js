@@ -440,9 +440,7 @@ function cancelSubtask() {
 }
 
 
-function createTask(event) {
-    event.preventDefault();
-
+function createTask() {
     let titelValue = document.getElementById('title').value.trim();
     let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
     let descriptionValue = document.getElementById('description').value.trim();
@@ -451,6 +449,7 @@ function createTask(event) {
     let subtaskValue = subtasks.join(', ');
     let prio = document.getElementById('prio');
     let category = document.getElementById('category');
+    let requiredText = document.getElementById('required');
 
     if (priority.length !== 0 && selectedCategory.length !== 0) {
         alert(`
@@ -462,9 +461,13 @@ function createTask(event) {
     CategoryColor: ${bgColors[selectedCategory[0]['numberColor']]},
     Subtasks: ${subtaskValue}
     `)
+
+        location.reload();
     } else if (priority.length === 0) {
         prio.style.color = 'rgb(239, 136, 146)';
+        requiredText.style.color ='rgb(239, 136, 146)'
     } else if (selectedCategory.length === 0) {
         category.style.color = 'rgb(239, 136, 146)';
+        requiredText.style.color ='rgb(239, 136, 146)'
     }
 }
