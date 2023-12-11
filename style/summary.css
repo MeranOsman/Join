@@ -20,6 +20,10 @@ p {
     all: unset;
 }
 
+.distance-summary {
+    padding: 16px 30px 16px 70px;
+}
+
 .section-position {
     display: flex;
     flex-direction: column;
@@ -52,7 +56,7 @@ p {
 }
 
 .welcome h2 {
-    font-size: 46px;
+    font-size: 38px;
     font-weight: 400;
     color: var(--sidebar-background);
     margin: 0;
@@ -196,6 +200,8 @@ p {
 .name {
     color: var(--summary-h2-color);
     margin: 0 0 38px 0;
+    font-size: 44px;
+    line-height: normal;
 }
 
 .welcome {
@@ -208,23 +214,26 @@ p {
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    gap: 10px;
 }
 
 /* media */
 @media screen and (max-width: 1170px) {
-    .distance {
-        padding: 0px 46px 16px 46px;
+    .distance-summary {
+        padding: 0px 40px 16px 40px;
+    }
+
+    .welcome h2 {
+        font-size: 30px;
+    }
+
+    .name {
+        font-size: 36px;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .welcome h2 {
         font-size: 32px;
-    }
-
-    .name {
-        font-size: 44px;
     }
 
     .welcome {
@@ -252,10 +261,10 @@ p {
 
     .name {
         margin: 0;
-        font-size: 32px;
+        font-size: 30px;
     }
 
-    .distance {
+    .distance-summary {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -291,6 +300,14 @@ p {
     .summary-h2 {
         margin: 0 0 12px 0;
         font-size: 22px;
+    }
+
+    .welcome h2 {
+        font-size: 22px;
+    }
+
+    .name {
+        font-size: 26px;
     }
 
     .summary-flex-row {
