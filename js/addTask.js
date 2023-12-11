@@ -24,39 +24,9 @@ function pressEnter(callback, event) {
 }
 
 
-/*
+/**
  * Function for render contacts and selected Contacts
- 
-async function renderContacts() {
-    let elements = document.getElementById('contactAll');
-    elements.innerHTML = '';
-
-    // Sortiere die Kontakte alphabetisch nach dem Vornamen
-    const sortedContacts = contacts[0].firstName.map((firstName, index) => ({
-        firstName,
-        lastName: contacts[0].lastName[index],
-        index,
-    })).sort((a, b) => a.firstName.localeCompare(b.firstName));
-
-    for (let i = 0; i < sortedContacts.length; i++) {
-        const contact = sortedContacts[i];
-        const initials = getInitials(contact.firstName, contact.lastName);
-        const backgroundColorClass = getNextBackgroundColorClass();
-
-        elements.innerHTML +=  `
-            <li onclick="toggleFunction(${contact.index})" id="liContact${contact.index}">
-                <div class="flex-center gap">
-                    <span class="contacts-icon ${backgroundColorClass}">${initials}</span>
-                    <span class="contacts">${contact.firstName} ${contact.lastName}</span>
-                </div>
-                <div id="contactCheckbox${contact.index}" class="icon-checkbox"></div>
-            </li>
-        `;
-
-        await renderSelectedContacts();
-    }
-}*/
-
+ */
 async function renderContacts() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';

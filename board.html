@@ -13,6 +13,7 @@
     <script src="js/loginSignup.js"></script>
     <script src="js/main.js"></script>
     <script src="js/addTask.js"></script>
+    <script src="js/contacts.js"></script>
     <script src="js/board.js"></script>
     <script src="js/modalAnimation.js"></script>
 
@@ -78,7 +79,7 @@
                     <img src="img/prioLow.svg" />
                 </div>
             </div>
-            <div class="tasks-card">
+            <div class="tasks-card" onclick="showModal('task-info-modal','task-pop-up')">
                 <p class="task-card-heading azur">Technical Task</p>
                 <p class="task-card-title">HTML Base Template Creation</p>
                 <p class="task-card-note">Create reusable HTML base templates...</p>
@@ -105,7 +106,7 @@
             <div class="flex-btw-board on-hover">
                 <p class="tasks-heading">Await feedback</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
             </div>
-            <div class="tasks-card">
+            <div class="tasks-card" onclick="showModal('task-info-modal','task-pop-up')">
                 <p class="task-card-heading azur">Technical Task</p>
                 <p class="task-card-title">CSS Architecture Planning</p>
                 <p class="task-card-note">Define CSS naming conventions and Structure...</p>
@@ -123,7 +124,7 @@
             <div class="flex-btw-board on-hover">
                 <p class="tasks-heading">Done</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
             </div>
-            <div class="tasks-card">
+            <div class="tasks-card" onclick="showModal('task-info-modal','task-pop-up')">
                 <p class="task-card-heading blue">User story</p>
                 <p class="task-card-title">Daily Kochwelt Recipe</p>
                 <p class="task-card-note">Implement daily recipe and portion calculator...</p>

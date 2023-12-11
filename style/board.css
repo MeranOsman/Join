@@ -101,6 +101,7 @@ input#search-board {
     padding: 0 16px 16px 16px;
     border-radius: 20px;
     box-shadow: 0 0 5px lightgray;
+    cursor: pointer;
 }
 
 .task-card-heading {

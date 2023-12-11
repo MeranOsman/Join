@@ -214,7 +214,6 @@ function saveEdits(entryIndex) {
 }
 
 
-
 /*
 *** function to delete the contact
 */

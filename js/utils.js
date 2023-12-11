@@ -32,4 +32,4 @@ let contacts = [{
 
 let bgColors = ['orange','vio','blue','pink','yell','azur','deep','tango'];
 
-let currentColorIndex = 0;
+
