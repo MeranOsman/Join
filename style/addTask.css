@@ -68,6 +68,10 @@
     margin-bottom: 8px;
 }
 
+#titel:invalid {
+    border: 1px solid red;
+}
+
 #description {
     box-sizing: border-box;
     min-width: 100%;

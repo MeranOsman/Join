@@ -27,9 +27,9 @@ let contacts = [{
         '+49 0163 123 456 789', '+49 0152 123 456 789', '+49 0154 123 456 789', '+49 0157 123 456 789',
         '+49 01522 94 315 789'
     ],
-    'color':[   'orange','azur','blue','pink','yell','vio','deep','tango','tango']
+    'color': ['orange', 'azur', 'blue', 'pink', 'yell', 'vio', 'deep', 'tango', 'tango']
 }];
 
-let bgColors = ['orange','vio','blue','pink','yell','azur','deep','tango'];
+let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
 
 
