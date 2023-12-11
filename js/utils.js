@@ -32,4 +32,24 @@ let contacts = [{
 
 let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
 
+let tasks = [
+    {
+        'category'      : 'user story',
+        'title'         : 'Kochwelt Page & Recipe Recommender',
+        'description'   : 'Build start page with recipe recommendation',
+        'subtasks'      : ['Implement Recipe recommendation', 'Start Page Layout'],
+        'employees'     : ['AM', 'AS', 'DE'],
+        'prio'          : 'low',
+        'date'          : '10/05/2023',
+    },
+    {
+        'category'      : 'technical task',
+        'title'         : 'HTML Base Template Creation',
+        'description'   : 'Create reusable HTML base templates',
+        'subtasks'      : ['Implement Recipe recommendation', 'Start Page Layout'],
+        'employees'     : ['AM', 'AS', 'DE'],
+        'prio'          : 'low',
+        'date'          : '10/05/2023',
+    },
+]
 
