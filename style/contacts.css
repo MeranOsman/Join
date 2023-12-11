@@ -46,6 +46,7 @@ li{
 .flex-contacts-inner-li:hover {
     background: #f3f3f3;
     border-radius: 10px;
+    cursor: pointer;
 }
 .flex-contacts-inner-li:focus {
     background: var(--sidebar-background);
@@ -497,6 +498,7 @@ li{
         bottom:50px;
         right:8%;
         z-index: 0;
+        cursor: pointer;
     }
     .modal-inner.modal{
         height:50% !important;
