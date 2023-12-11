@@ -35,39 +35,47 @@ let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'
 let tasks = [
     {
         'category'      : 'user story',
+        'categoryCol'   : 'blue',
         'title'         : 'Kochwelt Page & Recipe Recommender',
         'description'   : 'Build start page with recipe recommendation',
         'subtasks'      : ['Implement Recipe recommendation', 'Start Page Layout'],
         'employees'     : ['AM', 'AS', 'DE'],
         'prio'          : 'low',
         'date'          : '10/05/2023',
+        'color'         : ['orange','azur','pink']
     },
     {
         'category'      : 'technical task',
+        'categoryCol'   : 'azur',
         'title'         : 'HTML Base Template Creation',
         'description'   : 'Create reusable HTML base templates',
         'subtasks'      : ['Make responsive', 'Problems on screen size 960px'],
         'employees'     : ['EM', 'MB', 'TW'],
         'prio'          : 'medium',
         'date'          : '19/07/2023',
+        'color'         : ['vio','deep','tango']
     },
     {
         'category'      : 'technical task',
+        'categoryCol'   : 'azur',
         'title'         : 'CSS Architecture Planning',
         'description'   : 'Define CSS naming conventions and Structure, reuse classes instead making new ones',
         'subtasks'      : ['Class documentation'],
         'employees'     : ['EF', 'AS', 'BZ'],
         'prio'          : 'urgent',
         'date'          : '05/08/2023',
+        'color'         : ['yell','azur','blue']
     },
     {
         'category'      : 'user story',
+        'categoryCol'   : 'blue',
         'title'         : 'Daily Kochwelt Recipe',
         'description'   : 'Implement daily recipe and portion calculator',
         'subtasks'      : ['Implement calculator','Check everthing','Relax'],
         'employees'     : ['AM', 'AS', 'DE'],
         'prio'          : 'urgent',
         'date'          : '05/08/2023',
+        'color'         : ['orange','azur','pink']
     }
 ];
 
