@@ -46,10 +46,28 @@ let tasks = [
         'category'      : 'technical task',
         'title'         : 'HTML Base Template Creation',
         'description'   : 'Create reusable HTML base templates',
-        'subtasks'      : ['Implement Recipe recommendation', 'Start Page Layout'],
-        'employees'     : ['AM', 'AS', 'DE'],
-        'prio'          : 'low',
-        'date'          : '10/05/2023',
+        'subtasks'      : ['Make responsive', 'Problems on screen size 960px'],
+        'employees'     : ['EM', 'MB', 'TW'],
+        'prio'          : 'medium',
+        'date'          : '19/07/2023',
     },
-]
+    {
+        'category'      : 'technical task',
+        'title'         : 'CSS Architecture Planning',
+        'description'   : 'Define CSS naming conventions and Structure, reuse classes instead making new ones',
+        'subtasks'      : ['Class documentation'],
+        'employees'     : ['EF', 'AS', 'BZ'],
+        'prio'          : 'urgent',
+        'date'          : '05/08/2023',
+    },
+    {
+        'category'      : 'user story',
+        'title'         : 'Daily Kochwelt Recipe',
+        'description'   : 'Implement daily recipe and portion calculator',
+        'subtasks'      : ['Implement calculator','Check everthing','Relax'],
+        'employees'     : ['AM', 'AS', 'DE'],
+        'prio'          : 'urgent',
+        'date'          : '05/08/2023',
+    }
+];
 
