@@ -24,9 +24,9 @@ function pressEnter(callback, event) {
 }
 
 
-/**
+/*
  * Function for render contacts and selected Contacts
- */
+ 
 async function renderContacts() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
@@ -43,7 +43,7 @@ async function renderContacts() {
         const initials = getInitials(contact.firstName, contact.lastName);
         const backgroundColorClass = getNextBackgroundColorClass();
 
-        elements.innerHTML += /*html*/ `
+        elements.innerHTML +=  `
             <li onclick="toggleFunction(${contact.index})" id="liContact${contact.index}">
                 <div class="flex-center gap">
                     <span class="contacts-icon ${backgroundColorClass}">${initials}</span>
@@ -54,6 +54,31 @@ async function renderContacts() {
         `;
 
         await renderSelectedContacts();
+    }
+}*/
+
+async function renderContacts() {
+    let elements = document.getElementById('contactAll');
+    elements.innerHTML = '';
+
+    sortNames();
+
+    for (let i = 0; i < contacts.length; i++) {
+        for (let j = 0; j < contacts[i]['firstName'].length; j++) {
+            let firstName = contacts[i]['firstName'][j];
+            let lastName = contacts[i]['lastName'][j];
+            let color = contacts[i]['color'][j];
+
+            elements.innerHTML += /*html*/ `
+            <li onclick="toggleFunction(${j})" id="liContact${j}">
+                <div class="flex-center gap">
+                    <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
+                    <span class="contacts">${firstName} ${lastName}</span>
+                </div>
+                <div id="contactCheckbox${j}" class="icon-checkbox"></div>
+            </li>
+        `;
+        }
     }
 }
 
