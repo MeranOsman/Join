@@ -33,24 +33,22 @@ async function renderContacts() {
 
     sortNames();
 
-    for (let i = 0; i < contacts.length; i++) {
-        for (let j = 0; j < contacts[i]['firstName'].length; j++) {
-            let firstName = contacts[i]['firstName'][j];
-            let lastName = contacts[i]['lastName'][j];
-            let color = contacts[i]['color'][j];
+    for (let i = 0; i < contacts[0]['firstName'].length; i++) {
+        let firstName = contacts[0]['firstName'][i];
+        let lastName = contacts[0]['lastName'][i];
+        let color = contacts[0]['color'][i];
 
-            elements.innerHTML += /*html*/ `
-            <li onclick="toggleFunction(${j})" id="liContact${j}">
+        elements.innerHTML += /*html*/ `
+            <li onclick="toggleFunction(${i})" id="liContact${i}">
                 <div class="flex-center gap">
                     <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
                     <span class="contacts">${firstName} ${lastName}</span>
                 </div>
-                <div id="contactCheckbox${j}" class="icon-checkbox"></div>
+                <div id="contactCheckbox${i}" class="icon-checkbox"></div>
             </li>
         `;
-        }
     }
-} /*return */
+}
 
 
 /**
@@ -93,7 +91,11 @@ function toggleFunction(i) {
  * @param {*} i 
  */
 function selectContact(i) {
-    selectedContacts.push(contacts[i]);
+    let firstName = contacts[0]['firstName'][i];
+    let lastName = contacts[0]['lastName'][i];
+    let color = contacts[0]['color'][i];
+
+    selectedContacts.push();
 
     activeContact(i);
     renderSelectedContacts();
@@ -138,12 +140,12 @@ function searchContact() {
     elements.innerHTML = '';
 
     for (let i = 0; i < contacts.length; i++) {
-        if (contacts[i].toLocaleLowerCase().includes(search)) {
+        if (contacts[0].toLocaleLowerCase().includes(search)) {
             elements.innerHTML += /*html*/ `
                 <li onclick="activeContact(${i})" id="liContact${i}">
                     <div class="flex-center gap">
                         <span class="contacts-icon">AM</span>
-                        <span class="contacts">${contacts[i]}</span>
+                        <span class="contacts">${contacts[0]}</span>
                     </div>
                     <div id="contactCheckbox${i}" class="icon-checkbox"></div>
                 </li>

@@ -24,7 +24,7 @@ function showDropdown(event) {
 /*
 *** function for change the text on contact modal
 */
-function changeText(id1, id2){
+function changeText(id1, id2) {
     document.getElementById(id1).innerHTML = 'Edit contact';
     document.getElementById(id2).innerHTML = '';
 }
@@ -33,7 +33,7 @@ function changeText(id1, id2){
 /*
 *** function for change the text on contact modal
 */
-function changeTextAddContact(id1, id2){
+function changeTextAddContact(id1, id2) {
     document.getElementById(id1).innerHTML = 'Add contact';
     document.getElementById(id2).innerHTML = 'Tasks are better with a team!';
 }
@@ -65,25 +65,23 @@ function clearModal() {
 */
 async function renderContactList() {
     let cList = document.getElementById('contacts-list');
-    cList.innerHTML='';
+    cList.innerHTML = '';
     let currentInitial = '';
 
     sortNames();
 
-    for (let i = 0; i < contacts.length; i++) {
-        for (let j = 0; j < contacts[i]['firstName'].length; j++) {
-            let firstName = contacts[i]['firstName'][j];
-            let lastName = contacts[i]['lastName'][j];
-            let email = contacts[i]['email'][j];
-            let color = contacts[i]['color'][j];
+    for (let j = 0; j < contacts[0]['firstName'].length; j++) {
+        let firstName = contacts[0]['firstName'][j];
+        let lastName = contacts[0]['lastName'][j];
+        let email = contacts[0]['email'][j];
+        let color = contacts[0]['color'][j];
 
-            // check if first letter was changed
-            if (firstName.charAt(0).toUpperCase() !== currentInitial) {
-                currentInitial = firstName.charAt(0).toUpperCase();
+        if (firstName.charAt(0).toUpperCase() !== currentInitial) {
+            currentInitial = firstName.charAt(0).toUpperCase();
 
-                cList.innerHTML += `<div class="margin-t"><span>${currentInitial}</span><div class="underline"></div></div>`;
-            }
-            cList.innerHTML += `
+            cList.innerHTML += `<div class="margin-t"><span>${currentInitial}</span><div class="underline"></div></div>`;
+        }
+        cList.innerHTML += `
                 <div class="margin-t">
                     <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg'), renderContactInfos(${j})">
                         <li><span class="contact-icons cap-text ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span></li>
@@ -91,7 +89,6 @@ async function renderContactList() {
                     </div>
                 </div>  
             `;
-        }
     }
 }
 
@@ -134,7 +131,7 @@ function renderContactInfos(entryIndex) {
     contactInitials.innerHTML = `${firstName.charAt(0)}${lastName.charAt(0)}`;
     contactInitials.classList.add(`${color}`);
     contactName.innerHTML = `${firstName} ${lastName}`;
-    contactMail.innerHTML =`${email}`;
+    contactMail.innerHTML = `${email}`;
     contactPhone.innerHTML = `${phone}`;
 
     edit.innerHTML = `
@@ -159,29 +156,29 @@ function renderContactInfos(entryIndex) {
 /*
 *** function reset the color classes because of the classList.add
 */
-function resetColor(){
-    document.getElementById('initials-info').classList.remove ('orange','vio','blue','pink','yell','azur','deep','tango');
+function resetColor() {
+    document.getElementById('initials-info').classList.remove('orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango');
 }
 
 
 /*
 *** function to edit the contact
 */
-function editContact(entryIndex){
-    
+function editContact(entryIndex) {
+
     let firstName = contacts[0]['firstName'][entryIndex];
     let lastName = contacts[0]['lastName'][entryIndex];
     let email = contacts[0]['email'][entryIndex];
     let phone = contacts[0]['phone'][entryIndex];
     let color = contacts[0]['color'][entryIndex];
-   
+
     document.getElementById('profile-contacts').innerHTML = `${firstName.charAt(0)}${lastName.charAt(0)}`;
     document.getElementById('profile-contacts').classList.add(`${color}`);
     document.getElementById('contacts-name').value = `${firstName} ${lastName}`;
     document.getElementById('contacts-mail').value = `${email}`;
     document.getElementById('contacts-phone').value = `${phone}`;
 
-    
+
     let deleteContact = document.getElementById('del-btn');
     deleteContact.innerHTML = `<button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal(),resetColorModal('profile-contacts'),deleteContact(${entryIndex})">Delete</button>`;
 
@@ -243,9 +240,9 @@ function addContact() {
     let firstName = nameParts[0] || ''; // fallback
     let lastName = nameParts.slice(1).join(' ') || ''; //fallback
 
-     // choose color from index
-     let colorIndex = contacts[0].firstName.length % bgColors.length;
-     let color = bgColors[colorIndex];
+    // choose color from index
+    let colorIndex = contacts[0].firstName.length % bgColors.length;
+    let color = bgColors[colorIndex];
 
     contacts[0]['firstName'].push(firstName);
     contacts[0]['lastName'].push(lastName);

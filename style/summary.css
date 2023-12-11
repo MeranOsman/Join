@@ -78,7 +78,7 @@ p {
     background-color: #ffff;
     border-radius: 20px;
     padding: 8px;
-    width: 45%;
+    width: 46.5%;
     height: 150px;
     margin-bottom: 12px;
     box-shadow: 0 0 5px lightgray;
@@ -200,7 +200,7 @@ p {
 .name {
     color: var(--summary-h2-color);
     margin: 0 0 38px 0;
-    font-size: 44px;
+    font-size: 46px;
     line-height: normal;
 }
 
@@ -217,9 +217,19 @@ p {
 }
 
 /* media */
+@media screen and (max-width: 1450px) {
+    .summary-container {
+        width: 45.5%;
+    }
+}
+
 @media screen and (max-width: 1170px) {
     .distance-summary {
         padding: 0px 40px 16px 40px;
+    }
+
+    .summary-container {
+        width: 44.5%;
     }
 
     .welcome h2 {
@@ -227,7 +237,7 @@ p {
     }
 
     .name {
-        font-size: 36px;
+        font-size: 38px;
     }
 }
 

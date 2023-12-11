@@ -68,10 +68,6 @@
     margin-bottom: 8px;
 }
 
-#titel:invalid {
-    border: 1px solid red;
-}
-
 #description {
     box-sizing: border-box;
     min-width: 100%;
@@ -590,7 +586,9 @@
     color: white;
 }
 
-.urgent-color:hover, .medium-color:hover, .low-color:hover {
+.urgent-color:hover,
+.medium-color:hover,
+.low-color:hover {
     box-shadow: none !important;
 }
 
