@@ -98,7 +98,7 @@ let contacts = [
 // board
 let tasks = [
     {
-        'id'            : '001',
+        'id'            : 1,
         'category'      : 'user story',
         'sort'          : 'To do',
         'categoryCol'   : 'blue',
@@ -111,7 +111,7 @@ let tasks = [
         'color'         : ['orange','azur','pink']
     },
     {
-        'id'            : '002',
+        'id'            : 2,
         'category'      : 'technical task',
         'sort'          : 'In Progress',
         'categoryCol'   : 'azur',
@@ -124,7 +124,7 @@ let tasks = [
         'color'         : ['vio','deep','tango']
     },
     {
-        'id'            : '003',
+        'id'            : 3,
         'category'      : 'technical task',
         'sort'          : 'Await feedback',
         'categoryCol'   : 'azur',
@@ -137,7 +137,7 @@ let tasks = [
         'color'         : ['yell','azur','blue']
     },
     {
-        'id'            : '004',
+        'id'            : 4,
         'category'      : 'user story',
         'sort'          : 'Done',
         'categoryCol'   : 'blue',

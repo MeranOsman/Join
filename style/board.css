@@ -1,6 +1,6 @@
 /* DRAG AND DROP*/
 .drag-area-highlight {
-    background-color: red;
+    background-color: lightgrey;
 }
 
 
@@ -100,10 +100,12 @@ input#search-board {
     width: 200px;
 }
 
-#done, #feedback, #inProgress{
-    min-height: 400px;
-    min-width: 200px;
-    border: solid 2px red;
+#toDo, #done, #feedback, #inProgress{
+    min-height: 100%;
+    min-width: 280px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .tasks-card {

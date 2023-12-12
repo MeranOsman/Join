@@ -21,7 +21,7 @@ async function renderTasks() {
         const task = tasks[i];
 
         todos.innerHTML += `
-        <div class="tasks-card" draggable="true" onclick="showModal('task-info-modal','task-pop-up')">
+        <div class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']}) onclick="showModal('task-info-modal','task-pop-up')">
             <p class="task-card-heading ${task.categoryCol}">${task.category}</p>
             <p class="task-card-title">${task.title}</p>
             <p class="task-card-note">${task.description}</p>
@@ -69,7 +69,7 @@ function hideEmptyCard() {
 /*
 *** function for make elements moveable
 */
-let currentDraggedElement = 0;
+let currentDraggedElement;
 
 function allowDrop(ev) {
     ev.preventDefault();

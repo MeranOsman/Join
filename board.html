@@ -56,13 +56,16 @@
                 </div>
                 <div id="toDo" ondrop="moveTo('toDo')" ondragleave="removeHighlight('toDo')" ondragover="allowDrop(event), highlight('toDo')"></div>
             </div>
-            <div class="flex-column-board gap">
+
+            <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">In progress</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
                 </div>
                 <div id="inProgress" ondrop="moveTo('inProgress')" ondragleave="removeHighlight('inProgress')" ondragover="allowDrop(event), highlight('inProgress')"></div>
             </div>
         </div>
+
+
         <div class="flex-flow">
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
@@ -70,6 +73,7 @@
                 </div>
                 <div id="feedback" ondrop="moveTo('feedback')" ondragleave="removeHighlight('feedback')" ondragover="allowDrop(event), highlight('feedback')"></div>
             </div>
+
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">Done</p>
