@@ -98,7 +98,9 @@ let contacts = [
 // board
 let tasks = [
     {
+        'id'            : '001',
         'category'      : 'user story',
+        'sort'          : 'To do',
         'categoryCol'   : 'blue',
         'title'         : 'Kochwelt Page & Recipe Recommender',
         'description'   : 'Build start page with recipe recommendation',
@@ -109,7 +111,9 @@ let tasks = [
         'color'         : ['orange','azur','pink']
     },
     {
+        'id'            : '002',
         'category'      : 'technical task',
+        'sort'          : 'In Progress',
         'categoryCol'   : 'azur',
         'title'         : 'HTML Base Template Creation',
         'description'   : 'Create reusable HTML base templates',
@@ -120,7 +124,9 @@ let tasks = [
         'color'         : ['vio','deep','tango']
     },
     {
+        'id'            : '003',
         'category'      : 'technical task',
+        'sort'          : 'Await feedback',
         'categoryCol'   : 'azur',
         'title'         : 'CSS Architecture Planning',
         'description'   : 'Define CSS naming conventions and Structure, reuse classes instead making new ones',
@@ -131,7 +137,9 @@ let tasks = [
         'color'         : ['yell','azur','blue']
     },
     {
+        'id'            : '004',
         'category'      : 'user story',
+        'sort'          : 'Done',
         'categoryCol'   : 'blue',
         'title'         : 'Daily Kochwelt Recipe',
         'description'   : 'Implement daily recipe and portion calculator',

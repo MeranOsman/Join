@@ -1,3 +1,9 @@
+/* DRAG AND DROP*/
+.drag-area-highlight {
+    background-color: red;
+}
+
+
 #board {
     background-color: var(--sidebar-link-background);
 }
