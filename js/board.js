@@ -6,7 +6,7 @@ async function initBoard() {
     await loadUsers();
     await renderUserLetters();
     await renderTasks();
-   updateHTML();
+    //updateHTML();
 }
 
 
@@ -113,15 +113,6 @@ function updateHTML() {
     }
 }
 
-
-function highlight(id) {
-    document.getElementById(id).classList.add('drag-area-highlight');
-}
-
-function removeHighlight(id) {
-    document.getElementById(id).classList.remove('drag-area-highlight');
-}
-
 function startDragging(id) {
     currentDraggedElement = id;
 }
@@ -155,4 +146,12 @@ function generateTodoHTML(element) {
 function moveTo(sorting) {
     tasks[currentDraggedElement]['sort'] = sorting;
     updateHTML();
+}
+
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
 }
