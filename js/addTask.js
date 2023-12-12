@@ -33,16 +33,14 @@ async function renderContacts() {
 
     sortNames();
 
-    for (let i = 0; i < contacts[0]['firstName'].length; i++) {
-        let firstName = contacts[0]['firstName'][i];
-        let lastName = contacts[0]['lastName'][i];
-        let color = contacts[0]['color'][i];
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
 
         elements.innerHTML += /*html*/ `
             <li onclick="toggleFunction(${i})" id="liContact${i}">
                 <div class="flex-center gap">
-                    <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
-                    <span class="contacts">${firstName} ${lastName}</span>
+                    <span class="contacts-icon cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}</span>
+                    <span class="contacts upper-text">${contact['firstName']} ${contact['lastName']}</span>
                 </div>
                 <div id="contactCheckbox${i}" class="icon-checkbox"></div>
             </li>

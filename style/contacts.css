@@ -261,16 +261,6 @@ li{
 
 /* infobox */
 
-.upper-text{
-    text-transform: capitalize;
-}
-.cap-text{
-    text-transform: uppercase;
-}
-.lower-text{
-    text-transform: lowercase;
-}
-
 .names{
     color: black;
     font-size: 26pt;
