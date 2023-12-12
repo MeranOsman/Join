@@ -1,6 +1,6 @@
 /* DRAG AND DROP*/
 .drag-area-highlight {
-    background-color: lightgrey;
+    background-color: gray;
 }
 
 
@@ -105,7 +105,10 @@ input#search-board {
     min-width: 280px;
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background-color:lightgray;
 }
 
 .tasks-card {
