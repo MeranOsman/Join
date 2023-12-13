@@ -89,9 +89,11 @@ function toggleFunction(i) {
  * @param {*} i 
  */
 function selectContact(i) {
-    let firstName = contacts[0]['firstName'][i];
-    let lastName = contacts[0]['lastName'][i];
-    let color = contacts[0]['color'][i];
+    let firstNameLowercase = contacts[i]['firstName'];
+    let firstName = firstNameLowercase.charAt(0).toUpperCase() + firstNameLowercase.slice(1);
+    let lastNameLowercase = contacts[i]['lastName'];
+    let lastName = lastNameLowercase.charAt(0).toUpperCase() + lastNameLowercase.slice(1);
+    let color = contacts[i]['color'];
 
     selectedContacts.push({
         fullName: firstName + ' ' + lastName,
@@ -141,10 +143,12 @@ function searchContact() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
 
-    for (let i = 0; i < contacts[0].firstName.length; i++) {
-        let firstName = contacts[0]['firstName'][i];
-        let lastName = contacts[0]['lastName'][i];
-        let color = contacts[0]['color'][i];
+    for (let i = 0; i < contacts.length; i++) {
+        let firstNameLowercase = contacts[i]['firstName'];
+        let firstName = firstNameLowercase.charAt(0).toUpperCase() + firstNameLowercase.slice(1);
+        let lastNameLowercase = contacts[i]['lastName'];
+        let lastName = lastNameLowercase.charAt(0).toUpperCase() + lastNameLowercase.slice(1);
+        let color = contacts[i]['color'];
 
         if (firstName.toLocaleLowerCase().includes(search) || lastName.toLocaleLowerCase().includes(search)) {
             elements.innerHTML += /*html*/ `
@@ -449,7 +453,9 @@ function cancelSubtask() {
 }
 
 
-function createTask() {
+function createTask(event) {
+    event.preventDefault();
+
     let titelValue = document.getElementById('title').value.trim();
     let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
     let descriptionValue = document.getElementById('description').value.trim();
