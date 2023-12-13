@@ -94,6 +94,8 @@ function selectContact(i) {
     let lastNameLowercase = contacts[i]['lastName'];
     let lastName = lastNameLowercase.charAt(0).toUpperCase() + lastNameLowercase.slice(1);
     let color = contacts[i]['color'];
+    let contactLabel = document.getElementById('contactLabel');
+    let contactsContainer = document.getElementById('contactsContainer');
 
     selectedContacts.push({
         fullName: firstName + ' ' + lastName,
@@ -101,6 +103,8 @@ function selectContact(i) {
         color: color
     });
 
+    contactLabel.style.color = 'black';
+    contactsContainer.style.border = '1px solid lightgray';
     activeContact(i);
     renderSelectedContacts();
 }
@@ -472,6 +476,7 @@ function createTask(event) {
     let requiredCategory = document.getElementById('selectedColor');
     let requiredBtn = document.querySelectorAll('.requiredBtn');
     let contactLabel = document.getElementById('contactLabel');
+    let contactsContainer = document.getElementById('contactsContainer');
     let contactFullname = selectedContacts.map(contact => contact.fullName);
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
@@ -490,19 +495,20 @@ function createTask(event) {
             Subtasks: subtasks
         })
 
-    location.reload();
-} else if (priority.length === 0) {
-    prio.style.color = 'rgb(239, 136, 146)';
-    requiredBtn.forEach(function (btn) {
-        btn.style.border = '1px solid rgb(239, 136, 146)';
-    })
-    requiredText.style.color = 'rgb(239, 136, 146)'
-} else if (selectedCategory.length === 0) {
-    category.style.color = 'rgb(239, 136, 146)';
-    requiredText.style.color = 'rgb(239, 136, 146)'
-    requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
-} else if (selectedContacts.length === 0) {
-    contactLabel.style.color = 'rgb(239, 136, 146)';
-    requiredText.style.color = 'rgb(239, 136, 146)';
-}
+        location.reload();
+    } else if (priority.length === 0) {
+        prio.style.color = 'rgb(239, 136, 146)';
+        requiredBtn.forEach(function (btn) {
+            btn.style.border = '1px solid rgb(239, 136, 146)';
+        })
+        requiredText.style.color = 'rgb(239, 136, 146)'
+    } else if (selectedCategory.length === 0) {
+        category.style.color = 'rgb(239, 136, 146)';
+        requiredText.style.color = 'rgb(239, 136, 146)'
+        requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+    } else if (selectedContacts.length === 0) {
+        contactLabel.style.color = 'rgb(239, 136, 146)';
+        contactsContainer.style.border = '1px solid rgb(239, 136, 146)';
+        requiredText.style.color = 'rgb(239, 136, 146)';
+    }
 }
