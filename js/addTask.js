@@ -471,11 +471,12 @@ function createTask(event) {
     let requiredText = document.getElementById('required');
     let requiredCategory = document.getElementById('selectedColor');
     let requiredBtn = document.querySelectorAll('.requiredBtn');
+    let contactLabel = document.getElementById('contactLabel');
     let contactFullname = selectedContacts.map(contact => contact.fullName);
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
 
-    if (priority.length !== 0 && selectedCategory.length !== 0) {
+    if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks.push({
             Title: titel,
             Description: description,
@@ -500,5 +501,8 @@ function createTask(event) {
     category.style.color = 'rgb(239, 136, 146)';
     requiredText.style.color = 'rgb(239, 136, 146)'
     requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+} else if (selectedContacts.length === 0) {
+    contactLabel.style.color = 'rgb(239, 136, 146)';
+    requiredText.style.color = 'rgb(239, 136, 146)';
 }
 }
