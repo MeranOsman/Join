@@ -103,7 +103,6 @@ input#search-board {
 #toDo, #done, #feedback, #inProgress{
     min-height: 400px;
     min-width: 280px;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

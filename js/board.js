@@ -6,7 +6,7 @@ async function initBoard() {
     await loadUsers();
     await renderUserLetters();
     await renderTasks();
-    //updateHTML();
+ 
 }
 
 
@@ -69,7 +69,7 @@ function hideEmptyCard() {
 /*
 *** function for make elements moveable
 */
-let currentDraggedElement;
+let currentDraggedElement = 0;
 
 function allowDrop(ev) {
     ev.preventDefault();
