@@ -1,3 +1,9 @@
+/* DRAG AND DROP*/
+.drag-area-highlight {
+    background-color: green;
+}
+
+
 #board {
     background-color: var(--sidebar-link-background);
 }
@@ -94,14 +100,26 @@ input#search-board {
     width: 200px;
 }
 
+#toDo, #done, #feedback, #inProgress{
+    min-height: 400px;
+    min-width: 280px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color:lightgray;
+}
+
 .tasks-card {
     background: #ffffff;
     height: fit-content;
     width: 200px;
-    padding: 0 16px 16px 16px;
+    padding:16px;
     border-radius: 20px;
     box-shadow: 0 0 5px lightgray;
     cursor: pointer;
+    margin: 32px 0;
 }
 
 .task-card-heading {
@@ -110,6 +128,9 @@ input#search-board {
     color: #ffffff;
     width: fit-content;
     font-size: 11pt;
+    line-height: 1;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .task-card-title {
