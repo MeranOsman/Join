@@ -60,7 +60,7 @@ async function renderSelectedContacts() {
 
     for (let i = 0; i < selectedContacts.length; i++) {
         list.innerHTML += `
-        <span onclick="deleteSelectedContact(${i})" class="contacts-icon">${selectedContacts[i]}</span>
+        <span onclick="deleteSelectedContact(${i})" class="contacts-icon ${selectedContacts[i]['color']}">${selectedContacts[i]['nameLetters']}</span>
         `;
     }
 }
@@ -95,7 +95,11 @@ function selectContact(i) {
     let lastName = contacts[0]['lastName'][i];
     let color = contacts[0]['color'][i];
 
-    selectedContacts.push();
+    selectedContacts.push({
+        fullName: firstName + ' ' + lastName,
+        nameLetters: firstName.charAt(0) + lastName.charAt(0),
+        color: color
+    });
 
     activeContact(i);
     renderSelectedContacts();
@@ -139,16 +143,20 @@ function searchContact() {
     let elements = document.getElementById('contactAll');
     elements.innerHTML = '';
 
-    for (let i = 0; i < contacts.length; i++) {
-        if (contacts[0].toLocaleLowerCase().includes(search)) {
+    for (let i = 0; i < contacts[0].firstName.length; i++) {
+        let firstName = contacts[0]['firstName'][i];
+        let lastName = contacts[0]['lastName'][i];
+        let color = contacts[0]['color'][i];
+
+        if (firstName.toLocaleLowerCase().includes(search) || lastName.toLocaleLowerCase().includes(search)) {
             elements.innerHTML += /*html*/ `
-                <li onclick="activeContact(${i})" id="liContact${i}">
-                    <div class="flex-center gap">
-                        <span class="contacts-icon">AM</span>
-                        <span class="contacts">${contacts[0]}</span>
-                    </div>
-                    <div id="contactCheckbox${i}" class="icon-checkbox"></div>
-                </li>
+            <li onclick="toggleFunction(${i})" id="liContact${i}">
+                <div class="flex-center gap">
+                    <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
+                    <span class="contacts">${firstName} ${lastName}</span>
+                </div>
+                <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+            </li>
                 `;
         }
     }
@@ -449,17 +457,22 @@ function createTask() {
     let descriptionValue = document.getElementById('description').value.trim();
     let description = descriptionValue.charAt(0).toUpperCase() + descriptionValue.slice(1);
     let dateValue = document.getElementById('date').value;
-    let subtaskValue = subtasks.join(', ');
     let prio = document.getElementById('prio');
     let category = document.getElementById('category');
     let requiredText = document.getElementById('required');
     let requiredCategory = document.getElementById('selectedColor');
     let requiredBtn = document.querySelectorAll('.requiredBtn');
+    // ab hier muss man später statt mit join, mit einer for schleife das array anzeigen !!!
+    let subtaskValue = subtasks.join(', ');
+    let selectedContacts = selectedContacts.fullName.join(', ');
+    let contactsColor = selectedContacts.color.join(', ');
 
     if (priority.length !== 0 && selectedCategory.length !== 0) {
         alert(`
     Title: ${titel},
     Description: ${description},
+    Contacts: ${selectedContacts},
+    ContactsColor: ${contactsColor},
     Date: ${dateValue},
     Prio: ${priority[0]['prio']},
     Category:${selectedCategory[0]['name']},
