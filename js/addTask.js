@@ -466,34 +466,37 @@ function createTask(event) {
     let requiredText = document.getElementById('required');
     let requiredCategory = document.getElementById('selectedColor');
     let requiredBtn = document.querySelectorAll('.requiredBtn');
-    // ab hier muss man später statt mit join, mit einer for schleife das array anzeigen !!!
-    let subtaskValue = subtasks.join(', ');
+    // ab hier muss man später statt mit join, mit einer for schleife das array anzeigen.
+    // let selectedContacts = {
+    //     fullName: 'Anton Mayer',
+    //     nameLetters: 'AM',
+    //     color: 'orange'}
     let selectedContacts = selectedContacts.fullName.join(', ');
     let contactsColor = selectedContacts.color.join(', ');
 
     if (priority.length !== 0 && selectedCategory.length !== 0) {
-        alert(`
-    Title: ${titel},
-    Description: ${description},
-    Contacts: ${selectedContacts},
-    ContactsColor: ${contactsColor},
-    Date: ${dateValue},
-    Prio: ${priority[0]['prio']},
-    Category:${selectedCategory[0]['name']},
-    CategoryColor: ${bgColors[selectedCategory[0]['numberColor']]},
-    Subtasks: ${subtaskValue}
-    `)
-
-        location.reload();
-    } else if (priority.length === 0) {
-        prio.style.color = 'rgb(239, 136, 146)';
-        requiredBtn.forEach(function (btn) {
-            btn.style.border = '1px solid rgb(239, 136, 146)';
+        tasks.push({
+            Title: titel,
+            Description: description,
+            Contacts: selectedContacts,
+            ContactsColor: contactsColor,
+            Date: dateValue,
+            Prio: priority[0]['prio'],
+            Category: selectedCategory[0]['name'],
+            CategoryColor: bgColors[selectedCategory[0]['numberColor']],
+            Subtasks: subtasks
         })
-        requiredText.style.color = 'rgb(239, 136, 146)'
-    } else if (selectedCategory.length === 0) {
-        category.style.color = 'rgb(239, 136, 146)';
-        requiredText.style.color = 'rgb(239, 136, 146)'
-        requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
-    }
+
+    location.reload();
+} else if (priority.length === 0) {
+    prio.style.color = 'rgb(239, 136, 146)';
+    requiredBtn.forEach(function (btn) {
+        btn.style.border = '1px solid rgb(239, 136, 146)';
+    })
+    requiredText.style.color = 'rgb(239, 136, 146)'
+} else if (selectedCategory.length === 0) {
+    category.style.color = 'rgb(239, 136, 146)';
+    requiredText.style.color = 'rgb(239, 136, 146)'
+    requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+}
 }
