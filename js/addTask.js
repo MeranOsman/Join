@@ -466,20 +466,17 @@ function createTask(event) {
     let requiredText = document.getElementById('required');
     let requiredCategory = document.getElementById('selectedColor');
     let requiredBtn = document.querySelectorAll('.requiredBtn');
-    // ab hier muss man später statt mit join, mit einer for schleife das array anzeigen.
-    // let selectedContacts = {
-    //     fullName: 'Anton Mayer',
-    //     nameLetters: 'AM',
-    //     color: 'orange'}
-    let selectedContacts = selectedContacts.fullName.join(', ');
-    let contactsColor = selectedContacts.color.join(', ');
+    let contactFullname = selectedContacts.map(contact => contact.fullName);
+    let contactLetters = selectedContacts.map(contact => contact.nameLetters);
+    let contactColor = selectedContacts.map(contact => contact.color);
 
     if (priority.length !== 0 && selectedCategory.length !== 0) {
         tasks.push({
             Title: titel,
             Description: description,
-            Contacts: selectedContacts,
-            ContactsColor: contactsColor,
+            Contacts: contactFullname,
+            ContactLetters: contactLetters,
+            ContactsColor: contactColor,
             Date: dateValue,
             Prio: priority[0]['prio'],
             Category: selectedCategory[0]['name'],
