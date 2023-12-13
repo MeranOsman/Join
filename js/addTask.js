@@ -453,6 +453,11 @@ function cancelSubtask() {
 }
 
 
+/**
+ * Function for add new task
+ * 
+ * @param {*} event 
+ */
 function createTask(event) {
     event.preventDefault();
 
