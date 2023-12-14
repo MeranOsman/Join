@@ -68,28 +68,36 @@ function startDragging(id) {
 *** function for render the tasks
 */
 function generateTodoHTML(element) {
-    return `  <div class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showModal('task-info-modal','task-pop-up')">
-    <p class="task-card-heading ${element.categoryCol}">${element.category}</p>
-    <p class="task-card-title">${element.title}</p>
-    <p class="task-card-note">${element.description}</p>
-    <div class="flex-btw">
-        <div class="flex-start-progress">
-            <div class="task-progress-bar-bg"></div>
-            <div class="task-progress-bar"></div>
-        </div>
-        <p class="task-progress-task">1/${element.subtasks.length} Subtasks</p>
-    </div>
-    <div class="flex-btw">
-        <div class="flex-icons-task">
-            ${element.employees.map((employee, index) => `
-                <div class="contact-icons-task ${element.color[index]}${index > 0 ? ' margin-left-neg' : ''}">
-                    ${employee}
-                </div>`
-            ).join('')}
-        </div>
-        <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
-    </div>
-</div>`;
+    return `<div class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showModal('task-info-modal','task-pop-up')">
+                <p class="task-card-heading ${element.categoryCol}">${element.category}</p>
+                <p class="task-card-title">${element.title}</p>
+                <p class="task-card-note">${truncateText(element.description, 40)}</p>
+                <div class="flex-btw">
+                    <div class="flex-start-progress">
+                        <div class="task-progress-bar-bg"></div>
+                        <div class="task-progress-bar"></div>
+                    </div>
+                    <p class="task-progress-task">1/${element.subtasks.length} Subtasks</p>
+                </div>
+                <div class="flex-btw">
+                    <div class="flex-icons-task">
+                        ${element.employees.map((employee, index) => `
+                            <div class="contact-icons-task ${element.color[index]}${index > 0 ? ' margin-left-neg' : ''}">
+                                ${employee}
+                            </div>`
+                        ).join('')}
+                    </div>
+                    <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
+                </div>
+            </div>`;
+}
+
+
+/*
+*** shortens the description if longer then 40 chars
+*/
+function truncateText(taskDescription, maxLength) {
+    return taskDescription.length > maxLength ? taskDescription.slice(0, maxLength) + '...' : taskDescription;
 }
 
 
