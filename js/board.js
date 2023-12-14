@@ -82,7 +82,7 @@ function renderTasks(element) {
         </div>`;
     }
 
-    return `<div id="task-${element['id']}" onclick="taskInfo(${element['id']})" class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})">
+    return `<div id="task-${element['id']}" onclick="taskInfo(${element['id']}), clearAndCloseTaskEdit()" class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})">
             <p class="task-card-heading upper-text ${element.categoryCol}">${element.category}</p>
             <p class="task-card-title">${element.title}</p>
             <p class="task-card-note">${truncateText(element.description, 40)}</p>
@@ -157,6 +157,8 @@ function taskInfo(taskId) {
     document.getElementById('description-task').textContent = task.description;
     document.getElementById('date-task').textContent = task.date;
     document.getElementById('prio-task').innerHTML = `${task.prio} <img class="prio-pop" src="img/prio${task.prio.charAt(0).toUpperCase() + task.prio.slice(1)}.svg" />`;
+    document.getElementById('tasks-delete-btn').innerHTML = `<img src="img/delete.svg"/><div class="subtask" onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')">Delete</div>`;
+    document.getElementById('task-edit-btn').innerHTML = `<img src="img/edit.svg"/><div class="subtask" onclick="editTask(${taskId})">Edit</div>`;
 
     const employeesHtml = task.employees.map((employee, index) => `
         <div class="flex-start">
@@ -186,5 +188,83 @@ function showTaskInfoModal(){
     document.getElementById('task-info-modal').classList.remove('hide');
     document.getElementById('task-pop-up').style.setProperty('animation-direction', 'normal');
     document.body.style.overflow = 'hidden';
+}
+
+
+/*
+*** function to delete the contact
+*/
+function deleteTask(taskId) {
+    // Find the index of the task with the given ID
+    const taskIndex = tasks.findIndex(t => t.id === taskId);
+
+    // Check if the task with the given ID exists
+    if (taskIndex !== -1) {
+        // Remove the task from the tasks array
+        tasks.splice(taskIndex, 1);
+        updateHTML();
+    } else {
+        console.error('Task not found for deletion');
+    }
+}
+
+
+/*
+*** function for edit a spcific task
+*/
+function editTask(taskId){
+    clearAndCloseTaskEdit();
+    // Find the index of the task with the given ID
+    const task = tasks.find(t => t.id === taskId);
+
+    document.getElementById('task-pop-up').style.setProperty('display', 'none');
+    document.getElementById('edit-mode').classList.remove('display-none');
+    document.getElementById('input-task-title').innerHTML = `<input type="text" value="${task.title}">`;
+    document.getElementById('textarea-task-description').innerHTML =`<textarea>${task.description}</textarea>`;
+    document.getElementById('calender-input').innerHTML = `<input type="date">`;
+    document.getElementById('prio-task-input').innerHTML =`<div class="prio display-flex">
+                                                                <button type="button"
+                                                                    onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
+                                                                    class="urgent-btn requiredBtn">Urgent</button>
+                                                                <button type="button"
+                                                                    onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
+                                                                    class="medium-btn requiredBtn">Medium</button>
+                                                                <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')"
+                                                                    id="lowBtn" class="low-btn requiredBtn">Low</button>
+                                                            </div>`;
+    document.getElementById('task-employees-input').innerHTML =`<div class="position-relative width">
+                                                                    <div id="contactsContainer" onclick="showCloseContacts(event)" class="select margin-zero">
+                                                                        <span>Select contacts to assign</span><img src="img/arrow_drop_down.svg" alt="arrow-down">
+                                                                    </div>
+                                                                    <div id="dropdownContact" class="dropdown display-none">
+                                                                        <div class="contacts-filter">
+                                                                            <input oninput="searchContact()" id="inputSearch" class="input-filter" type="text"
+                                                                                placeholder="Search...">
+                                                                            <img onclick="showCloseContacts(event)" src="img/arrow_drop_up.svg" alt="arrow-up">
+                                                                        </div>
+                                                                        <div class="dropdown-contacts">
+                                                                            <ul id="contactAll"></ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>`;
+    document.getElementById('task-subtask-input').innerHTML = ``;
+    document.getElementById('task-edit-save').innerHTML += `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
+                                                            <span class="icon-check-new"></span></button>`
+}
+
+
+/*
+*** function for close and clear the edit mode
+*/
+function clearAndCloseTaskEdit(){
+    document.getElementById('task-pop-up').style.setProperty('display', 'block');
+    document.getElementById('edit-mode').classList.add('display-none');
+
+    document.getElementById('input-task-title').innerHTML = '';
+    document.getElementById('textarea-task-description').innerHTML ='';
+    document.getElementById('calender-input').innerHTML ='';
+    document.getElementById('prio-task-input').innerHTML ='';
+    document.getElementById('task-employees-input').innerHTML ='';
+    document.getElementById('task-subtask-input').innerHTML ='';
 }
 

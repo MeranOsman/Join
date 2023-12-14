@@ -23,12 +23,40 @@
         <div id="task-subtask" class="margin-l-s subtask">Insert subtasks</div>
     </div>
     <div class="position-end">
-        <div class="flex-start gap-s links link-pop-del"><img src="img/delete.svg" />
-            <div id="tasks-delete-btn" class="subtask">Delete</div>
-        </div>
+        <div id="tasks-delete-btn" class="flex-start gap-s links link-pop-del"></div>
         <div class="divider-pop"></div>
-        <div class="flex-start gap-s links link-pop-edit"><img src="img/edit.svg" />
-            <div id="task-edit-btn" class="subtask">Edit</div>
-        </div>
+        <div id="task-edit-btn" class="flex-start gap-s links link-pop-edit"></div>
     </div>
+</div>
+
+<!--EDIT MODE-->
+<div id="edit-mode" class="task-container-card display-none">
+
+    <div onclick="closeModal('task-info-modal','edit-mode')" class="close-task-pop">X</div>
+
+    <div class="pop-task-description">Title</div>
+    <div id="input-task-title"></div>
+
+    <div class="pop-task-description">Description</div>
+    <div id="textarea-task-description"></div>
+
+    <div class="flex-col-edit pop-task-description margin-t">
+        <div class="info-col">Due date:</div>
+        <div id="calender-input"></div>
+    </div>
+    <div class="flex-col-edit pop-task-description">
+        <div class="info-col">Priority:</div>
+        <div id="prio-task-input"></div>
+    </div>
+
+    <div class="pop-task-description info-col margin-t">Assigned To:</div>
+    <div class="flex-start">
+        <div id="task-employees-input"></div>
+    </div>
+
+    <div class="pop-task-description info-col margin-t">Subtask:</div>
+    <div class="flex-start pop-task-description">
+        <div id="task-subtask-input" class="margin-l-s subtask"></div>
+    </div>
+    <div id="task-edit-save" class="position-end"></div>
 </div>

@@ -39,7 +39,7 @@ function changeTextAddContact(id1, id2) {
 }
 
 /*
-*** function for clear and close the inputs
+*** function for clear and close the inputs from edit mode
 */
 function closeAndClearModal() {
     closeModal('contacts-modal', 'modal-inner');
@@ -50,7 +50,7 @@ function closeAndClearModal() {
 
 
 /*
-*** function for clear the inputs
+*** function for clear the inputs from add new contact btn
 */
 function clearModal() {
     document.getElementById('contacts-name').value = '';
