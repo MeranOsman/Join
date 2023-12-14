@@ -68,8 +68,8 @@ function startDragging(id) {
 *** function for render the tasks
 */
 function generateTodoHTML(element) {
-    return `<div class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showModal('task-info-modal','task-pop-up')">
-                <p class="task-card-heading ${element.categoryCol}">${element.category}</p>
+    return `<div id="task-${element['id']}" onclick="taskInfo(${element['id']})" class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})">
+                <p class="task-card-heading upper-text ${element.categoryCol}">${element.category}</p>
                 <p class="task-card-title">${element.title}</p>
                 <p class="task-card-note">${truncateText(element.description, 40)}</p>
                 <div class="flex-btw">
@@ -89,7 +89,7 @@ function generateTodoHTML(element) {
                     </div>
                     <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
                 </div>
-            </div>`;
+            </div>`;   
 }
 
 
@@ -132,3 +132,39 @@ function rotate(id){
 function noRotate(id){
     document.getElementById(id).classList.remove('rotate');
 }
+
+
+/* ########################################################################################   TASKS INFOS AND EDITS ### BLOCK */
+/*
+*** function for render the task info
+*/
+function taskInfo(taskId) {
+    const task = tasks.find(t => t.id === taskId);
+
+    // Update modal content with task details
+    document.getElementById('sorting').textContent = task.category;
+    document.getElementById('sorting').classList = `task-pop-category ${task.categoryCol} upper-text`;
+
+    document.getElementById('title-task').textContent = task.title;
+    document.getElementById('description-task').textContent = task.description;
+    document.getElementById('date-task').textContent = task.date;
+    document.getElementById('prio-task').innerHTML = `${task.prio} <img class="prio-pop" src="img/prio${task.prio.charAt(0).toUpperCase() + task.prio.slice(1)}.svg" />`;
+
+    const employeesHtml = task.employees.map((employee, index) => `
+        <div class="flex-start ">
+            <div class="contact-icons-task ${task.color[index]}">${employee}</div>
+            <div class="margin-l-s">${task.firstNames[index]} ${task.lastNames[index]}</div>
+        </div>
+    `).join('');
+
+    document.getElementById('task-employees').innerHTML = employeesHtml;
+
+    const subtasksHtml = task.subtasks.map(subtask => `<div class="margin-l-s subtask">${subtask}</div>`).join('');
+    document.getElementById('task-subtask').innerHTML = subtasksHtml;
+
+    // Show the modal
+    document.getElementById('task-info-modal').classList.remove('hide');
+    document.getElementById('task-pop-up').style.setProperty('animation-direction', 'normal');
+    document.body.style.overflow = 'hidden';
+}
+
