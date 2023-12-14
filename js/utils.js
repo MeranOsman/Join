@@ -152,7 +152,7 @@ let tasks = [
         'categoryCol'   : 'blue',
         'title'         : 'Daily Kochwelt Recipe',
         'description'   : 'Implement daily recipe and portion calculator',
-        'subtasks'      : ['Implement calculator','Check everthing','Relax'],
+        'subtasks'      : [],
         'employees'     : ['AM', 'AS', 'DE'],
         'firstNames'    : ['Anton', 'Anja', 'David'],
         'lastNames'     : ['Mayer', 'Schulz', 'Eisenebrg'],

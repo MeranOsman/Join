@@ -7,6 +7,23 @@
     transform: rotate(2deg);
 }
 
+/* TASKS INFO*/
+.uncheck-icon{
+    background: url(../img/uncheck.svg);
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+
+.check-icon{
+    background: url(../img/check.svg);
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+
+
+
 
 #board {
     background-color: var(--sidebar-link-background);
@@ -170,9 +187,13 @@ input#search-board {
     background: var(--ci-blue);
     border-radius: 5px;
     height: 5px;
-    width: 50%;
+    width: 75%;
     position: absolute;
+    transition: width 0.3s ease;
 }
+
+
+
 
 /* PROGRESS BAR SETTINGS END */
 
