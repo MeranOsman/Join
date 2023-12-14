@@ -35,9 +35,10 @@ async function renderContacts() {
 
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
+        let contactId = contact['id'];
 
         elements.innerHTML += /*html*/ `
-            <li onclick="toggleFunction(${i})" id="liContact${i}">
+            <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
                 <div class="flex-center gap">
                     <span class="contacts-icon cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}</span>
                     <span class="contacts upper-text">${contact['firstName']} ${contact['lastName']}</span>
@@ -69,18 +70,51 @@ async function renderSelectedContacts() {
  * 
  * @param {*} i 
 */
-function toggleFunction(i) {
+function toggleFunction(i, contactId) {
     let list = document.getElementById(`liContact${i}`);
 
     if (!list.classList.contains('active-contact')) {
-        selectContact(i);
+        selectContact(i, contactId);
     } else {
-        deleteSelectedContact();
+        spliceSelectedContact(contactId);
         activeContact(i);
     }
 }
 
 
+/**
+ * Function to remove contact from the dropdown
+ * 
+ * @param {*} contactId 
+ */
+function spliceSelectedContact(contactId) {
+    const indexToRemove = selectedContacts.findIndex(contact => contact.id === contactId);
+
+    if (indexToRemove !== -1) {
+        selectedContacts.splice(indexToRemove, 1);
+    }
+    renderSelectedContacts();
+}
+
+
+/**
+ * Function for changing selected contact in the dropdown
+ * 
+ * @param {*} contactId 
+ */
+function disableContact(contactId) {
+    let indexToDisable = contacts.findIndex(contact => contact.id == contactId);
+    let contact = document.getElementById(`contactCheckbox${indexToDisable}`);
+    let list = document.getElementById(`liContact${indexToDisable}`);
+
+    if (indexToDisable !== -1) {
+        contact.classList.toggle('icon-checkbox-active');
+        contact.classList.toggle('filter-invert');
+        list.classList.toggle('active-contact');
+    }
+
+    renderSelectedContacts();
+}
 
 
 /**
@@ -88,7 +122,7 @@ function toggleFunction(i) {
  * 
  * @param {*} i 
  */
-function selectContact(i) {
+function selectContact(i, contactId) {
     let firstNameLowercase = contacts[i]['firstName'];
     let firstName = firstNameLowercase.charAt(0).toUpperCase() + firstNameLowercase.slice(1);
     let lastNameLowercase = contacts[i]['lastName'];
@@ -100,7 +134,8 @@ function selectContact(i) {
     selectedContacts.push({
         fullName: firstName + ' ' + lastName,
         nameLetters: firstName.charAt(0) + lastName.charAt(0),
-        color: color
+        color: color,
+        id: contactId
     });
 
     contactLabel.style.color = 'black';
@@ -116,8 +151,11 @@ function selectContact(i) {
  * @param {*} i 
  */
 function deleteSelectedContact(i) {
-    selectedContacts.splice(i, 1)
+    let contactId = selectedContacts[i]['id'];
 
+    selectedContacts.splice(i, 1);
+
+    disableContact(contactId);
     renderSelectedContacts();
 }
 

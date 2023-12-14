@@ -235,7 +235,7 @@ function addContact() {
     let color = bgColors[colorIndex];
 
     // generate a unique ID using the last three digits of the current timestamp
-    let id = (new Date()).getTime().toString().slice(-3);
+    let id = (new Date().getTime().toString().slice(-3));
 
     // add a new contact to the array
     let newContact = {
