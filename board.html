@@ -46,22 +46,21 @@
     </div>
 
     <div class="flex-container-board margin-t-xl gap-32">
+
+
         <div class="flex-flow">
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">To do</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
                 </div>
-                <div id="empty-card" class="tasks-card-empty">
-                    <p>No tasks To do</p>
-                </div>
-                <div id="toDo" ondrop="moveTo('toDo')" ondragleave="removeHighlight('toDo')" ondragover="allowDrop(event), highlight('toDo')"></div>
+                <div id="toDo" ondrop="moveTo('toDo')" ondragleave="removeHighlight('toDo'), noRotate('toDo')" ondragover="allowDrop(event), highlight('toDo'), rotate('toDo')"></div>
             </div>
 
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">In progress</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
                 </div>
-                <div id="inProgress" ondrop="moveTo('inProgress')" ondragleave="removeHighlight('inProgress')" ondragover="allowDrop(event), highlight('inProgress')"></div>
+                <div id="inProgress" ondrop="moveTo('inProgress')" ondragleave="removeHighlight('inProgress'), noRotate('inProgress')" ondragover="allowDrop(event), highlight('inProgress'), rotate('inProgress')"></div>
             </div>
         </div>
 
@@ -71,14 +70,14 @@
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">Await feedback</p><img onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" src="img/add-btn.svg" />
                 </div>
-                <div id="feedback" ondrop="moveTo('feedback')" ondragleave="removeHighlight('feedback')" ondragover="allowDrop(event), highlight('feedback')"></div>
+                <div id="feedback" ondrop="moveTo('feedback')" ondragleave="removeHighlight('feedback'), noRotate('feedback')" ondragover="allowDrop(event), highlight('feedback'), rotate('feedback')"></div>
             </div>
 
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">Done</p>
                 </div>
-                <div id="done" ondrop="moveTo('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event), highlight('done')"></div>
+                <div id="done" ondrop="moveTo('done')" ondragleave="removeHighlight('done'), noRotate('done')" ondragover="allowDrop(event), highlight('done'), rotate('done')"></div>
             </div>
         </div>
     </div>
@@ -93,3 +92,8 @@
 </body>
 
 </html>
+
+
+<!--<div id="empty-card" class="tasks-card-empty">
+                    <p>No tasks To do</p>
+                </div>-->

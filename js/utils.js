@@ -19,6 +19,9 @@ let priority = [];
 // contacts
 let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
 
+//board
+let currentDraggedElement;
+
 let contacts = [
     {
         'id'        : '1',
@@ -100,7 +103,7 @@ let tasks = [
     {
         'id'            : 1,
         'category'      : 'user story',
-        'sort'          : 'To do',
+        'sort'          : 'toDo',
         'categoryCol'   : 'blue',
         'title'         : 'Kochwelt Page & Recipe Recommender',
         'description'   : 'Build start page with recipe recommendation',
@@ -113,7 +116,7 @@ let tasks = [
     {
         'id'            : 2,
         'category'      : 'technical task',
-        'sort'          : 'In Progress',
+        'sort'          : 'inProgress',
         'categoryCol'   : 'azur',
         'title'         : 'HTML Base Template Creation',
         'description'   : 'Create reusable HTML base templates',
@@ -126,7 +129,7 @@ let tasks = [
     {
         'id'            : 3,
         'category'      : 'technical task',
-        'sort'          : 'Await feedback',
+        'sort'          : 'feedback',
         'categoryCol'   : 'azur',
         'title'         : 'CSS Architecture Planning',
         'description'   : 'Define CSS naming conventions and Structure, reuse classes instead making new ones',
@@ -139,7 +142,7 @@ let tasks = [
     {
         'id'            : 4,
         'category'      : 'user story',
-        'sort'          : 'Done',
+        'sort'          : 'feedback',
         'categoryCol'   : 'blue',
         'title'         : 'Daily Kochwelt Recipe',
         'description'   : 'Implement daily recipe and portion calculator',
