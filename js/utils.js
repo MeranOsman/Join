@@ -142,7 +142,7 @@ let tasks = [
         'firstNames'    : ['Eva', 'Anja', 'Benedikt'],
         'lastNames'     : ['Fischer', 'Schulz', 'Ziegler'],
         'prio'          : 'urgent',
-        'date'          : '05/08/2023',
+        'date'          : '15/12/2023',
         'color'         : ['yell','azur','blue']
     },
     {

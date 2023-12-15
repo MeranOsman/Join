@@ -10,16 +10,18 @@
 /* TASKS INFO*/
 .uncheck-icon{
     background: url(../img/uncheck.svg);
-    width: 25px;
     height: 25px;
     background-repeat: no-repeat;
+    display: flex;
+    padding: 4px 0 4px 32px;
 }
 
 .check-icon{
     background: url(../img/check.svg);
-    width: 25px;
     height: 25px;
     background-repeat: no-repeat;
+    display: flex;
+    padding: 4px 0 4px 32px;
 }
 
 .flex-col-edit{
@@ -28,9 +30,6 @@
     justify-content: center;
     align-items: flex-start;
 }
-
-
-
 
 #board {
     background-color: var(--sidebar-link-background);
@@ -347,6 +346,22 @@ input#search-board {
 
 .subtask {
     font-size: 12pt;
+}
+
+.hover{
+    display: flex;
+    align-items: center;
+    height:32px;
+    padding:4px 8px 4px 0;
+}
+
+.hover:hover{
+    background-color: #e7e7e7;
+    border-radius: 15px;
+}
+
+.subtask-lined{
+    text-decoration: line-through;
 }
 
 .position-end {

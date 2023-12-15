@@ -14,6 +14,7 @@
     <script src="js/main.js"></script>
     <script src="js/addTask.js"></script> 
     <script src="js/board.js"></script>
+    <script src="js/contacts.js"></script>
     <script src="js/modalAnimation.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
@@ -29,6 +30,7 @@
 <body class="content-size" onload="initBoard()">
     <header w3-include-html="templates/menu.html"></header>
 
+    <!-- include add task modal-->
     <div id="add-task-board" class="modal-outer hide">
         <div id="addTask-inner-modal" class="add-task-modal-inner move-to-left-pop"
             w3-include-html="templates/addTaskModal.html"></div>
@@ -38,10 +40,17 @@
         <h1 class="headline-board">Board</h1>
         <div class="flex-start-board gap">
             <input id="search-board" required type="text" placeholder="Find Task" class="login icon-search">
-            <button onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'), removeHide('close-btn-addTask')" class="btn-board margin-l-s media-show board">Add Task<span class="icon-plus"></span></button>
+            <button onclick="showModal('add-task-board','addTask-inner-modal'),
+                            removeHide('close-btn-addTask'),
+                            removeHide('close-btn-addTask')"
+                            class="btn-board margin-l-s media-show board">Add Task<span class="icon-plus"></span>
+            </button>
         </div>
         <!-- media btn-->
-        <button onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask')" class="btn-board media-hide-plus board"><img src="img/plus.svg" /></button>
+        <button onclick="showModal('add-task-board','addTask-inner-modal'),
+                        removeHide('close-btn-addTask')"
+                        class="btn-board media-hide-plus board"><img src="img/plus.svg" />
+        </button>
     </div>
 
     <div class="flex-container-board margin-t-xl gap-32">
