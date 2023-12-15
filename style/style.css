@@ -101,6 +101,10 @@ input::-webkit-datetime-edit {
     z-index: 999;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .link-decoration:hover {
     text-decoration: underline var(--link-color);
     cursor: pointer;
@@ -112,6 +116,10 @@ input::-webkit-datetime-edit {
 
 .margin-t {
     margin-top: 32px;
+}
+
+.margin-b-16 {
+    margin-bottom: 16px;
 }
 
 .margin-b {

@@ -101,8 +101,6 @@ function renderTasks(element) {
 }
 
 
-
-
 /*
 *** shortens the description if longer then 40 chars
 */
@@ -152,7 +150,7 @@ function taskInfo(taskId) {
     const task = tasks.find(t => t.id === taskId);
 
     document.getElementById('sorting').textContent = task.category;
-    document.getElementById('sorting').classList = `task-pop-category ${task.categoryCol} upper-text`;
+    document.getElementById('sorting').classList = `task-pop-category ${task.categoryCol} upper-text margin-b-16`;
     document.getElementById('title-task').textContent = task.title;
     document.getElementById('description-task').textContent = task.description;
     document.getElementById('date-task').textContent = task.date;
@@ -169,15 +167,22 @@ function taskInfo(taskId) {
 
     document.getElementById('task-employees').innerHTML = employeesHtml;
 
-    const subtasksHtml = task.subtasks.map(subtask => `<div class="flex-start">
-        <div class="margin-l uncheck-icon" onclick="checkIcon(this)">
-        </div>
-        <div class="margin-l-s subtask">${subtask}</div>
-    </div>`).join('');
+    const subtasksHtml = task.subtasks.map((subtask, index) => 
+        `<div class="hover"><div id="subtasks-${taskId + index}" class="uncheck-icon margin-l-s subtask pointer" onclick="checkIcon(event)">${subtask}</div></div>`
+    ).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
     showTaskInfoModal();
+}
+
+
+/*
+*** function handle the check icons
+*/
+function checkIcon(event) {
+    event.target.classList.toggle('check-icon');
+    event.target.classList.toggle('subtask-lined');
 }
 
 
