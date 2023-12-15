@@ -248,7 +248,7 @@ input#search-board {
 }
 
 .tasks-heading {
-    font-size: 14pt;
+    font-size: 22px;
     font-weight: 500;
     color: var(--sidebar-background);
 }
