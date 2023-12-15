@@ -518,6 +518,7 @@ function createTask(event) {
     let contactFullname = selectedContacts.map(contact => contact.fullName);
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
+    let success = document.getElementById('successAddtask');
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks.push({
@@ -535,7 +536,10 @@ function createTask(event) {
             subtasks: subtasks
         })
 
-        location.reload();
+        success.classList.remove('display-none');
+        setTimeout(function () {
+            window.location.href = 'board.html';
+        }, 3000);
     } else if (priority.length === 0) {
         prio.style.color = 'rgb(239, 136, 146)';
         requiredBtn.forEach(function (btn) {
