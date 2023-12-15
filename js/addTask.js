@@ -521,16 +521,18 @@ function createTask(event) {
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks.push({
-            Title: titel,
-            Description: description,
-            Contacts: contactFullname,
-            ContactLetters: contactLetters,
-            ContactsColor: contactColor,
-            Date: dateValue,
-            Prio: priority[0]['prio'],
-            Category: selectedCategory[0]['name'],
-            CategoryColor: bgColors[selectedCategory[0]['numberColor']],
-            Subtasks: subtasks
+            id: (new Date().getTime()),
+            sort: 'toDo',
+            title: titel,
+            description: description,
+            contacts: contactFullname,
+            employees: contactLetters,
+            color: contactColor,
+            date: dateValue,
+            prio: priority[0]['prio'],
+            category: selectedCategory[0]['name'],
+            categoryCol: bgColors[selectedCategory[0]['numberColor']],
+            subtasks: subtasks
         })
 
         location.reload();

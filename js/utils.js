@@ -116,8 +116,7 @@ let tasks = [
         'description': 'Build start page with recipe recommendation',
         'subtasks': ['Implement Recipe recommendation', 'Start Page Layout'],
         'employees': ['AM', 'AS', 'DE'],
-        'firstNames': ['Anton', 'Anja', 'David'],
-        'lastNames': ['Mayer', 'Schulz', 'Eisenberg'],
+        'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenberg'],
         'prio': 'low',
         'date': '10/05/2023',
         'color': ['orange', 'azur', 'pink']
@@ -131,8 +130,7 @@ let tasks = [
         'description': 'Create reusable HTML base templates',
         'subtasks': ['Make responsive', 'Problems on screen size 960px'],
         'employees': ['EM', 'MB', 'TW'],
-        'firstNames': ['Emmanuel', 'Marcel', 'Tatjana'],
-        'lastNames': ['Mauer', 'Bauer', 'Wolf'],
+        'contacts': ['Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf'],
         'prio': 'medium',
         'date': '19/07/2023',
         'color': ['vio', 'deep', 'tango']
@@ -146,8 +144,7 @@ let tasks = [
         'description': 'Define CSS naming conventions and Structure, reuse classes instead making new ones',
         'subtasks': ['Class documentation'],
         'employees': ['EF', 'AS', 'BZ'],
-        'firstNames': ['Eva', 'Anja', 'Benedikt'],
-        'lastNames': ['Fischer', 'Schulz', 'Ziegler'],
+        'contacts': ['Eva Fischer', 'Anja Schulz', 'Benedikt Ziegler'],
         'prio': 'urgent',
         'date': '05/08/2023',
         'color': ['yell', 'azur', 'blue']
@@ -161,8 +158,7 @@ let tasks = [
         'description': 'Implement daily recipe and portion calculator',
         'subtasks': [],
         'employees': ['AM', 'AS', 'DE'],
-        'firstNames': ['Anton', 'Anja', 'David'],
-        'lastNames': ['Mayer', 'Schulz', 'Eisenebrg'],
+        'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenebrg'],
         'prio': 'urgent',
         'date': '05/08/2023',
         'color': ['orange', 'azur', 'pink']

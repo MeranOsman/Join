@@ -93,7 +93,7 @@ function renderTasks(element) {
                         <div class="contact-icons-task ${element.color[index]}${index > 0 ? ' margin-left-neg' : ''}">
                             ${employee}
                         </div>`
-                    ).join('')}
+    ).join('')}
                 </div>
                 <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
             </div>
@@ -115,7 +115,7 @@ function truncateText(taskDescription, maxLength) {
 *** function for set the new sort value
 */
 function moveTo(sorting) {
-    tasks[currentDraggedElement-1]['sort'] = sorting;
+    tasks[currentDraggedElement - 1]['sort'] = sorting;
     removeHighlight(sorting);
     noRotate(sorting);
     updateHTML();
@@ -136,10 +136,10 @@ function removeHighlight(id) {
 /*
 *** function to set and remove hover rotate on drag over
 */
-function rotate(id){
+function rotate(id) {
     document.getElementById(id).classList.add('rotate');
 }
-function noRotate(id){
+function noRotate(id) {
     document.getElementById(id).classList.remove('rotate');
 }
 
@@ -150,7 +150,7 @@ function noRotate(id){
 */
 function taskInfo(taskId) {
     const task = tasks.find(t => t.id === taskId);
-  
+
     document.getElementById('sorting').textContent = task.category;
     document.getElementById('sorting').classList = `task-pop-category ${task.categoryCol} upper-text`;
     document.getElementById('title-task').textContent = task.title;
@@ -163,7 +163,7 @@ function taskInfo(taskId) {
     const employeesHtml = task.employees.map((employee, index) => `
         <div class="flex-start">
             <div class="contact-icons-task ${task.color[index]}">${employee}</div>
-            <div class="margin-l-s">${task.firstNames[index]} ${task.lastNames[index]}</div>
+            <div class="margin-l-s">${task.contacts[index]}</div>
         </div>
     `).join('');
 
@@ -177,14 +177,14 @@ function taskInfo(taskId) {
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
-    showTaskInfoModal();   
+    showTaskInfoModal();
 }
 
 
 /*
 *** function for show the info modal
 */
-function showTaskInfoModal(){
+function showTaskInfoModal() {
     document.getElementById('task-info-modal').classList.remove('hide');
     document.getElementById('task-pop-up').style.setProperty('animation-direction', 'normal');
     document.body.style.overflow = 'hidden';
@@ -212,7 +212,7 @@ function deleteTask(taskId) {
 /*
 *** function for edit a spcific task
 */
-function editTask(taskId){
+function editTask(taskId) {
     clearAndCloseTaskEdit();
     // Find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
@@ -220,9 +220,9 @@ function editTask(taskId){
     document.getElementById('task-pop-up').style.setProperty('display', 'none');
     document.getElementById('edit-mode').classList.remove('display-none');
     document.getElementById('input-task-title').innerHTML = `<input type="text" value="${task.title}">`;
-    document.getElementById('textarea-task-description').innerHTML =`<textarea>${task.description}</textarea>`;
+    document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
     document.getElementById('calender-input').innerHTML = `<input type="date">`;
-    document.getElementById('prio-task-input').innerHTML =`<div class="prio display-flex">
+    document.getElementById('prio-task-input').innerHTML = `<div class="prio display-flex">
                                                                 <button type="button"
                                                                     onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
                                                                     class="urgent-btn requiredBtn">Urgent</button>
@@ -232,7 +232,7 @@ function editTask(taskId){
                                                                 <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')"
                                                                     id="lowBtn" class="low-btn requiredBtn">Low</button>
                                                             </div>`;
-    document.getElementById('task-employees-input').innerHTML =`<div class="position-relative width">
+    document.getElementById('task-employees-input').innerHTML = `<div class="position-relative width">
                                                                     <div id="contactsContainer" onclick="showCloseContacts(event)" class="select margin-zero">
                                                                         <span>Select contacts to assign</span><img src="img/arrow_drop_down.svg" alt="arrow-down">
                                                                     </div>
@@ -256,15 +256,15 @@ function editTask(taskId){
 /*
 *** function for close and clear the edit mode
 */
-function clearAndCloseTaskEdit(){
+function clearAndCloseTaskEdit() {
     document.getElementById('task-pop-up').style.setProperty('display', 'block');
     document.getElementById('edit-mode').classList.add('display-none');
 
     document.getElementById('input-task-title').innerHTML = '';
-    document.getElementById('textarea-task-description').innerHTML ='';
-    document.getElementById('calender-input').innerHTML ='';
-    document.getElementById('prio-task-input').innerHTML ='';
-    document.getElementById('task-employees-input').innerHTML ='';
-    document.getElementById('task-subtask-input').innerHTML ='';
+    document.getElementById('textarea-task-description').innerHTML = '';
+    document.getElementById('calender-input').innerHTML = '';
+    document.getElementById('prio-task-input').innerHTML = '';
+    document.getElementById('task-employees-input').innerHTML = '';
+    document.getElementById('task-subtask-input').innerHTML = '';
 }
 
