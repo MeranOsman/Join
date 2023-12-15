@@ -11,6 +11,28 @@
     filter: brightness(10);
 }
 
+.success-newTask {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: var(--sidebar-background);
+    padding: 24px;
+    color: white;
+    font-size: 24px;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.success-newTask img {
+    filter: brightness(10);
+    width: 28px;
+}
+
 .add-task {
     width: 80%;
     margin: auto;
