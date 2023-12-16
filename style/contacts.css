@@ -280,7 +280,7 @@ li{
 }
 
 /* dropdown edit contacts*/
-.dropdown-contacts{
+.dropdown-contacts-con{
     width:120px;
     height:110px;
     background: var(--header-bg);
@@ -514,7 +514,7 @@ li{
         width: 80px;
         font-size: 20pt;
     }
-    .dropdown-contacts{
+    .dropdown-contacts-con{
         bottom: 130px;
     }
 }
@@ -561,7 +561,7 @@ li{
         height:830px !important;
         justify-content: flex-start;
     }
-    .dropdown-contacts{
+    .dropdown-contacts-con{
         bottom: 160px;
     }
 }

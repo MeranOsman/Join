@@ -6,6 +6,9 @@ async function initBoard() {
     await loadUsers();
     await renderUserLetters();
     await updateHTML();
+    await renderSubtask();
+    await renderCategory();
+    await renderContacts();
 }
 
 
@@ -220,38 +223,16 @@ function editTask(taskId) {
     clearAndCloseTaskEdit();
     // Find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
+    document.getElementById('task-edit-save').classList.remove('display-none');
+    document.getElementById('addTask-create').classList.add('display-none');
+    document.getElementById('addTask-clear').classList.add('display-none');
 
     document.getElementById('task-pop-up').style.setProperty('display', 'none');
     document.getElementById('edit-mode').classList.remove('display-none');
+    document.getElementById('edit-mode').style.zIndex = 999;
     document.getElementById('input-task-title').innerHTML = `<input type="text" value="${task.title}">`;
-    document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
+    //document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
     document.getElementById('calender-input').innerHTML = `<input type="date">`;
-    document.getElementById('prio-task-input').innerHTML = `<div class="prio display-flex">
-                                                                <button type="button"
-                                                                    onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
-                                                                    class="urgent-btn requiredBtn">Urgent</button>
-                                                                <button type="button"
-                                                                    onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
-                                                                    class="medium-btn requiredBtn">Medium</button>
-                                                                <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')"
-                                                                    id="lowBtn" class="low-btn requiredBtn">Low</button>
-                                                            </div>`;
-    document.getElementById('task-employees-input').innerHTML = `<div class="position-relative width">
-                                                                    <div id="contactsContainer" onclick="showCloseContacts(event)" class="select margin-zero">
-                                                                        <span>Select contacts to assign</span><img src="img/arrow_drop_down.svg" alt="arrow-down">
-                                                                    </div>
-                                                                    <div id="dropdownContact" class="dropdown display-none">
-                                                                        <div class="contacts-filter">
-                                                                            <input oninput="searchContact()" id="inputSearch" class="input-filter" type="text"
-                                                                                placeholder="Search...">
-                                                                            <img onclick="showCloseContacts(event)" src="img/arrow_drop_up.svg" alt="arrow-up">
-                                                                        </div>
-                                                                        <div class="dropdown-contacts">
-                                                                            <ul id="contactAll"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>`;
-    document.getElementById('task-subtask-input').innerHTML = ``;
     document.getElementById('task-edit-save').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
                                                             <span class="icon-check-new"></span></button>`
 }
@@ -263,13 +244,12 @@ function editTask(taskId) {
 function clearAndCloseTaskEdit() {
     document.getElementById('task-pop-up').style.setProperty('display', 'block');
     document.getElementById('edit-mode').classList.add('display-none');
+    document.getElementById('task-edit-save').classList.add('display-none');
+    document.getElementById('addTask-create').classList.remove('display-none');
+    document.getElementById('addTask-clear').classList.remove('display-none');
 
-    document.getElementById('input-task-title').innerHTML = '';
-    document.getElementById('textarea-task-description').innerHTML = '';
-    document.getElementById('calender-input').innerHTML = '';
-    document.getElementById('prio-task-input').innerHTML = '';
-    document.getElementById('task-employees-input').innerHTML = '';
-    document.getElementById('task-subtask-input').innerHTML = '';
+    document.getElementById('input-task-title').value = '';
+    document.getElementById('description').innerHTML = '';
 }
 
 
