@@ -955,6 +955,10 @@ header h4 {
         gap: 20px;
     }
 
+    .bottom-distance {
+        bottom: 28px !important;
+    }
+
     .login-bg {
         width: 80vw
     }
@@ -988,6 +992,10 @@ header h4 {
     .back-to-index {
         left: 7px;
         top: 17px;
+    }
+
+    .login {
+        width: 85%;
     }
 
     .btn-login,
