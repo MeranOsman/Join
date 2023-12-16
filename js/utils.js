@@ -114,6 +114,7 @@ let contacts = [
 let tasks = [
     {
         'id': 1,
+        'subTaskCount': 0,
         'category': 'user story',
         'sort': 'toDo',
         'categoryCol': 'blue',
@@ -128,6 +129,7 @@ let tasks = [
     },
     {
         'id': 2,
+        'subTaskCount': 0,
         'category': 'technical task',
         'sort': 'inProgress',
         'categoryCol': 'azur',
@@ -142,6 +144,7 @@ let tasks = [
     },
     {
         'id': 3,
+        'subTaskCount': 0,
         'category': 'technical task',
         'sort': 'feedback',
         'categoryCol': 'azur',
@@ -156,6 +159,7 @@ let tasks = [
     },
     {
         'id': 4,
+        'subTaskCount': 0,
         'category': 'user story',
         'sort': 'feedback',
         'categoryCol': 'blue',

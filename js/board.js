@@ -74,7 +74,7 @@ function renderTasks(element, progressBarId) {
                 <div class="task-progress-bar-bg"></div>
                 <div id="${progressBarId}" class="task-progress-bar"></div>
             </div>
-            <p class="task-progress-task">0/${element.subtasks.length} Subtasks</p>
+            <p class="task-progress-task">${element.subTaskCount}/${element.subtasks.length} Subtasks</p>
         </div>`;
     }
 
