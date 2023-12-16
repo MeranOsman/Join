@@ -61,7 +61,7 @@ async function renderData() {
     let feedbackTasks = tasks.filter(task => task.sort === 'feedback');
     let progressTasks = tasks.filter(task => task.sort === 'inProgress');
     let urgentTasks = tasks.filter(task => task.prio === 'Urgent');
-    const earliestTask = findEarliestDate(tasks);
+    let earliestTask = findEarliestDate(tasks);
 
     tasksId.innerHTML = `${tasks.length}`;
     toDoId.innerHTML = `${toDoTasks.length}`;
