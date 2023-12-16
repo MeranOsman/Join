@@ -52,6 +52,7 @@ function updateCategory(categoryId, categoryType) {
             const element = categoryTasks[index];
             const progressBarId = `progressBar-${element['id']}`;
             categoryContainer.innerHTML += renderTasks(element, progressBarId);
+            progressBar(element, progressBarId);
         }
     }
 }
@@ -163,7 +164,6 @@ function taskInfo(taskId) {
 *** function handle the check icons
 */
 function checkIcon(subtaskId) {
-    console.log('checkIcon called with subtaskId:', subtaskId);
 
     const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
     subtaskElement.classList.toggle('check-icon');
@@ -172,7 +172,7 @@ function checkIcon(subtaskId) {
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
     // Increase subTaskCount if check-icon is active
-    const [taskId, index] = subtaskId.split('-');
+    const [taskId] = subtaskId.split('-');
     const task = tasks.find(t => t.id === parseInt(taskId));
 
     if (subtaskElement.classList.contains('check-icon')) {
@@ -180,9 +180,6 @@ function checkIcon(subtaskId) {
     } else {
         task.subTaskCount -= 1;
     }
-
-    console.log('Updated subtaskStatus:', subtaskStatus);
-    console.log('Updated tasks:', tasks);
 }
 
 
