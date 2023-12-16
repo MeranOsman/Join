@@ -216,14 +216,37 @@ function deleteTask(taskId) {
     }
 }
 
+
+/*
+*** function to render the tasks informations in edit mode
+*/
 function editTask(taskId) {
     changeStyles();
-    // Find the index of the task with the given ID
+    // find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
 
-    ocument.getElementById('title').value = `${task.title}`;
+    document.getElementById('title').value = `${task.title}`;
     document.getElementById('description').innerHTML = `${task.description}`;
     document.getElementById('inputCategory').value = `${task.category}`;
+
+    // check for prio value to trigger the right function
+    switch (task.prio) {
+        case 'Urgent':// reference to addTask.js
+            SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg');
+            break;
+        case 'Medium':
+            SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg');
+            break;
+        case 'Low':
+            SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg');
+            break;
+        default: //fallback
+            break;
+    }
+    // loop trough contactsIndex for actual tasks
+    for (const contactIndex of task.contactsIndex) {
+        selectContact(contactIndex); // reference to addTask.js
+    }
 }
 
 
@@ -255,9 +278,13 @@ function changeStyles() {
     document.getElementById('edits-save-btn').classList.remove('display-none');
 }
 
+
+/*
+*** function to reset the edits values
+*/
 function resetEdits(){
-   /* document.getElementById('input-task-title').value = ``;
-    document.getElementById('description').innerHTML = ``;*/
+    document.getElementById('title').value = ``;
+    document.getElementById('description').innerHTML = ``;
 }
 
 
@@ -351,3 +378,4 @@ function searchTask() {
         });
     }
 }
+

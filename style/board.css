@@ -261,6 +261,11 @@ input#search-board {
 }
 
 /* POP UP TASKS */
+.font-edits{
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+}
+
 .task-container-card {
     display: flex;
     flex-direction: column;
