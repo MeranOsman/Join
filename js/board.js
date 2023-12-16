@@ -216,11 +216,21 @@ function deleteTask(taskId) {
     }
 }
 
+function editTask(taskId) {
+    changeStyles();
+    // Find the index of the task with the given ID
+    const task = tasks.find(t => t.id === taskId);
+
+    document.getElementById('input-task-title').value = `${task.title}`;
+    document.getElementById('description').innerHTML = `${task.description}`;
+    document.getElementById('inputCategory').value = `${task.category}`;
+}
+
 
 /*
 *** function for edit a spcific task
 */
-function editTask(taskId) {
+function changeStyles() {
     closeModal('task-info-modal','task-pop-up');
     showModal('add-task-board','addTask-inner-modal');
 
@@ -245,6 +255,11 @@ function editTask(taskId) {
     document.getElementById('edits-save-btn').classList.remove('display-none');
 }
 
+function resetEdits(){
+    document.getElementById('input-task-title').value = ``;
+    document.getElementById('description').innerHTML = ``;
+}
+
 
 /*
 *** function delay the styles reset, prevents a screen flicker
@@ -252,6 +267,7 @@ function editTask(taskId) {
 function clearAndCloseTaskEditWithDelay() {
     setTimeout(function() {
         clearAndCloseTaskEdit();
+        resetEdits();
     }, 600);
 }
 
