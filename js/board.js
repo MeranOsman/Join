@@ -52,6 +52,10 @@ function updateCategory(categoryId, categoryType) {
             const element = categoryTasks[index];
             const progressBarId = `progressBar-${element['id']}`;
             categoryContainer.innerHTML += renderTasks(element, progressBarId);
+            try {
+                progressBar(element, progressBarId);
+            } catch (error) {
+            }
         }
     }
 }
@@ -151,7 +155,8 @@ function taskInfo(taskId) {
         return `
             <div class="hover">
                 <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
-            </div>`;}).join('');
+            </div>`;
+    }).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
@@ -163,8 +168,6 @@ function taskInfo(taskId) {
 *** function handle the check icons
 */
 function checkIcon(subtaskId) {
-    console.log('checkIcon called with subtaskId:', subtaskId);
-
     const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
     subtaskElement.classList.toggle('check-icon');
 
@@ -172,7 +175,7 @@ function checkIcon(subtaskId) {
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
     // Increase subTaskCount if check-icon is active
-    const [taskId, index] = subtaskId.split('-');
+    const [taskId] = subtaskId.split('-');
     const task = tasks.find(t => t.id === parseInt(taskId));
 
     if (subtaskElement.classList.contains('check-icon')) {
@@ -180,9 +183,6 @@ function checkIcon(subtaskId) {
     } else {
         task.subTaskCount -= 1;
     }
-
-    console.log('Updated subtaskStatus:', subtaskStatus);
-    console.log('Updated tasks:', tasks);
 }
 
 
@@ -253,3 +253,18 @@ function clearAndCloseTaskEdit() {
 }
 
 
+/**
+ * Function to set progress bar in connection with the subtasks
+ * 
+ * @param {*} element 
+ * @param {*} progressBarId 
+ */
+function progressBar(element, progressBarId) {
+    let progressBar = document.getElementById(progressBarId);
+    let subtaskNumber = element.subTaskCount;
+    let amountSubtasks = element.subtasks.length;
+    let percent = subtaskNumber / amountSubtasks;
+    percent = Math.round(percent * 100);
+
+    progressBar.style.width = `${percent}%`;
+}

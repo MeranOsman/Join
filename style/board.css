@@ -253,6 +253,7 @@ input#search-board {
     width: 24px;
     height: 24px;
     transition: all 250ms;
+    cursor: pointer;
 }
 
 .on-hover:hover img {
