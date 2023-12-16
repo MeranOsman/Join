@@ -135,7 +135,8 @@ function selectContact(i, contactId) {
         fullName: firstName + ' ' + lastName,
         nameLetters: firstName.charAt(0) + lastName.charAt(0),
         color: color,
-        id: contactId
+        id: contactId,
+        index: i
     });
 
     contactLabel.style.color = 'black';
@@ -299,7 +300,8 @@ function addSelectedCategory(i) {
 
     selectedCategory[0] = {
         name: category[i]['name'],
-        numberColor: category[i]['numberColor']
+        numberColor: category[i]['numberColor'],
+        index: i
     };
 }
 
@@ -518,6 +520,7 @@ function createTask(event) {
     let contactFullname = selectedContacts.map(contact => contact.fullName);
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
+    let contactIndex = selectedContacts.map(contact => contact.index);
     let success = document.getElementById('successAddtask');
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
@@ -527,11 +530,13 @@ function createTask(event) {
             title: titel,
             description: description,
             contacts: contactFullname,
+            contactsIndex: contactIndex,
             employees: contactLetters,
             color: contactColor,
             date: dateValue,
             prio: priority[0]['prio'],
             category: selectedCategory[0]['name'],
+            categoryIndex: selectedCategory[0]['index'],
             categoryCol: bgColors[selectedCategory[0]['numberColor']],
             subtasks: subtasks,
             subTaskCount: 0
