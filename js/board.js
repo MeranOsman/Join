@@ -40,21 +40,18 @@ function updateCategory(categoryId, categoryType) {
     let categoryTasks = tasks.filter(t => t['sort'] == categoryType);
     let categoryContainer = document.getElementById(categoryId);
 
-    // Check if there are no tasks in the category
     if (categoryTasks.length === 0) {
-        // Create a no task container
         categoryContainer.innerHTML = '<div class="empty-card-container"><div id="empty-card" class="tasks-card-empty"><p>No tasks To do</p></div></div>';
     } else {
-        // If there are tasks, clear the container and render the tasks
         categoryContainer.innerHTML = '';
 
         for (let index = 0; index < categoryTasks.length; index++) {
             const element = categoryTasks[index];
-            categoryContainer.innerHTML += renderTasks(element);
+            const progressBarId = `progressBar-${element['id']}`;
+            categoryContainer.innerHTML += renderTasks(element, progressBarId);
         }
     }
 }
-
 
 /*
 *** function to track the tasks id
@@ -67,18 +64,26 @@ function startDragging(id) {
 /*
 *** function for render the tasks
 */
-function renderTasks(element) {
+function renderTasks(element, progressBarId) {
     let subtasksHtml = '';
 
-    //check if subtask is more then 0, if true then save html content in variable subtasksHtml
-    // if not, then subtasksHtml remains empty
+    // Überprüfen, ob Subtasks vorhanden sind
     if (element.subtasks.length > 0) {
+        // Zählen Sie die abgeschlossenen Subtasks
+        const completedSubtasksCount = element.subtasks.reduce((count, _, index) => {
+            const subtaskId = `${element['id']}-${index}`;
+            if (subtaskStatus[subtaskId]) {
+                return count + 1;
+            }
+            return count;
+        }, 0);
+
         subtasksHtml = `<div id="progress-${element['id']}" class="flex-btw">
             <div class="flex-start-progress">
                 <div class="task-progress-bar-bg"></div>
-                <div id="progressBar-${element['id']}" class="task-progress-bar"></div>
+                <div id="${progressBarId}" class="task-progress-bar"></div>
             </div>
-            <p class="task-progress-task">1/${element.subtasks.length} Subtasks</p>
+            <p class="task-progress-task">${completedSubtasksCount}/${element.subtasks.length} Subtasks</p>
         </div>`;
     }
 
@@ -101,6 +106,7 @@ function renderTasks(element) {
 }
 
 
+
 /*
 *** shortens the description if longer then 40 chars
 */
@@ -117,28 +123,6 @@ function moveTo(sorting) {
     removeHighlight(sorting);
     noRotate(sorting);
     updateHTML();
-}
-
-
-/*
-*** function to set and remove hover color on drag over
-*/
-function highlight(id) {
-    document.getElementById(id).classList.add('drag-area-highlight');
-}
-function removeHighlight(id) {
-    document.getElementById(id).classList.remove('drag-area-highlight');
-}
-
-
-/*
-*** function to set and remove hover rotate on drag over
-*/
-function rotate(id) {
-    document.getElementById(id).classList.add('rotate');
-}
-function noRotate(id) {
-    document.getElementById(id).classList.remove('rotate');
 }
 
 
@@ -167,22 +151,45 @@ function taskInfo(taskId) {
 
     document.getElementById('task-employees').innerHTML = employeesHtml;
 
-    const subtasksHtml = task.subtasks.map((subtask, index) => 
-        `<div class="hover"><div id="subtasks-${taskId + index}" class="uncheck-icon margin-l-s subtask pointer" onclick="checkIcon(event)">${subtask}</div></div>`
-    ).join('');
+    const subtasksHtml = task.subtasks.map((subtask, index) => {
+        const subtaskId = `${taskId}-${index}`;
+        const subtaskCheck = subtaskStatus[subtaskId] ? 'check-icon' : 'uncheck-icon';
+
+        return `
+            <div class="hover">
+                <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
+            </div>
+        `;
+    }).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
     showTaskInfoModal();
+    
 }
 
 
 /*
 *** function handle the check icons
 */
-function checkIcon(event) {
-    event.target.classList.toggle('check-icon');
-    event.target.classList.toggle('subtask-lined');
+function checkIcon(subtaskId) {
+    console.log('checkIcon called with subtaskId:', subtaskId);
+
+    const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
+    subtaskElement.classList.toggle('check-icon');
+
+    // update status
+    subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
+
+    console.log('Updated subtaskStatus:', subtaskStatus);
+}
+
+
+/*
+*** function update the progressbar
+*/
+function progressBar(progressBarId) {
+    let progressBar = document.getElementById(progressBarId);
 }
 
 
@@ -253,7 +260,7 @@ function editTask(taskId) {
                                                                     </div>
                                                                 </div>`;
     document.getElementById('task-subtask-input').innerHTML = ``;
-    document.getElementById('task-edit-save').innerHTML += `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
+    document.getElementById('task-edit-save').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
                                                             <span class="icon-check-new"></span></button>`
 }
 
@@ -272,4 +279,5 @@ function clearAndCloseTaskEdit() {
     document.getElementById('task-employees-input').innerHTML = '';
     document.getElementById('task-subtask-input').innerHTML = '';
 }
+
 

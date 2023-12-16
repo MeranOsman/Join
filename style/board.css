@@ -22,6 +22,7 @@
     background-repeat: no-repeat;
     display: flex;
     padding: 4px 0 4px 32px;
+    text-decoration: line-through;
 }
 
 .flex-col-edit{
@@ -193,13 +194,9 @@ input#search-board {
     background: var(--ci-blue);
     border-radius: 5px;
     height: 5px;
-    width: 75%;
-    position: absolute;
-    transition: width 0.3s ease;
+    width: 50%;
+    z-index: 999;
 }
-
-
-
 
 /* PROGRESS BAR SETTINGS END */
 
@@ -358,10 +355,6 @@ input#search-board {
 .hover:hover{
     background-color: #e7e7e7;
     border-radius: 15px;
-}
-
-.subtask-lined{
-    text-decoration: line-through;
 }
 
 .position-end {

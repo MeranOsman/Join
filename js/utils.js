@@ -28,6 +28,7 @@ let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'
 
 //board
 let currentDraggedElement;
+let subtaskStatus = {};
 
 let contacts = [
     {
@@ -128,7 +129,7 @@ let tasks = [
         'categoryCol': 'azur',
         'title': 'HTML Base Template Creation',
         'description': 'Create reusable HTML base templates',
-        'subtasks': ['Make responsive', 'Problems on screen size 960px'],
+        'subtasks': ['Make responsive', 'Problems on screen size 960px', 'Problems with header'],
         'employees': ['EM', 'MB', 'TW'],
         'contacts': ['Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf'],
         'prio': 'medium',

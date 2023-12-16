@@ -64,7 +64,32 @@ function wait(remove) {
     }, 250);
   }
 
-
+  
+/*
+*** function to set and remove hover color on drag over
+*/
 function resetColorModal(colorClass){
     document.getElementById(colorClass).classList.remove ('orange','vio','blue','pink','yell','azur','deep','tango');
+}
+
+
+/*
+*** function to set and remove hover color on drag over
+*/
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+
+/*
+*** function to set and remove hover rotate on drag over
+*/
+function rotate(id) {
+    document.getElementById(id).classList.add('rotate');
+}
+function noRotate(id) {
+    document.getElementById(id).classList.remove('rotate');
 }
