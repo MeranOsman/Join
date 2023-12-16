@@ -287,4 +287,4 @@ function progressBar(element, progressBarId) {
     percent = Math.round(percent * 100);
 
     progressBar.style.width = `${percent}%`;
-} ff
+}
