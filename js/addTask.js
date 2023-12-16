@@ -533,7 +533,8 @@ function createTask(event) {
             prio: priority[0]['prio'],
             category: selectedCategory[0]['name'],
             categoryCol: bgColors[selectedCategory[0]['numberColor']],
-            subtasks: subtasks
+            subtasks: subtasks,
+            subTaskCount: 0
         })
 
         success.classList.remove('display-none');

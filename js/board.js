@@ -148,7 +148,8 @@ function taskInfo(taskId) {
         return `
             <div class="hover">
                 <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
-            </div>`;}).join('');
+            </div>`;
+    }).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
@@ -177,9 +178,6 @@ function checkIcon(subtaskId) {
     } else {
         task.subTaskCount -= 1;
     }
-
-    console.log('Updated subtaskStatus:', subtaskStatus);
-    console.log('Updated tasks:', tasks);
 }
 
 
@@ -273,3 +271,4 @@ function clearAndCloseTaskEdit() {
 }
 
 
+function 
