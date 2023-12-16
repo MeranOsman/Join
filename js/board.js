@@ -221,17 +221,38 @@ function deleteTask(taskId) {
 *** function for edit a spcific task
 */
 function editTask(taskId) {
-    clearAndCloseTaskEdit();
-    // Find the index of the task with the given ID
-    const task = tasks.find(t => t.id === taskId);
+    closeModal('task-info-modal','task-pop-up');
+    showModal('add-task-board','addTask-inner-modal');
 
-    document.getElementById('task-pop-up').style.setProperty('display', 'none');
-    document.getElementById('edit-mode').classList.remove('display-none');
-    document.getElementById('input-task-title').innerHTML = `<input type="text" value="${task.title}">`;
-    //document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
-    document.getElementById('calender-input').innerHTML = `<input type="date">`;
-    document.getElementById('task-save-btn').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
-                                                            <span class="icon-check-new"></span></button>`
+    document.getElementById('edit-heading').classList.add('display-none');
+    document.getElementById('close-btn-addTask').classList.add('display-none');
+    document.getElementById('close-btn-addTask-edit').classList.remove('display-none');
+    
+    document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner');
+    document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner-edit');
+
+    document.getElementById('flex-edit').classList.add('flex-column-start');
+    document.getElementById('edit-section-l').classList.remove('left-section');
+    document.getElementById('edit-section-r').classList.remove('right-section');
+    document.getElementById('edit-section-l').classList.remove('flex-column-start');
+    document.getElementById('edit-section-r').classList.remove('flex-column-start');
+    document.getElementById('edit-section-l').classList.add('flex-column-start-edit');
+    document.getElementById('edit-section-r').classList.add('flex-column-start-edit');
+
+    document.getElementById('flex-btn-edits').classList.remove('btn-addTask');
+    document.getElementById('addTask-clear').classList.add('display-none');
+    document.getElementById('addTask-create').classList.add('display-none');
+    document.getElementById('edits-save-btn').classList.remove('display-none');
+}
+
+
+/*
+*** function delay the styles reset, prevents a screen flicker
+*/
+function clearAndCloseTaskEditWithDelay() {
+    setTimeout(function() {
+        clearAndCloseTaskEdit();
+    }, 600);
 }
 
 
@@ -240,14 +261,27 @@ function editTask(taskId) {
 */
 function clearAndCloseTaskEdit() {
     document.getElementById('task-pop-up').style.setProperty('display', 'block');
-    document.getElementById('edit-mode').classList.add('display-none');
 
-    document.getElementById('input-task-title').innerHTML = '';
-    document.getElementById('textarea-task-description').innerHTML = '';
-    document.getElementById('calender-input').innerHTML = '';
-    document.getElementById('prio-task-input').innerHTML = '';
-    document.getElementById('task-employees-input').innerHTML = '';
-    document.getElementById('task-subtask-input').innerHTML = '';
+    document.getElementById('edit-heading').classList.remove('display-none');
+    document.getElementById('close-btn-addTask').classList.remove('display-none');
+    document.getElementById('close-btn-addTask-edit').classList.add('display-none');
+
+    document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner');
+    document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner-edit');
+
+    document.getElementById('flex-edit').classList.remove('flex-column-start');
+    document.getElementById('edit-section-l').classList.add('left-section');
+    document.getElementById('edit-section-r').classList.add('right-section');
+    document.getElementById('edit-section-l').classList.add('flex-column-start');
+    document.getElementById('edit-section-r').classList.add('flex-column-start');
+    document.getElementById('edit-section-l').classList.remove('flex-column-start-edit');
+    document.getElementById('edit-section-r').classList.remove('flex-column-start-edit');
+
+    document.getElementById('flex-btn-edits').classList.add('btn-addTask');
+    document.getElementById('addTask-clear').classList.remove('display-none');
+    document.getElementById('addTask-create').classList.remove('display-none');
+    document.getElementById('edits-save-btn').classList.add('display-none');
+    
 }
 
 

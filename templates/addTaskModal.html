@@ -1,10 +1,10 @@
 <section class="add-task">
-    <h1>Add Task</h1>
-    <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
-        class="close-task-pop pos hide">X</div>
+    <h1 id="edit-heading">Add Task</h1>
+    <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')" class="close-task-pop pos hide">X</div>
     <form id="addTaskForm" onsubmit="createTask(event);">
-        <div class="flex">
-            <div class="left-section flex-column-start">
+        <div id="flex-edit" class="flex">
+            <div id="edit-section-l" class="left-section flex-column-start">
+                <div id="close-btn-addTask-edit" onclick="closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()" class="display-none x-btn-edit">X</div>
                 <label class="label-required" for="title">Title</label>
                 <input id="input-task-title" required maxlength="22" min="4" class="task-input" id="title" type="text"
                     placeholder="Enter a title">
@@ -33,7 +33,7 @@
 
                 </div>
             </div>
-            <div class="right-section flex-column-start">
+            <div id="edit-section-r" class="right-section flex-column-start">
                 <label class="label-required" for="date">Due date</label>
                 <input required class="task-input lightgray" id="date" type="date"><div id="calender-input"></div>
                 <label id="prio" class="label-required">Prio</label>
@@ -103,11 +103,12 @@
         </div>
         <div class="lower-area">
             <span id="required" class="required">This field is required</span>
-            <div class="btn-addTask">
+            <div id="flex-btn-edits" class="btn-addTask">
                 <button id="addTask-clear" onclick="location.reload()" type="button" class="btn-guest">Clear<span
                         class="icon-cross"></span></button>
                 <button id="addTask-create" type="submit" class="btn-login margin-zero">Create Task<span
                         class="icon-check-new"></span></button>
+                <button id="edits-save-btn" type="submit" class="btn-login edits display-none" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save<span class="icon-check-new"></span></button>
             </div>
         </div>
     </form>
