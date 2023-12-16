@@ -30,11 +30,7 @@
 <body class="content-size" onload="initBoard()">
     <header w3-include-html="templates/menu.html"></header>
 
-    <!-- include add task modal-->
-    <div id="add-task-board" class="modal-outer hide">
-        <div id="addTask-inner-modal" class="add-task-modal-inner move-to-left-pop"
-            w3-include-html="templates/addTaskModal.html"></div>
-    </div>
+   
 
     <div class="flex-btw board">
         <h1 class="headline-board">Board</h1>
@@ -95,11 +91,6 @@
         <div w3-include-html="templates/boardInfoModal.html"></div>
     </div>
     <!-- INSERT INFO POP UP FROM SINGLE TAST ### END ### -->
-
-    <!--EDIT MODE-->
-    <div id="edit-mode" class="task-container-card-addTask display-none absolute">
-        <div class="absolute" w3-include-html="templates/addTaskModal.html"></div>
-    </div>
 
     <footer w3-include-html="templates/sideboardResponsive.html"></footer>
 </body>

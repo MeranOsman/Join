@@ -277,21 +277,6 @@ input#search-board {
     overflow-y: auto;
 }
 
-.task-container-card-addTask {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 8px;
-    background: var(--summary-background);
-    height: 800px;
-    max-width: 450px;
-    width: 450px;
-    border-radius: 25px;
-    padding: 32px;
-    overflow-y: auto;
-}
-
 .task-pop-category {
     padding: 6px 16px;
     border-radius: 13px;

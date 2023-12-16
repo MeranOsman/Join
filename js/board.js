@@ -52,10 +52,6 @@ function updateCategory(categoryId, categoryType) {
             const element = categoryTasks[index];
             const progressBarId = `progressBar-${element['id']}`;
             categoryContainer.innerHTML += renderTasks(element, progressBarId);
-            try {
-                progressBar(element, progressBarId);
-            } catch (error) {
-            }
         }
     }
 }
@@ -155,8 +151,7 @@ function taskInfo(taskId) {
         return `
             <div class="hover">
                 <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
-            </div>`;
-    }).join('');
+            </div>`;}).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
@@ -168,6 +163,8 @@ function taskInfo(taskId) {
 *** function handle the check icons
 */
 function checkIcon(subtaskId) {
+    console.log('checkIcon called with subtaskId:', subtaskId);
+
     const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
     subtaskElement.classList.toggle('check-icon');
 
@@ -175,7 +172,7 @@ function checkIcon(subtaskId) {
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
     // Increase subTaskCount if check-icon is active
-    const [taskId] = subtaskId.split('-');
+    const [taskId, index] = subtaskId.split('-');
     const task = tasks.find(t => t.id === parseInt(taskId));
 
     if (subtaskElement.classList.contains('check-icon')) {
@@ -183,6 +180,9 @@ function checkIcon(subtaskId) {
     } else {
         task.subTaskCount -= 1;
     }
+
+    console.log('Updated subtaskStatus:', subtaskStatus);
+    console.log('Updated tasks:', tasks);
 }
 
 
@@ -220,20 +220,16 @@ function deleteTask(taskId) {
 *** function for edit a spcific task
 */
 function editTask(taskId) {
-   
+    clearAndCloseTaskEdit();
     // Find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
-    document.getElementById('task-edit-save').classList.remove('display-none');
-    document.getElementById('addTask-create').classList.add('display-none');
-    document.getElementById('addTask-clear').classList.add('display-none');
 
     document.getElementById('task-pop-up').style.setProperty('display', 'none');
     document.getElementById('edit-mode').classList.remove('display-none');
-    document.getElementById('edit-mode').style.zIndex = 999;
     document.getElementById('input-task-title').innerHTML = `<input type="text" value="${task.title}">`;
     //document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
     document.getElementById('calender-input').innerHTML = `<input type="date">`;
-    document.getElementById('task-edit-save').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
+    document.getElementById('task-save-btn').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
                                                             <span class="icon-check-new"></span></button>`
 }
 
@@ -244,27 +240,6 @@ function editTask(taskId) {
 function clearAndCloseTaskEdit() {
     document.getElementById('task-pop-up').style.setProperty('display', 'block');
     document.getElementById('edit-mode').classList.add('display-none');
-    document.getElementById('task-edit-save').classList.add('display-none');
-    document.getElementById('addTask-create').classList.remove('display-none');
-    document.getElementById('addTask-clear').classList.remove('display-none');
-
     document.getElementById('input-task-title').value = '';
     document.getElementById('description').innerHTML = '';
-}
-
-
-/**
- * Function to set progress bar in connection with the subtasks
- * 
- * @param {*} element 
- * @param {*} progressBarId 
- */
-function progressBar(element, progressBarId) {
-    let progressBar = document.getElementById(progressBarId);
-    let subtaskNumber = element.subTaskCount;
-    let amountSubtasks = element.subtasks.length;
-    let percent = subtaskNumber / amountSubtasks;
-    percent = Math.round(percent * 100);
-
-    progressBar.style.width = `${percent}%`;
 }
