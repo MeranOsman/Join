@@ -291,6 +291,11 @@ input::-webkit-datetime-edit {
     padding: 24px 16px;
 }
 
+.login-p {
+    font-size: 20px !important;
+    color: black !important;
+}
+
 .login-bg form {
     display: flex;
     flex-direction: column;
@@ -480,7 +485,7 @@ input::-webkit-datetime-edit {
     gap: 8px;
     position: relative;
     height: 32px;
-    width: 45%;
+    width: 50%;
 }
 
 .container-checkbox-sign-up {
@@ -568,7 +573,7 @@ input::-webkit-datetime-edit {
     background-color: var(--sidebar-background);
     border: 1px solid var(--sidebar-background);
     color: var(--header-bg);
-    font-size: 16px;
+    font-size: 20px;
     padding: 8px 16px;
     border-radius: 10px;
     font-weight: 500;
@@ -895,8 +900,12 @@ header h4 {
         width: 75%;
     }
 
+    .container-checkbox {
+        width: 70%;
+    }
+
     .login-bg {
-        min-width: 80vw;
+        width: 470px;
         min-height: 50vh;
     }
 
@@ -943,6 +952,11 @@ header h4 {
 
     .pos-bottom {
         bottom: 8px;
+        gap: 20px;
+    }
+
+    .login-bg {
+        width: 80vw
     }
 
     .btn-login {
@@ -1117,3 +1131,5 @@ header h4 {
         padding: 7px 0;
     }
 }
+
+font-size: 21px;
