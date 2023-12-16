@@ -221,7 +221,7 @@ function editTask(taskId) {
     // Find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
 
-    document.getElementById('input-task-title').value = `${task.title}`;
+    ocument.getElementById('title').value = `${task.title}`;
     document.getElementById('description').innerHTML = `${task.description}`;
     document.getElementById('inputCategory').value = `${task.category}`;
 }
@@ -256,8 +256,8 @@ function changeStyles() {
 }
 
 function resetEdits(){
-    document.getElementById('input-task-title').value = ``;
-    document.getElementById('description').innerHTML = ``;
+   /* document.getElementById('input-task-title').value = ``;
+    document.getElementById('description').innerHTML = ``;*/
 }
 
 
