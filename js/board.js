@@ -265,4 +265,39 @@ function progressBar(element, progressBarId) {
     percent = Math.round(percent * 100);
 
     progressBar.style.width = `${percent}%`;
-} 
+}
+
+
+/**
+ * Function for search tasks
+ */
+function searchTask() {
+    let input = document.getElementById('search-board');
+    let search = input.value.trim().toLowerCase();
+
+    let allTasks = document.querySelectorAll('.tasks-card');
+    let matchingTasks = Array.from(allTasks).filter(task => {
+        const taskTitle = task.querySelector('.task-card-title').innerText.toLowerCase();
+        const taskDescription = task.querySelector('.task-card-note').innerText.toLowerCase();
+        const taskCategory = task.querySelector('.task-card-heading').innerText.toLowerCase();
+        const taskPrio = task.querySelector('img').getAttribute('src').toLowerCase();
+
+        return (
+            taskTitle.includes(search) ||
+            taskDescription.includes(search) ||
+            taskCategory.includes(search) ||
+            taskPrio.includes(search)
+        );
+    });
+
+    if (matchingTasks.length === 0) {
+        allTasks.forEach(task => {
+            task.style.display = 'none';
+        });
+
+    } else {
+        allTasks.forEach(task => {
+            task.style.display = matchingTasks.includes(task) ? 'block' : 'none';
+        });
+    }
+}
