@@ -52,7 +52,10 @@ function updateCategory(categoryId, categoryType) {
             const element = categoryTasks[index];
             const progressBarId = `progressBar-${element['id']}`;
             categoryContainer.innerHTML += renderTasks(element, progressBarId);
-            progressBar(element, progressBarId);
+            try {
+                progressBar(element, progressBarId);
+            } catch (error) {
+            }
         }
     }
 }
@@ -152,7 +155,8 @@ function taskInfo(taskId) {
         return `
             <div class="hover">
                 <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
-            </div>`;}).join('');
+            </div>`;
+    }).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
