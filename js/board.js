@@ -220,7 +220,7 @@ function deleteTask(taskId) {
 *** function for edit a spcific task
 */
 function editTask(taskId) {
-    clearAndCloseTaskEdit();
+   
     // Find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
     document.getElementById('task-edit-save').classList.remove('display-none');
