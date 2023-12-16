@@ -2,11 +2,15 @@
 let users = [];
 
 // summary
-// let summary = [{
-//     toDo: 1,
-//     done: 1,
-//     tasksProgress: 
-// }];
+let summary = [{
+    tasks: 5,
+    toDo: 1,
+    done: 1,
+    tasksProgress: 1,
+    feedback: 4,
+    urgent: 3,
+    deadline: '19/07/2023'
+}];
 
 // add task
 let selectedContacts = [];
@@ -102,7 +106,7 @@ let contacts = [
         'email': 'ben@gmx.de',
         'phone': '+49 0151 333 456 656',
         'color': 'tango',
-    },
+    }
 ];
 
 
@@ -118,7 +122,7 @@ let tasks = [
         'subtasks': ['Implement Recipe recommendation', 'Start Page Layout'],
         'employees': ['AM', 'AS', 'DE'],
         'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenberg'],
-        'prio': 'low',
+        'prio': 'Low',
         'date': '10/05/2023',
         'color': ['orange', 'azur', 'pink']
     },
@@ -132,8 +136,8 @@ let tasks = [
         'subtasks': ['Make responsive', 'Problems on screen size 960px', 'Problems with header'],
         'employees': ['EM', 'MB', 'TW'],
         'contacts': ['Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf'],
-        'prio': 'medium',
-        'date': '19/07/2023',
+        'prio': 'Medium',
+        'date': '19/04/2023',
         'color': ['vio', 'deep', 'tango']
     },
     {
@@ -146,8 +150,8 @@ let tasks = [
         'subtasks': ['Class documentation'],
         'employees': ['EF', 'AS', 'BZ'],
         'contacts': ['Eva Fischer', 'Anja Schulz', 'Benedikt Ziegler'],
-        'prio': 'urgent',
-        'date': '05/08/2023',
+        'prio': 'Urgent',
+        'date': '05/07/2023',
         'color': ['yell', 'azur', 'blue']
     },
     {
@@ -160,8 +164,8 @@ let tasks = [
         'subtasks': [],
         'employees': ['AM', 'AS', 'DE'],
         'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenebrg'],
-        'prio': 'urgent',
-        'date': '05/08/2023',
+        'prio': 'Urgent',
+        'date': '04/10/2023',
         'color': ['orange', 'azur', 'pink']
     }
 ];
