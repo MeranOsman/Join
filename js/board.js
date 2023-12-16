@@ -122,6 +122,7 @@ function moveTo(sorting) {
 function taskInfo(taskId) {
     const task = tasks.find(t => t.id === taskId);
 
+    document.getElementById('closeX').innerHTML = `<div onclick="closeModal('task-info-modal','task-pop-up'), updateHTML();" class="close-task-pop">X</div>`;
     document.getElementById('sorting').textContent = task.category;
     document.getElementById('sorting').classList = `task-pop-category ${task.categoryCol} upper-text margin-b-16`;
     document.getElementById('title-task').textContent = task.title;
@@ -167,8 +168,21 @@ function checkIcon(subtaskId) {
     // update status
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
+    // Increase subTaskCount if check-icon is active
+    const [taskId, index] = subtaskId.split('-');
+    const task = tasks.find(t => t.id === parseInt(taskId));
+
+    if (subtaskElement.classList.contains('check-icon')) {
+        task.subTaskCount += 1;
+    } else {
+        task.subTaskCount -= 1;
+    }
+
     console.log('Updated subtaskStatus:', subtaskStatus);
+    console.log('Updated tasks:', tasks);
 }
+
+
 
 
 /*
