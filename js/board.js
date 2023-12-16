@@ -6,6 +6,9 @@ async function initBoard() {
     await loadUsers();
     await renderUserLetters();
     await updateHTML();
+    await renderSubtask();
+    await renderCategory();
+    await renderContacts();
 }
 
 
@@ -49,10 +52,6 @@ function updateCategory(categoryId, categoryType) {
             const element = categoryTasks[index];
             const progressBarId = `progressBar-${element['id']}`;
             categoryContainer.innerHTML += renderTasks(element, progressBarId);
-            try {
-                progressBar(element, progressBarId);
-            } catch (error) {
-            }
         }
     }
 }
@@ -152,8 +151,7 @@ function taskInfo(taskId) {
         return `
             <div class="hover">
                 <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
-            </div>`;
-    }).join('');
+            </div>`;}).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
@@ -165,6 +163,8 @@ function taskInfo(taskId) {
 *** function handle the check icons
 */
 function checkIcon(subtaskId) {
+    console.log('checkIcon called with subtaskId:', subtaskId);
+
     const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
     subtaskElement.classList.toggle('check-icon');
 
@@ -172,7 +172,7 @@ function checkIcon(subtaskId) {
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
     // Increase subTaskCount if check-icon is active
-    const [taskId] = subtaskId.split('-');
+    const [taskId, index] = subtaskId.split('-');
     const task = tasks.find(t => t.id === parseInt(taskId));
 
     if (subtaskElement.classList.contains('check-icon')) {
@@ -180,6 +180,9 @@ function checkIcon(subtaskId) {
     } else {
         task.subTaskCount -= 1;
     }
+
+    console.log('Updated subtaskStatus:', subtaskStatus);
+    console.log('Updated tasks:', tasks);
 }
 
 
@@ -224,35 +227,9 @@ function editTask(taskId) {
     document.getElementById('task-pop-up').style.setProperty('display', 'none');
     document.getElementById('edit-mode').classList.remove('display-none');
     document.getElementById('input-task-title').innerHTML = `<input type="text" value="${task.title}">`;
-    document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
+    //document.getElementById('textarea-task-description').innerHTML = `<textarea>${task.description}</textarea>`;
     document.getElementById('calender-input').innerHTML = `<input type="date">`;
-    document.getElementById('prio-task-input').innerHTML = `<div class="prio display-flex">
-                                                                <button type="button"
-                                                                    onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
-                                                                    class="urgent-btn requiredBtn">Urgent</button>
-                                                                <button type="button"
-                                                                    onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
-                                                                    class="medium-btn requiredBtn">Medium</button>
-                                                                <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')"
-                                                                    id="lowBtn" class="low-btn requiredBtn">Low</button>
-                                                            </div>`;
-    document.getElementById('task-employees-input').innerHTML = `<div class="position-relative width">
-                                                                    <div id="contactsContainer" onclick="showCloseContacts(event)" class="select margin-zero">
-                                                                        <span>Select contacts to assign</span><img src="img/arrow_drop_down.svg" alt="arrow-down">
-                                                                    </div>
-                                                                    <div id="dropdownContact" class="dropdown display-none">
-                                                                        <div class="contacts-filter">
-                                                                            <input oninput="searchContact()" id="inputSearch" class="input-filter" type="text"
-                                                                                placeholder="Search...">
-                                                                            <img onclick="showCloseContacts(event)" src="img/arrow_drop_up.svg" alt="arrow-up">
-                                                                        </div>
-                                                                        <div class="dropdown-contacts">
-                                                                            <ul id="contactAll"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>`;
-    document.getElementById('task-subtask-input').innerHTML = ``;
-    document.getElementById('task-edit-save').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
+    document.getElementById('task-save-btn').innerHTML = `<button type="submit" class=" btn-login media" onclick="saveTask(${taskId}),clearAndCloseTaskEdit()">Save
                                                             <span class="icon-check-new"></span></button>`
 }
 

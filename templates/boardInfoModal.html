@@ -34,29 +34,112 @@
 
     <div onclick="closeModal('task-info-modal','edit-mode')" class="close-task-pop">X</div>
 
-    <div class="pop-task-description">Title</div>
-    <div id="input-task-title"></div>
-
-    <div class="pop-task-description">Description</div>
-    <div id="textarea-task-description"></div>
-
-    <div class="flex-col-edit pop-task-description margin-t">
-        <div class="info-col">Due date:</div>
-        <div id="calender-input"></div>
+    <section class="add-task flex-column-start">
+        <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
+            class="close-task-pop pos hide">X</div>
+        <form id="addTaskForm" onsubmit="createTask(event);" class="flex-column-start">
+            <div class="flex-column-start">
+                <div>
+                    <label class="label-required" for="title">Title</label>
+                    <input id="input-task-title" required maxlength="22" min="4" class="task-input" id="title" type="text"
+                        placeholder="Enter a title">
+                    <label class="label-required" for="description">Description</label>
+                    <textarea required id="description" placeholder="Enter a description"></textarea>
+                    <label id="contactLabel" class="label-required">Assigned to</label>
+                    <div class="position-relative width">
+                        <div id="contactsContainer" onclick="showCloseContacts(event)" class="select margin-zero">
+                            <span>Select contacts to assign</span>
+                            <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                        </div>
+                        <div id="dropdownContact" class="dropdown display-none">
+                            <div class="contacts-filter">
+                                <input oninput="searchContact()" id="inputSearch" class="input-filter" type="text"
+                                    placeholder="Search...">
+                                <img onclick="showCloseContacts(event)" src="img/arrow_drop_up.svg" alt="arrow-up">
+                            </div>
+                            <div class="dropdown-contacts">
+                                <ul id="contactAll"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="selectedContacts" class="selected"></div>
+                </div>
+                <div>
+                    <label class="label-required" for="date">Due date</label>
+                    <input required class="task-input lightgray" id="date" type="date"><div id="calender-input"></div>
+                    <label id="prio" class="label-required">Prio</label>
+                    <div class="prio display-flex">
+                        <button type="button"
+                            onclick="SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg')" id="urgentBtn"
+                            class="urgent-btn requiredBtn">Urgent</button>
+                        <button type="button"
+                            onclick="SelectPrioBtn('mediumBtn', 'medium-color', 'Medium', 'prioMedium.svg')" id="mediumBtn"
+                            class="medium-btn requiredBtn">Medium</button>
+                        <button type="button" onclick="SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg')"
+                            id="lowBtn" class="low-btn requiredBtn">Low</button>
+                    </div>
+                    <label id="category" class="label-required">Category</label>
+                    <div class="position-relative width">
+                        <div id="selectedColor" onclick="showCloseCategory(event)" class="select">
+                            <span id="selectedCategory">Select task category</span>
+                            <img src="img/arrow_drop_down.svg" alt="arrow-down">
+                        </div>
+                        <div id="dropdownCategory" class="dropdown z-index display-none">
+                            <div class="position">
+                                <input onkeydown="pressEnter(addCategory, event)" maxlength="22" min="3" id="inputCategory"
+                                    class="input-category" type="text" placeholder="Create new task category">
+                                <div class="add-category">
+                                    <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
+                                    <div class="line"></div>
+                                    <img onclick="addCategory()" class="crossPlus" src="img/check-black.svg">
+                                    <div class="line"></div>
+                                    <img id="arrow" onclick="showCloseCategory(event)" src="img/arrow_drop_up.svg"
+                                        alt="arrow-up">
+                                </div>
+                                <div id="color-section" class="color-section">
+                                    <div id="color0" onclick="selectColor('color0', 0)" class="circle orange"></div>
+                                    <div id="color1" onclick="selectColor('color1', 1)" class="circle vio"></div>
+                                    <div id="color2" onclick="selectColor('color2', 2)" class="circle blue"></div>
+                                    <div id="color3" onclick="selectColor('color3', 3)" class="circle pink"></div>
+                                    <div id="color4" onclick="selectColor('color4', 4)" class="circle yell"></div>
+                                    <div id="color5" onclick="selectColor('color5', 5)" class="circle azur"></div>
+                                    <div id="color6" onclick="selectColor('color6', 6)" class="circle deep"></div>
+                                    <div id="color7" onclick="selectColor('color7', 7)" class="circle tango"></div>
+                                </div>
+                            </div>
+                            <div class="dropdown-category">
+                                <ul id="categories">
+    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="label-input" for="subtask">Subtasks</label>
+                    <div class="width position-relative">
+                        <div class="width subtasks">
+                            <input onkeydown="pressEnter(addSubtask, event)" minlength="3" maxlength="16"
+                                oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
+                                placeholder="Add new subtask">
+                            <div class="plus" id="imgChange">
+                                <img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">
+                            </div>
+                        </div>
+                        <div id="dropdownSub" class="dropdown-sub">
+                            <ul id="subtasks">
+    
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-area">
+                <span id="required" class="required">This field is required</span>
+                <div id="task-save-btn"></div>
+            </div>
+        </form>
+    </section>
+    
+    <div id="dropdownCategory" class="dropdown-category display-none">
+    
     </div>
-    <div class="flex-col-edit pop-task-description">
-        <div class="info-col">Priority:</div>
-        <div id="prio-task-input"></div>
-    </div>
-
-    <div class="pop-task-description info-col margin-t">Assigned To:</div>
-    <div class="flex-start">
-        <div id="task-employees-input"></div>
-    </div>
-
-    <div class="pop-task-description info-col margin-t">Subtask:</div>
-    <div class="flex-start pop-task-description">
-        <div id="task-subtask-input" class="margin-l-s subtask"></div>
-    </div>
-    <div id="task-edit-save" class="position-end"></div>
 </div>

@@ -194,8 +194,8 @@ input#search-board {
     background: var(--ci-blue);
     border-radius: 5px;
     height: 5px;
-    width: 50%;
-    z-index: 999;
+    width: 0%;
+    z-index: 1;
 }
 
 /* PROGRESS BAR SETTINGS END */
@@ -274,6 +274,7 @@ input#search-board {
     border-radius: 25px;
     padding: 32px;
     position: relative;
+    overflow-y: auto;
 }
 
 .task-pop-category {
