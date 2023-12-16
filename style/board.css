@@ -194,7 +194,7 @@ input#search-board {
     background: var(--ci-blue);
     border-radius: 5px;
     height: 5px;
-    width: 50%;
+    width: 0%;
     z-index: 1;
 }
 
