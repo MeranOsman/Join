@@ -116,6 +116,7 @@ let tasks = [
         'id': 1,
         'subTaskCount': 0,
         'category': 'user story',
+        'categoryIndex': 1,
         'sort': 'toDo',
         'categoryCol': 'blue',
         'title': 'Kochwelt Page & Recipe Recommender',
@@ -123,6 +124,7 @@ let tasks = [
         'subtasks': ['Implement Recipe recommendation', 'Start Page Layout'],
         'employees': ['AM', 'AS', 'DE'],
         'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenberg'],
+        'contactsIndex': [1, 0, 4],
         'prio': 'Low',
         'date': '10/05/2023',
         'color': ['orange', 'azur', 'pink']
@@ -131,6 +133,7 @@ let tasks = [
         'id': 2,
         'subTaskCount': 0,
         'category': 'technical task',
+        'categoryIndex': 0,
         'sort': 'inProgress',
         'categoryCol': 'azur',
         'title': 'HTML Base Template Creation',
@@ -138,6 +141,7 @@ let tasks = [
         'subtasks': ['Make responsive', 'Problems on screen size 960px', 'Problems with header'],
         'employees': ['EM', 'MB', 'TW'],
         'contacts': ['Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf'],
+        'contactsIndex': [5, 7, 8],
         'prio': 'Medium',
         'date': '19/04/2023',
         'color': ['vio', 'deep', 'tango']
@@ -146,6 +150,7 @@ let tasks = [
         'id': 3,
         'subTaskCount': 0,
         'category': 'technical task',
+        'categoryIndex': 0,
         'sort': 'feedback',
         'categoryCol': 'azur',
         'title': 'CSS Architecture Planning',
@@ -153,6 +158,7 @@ let tasks = [
         'subtasks': ['Class documentation'],
         'employees': ['EF', 'AS', 'BZ'],
         'contacts': ['Eva Fischer', 'Anja Schulz', 'Benedikt Ziegler'],
+        'contactsIndex': [6, 0, 2],
         'prio': 'Urgent',
         'date': '05/07/2023',
         'color': ['yell', 'azur', 'blue']
@@ -161,6 +167,7 @@ let tasks = [
         'id': 4,
         'subTaskCount': 0,
         'category': 'user story',
+        'categoryIndex': 1,
         'sort': 'feedback',
         'categoryCol': 'blue',
         'title': 'Daily Kochwelt Recipe',
@@ -168,6 +175,7 @@ let tasks = [
         'subtasks': [],
         'employees': ['AM', 'AS', 'DE'],
         'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenebrg'],
+        'contactsIndex': [1, 0, 4],
         'prio': 'Urgent',
         'date': '04/10/2023',
         'color': ['orange', 'azur', 'pink']
