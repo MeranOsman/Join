@@ -66,24 +66,15 @@ function startDragging(id) {
 */
 function renderTasks(element, progressBarId) {
     let subtasksHtml = '';
-
-    // Überprüfen, ob Subtasks vorhanden sind
+    //check if subtask is more then 0, if true then save html content in variable subtasksHtml
+    // if not, then subtasksHtml remains empty
     if (element.subtasks.length > 0) {
-        // Zählen Sie die abgeschlossenen Subtasks
-        const completedSubtasksCount = element.subtasks.reduce((count, _, index) => {
-            const subtaskId = `${element['id']}-${index}`;
-            if (subtaskStatus[subtaskId]) {
-                return count + 1;
-            }
-            return count;
-        }, 0);
-
         subtasksHtml = `<div id="progress-${element['id']}" class="flex-btw">
             <div class="flex-start-progress">
                 <div class="task-progress-bar-bg"></div>
                 <div id="${progressBarId}" class="task-progress-bar"></div>
             </div>
-            <p class="task-progress-task">${completedSubtasksCount}/${element.subtasks.length} Subtasks</p>
+            <p class="task-progress-task">0/${element.subtasks.length} Subtasks</p>
         </div>`;
     }
 
@@ -97,14 +88,12 @@ function renderTasks(element, progressBarId) {
                     ${element.employees.map((employee, index) => `
                         <div class="contact-icons-task ${element.color[index]}${index > 0 ? ' margin-left-neg' : ''}">
                             ${employee}
-                        </div>`
-    ).join('')}
+                        </div>`).join('')}
                 </div>
                 <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
             </div>
         </div>`;
 }
-
 
 
 /*
@@ -158,14 +147,11 @@ function taskInfo(taskId) {
         return `
             <div class="hover">
                 <div id="subtasks-${subtaskId}" class="${subtaskCheck} margin-l-s subtask pointer" onclick="checkIcon('${subtaskId}')">${subtask}</div>
-            </div>
-        `;
-    }).join('');
+            </div>`;}).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
 
     showTaskInfoModal();
-    
 }
 
 
@@ -182,14 +168,6 @@ function checkIcon(subtaskId) {
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
     console.log('Updated subtaskStatus:', subtaskStatus);
-}
-
-
-/*
-*** function update the progressbar
-*/
-function progressBar(progressBarId) {
-    let progressBar = document.getElementById(progressBarId);
 }
 
 
