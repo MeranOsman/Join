@@ -941,6 +941,10 @@ header h4 {
         justify-content: center;
     }
 
+    .pos-bottom {
+        bottom: 8px;
+    }
+
     .btn-login {
         margin: 0;
         width: 200px;
