@@ -252,7 +252,7 @@ function editTask(taskId) {
 function clearAndCloseTaskEditWithDelay() {
     setTimeout(function() {
         clearAndCloseTaskEdit();
-    }, 1000);
+    }, 600);
 }
 
 

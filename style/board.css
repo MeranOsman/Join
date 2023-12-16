@@ -1,6 +1,6 @@
 /* DRAG AND DROP*/
 .drag-area-highlight {
-    background: var(--ci-blue) !important;
+    background: var(--sidebar-color) !important;
 }
 
 .rotate{
@@ -239,8 +239,8 @@ input#search-board {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height:80px;
+    justify-content: flex-start;
+    height:300px;
 }
 
 .tasks-heading {
