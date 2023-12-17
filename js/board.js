@@ -76,7 +76,7 @@ function renderTasks(element, progressBarId) {
     //check if subtask is more then 0, if true then save html content in variable subtasksHtml
     // if not, then subtasksHtml remains empty
     if (element.subtasks.length > 0) {
-        subtasksHtml = `<div id="progress-${element['id']}" class="flex-btw">
+        subtasksHtml = `<div id="progress-${element['id']}" class="bar-distance">
             <div class="flex-start-progress">
                 <div class="task-progress-bar-bg"></div>
                 <div id="${progressBarId}" class="task-progress-bar"></div>

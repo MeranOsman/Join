@@ -38,6 +38,7 @@ function changeTextAddContact(id1, id2) {
     document.getElementById(id2).innerHTML = 'Tasks are better with a team!';
 }
 
+
 /*
 *** function for clear and close the inputs from edit mode
 */
