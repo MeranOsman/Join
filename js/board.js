@@ -299,6 +299,8 @@ function clearAndCloseTaskEditWithDelay() {
         clearAndCloseTaskEdit();
         resetEdits();
     }, 600);
+
+    selectedContacts = [];
 }
 
 

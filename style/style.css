@@ -531,7 +531,7 @@ input::-webkit-datetime-edit {
     border: 1px solid var(--sidebar-background);
     color: var(--header-bg);
     font-size: 20px;
-    padding: 14px 12px;
+    padding: 12px;
     border-radius: 10px;
     font-weight: 600;
     margin-right: 24px;

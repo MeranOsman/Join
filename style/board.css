@@ -1,6 +1,6 @@
 /* DRAG AND DROP*/
 .drag-area-highlight {
-    background: var(--sidebar-color) !important;
+    background: rgb(238, 238, 238) !important;
 }
 
 .rotate{

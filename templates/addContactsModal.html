@@ -1,37 +1,40 @@
 <div class="modal-outer">
     <div id="modal-inner" class="modal-inner flex-row-contacts move-to-left">
         <div class="flex-col-contacts">
-            <div>
+            <div class=".margin-b">
                 <img class="logo-contacts media-show" src="img/logo-white.svg" />
                 <p id="heading-contacts-modal" class="heading-contacts">Add contact</p>
                 <p id="subline-contact-modal" class="subline-contacts">Tasks are better with a team!</p>
                 <div class="divider-hori"></div>
             </div>
         </div>
-        <div class="flex-row-contacts margin-t-xl">
+        <img src="../img/join-avatar.svg" alt="">
+        <div class="flex-row-contacts">
             <div id="profile-contacts" class="media-pos contact-icons cap-text"></div>
             <div class="flex-col-contacts-inner">
                 <div onclick="  closeModal('contacts-modal','modal-inner'),
                                 wait('edit-btn'),
-                                resetColorModal('profile-contacts')"
-                     class="close-btn-contacts">X</div>
-
+                                resetColorModal('profile-contacts')" class="close-btn-contacts">X</div>
                 <form class="flex-col-contacts-inner" onsubmit="addContact(); return false;">
-                    <input id="contacts-name"  required type="text"  placeholder="Name"  class="login icon-person upper-text" minlength="3">
-                    <input id="contacts-mail"  required type="email" placeholder="Email" class="login icon-mail">
-                    <input id="contacts-phone" required type="text"  placeholder="Phone" class="login icon-call" pattern="[0-9+ ]*">
+                    <input id="contacts-name" required type="text" placeholder="Name"
+                        class="login icon-person upper-text" minlength="3">
+                    <input id="contacts-mail" required type="email" placeholder="Email" class="login icon-mail">
+                    <input id="contacts-phone" required type="text" placeholder="Phone" class="login icon-call"
+                        pattern="[0-9+ ]*">
                     <div id="add-btn" class="margin-t flex-row media">
-                        <button type="button" id="cancel-btn" class="btn-guest media show contacts" onclick="closeAndClearModal(),                                                                                       
+                        <button type="button" id="cancel-btn" class="btn-guest media show contacts"
+                            onclick="closeAndClearModal(),                                                                                       
                                                                                                             resetColorModal('profile-contacts')">
-                                                                                                            Cancel<span class="icon-cross"></span></button>
-                        <button type="submit" id="create-btn" class="btn-login media">Create Contact<span class="icon-check-new"></span></button>
+                            Cancel<span class="icon-cross"></span></button>
+                        <button type="submit" id="create-btn" class="btn-login media">Create Contact<span
+                                class="icon-check-new"></span></button>
                     </div>
                     <div id="edit-btn" class="margin-t flex-row media modal">
                         <div id="del-btn"></div>
                         <div id="save-btn"></div>
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </div>
