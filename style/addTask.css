@@ -305,6 +305,31 @@
     margin: 16px 0;
 }
 
+.btn-clear {
+    background-color: var(--header-bg);
+    color: var(--sidebar-background);
+    border: 1px solid var(--sidebar-background);
+    font-size: 20px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-clear:hover {
+    border: solid 1px var(--summary-h2-color);
+    color: var(--summary-h2-color);
+    box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
+    transition: all 250ms;
+}
+
+.btn-clear:hover span {
+    background: url(../img/cross-blue.svg);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
 .contacts-icon {
     height: 40px;
     min-width: 40px;

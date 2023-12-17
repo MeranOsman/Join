@@ -534,7 +534,6 @@ input::-webkit-datetime-edit {
     padding: 12px;
     border-radius: 10px;
     font-weight: 600;
-    margin-right: 24px;
 }
 
 .btn-login:hover {

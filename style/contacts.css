@@ -111,14 +111,14 @@ li {
 }
 
 .contact-icons.info {
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    min-width: 100px;
     border-radius: 50%;
     border: solid 2px #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 40px;
     color: var(--header-bg);
 }
 
@@ -190,6 +190,7 @@ li {
     justify-content: flex-start;
     align-items: center;
     gap: 80px;
+    margin: 20px 0 0 0px;
 }
 
 .flex-col-contacts {
@@ -197,7 +198,6 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background: var(--sidebar-background);
     border-radius: 20px 0 0 20px;
     height: 100%;
@@ -210,6 +210,7 @@ li {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
 }
 
 .flex-col-contacts-inner input {
@@ -234,6 +235,10 @@ li {
     font-size: 26px;
     line-height: 0;
     color: var(--summary-background);
+}
+
+#mail-info , #phone-info {
+    margin-top: 12px;
 }
 
 .divider-hori {
@@ -266,8 +271,8 @@ li {
 
 .names {
     color: black;
-    font-size: 26pt;
-    font-weight: 600;
+    font-size: 48px;
+    font-weight: 400;
 }
 
 .links:hover {
@@ -278,8 +283,9 @@ li {
 
 .subline-info {
     font-size: 22px;
+    font-weight: 300;
     line-height: 0;
-    margin-top: 80px;
+    margin: 90px 0 60px 0;
 }
 
 /* dropdown edit contacts*/
@@ -417,6 +423,10 @@ li {
         padding: 0;
     }
 
+    .btn-guest {
+        display: none !important;
+    }
+
     .flex-contacts {
         gap: 16px;
     }
@@ -466,7 +476,6 @@ li {
         padding: 0;
     }
 
-    /*add contact modal*/
     .modal-inner {
         width: 75%;
         height: 90%;
@@ -476,7 +485,7 @@ li {
 
     .flex-col-contacts {
         width: 100vw;
-        max-height: 50vh !important;
+        height: 390px !important;
         border-radius: 0;
         padding: 0;
     }
@@ -542,6 +551,15 @@ li {
         z-index: 2;
     }
 
+    .flex-col-contacts-inner {
+        margin-top: 44px;
+    }
+
+    .contact-img {
+        position: absolute;
+        top: 320px;
+    }
+
     #contacts-bg h2 {
         font-size: 24px;
         line-height: 1;
@@ -566,8 +584,25 @@ li {
         padding: 0;
     }
 
-    #contacts-bg h2, .divider {
+    #contacts-bg h2,
+    .divider {
         display: none;
+    }
+
+    .contacts-bg h1 {
+        display: none !important;
+    }
+
+    .flex-col-contacts-inner {
+        margin-top: 80px;
+    }
+
+    .flex-col-contacts {
+        height: 490px !important;
+    }
+
+    .contact-img {
+        top: 425px;
     }
 
     .media-pos {
