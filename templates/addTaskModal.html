@@ -10,9 +10,9 @@
                     class="display-none x-btn-edit">X</div>
                 <label class="label-required" for="title">Title</label>
                 <input id="title" required maxlength="22" min="4" class="task-input" type="text"
-                    placeholder="Enter a title">
+                    placeholder="Enter a Title">
                 <label class="label-required" for="description">Description</label>
-                <textarea required id="description" placeholder="Enter a description" class="font-edits"></textarea>
+                <textarea required id="description" placeholder="Enter a Description" class="font-edits"></textarea>
                 <label id="contactLabel" class="label-required">Assigned to</label>
                 <div class="position-relative width">
                     <div id="contactsContainer" onclick="showCloseContacts(event)" class="select margin-zero">
@@ -58,7 +58,7 @@
                     <div id="dropdownCategory" class="dropdown z-index display-none">
                         <div class="position">
                             <input onkeydown="pressEnter(addCategory, event)" maxlength="22" min="3" id="inputCategory"
-                                class="input-category" type="text" placeholder="Create new task category">
+                                class="input-category" type="text" placeholder="Create new Task Category">
                             <div class="add-category">
                                 <img class="crossPlus" onclick="cancelCategory()" src="img/cross.svg">
                                 <div class="line"></div>
@@ -90,7 +90,7 @@
                     <div class="width subtasks">
                         <input onkeydown="pressEnter(addSubtask, event)" minlength="3" maxlength="16"
                             oninput="changeSubtaskImg()" class="task-input margin-zero" id="subtask" type="text"
-                            placeholder="Add new subtask">
+                            placeholder="Add new Subtask">
                         <div class="plus" id="imgChange">
                             <img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">
                         </div>
