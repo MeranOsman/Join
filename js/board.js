@@ -253,7 +253,7 @@ function changeStyles(taskId) {
     closeModal('task-info-modal','task-pop-up');
     showModal('add-task-board','addTask-inner-modal');
 
-    document.getElementById('edit-heading').classList.add('display-none');
+    document.getElementById('edit-heading').innerHTML = 'Edit Task';
     document.getElementById('close-btn-addTask').classList.add('display-none');
     document.getElementById('close-btn-addTask-edit').classList.remove('display-none');
     
@@ -305,7 +305,7 @@ function clearAndCloseTaskEditWithDelay() {
 function clearAndCloseTaskEdit() {
     document.getElementById('task-pop-up').style.setProperty('display', 'block');
 
-    document.getElementById('edit-heading').classList.remove('display-none');
+    document.getElementById('edit-heading').innerHTML = 'Add Task';
     document.getElementById('close-btn-addTask').classList.remove('display-none');
     document.getElementById('close-btn-addTask-edit').classList.add('display-none');
 

@@ -94,6 +94,7 @@ li {
 
 .contacts-section li {
     margin: 16px 0;
+    font-size: 18px;
 }
 
 .contact-icons {
@@ -122,7 +123,7 @@ li {
 
 .contacts-links {
     color: var(--summary-h2-color);
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
 }
 
