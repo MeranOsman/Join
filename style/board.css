@@ -362,13 +362,28 @@ input#search-board {
 
 .task-pop-heading {
     color: black;
-    font-size: 50pt;
+    font-size: 52px;
     font-weight: 600;
 }
 
 .pop-task-description {
     color: black;
-    font-size: 16pt;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.contact-icons-info {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: var(--header-bg);
+    font-weight: 300;
+    margin-right: 16px;
 }
 
 .info-col {
@@ -379,7 +394,8 @@ input#search-board {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 50%;
+    margin: 20px 0;
 }
 
 .prio-pop {

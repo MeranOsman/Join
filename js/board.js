@@ -141,8 +141,8 @@ function taskInfo(taskId) {
 
     const employeesHtml = task.employees.map((employee, index) => `
         <div class="flex-start">
-            <div class="contact-icons-task ${task.color[index]}">${employee}</div>
-            <div class="margin-l-s">${task.contacts[index]}</div>
+            <div class="contact-icons-info ${task.color[index]}">${employee}</div>
+            <div class="pop-task-description">${task.contacts[index]}</div>
         </div>
     `).join('');
 
