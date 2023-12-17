@@ -159,8 +159,12 @@ function taskInfo(taskId) {
     }).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
-
     showTaskInfoModal();
+}
+
+
+function hush(){
+    document.getElementById('selectedContacts').innerHTML = ``;
 }
 
 
@@ -185,8 +189,6 @@ function checkIcon(subtaskId) {
         task.subTaskCount -= 1;
     }
 }
-
-
 
 
 /*
@@ -221,13 +223,12 @@ function deleteTask(taskId) {
 *** function to render the tasks informations in edit mode
 */
 function editTask(taskId) {
-    changeStyles();
+    changeStyles(taskId);
     // find the index of the task with the given ID
     const task = tasks.find(t => t.id === taskId);
 
     document.getElementById('title').value = `${task.title}`;
     document.getElementById('description').innerHTML = `${task.description}`;
-    document.getElementById('inputCategory').value = `${task.category}`;
 
     // check for prio value to trigger the right function
     switch (task.prio) {
@@ -253,7 +254,7 @@ function editTask(taskId) {
 /*
 *** function for edit a spcific task
 */
-function changeStyles() {
+function changeStyles(taskId) {
     closeModal('task-info-modal','task-pop-up');
     showModal('add-task-board','addTask-inner-modal');
 
@@ -276,6 +277,8 @@ function changeStyles() {
     document.getElementById('addTask-clear').classList.add('display-none');
     document.getElementById('addTask-create').classList.add('display-none');
     document.getElementById('edits-save-btn').classList.remove('display-none');
+    document.getElementById('edits-save-btn').innerHTML = 
+    `<button type="submit" class="btn-login edits" onclick="saveTaskEdit(${taskId}),closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()">Save<span class="icon-check-new"></span></button>`;
 }
 
 
@@ -324,8 +327,25 @@ function clearAndCloseTaskEdit() {
     document.getElementById('addTask-clear').classList.remove('display-none');
     document.getElementById('addTask-create').classList.remove('display-none');
     document.getElementById('edits-save-btn').classList.add('display-none');
-    
 }
+
+
+/*
+*** function save the edits on board
+*/
+function saveTaskEdit(taskId) {
+    const taskToUpdate = tasks.find(t => t.id === taskId);
+
+    if (taskToUpdate) {
+        taskToUpdate.title = document.getElementById('title').value;
+        taskToUpdate.description = document.getElementById('description').value;
+        // Hier kannst du weitere Attribute aktualisieren, wenn nötig
+    } else {
+        console.error('Task not found'); // fallback
+    }
+    updateHTML();
+}
+
 
 
 /**
