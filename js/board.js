@@ -163,11 +163,6 @@ function taskInfo(taskId) {
 }
 
 
-function hush(){
-    document.getElementById('selectedContacts').innerHTML = ``;
-}
-
-
 /*
 *** function handle the check icons
 */
@@ -292,7 +287,7 @@ function resetEdits(){
 
 
 /*
-*** function delay the styles reset, prevents a screen flicker
+*** function delay the styles reset, prevents a screen flicker and empty array
 */
 function clearAndCloseTaskEditWithDelay() {
     setTimeout(function() {

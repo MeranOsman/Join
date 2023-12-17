@@ -216,7 +216,7 @@ p {
     height: 100%;
 }
 
-/* media */
+/* media querrys*/
 @media screen and (max-width: 1450px) {
     .summary-container {
         width: 45.5%;
@@ -278,7 +278,8 @@ p {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0px 35px 16px 35px;;
+        padding: 0px 35px 16px 35px;
+        ;
     }
 
     .blue-line {
@@ -330,13 +331,18 @@ p {
 }
 
 @media screen and (max-width: 570px) {
-    .summary-container, .medium-container {
+
+    .summary-container,
+    .medium-container {
         height: 100px;
     }
 }
 
 @media screen and (max-width: 420px) {
-    #summary-pencil, #summary-checkmark, .medium-container img {
+
+    #summary-pencil,
+    #summary-checkmark,
+    .medium-container img {
         width: 56px;
         height: 56px;
     }

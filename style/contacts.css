@@ -1,5 +1,3 @@
-/* classes */
-
 #contacts {
     background-color: var(--sidebar-link-background);
 }
@@ -237,7 +235,8 @@ li {
     color: var(--summary-background);
 }
 
-#mail-info , #phone-info {
+#mail-info,
+#phone-info {
     margin-top: 12px;
 }
 
@@ -268,7 +267,6 @@ li {
 }
 
 /* infobox */
-
 .names {
     color: black;
     font-size: 48px;
@@ -288,7 +286,7 @@ li {
     margin: 90px 0 60px 0;
 }
 
-/* dropdown edit contacts*/
+/* dropdown edit contacts */
 .dropdown-contacts-con {
     width: 120px;
     height: 110px;
@@ -341,7 +339,7 @@ li {
     width: 100px;
 }
 
-/*MEDIA QUERRYS*/
+/* media querrys*/
 @media screen and (max-width: 1440px) {
     .hide.info {
         display: flex !important;

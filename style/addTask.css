@@ -647,7 +647,7 @@
 }
 
 
-/* media */
+/* media querrys*/
 @media screen and (max-width: 1250px) {
     .low-btn {
         background-position: calc(100% - 25%) 50%;

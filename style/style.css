@@ -1,4 +1,4 @@
-/* GENEREL STYLING */
+/* general styling */
 body {
     margin: 0;
     color: black;
@@ -29,9 +29,7 @@ button {
     cursor: pointer;
 }
 
-/*input, textarea {
-    border: unset !important;
-}*/
+/* input, textarea */
 
 input::placeholder {
     font-family: 'Roboto', sans-serif;
@@ -60,7 +58,7 @@ input::-webkit-datetime-edit {
     font-weight: 300;
 }
 
-/* MULTI CLASSES */
+/* multi classes */
 .hide {
     display: none !important;
 }
@@ -101,11 +99,11 @@ input::-webkit-datetime-edit {
     z-index: 999;
 }
 
-.overflow{
+.overflow {
     overflow-y: auto !important;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
 }
 
@@ -170,13 +168,15 @@ input::-webkit-datetime-edit {
     gap: 8px !important;
 }
 
-.upper-text{
+.upper-text {
     text-transform: capitalize;
 }
-.cap-text{
+
+.cap-text {
     text-transform: uppercase;
 }
-.lower-text{
+
+.lower-text {
     text-transform: lowercase;
 }
 
@@ -263,8 +263,7 @@ input::-webkit-datetime-edit {
     display: inline;
 }
 
-/* CLASSES */
-/* Logo */
+/* classes */
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -284,7 +283,7 @@ input::-webkit-datetime-edit {
     width: auto;
 }
 
-/* Login */
+/* login */
 .hrLog {
     border: none;
     height: 3px;
@@ -488,7 +487,7 @@ input::-webkit-datetime-edit {
     border-radius: 28px;
 }
 
-/* Checkbox */
+/* checkbox */
 .container-checkbox {
     display: flex;
     flex-direction: row;
@@ -525,7 +524,7 @@ input::-webkit-datetime-edit {
     background: url(../img/check.svg);
 }
 
-/* Buttons */
+/* buttons */
 .btn-login {
     background-color: var(--sidebar-background);
     border: 1px solid var(--sidebar-background);
@@ -586,7 +585,7 @@ input::-webkit-datetime-edit {
     padding-left: 48px;
 }
 
-/* Sign up */
+/* sign up */
 .flex-row p {
     font-size: 21px;
 }
@@ -635,12 +634,6 @@ input::-webkit-datetime-edit {
 /* sites */
 .distance {
     padding: 32px 110px 16px 110px;
-}
-
-.help,
-.privacy,
-.legal {
-    /* overflow-y: scroll; */
 }
 
 .help h2 {
@@ -705,7 +698,7 @@ input::-webkit-datetime-edit {
     border-radius: 50%;
 }
 
-/* Sideboard */
+/* sideboard */
 .sideboard {
     width: 220px;
     height: 100vh;
@@ -791,7 +784,7 @@ input::-webkit-datetime-edit {
     background-color: rgb(46, 61, 87)
 }
 
-/* Header */
+/* header */
 .header {
     height: 100px;
     width: calc(100% - 220px);
@@ -836,7 +829,7 @@ header h4 {
     border: 3px solid black;
     border-radius: 50%;
     padding: 10px;
-    color:#fff;
+    color: #fff;
 }
 
 .header-right span:hover {
@@ -921,10 +914,8 @@ header h4 {
 }
 
 
-/*MEDIA QUERRYS*/
+/* media querrys*/
 @media screen and (max-width: 1200px) {
-
-    /*login area on index*/
     .login {
         width: 75%;
     }
@@ -945,9 +936,6 @@ header h4 {
 }
 
 @media screen and (max-width: 767px) {
-
-    /* general multiclasses adjustments*/
-    /* sign in and login*/
     .flex-row {
         justify-content: center;
         padding: 0;
@@ -959,9 +947,6 @@ header h4 {
 }
 
 @media screen and (max-width: 650px) {
-
-    /* general multiclasses adjustments*/
-    /* sign in, login and start-animation*/
     h1 {
         font-size: 48px;
     }
@@ -1011,9 +996,6 @@ header h4 {
 }
 
 @media screen and (max-width: 400px) {
-
-    /* general multiclasses adjustments*/
-    /* sign in and login*/
     .headline-board {
         font-size: 26px;
     }
@@ -1038,7 +1020,6 @@ header h4 {
     }
 }
 
-/* sideboard, header, help, privacyPolicy, legalNotice */
 @media screen and (max-width: 1050px) {
     .sideboard {
         width: 175px;
