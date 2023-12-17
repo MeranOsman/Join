@@ -1,12 +1,16 @@
 <section class="add-task">
     <h1 id="edit-heading">Add Task</h1>
-    <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')" class="close-task-pop pos hide">X</div>
+    <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
+        class="close-task-pop pos hide">X</div>
     <form id="addTaskForm" onsubmit="createTask(event);">
         <div id="flex-edit" class="flex">
             <div id="edit-section-l" class="left-section flex-column-start">
-                <div id="close-btn-addTask-edit" onclick="closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()" class="display-none x-btn-edit">X</div>
+                <div id="close-btn-addTask-edit"
+                    onclick="closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()"
+                    class="display-none x-btn-edit">X</div>
                 <label class="label-required" for="title">Title</label>
-                <input id="title" required maxlength="22" min="4" class="task-input" type="text" placeholder="Enter a title">
+                <input id="title" required maxlength="22" min="4" class="task-input" type="text"
+                    placeholder="Enter a title">
                 <label class="label-required" for="description">Description</label>
                 <textarea required id="description" placeholder="Enter a description" class="font-edits"></textarea>
                 <label id="contactLabel" class="label-required">Assigned to</label>
@@ -32,7 +36,8 @@
             </div>
             <div id="edit-section-r" class="right-section flex-column-start">
                 <label class="label-required" for="date">Due date</label>
-                <input required class="task-input lightgray" id="date" type="date"><div id="calender-input"></div>
+                <input required class="task-input lightgray" id="date" type="date">
+                <div id="calender-input"></div>
                 <label id="prio" class="label-required">Prio</label>
                 <div class="prio display-flex">
                     <button type="button"
