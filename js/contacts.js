@@ -25,7 +25,7 @@ function showDropdown(event) {
 *** function for change the text on contact modal
 */
 function changeText(id1, id2) {
-    document.getElementById(id1).innerHTML = 'Edit contact';
+    document.getElementById(id1).innerHTML = 'Edit Contact';
     document.getElementById(id2).innerHTML = '';
 }
 
@@ -173,6 +173,8 @@ function editContact(index) {
     document.getElementById('contacts-name').value = `${contact['firstName']} ${contact['lastName']}`;
     document.getElementById('contacts-mail').value = `${contact['email']}`;
     document.getElementById('contacts-phone').value = `${contact['phone']}`;
+    document.getElementById('contactLogo').style.display = `none`;
+
 
 
     let deleteContact = document.getElementById('del-btn');

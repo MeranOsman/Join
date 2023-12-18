@@ -217,7 +217,7 @@ li {
     align-items: center;
     gap: 80px;
     margin: 0;
-    margin-top: 12px;
+    margin-top: 18px;
 }
 
 .flex-col-contacts {
@@ -228,7 +228,7 @@ li {
     background: var(--sidebar-background);
     border-radius: 20px 0 0 20px;
     height: 100%;
-    width: 420px;
+    min-width: 420px;
 }
 
 .flex-col-contacts-inner {
@@ -374,24 +374,33 @@ li {
 
 .media-pos {
     color: #fff;
-    font-size: 18pt;
-    height: 100px;
-    width: 100px;
+    font-size: 32px;
+    min-height: 110px;
+    min-width: 110px;
 }
 
 /* media querrys*/
 @media screen and (max-width: 1440px) {
-    .close-btn-contacts {
-        top: 32px;
-        right: 3%;
+    .contact-img {
+        display: none !important;
     }
 
-    .contact-img {
-        display: none;
+    .media-pos {
+        display: none !important;
+    }
+
+    .edit-width {
+        width: 100%;
+        margin-right: 60px;
     }
 
     .flex-col-contacts-inner input {
         width: 80%;
+    }
+
+    .media-hide img {
+        width: 80px;
+        height: 80px;
     }
 
     .flex-col-contacts-inner {
@@ -422,6 +431,22 @@ li {
 }
 
 @media screen and (max-width: 1150px) {
+    .close-btn-contacts {
+        top: 32px;
+        right: 3%;
+        color: white;
+    }
+
+    .edit-width {
+        margin-right: 0;
+        width: auto;
+    }
+
+    .close-btn-contacts:hover {
+        background: white;
+        border-radius: 20px;
+        color: black;
+    }
 
     .contacts-bg {
         margin: 64px 12px 0 0;
@@ -604,6 +629,10 @@ li {
     }
 
     .flex-col-contacts {
+        border-radius: 0;
+    }
+
+    .flex-col-contacts {
         height: 490px !important;
     }
 
@@ -624,6 +653,19 @@ li {
         height: calc(100vh - 166px);
     }
 
+    .flex-col-contacts-inner {
+        max-width: 500px;
+        width: inherit;
+    }
+
+    .heading-contacts {
+        font-size: 48px;
+    }
+
+    .subline-contacts {
+        font-size: 21px;
+    }
+
     .media-hide.btn {
         bottom: 100px;
     }
@@ -638,8 +680,8 @@ li {
     }
 
     .media-hide img {
-        width: 48px;
-        height: 48px;
+        width: 70px;
+        height: 70px;
     }
 
     .media-hide img:hover {

@@ -989,10 +989,6 @@ header h4 {
     .media-hide {
         display: flex !important;
     }
-
-    .media-show {
-        display: none !important;
-    }
 }
 
 @media screen and (max-width: 400px) {

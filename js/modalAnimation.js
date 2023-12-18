@@ -62,6 +62,7 @@ function wait(remove) {
     setTimeout(function () {
       removeHide(remove);
     }, 250);
+    document.getElementById('contactLogo').style.display = 'inline';
   }
 
   
