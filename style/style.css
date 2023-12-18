@@ -1047,6 +1047,11 @@ header h4 {
         width: 150px;
     }
 
+    .modal-inner.modal {
+        left: 150px !important;
+        width: calc(100% - 150px) !important;
+    }
+
     .content-size {
         margin: 90px 0 0 150px;
         height: calc(100vh - 90px);
