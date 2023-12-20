@@ -36,7 +36,7 @@ let subtaskStatus = {};
 
 let contacts = [
     {
-        'id': '1',
+        'id': '1',//16216771
         'firstName': 'anton',
         'lastName': 'mayer',
         'email': 'antom@gmail.com',
@@ -125,6 +125,7 @@ let tasks = [
         'employees': ['AM', 'AS', 'DE'],
         'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenberg'],
         'contactsIndex': [1, 0, 4],
+        'contactId': [1, 2, 4],
         'prio': 'Low',
         'date': '10/05/2023',
         'color': ['orange', 'azur', 'pink']
@@ -142,6 +143,7 @@ let tasks = [
         'employees': ['EM', 'MB', 'TW'],
         'contacts': ['Emmanuel Mauer', 'Marcel Bauer', 'Tatjana Wolf'],
         'contactsIndex': [5, 7, 8],
+        'contactId': [6, 7, 8],
         'prio': 'Medium',
         'date': '19/04/2023',
         'color': ['vio', 'deep', 'tango']
@@ -159,6 +161,7 @@ let tasks = [
         'employees': ['EF', 'AS', 'BZ'],
         'contacts': ['Eva Fischer', 'Anja Schulz', 'Benedikt Ziegler'],
         'contactsIndex': [6, 0, 2],
+        'contactId': [5, 2, 3],
         'prio': 'Urgent',
         'date': '05/07/2023',
         'color': ['yell', 'azur', 'blue']
@@ -176,6 +179,7 @@ let tasks = [
         'employees': ['AM', 'AS', 'DE'],
         'contacts': ['Anton Mayer', 'Anja Schulz', 'David Eisenebrg'],
         'contactsIndex': [1, 0, 4],
+        'contactId': [1, 2, 4],
         'prio': 'Urgent',
         'date': '04/10/2023',
         'color': ['orange', 'azur', 'pink']

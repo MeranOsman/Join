@@ -136,8 +136,8 @@ function taskInfo(taskId) {
     document.getElementById('description-task').textContent = task.description;
     document.getElementById('date-task').textContent = task.date;
     document.getElementById('prio-task').innerHTML = `${task.prio} <img class="prio-pop" src="img/prio${task.prio.charAt(0).toUpperCase() + task.prio.slice(1)}.svg" />`;
-    document.getElementById('tasks-delete-btn').innerHTML = `<img src="img/delete.svg"/><div class="subtask" onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')">Delete</div>`;
-    document.getElementById('task-edit-btn').innerHTML = `<img src="img/edit.svg"/><div class="subtask" onclick="editTask(${taskId})">Edit</div>`;
+    document.getElementById('tasks-delete-btn').innerHTML = `<img src="img/delete.svg" onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')"><div class="subtask" onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')">Delete</div>`;
+    document.getElementById('task-edit-btn').innerHTML = `<img src="img/edit.svg" onclick="editTask(${taskId})"> <div class="subtask" onclick="editTask(${taskId})">Edit</div>`;
 
     const employeesHtml = task.employees.map((employee, index) => `
         <div class="flex-start">
@@ -219,15 +219,58 @@ function deleteTask(taskId) {
 */
 function editTask(taskId) {
     changeStyles(taskId);
-    // find the index of the task with the given ID
+
     const task = tasks.find(t => t.id === taskId);
 
-    document.getElementById('title').value = `${task.title}`;
-    document.getElementById('description').innerHTML = `${task.description}`;
+    editTaskTitle(task);
+    editTaskDescription(task);
+    editTaskDate(task);
+    editTaskPrio(task);
+    editTaskContact(task);
+    editTaskCategory(task);
+    editTaskSubtasks(task);
+}
 
-    // check for prio value to trigger the right function
+
+/**
+ * Function to insert title as a value into the edit
+ * 
+ * @param {*} task 
+ */
+function editTaskTitle(task) {
+    document.getElementById('title').value = task.title;
+}
+
+
+/**
+ * Function to insert title as a value into the edit
+ * 
+ * @param {*} task 
+ */
+function editTaskDescription(task) {
+    document.getElementById('description').innerHTML = task.description;
+}
+
+
+/**
+ * Function to insert date as a value into the edit
+ * 
+ * @param {*} task 
+ */
+function editTaskDate(task) {
+    const dateParts = task.date.split('/');
+    const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+
+    document.getElementById('date').value = formattedDate;
+}
+
+
+/**
+ * Function for check for prio value to trigger the right function
+ */
+function editTaskPrio(task) {
     switch (task.prio) {
-        case 'Urgent':// reference to addTask.js
+        case 'Urgent':
             SelectPrioBtn('urgentBtn', 'urgent-color', 'Urgent', 'prioUrgent.svg');
             break;
         case 'Medium':
@@ -236,13 +279,43 @@ function editTask(taskId) {
         case 'Low':
             SelectPrioBtn('lowBtn', 'low-color', 'Low', 'prioLow.svg');
             break;
-        default: //fallback
-            break;
     }
-    // loop trough contactsIndex for actual tasks
-    for (const contactIndex of task.contactsIndex) {
-        selectContact(contactIndex); // reference to addTask.js
+}
+
+
+/**
+ * Function to push contacts into the edit
+ * 
+ * @param {*} task 
+ */
+function editTaskContact(task) {
+    for (let i = 0; i < task.contactsIndex.length; i++) {
+        const contactIndex = task.contactsIndex[i];
+        const contactId = task.contactId[i];
+
+        toggleFunction(contactIndex, contactId);
     }
+}
+
+
+/**
+ * Function to push category into the edit
+ * 
+ * @param {*} task 
+ */
+function editTaskCategory(task) {
+    addSelectedCategory(task.categoryIndex);
+}
+
+
+/**
+ * Function to push subtasks into the edit
+ * 
+ * @param {*} task 
+ */
+function editTaskSubtasks(task) {
+    subtasks.push(...task.subtasks);
+    renderSubtask();
 }
 
 
@@ -250,13 +323,14 @@ function editTask(taskId) {
 *** function for edit a spcific task
 */
 function changeStyles(taskId) {
-    closeModal('task-info-modal','task-pop-up');
-    showModal('add-task-board','addTask-inner-modal');
+    closeModal('task-info-modal', 'task-pop-up');
+    showModal('add-task-board', 'addTask-inner-modal');
 
     document.getElementById('edit-heading').innerHTML = 'Edit Task';
     document.getElementById('close-btn-addTask').classList.add('display-none');
     document.getElementById('close-btn-addTask-edit').classList.remove('display-none');
-    
+    document.getElementById('addTask-inner-modal').style.backgroundColor = 'white';
+
     document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner');
     document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner-edit');
 
@@ -272,30 +346,33 @@ function changeStyles(taskId) {
     document.getElementById('addTask-clear').classList.add('display-none');
     document.getElementById('addTask-create').classList.add('display-none');
     document.getElementById('edits-save-btn').classList.remove('display-none');
-    document.getElementById('edits-save-btn').innerHTML = 
-    `<button type="submit" class="btn-login edits" onclick="saveTaskEdit(${taskId}),closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()">Save<span class="icon-check-new"></span></button>`;
+    document.getElementById('edits-save-btn').innerHTML =
+    `<button type="submit" class="btn-login edits">Save<span class="icon-check-new"></span></button>`;
+    // `<button type="submit" class="btn-login edits" onclick="saveTaskEdit(${taskId}),closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()">Save<span class="icon-check-new"></span></button>`;
+    document.getElementById('addTaskForm').onsubmit = function(event) {saveEditTask(event, `${taskId}`);}
 }
 
 
 /*
 *** function to reset the edits values
 */
-function resetEdits(){
-    document.getElementById('title').value = ``;
-    document.getElementById('description').innerHTML = ``;
+function resetEdits() {
+    selectedContacts = [];
+    priority = [];
+    subtasks = [];
+    selectedCategory = [];
+    initBoard();
 }
 
 
 /*
-*** function delay the styles reset, prevents a screen flicker and empty array
+*** function delay the styles reset, prevents a screen flicker and empty selectedContacts-array
 */
 function clearAndCloseTaskEditWithDelay() {
-    setTimeout(function() {
+    setTimeout(function () {
         clearAndCloseTaskEdit();
         resetEdits();
     }, 600);
-
-    selectedContacts = [];
 }
 
 
@@ -308,6 +385,7 @@ function clearAndCloseTaskEdit() {
     document.getElementById('edit-heading').innerHTML = 'Add Task';
     document.getElementById('close-btn-addTask').classList.remove('display-none');
     document.getElementById('close-btn-addTask-edit').classList.add('display-none');
+    document.getElementById('addTask-inner-modal').style.backgroundColor = 'var(--summary-background)';
 
     document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner');
     document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner-edit');
@@ -338,7 +416,7 @@ function saveTaskEdit(taskId) {
         taskToUpdate.description = document.getElementById('description').value;
         // Hier kannst du weitere Attribute aktualisieren, wenn nötig
     } else {
-        console.error('Task not found'); // fallback
+        console.error('Task not found');
     }
     updateHTML();
 }
@@ -396,3 +474,68 @@ function searchTask() {
     }
 }
 
+
+function saveEditTask(event, taskId) {
+    event.preventDefault();
+
+    let titelValue = document.getElementById('title').value.trim();
+    let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
+    let descriptionValue = document.getElementById('description').value.trim();
+    let description = descriptionValue.charAt(0).toUpperCase() + descriptionValue.slice(1);
+    let dateValue = document.getElementById('date').value;
+    let prio = document.getElementById('prio');
+    let category = document.getElementById('category');
+    let requiredText = document.getElementById('required');
+    let requiredCategory = document.getElementById('selectedColor');
+    let requiredBtn = document.querySelectorAll('.requiredBtn');
+    let contactLabel = document.getElementById('contactLabel');
+    let contactsContainer = document.getElementById('contactsContainer');
+    let contactFullname = selectedContacts.map(contact => contact.fullName);
+    let contactLetters = selectedContacts.map(contact => contact.nameLetters);
+    let contactColor = selectedContacts.map(contact => contact.color);
+    let contactIndex = selectedContacts.map(contact => contact.index);
+    let contactId = selectedContacts.map(contact => contact.id);
+    let success = document.getElementById('successAddtask');
+
+    let taskIndex = tasks.findIndex(task => parseInt(task.id) === parseInt(taskId));
+
+    if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
+        tasks[taskIndex] = {
+            id: taskId,
+            sort: 'toDo',
+            title: titel,
+            description: description,
+            contacts: contactFullname,
+            contactsIndex: contactIndex,
+            contactId: contactId,
+            employees: contactLetters,
+            color: contactColor,
+            date: dateValue,
+            prio: priority[0]['prio'],
+            category: selectedCategory[0]['name'],
+            categoryIndex: selectedCategory[0]['index'],
+            categoryCol: bgColors[selectedCategory[0]['numberColor']],
+            subtasks: subtasks,
+            subTaskCount: 0
+        };
+
+        success.classList.remove('display-none');
+        setTimeout(function () {
+            window.location.href = 'board.html';
+        }, 3000);
+    } else if (priority.length === 0) {
+        prio.style.color = 'rgb(239, 136, 146)';
+        requiredBtn.forEach(function (btn) {
+            btn.style.border = '1px solid rgb(239, 136, 146)';
+        });
+        requiredText.style.color = 'rgb(239, 136, 146)';
+    } else if (selectedCategory.length === 0) {
+        category.style.color = 'rgb(239, 136, 146)';
+        requiredText.style.color = 'rgb(239, 136, 146)';
+        requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+    } else if (selectedContacts.length === 0) {
+        contactLabel.style.color = 'rgb(239, 136, 146)';
+        contactsContainer.style.border = '1px solid rgb(239, 136, 146)';
+        requiredText.style.color = 'rgb(239, 136, 146)';
+    }
+}

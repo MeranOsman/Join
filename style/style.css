@@ -547,7 +547,6 @@ input::-webkit-datetime-edit {
     border: 1px solid var(--sidebar-background);
     color: var(--header-bg);
     font-size: 20px;
-    padding: 14px 12px;
     border-radius: 10px;
     font-weight: 600;
     margin-right: 0;
@@ -667,7 +666,6 @@ input::-webkit-datetime-edit {
 .pos-bottom {
     display: flex;
     justify-content: center;
-    gap: 32px;
     position: absolute;
     bottom: 32px;
     width: 100%;
@@ -966,7 +964,11 @@ header h4 {
 
     .pos-bottom {
         bottom: 8px;
-        gap: 20px;
+        gap: 35px;
+    }
+
+    .pos-sign-up {
+        display: none !important;
     }
 
     .bottom-distance {

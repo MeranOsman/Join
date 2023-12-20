@@ -194,18 +194,38 @@ function searchContact() {
         let color = contacts[i]['color'];
 
         if (firstName.toLocaleLowerCase().includes(search) || lastName.toLocaleLowerCase().includes(search)) {
+            let contact = contacts[i];
+            let contactId = contact['id'];
+
             elements.innerHTML += /*html*/ `
-            <li onclick="toggleFunction(${i})" id="liContact${i}">
-                <div class="flex-center gap">
-                    <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
-                    <span class="contacts">${firstName} ${lastName}</span>
-                </div>
-                <div id="contactCheckbox${i}" class="icon-checkbox"></div>
-            </li>
-                `;
+                <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
+                    <div class="flex-center gap">
+                        <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
+                        <span class="contacts">${firstName} ${lastName}</span>
+                    </div>
+                    <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+                </li>
+            `;
+            activateFilterContact(contactId, i);
         }
     }
 }
+
+
+/**
+ * Function to check if the ID are the same to mark the selected contacts
+ * 
+ * @param {*} contactId 
+ * @param {*} i 
+ */
+function activateFilterContact(contactId, i) {
+    let indexToDisable = selectedContacts.findIndex(selectedContact => selectedContact.id == contactId);
+
+    if (indexToDisable !== -1) {
+        activeContact(i);
+    }
+}
+
 
 
 /**
@@ -468,7 +488,7 @@ function addSubtask() {
 function deleteSubtask(i) {
     subtasks.splice(i, 1);
 
-    initAddtask();
+    renderSubtask();
 }
 
 
@@ -521,6 +541,7 @@ function createTask(event) {
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
     let contactIndex = selectedContacts.map(contact => contact.index);
+    let contactId = selectedContacts.map(contact => contact.id);
     let success = document.getElementById('successAddtask');
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
@@ -531,6 +552,7 @@ function createTask(event) {
             description: description,
             contacts: contactFullname,
             contactsIndex: contactIndex,
+            contactId: contactId,
             employees: contactLetters,
             color: contactColor,
             date: dateValue,

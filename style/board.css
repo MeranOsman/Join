@@ -467,12 +467,24 @@ input#search-board {
     height: 800px;
     max-width: 450px;
     width: 450px;
-    border-radius: 20px;
+    border-radius: 25px;
     overflow-y: auto;
-    padding: 32px 8px;
+    padding-bottom: 32px;
     position: relative;
+    margin: 0 4px;
 }
 
+.add-task-modal-inner-edit::-webkit-scrollbar {
+    width: 6px;
+    min-height: 20px;
+  }
+  
+  .add-task-modal-inner-edit::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 6px;
+    min-height: 20px;
+  }
+  
 .prio button {
     font-size: 12pt !important;
     padding: 0 56px 0 8px !important;
@@ -515,11 +527,6 @@ input#search-board {
         height: 95%;
         overflow-y: auto;
 
-    }
-
-    .lower-area {
-        padding-bottom: 64px !important;
-        margin: 48px auto 0 auto !important;
     }
 }
 
@@ -631,11 +638,6 @@ input#search-board {
         overflow-y: auto;
 
     }
-
-    .lower-area {
-        padding-bottom: 16px !important;
-        margin: 32px auto 0 auto !important;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -678,10 +680,4 @@ input#search-board {
         height: 100vh;
         overflow-y: auto;
     }
-
-    .lower-area {
-        padding-bottom: 16px !important;
-        margin: 32px auto 0 auto !important;
-    }
-
 }
