@@ -200,12 +200,9 @@ function showTaskInfoModal() {
 *** function to delete the contact
 */
 function deleteTask(taskId) {
-    // Find the index of the task with the given ID
     const taskIndex = tasks.findIndex(t => t.id === taskId);
 
-    // Check if the task with the given ID exists
     if (taskIndex !== -1) {
-        // Remove the task from the tasks array
         tasks.splice(taskIndex, 1);
         updateHTML();
     } else {

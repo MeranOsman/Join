@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 h1 {
     font-size: 56px;
     line-height: 0;
@@ -467,11 +471,13 @@ input::-webkit-datetime-edit {
 }
 
 .success-container {
-    position: absolute;
-    z-index: 900;
+    position: fixed;
+    z-index: 9999;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
 }
 
 .success {
@@ -485,6 +491,7 @@ input::-webkit-datetime-edit {
     color: white;
     font-size: 24px;
     border-radius: 28px;
+    width: max-content;
 }
 
 /* checkbox */
@@ -849,7 +856,7 @@ header h4 {
     height: 155px;
     background-color: rgb(44, 54, 70);
     border-radius: 20px 0 20px 20px;
-    z-index: 999;
+    z-index: 998;
 }
 
 .menu-nav a {
@@ -1008,8 +1015,9 @@ header h4 {
     }
 
     .btn-login,
-    .btn-guest {
-        font-size: 16px;
+    .btn-guest,
+    .btn-clear {
+        font-size: 16px !important;
         width: 140px;
     }
 
@@ -1096,6 +1104,12 @@ header h4 {
 
     .sideboard-bottom {
         display: initial;
+    }
+
+    .success {
+        font-size: 21px;
+        padding: 16px;
+        border-radius: 20px;
     }
 
     .content-size {

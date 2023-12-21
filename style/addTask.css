@@ -13,8 +13,8 @@
 
 .success-newTask {
     position: absolute;
-    left: 40%;
-    top: 40%;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
     background-color: var(--sidebar-background);
@@ -26,6 +26,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    width: max-content;
 }
 
 .success-newTask img {
@@ -132,12 +133,13 @@
     border: none;
     border-radius: 10px;
     font-size: 19px;
-    font-weight: 300;
+    font-weight: 400;
     padding: 0 30px 0 4px;
     box-shadow: 0 0 3px lightgray;
     background-size: 20px;
     background-repeat: no-repeat;
     margin-bottom: 32px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .urgent-btn {
@@ -196,6 +198,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    padding-bottom: 40px;
 }
 
 .dropdown-contacts {
@@ -620,25 +623,28 @@
     overflow: auto;
     gap: 8px;
     flex-wrap: nowrap;
-    padding: 6px 0 4px 0;
+    padding: 6px 0 32px 0;
 }
 
 .urgent-color {
     background-color: #FF3D00 !important;
     background-image: url(../img/prioUrgent-white.svg);
     color: white;
+    font-weight: 500 !important;
 }
 
 .medium-color {
     background-color: #FFA800 !important;
     background-image: url(../img/prioMedium-white.svg);
     color: white;
+    font-weight: 500 !important;
 }
 
 .low-color {
     background-color: #7BE129 !important;
     background-image: url(../img/prioLow_white.svg);
     color: white;
+    font-weight: 500 !important;
 }
 
 .urgent-color:hover,
@@ -690,7 +696,7 @@
     }
 
     .content-size {
-        overflow: auto;
+        overflow: hidden auto;
     }
 
     .add-task h1 {
@@ -698,7 +704,6 @@
     }
 
     .lower-area {
-        padding-bottom: 64px;
         width: 90%;
         margin: 160px auto 0 auto;
     }
@@ -773,7 +778,7 @@
     }
 
     .add-task h1 {
-        padding-top: 50px;
+        padding-top: 64px;
     }
 }
 
@@ -783,6 +788,16 @@
         align-items: center;
         margin-bottom: 32px;
         gap: 10px;
+    }
+
+    .success-newTask {
+        font-size: 21px;
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .success-newTask img {
+        width: 24px;
     }
 
     .input-category::placeholder {

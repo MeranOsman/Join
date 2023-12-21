@@ -139,7 +139,6 @@ input#search-board {
 #inProgress {
     min-height: 100%;
     min-width: 280px;
-    border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -147,9 +146,28 @@ input#search-board {
     background-color: #f3f3f3;
 }
 
+#toDo::-webkit-scrollbar,
+#done::-webkit-scrollbar,
+#feedback::-webkit-scrollbar,
+#inProgress::-webkit-scrollbar {
+    max-width: 6px;
+    max-height: 4px;
+}
+
+
+#toDo::-webkit-scrollbar-thumb,
+#done::-webkit-scrollbar-thumb,
+#feedback::-webkit-scrollbar-thumb,
+#inProgress::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 6px;
+    max-height: 4px;
+}
+
 .tasks-card {
     background: #ffffff;
     height: fit-content;
+    min-width: 270px;
     width: 270px;
     padding: 16px;
     border-radius: 20px;
@@ -247,7 +265,7 @@ input#search-board {
     height: fit-content;
     width: 270px;
     padding: 0 16px;
-    border-radius: 12px;
+    border-radius: 25px;
     border: dotted 2px #9a9a9a;
     text-align: center;
     color: #9a9a9a;
@@ -255,7 +273,6 @@ input#search-board {
 }
 
 .empty-card-container {
-    padding: 0 16px 16px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -456,10 +473,14 @@ input#search-board {
 
 .add-task-modal-inner {
     background: var(--summary-background);
-    width: 65%;
+    width: 80%;
     height: 85%;
-    border-radius: 20px;
+    border-radius: 30px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden auto;
 }
 
 .add-task-modal-inner-edit {
@@ -475,19 +496,14 @@ input#search-board {
 }
 
 .add-task-modal-inner-edit::-webkit-scrollbar {
-    width: 6px;
-    min-height: 20px;
-  }
-  
-  .add-task-modal-inner-edit::-webkit-scrollbar-thumb {
+    max-width: 6px;
+    max-height: 20px;
+}
+
+.add-task-modal-inner-edit::-webkit-scrollbar-thumb {
     background-color: lightgray;
     border-radius: 6px;
-    min-height: 20px;
-  }
-  
-.prio button {
-    font-size: 12pt !important;
-    padding: 0 56px 0 8px !important;
+    max-height: 20px;
 }
 
 .low-btn {
@@ -511,22 +527,13 @@ input#search-board {
 }
 
 @media screen and (max-width: 1020px) {
-
     .add-task h1 {
-        font-size: 40pt;
-        margin-top: 32px;
+        font-size: 52px;
     }
 
     .close-task-pop.pos {
         top: 32px;
         right: 32px;
-    }
-
-    .add-task-modal-inner {
-        width: 90%;
-        height: 95%;
-        overflow-y: auto;
-
     }
 }
 
@@ -543,12 +550,12 @@ input#search-board {
 }
 
 @media screen and (max-width: 780px) {
-
     .flex-container-board {
         flex-direction: column;
         align-items: flex-start !important;
         justify-content: flex-start !important;
         margin: 24px 32px 0 32px;
+        padding-bottom: 40px;
     }
 
     .flex-btw.board {
@@ -566,12 +573,22 @@ input#search-board {
         align-items: flex-start !important;
     }
 
-    .media-hide-plus {
-        display: flex;
+
+    #toDo,
+    #done,
+    #feedback,
+    #inProgress {
+        flex-direction: row;
+        gap: 18px;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        padding: 5px 0 0 5px;
     }
 
-    .tasks-card-empty {
-        width: 80% !important;
+    .media-hide-plus {
+        display: flex;
     }
 
     .flex-start-board {
@@ -622,11 +639,6 @@ input#search-board {
         font-size: 30pt;
     }
 
-    .add-task h1 {
-        font-size: 30pt;
-        margin-top: 32px;
-    }
-
     .close-task-pop.pos {
         top: 16px;
         right: 16px;
@@ -634,9 +646,17 @@ input#search-board {
 
     .add-task-modal-inner {
         width: 90%;
-        height: 95%;
-        overflow-y: auto;
+        height: 90%;
+    }
+}
 
+@media screen and (max-width: 570px) {
+    .flex-container-board {
+        padding-bottom: 110px;
+    }
+
+    .add-task h1 {
+        font-size: 48px;
     }
 }
 
@@ -658,11 +678,6 @@ input#search-board {
 
     .flex-btw-board {
         width: 230px;
-    }
-
-    .add-task h1 {
-        font-size: 26pt;
-        margin-top: 32px;
     }
 
     .flex-container-board {
