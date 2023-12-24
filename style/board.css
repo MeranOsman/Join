@@ -310,13 +310,15 @@ input#search-board {
     align-items: flex-start;
     gap: 8px;
     background: var(--summary-background);
-    height: 800px;
-    max-width: 450px;
-    width: 450px;
+    height: 95%;
+    width: 28%;
     border-radius: 25px;
-    padding: 32px;
-    position: relative;
-    overflow-y: auto;
+    padding: 32px 32px 64px 32px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
 }
 
 .task-pop-category {
@@ -329,7 +331,7 @@ input#search-board {
 
 .close-task-pop {
     position: absolute;
-    top: 40px;
+    top: 32px;
     right: 32px;
     cursor: pointer;
     width: 32px;
@@ -417,9 +419,8 @@ input#search-board {
 
 .flex-btw-pop {
     display: flex;
-    justify-content: space-between;
+    gap: 16px;
     align-items: center;
-    width: 50%;
     margin: 20px 0;
 }
 
@@ -444,7 +445,7 @@ input#search-board {
 }
 
 .position-end {
-    position: absolute;
+    position: fixed;
     bottom: 32px;
     right: 32px;
 
@@ -472,9 +473,9 @@ input#search-board {
 }
 
 .add-task-modal-inner {
-    background: var(--summary-background);
+    background: white;
     width: 80%;
-    height: 85%;
+    height: 90%;
     border-radius: 30px;
     position: relative;
     display: flex;
@@ -485,14 +486,15 @@ input#search-board {
 
 .add-task-modal-inner-edit {
     background: var(--summary-background);
-    height: 800px;
-    max-width: 450px;
-    width: 450px;
+    height: 95%;
+    width: 28%;
     border-radius: 25px;
-    overflow-y: auto;
-    padding-bottom: 32px;
-    position: relative;
-    margin: 0 4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    overflow: hidden auto;
 }
 
 .add-task-modal-inner-edit::-webkit-scrollbar {
@@ -524,6 +526,18 @@ input#search-board {
     .flex-flow {
         flex-direction: column;
     }
+
+    .task-container-card {
+        width: 45%;
+    }
+
+    .add-task-modal-inner-edit {
+        width: 45%;
+    }
+
+    .task-pop-heading {
+        font-size: 48px;
+    }
 }
 
 @media screen and (max-width: 1020px) {
@@ -531,9 +545,12 @@ input#search-board {
         font-size: 52px;
     }
 
-    .close-task-pop.pos {
-        top: 32px;
-        right: 32px;
+    .task-container-card {
+        width: 60%;
+    }
+
+    .add-task-modal-inner-edit {
+        width: 60%;
     }
 }
 
@@ -565,6 +582,15 @@ input#search-board {
         flex-wrap: wrap;
     }
 
+
+    .task-container-card {
+        width: 70%;
+    }
+
+    .add-task-modal-inner-edit {
+        width: 70%;
+    }
+
     .flex-btw-board {
         min-width: 98%;
     }
@@ -572,7 +598,6 @@ input#search-board {
     .flex-column-board {
         align-items: flex-start !important;
     }
-
 
     #toDo,
     #done,
@@ -631,17 +656,8 @@ input#search-board {
         margin-left: 32px;
     }
 
-    .task-container-card {
-        max-width: 350px;
-    }
-
     .task-pop-heading {
         font-size: 30pt;
-    }
-
-    .close-task-pop.pos {
-        top: 16px;
-        right: 16px;
     }
 
     .add-task-modal-inner {
@@ -658,15 +674,37 @@ input#search-board {
     .add-task h1 {
         font-size: 48px;
     }
+
+    .task-container-card {
+        padding: 24px 24px 64px 24px;
+        width: 85%;
+    }
+
+    .add-task-modal-inner-edit {
+        width: 85%;
+        padding: 0 16px;
+    }
+
+    .pop-task-description {
+        font-size: 18px;
+    }
+
+    .task-pop-heading {
+        font-size: 36px;
+    }
+
+    .close-task-pop.pos {
+        top: 24px;
+        right: 24px;
+    }
+
+    .close-task-pop {
+        right: 24px;
+        top: 24px;
+    }
 }
 
 @media screen and (max-width: 400px) {
-
-    .task-container-card {
-        max-width: 240px;
-        border-radius: 0;
-    }
-
     .task-pop-heading {
         font-size: 26pt;
     }
@@ -684,15 +722,29 @@ input#search-board {
         margin: 24px 12px 0 12px;
     }
 
-    .close-task-pop.pos {
-        top: 16px;
-        right: 16px;
-    }
-
     .add-task-modal-inner {
         width: 100%;
         border-radius: 0;
         height: 100vh;
         overflow-y: auto;
+    }
+
+    .close-task-pop.pos {
+        top: 24px;
+        right: 10px;
+    }
+
+    .task-container-card {
+        width: 95%;
+        padding: 16px 10px 32px 10px;
+    }
+
+    .add-task-modal-inner-edit {
+        width: 95%;
+    }
+
+    .close-task-pop {
+        top: 16px;
+        right: 16px;
     }
 }

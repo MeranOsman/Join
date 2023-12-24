@@ -344,9 +344,19 @@ function changeStyles(taskId) {
     document.getElementById('addTask-create').classList.add('display-none');
     document.getElementById('edits-save-btn').classList.remove('display-none');
     document.getElementById('edits-save-btn').innerHTML =
-    `<button type="submit" class="btn-login edits">Save<span class="icon-check-new"></span></button>`;
-    // `<button type="submit" class="btn-login edits" onclick="saveTaskEdit(${taskId}),closeModal('add-task-board','addTask-inner-modal'),clearAndCloseTaskEditWithDelay()">Save<span class="icon-check-new"></span></button>`;
-    document.getElementById('addTaskForm').onsubmit = function(event) {saveEditTask(event, `${taskId}`);}
+        `<button type="submit" class="btn-login edits">Save<span class="icon-check-new"></span></button>`;
+    document.getElementById('addTaskForm').onsubmit = function (event) { saveEditTask(event, `${taskId}`); }
+}
+
+
+/**
+ * Function for costomize Addtask modal
+ */
+function customizeAddtask() {
+    document.getElementById('addTask-clear').innerHTML = 'Cancel <span class="icon-cross"></span>';
+    document.getElementById('addTask-clear').onclick = function () {
+        closeModal('add-task-board', 'addTask-inner-modal'); initBoard(); resetEdits()
+    };
 }
 
 
@@ -382,7 +392,6 @@ function clearAndCloseTaskEdit() {
     document.getElementById('edit-heading').innerHTML = 'Add Task';
     document.getElementById('close-btn-addTask').classList.remove('display-none');
     document.getElementById('close-btn-addTask-edit').classList.add('display-none');
-    document.getElementById('addTask-inner-modal').style.backgroundColor = 'var(--summary-background)';
 
     document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner');
     document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner-edit');
@@ -472,6 +481,12 @@ function searchTask() {
 }
 
 
+/**
+ * Function for save edit task
+ * 
+ * @param {*} event 
+ * @param {*} taskId 
+ */
 function saveEditTask(event, taskId) {
     event.preventDefault();
 
@@ -480,26 +495,18 @@ function saveEditTask(event, taskId) {
     let descriptionValue = document.getElementById('description').value.trim();
     let description = descriptionValue.charAt(0).toUpperCase() + descriptionValue.slice(1);
     let dateValue = document.getElementById('date').value;
-    let prio = document.getElementById('prio');
-    let category = document.getElementById('category');
-    let requiredText = document.getElementById('required');
-    let requiredCategory = document.getElementById('selectedColor');
-    let requiredBtn = document.querySelectorAll('.requiredBtn');
-    let contactLabel = document.getElementById('contactLabel');
-    let contactsContainer = document.getElementById('contactsContainer');
     let contactFullname = selectedContacts.map(contact => contact.fullName);
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
     let contactIndex = selectedContacts.map(contact => contact.index);
     let contactId = selectedContacts.map(contact => contact.id);
-    let success = document.getElementById('successAddtask');
-
     let taskIndex = tasks.findIndex(task => parseInt(task.id) === parseInt(taskId));
+    let sort = tasks[taskIndex]['sort'];
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks[taskIndex] = {
             id: taskId,
-            sort: 'toDo',
+            sort: sort,
             title: titel,
             description: description,
             contacts: contactFullname,
@@ -516,23 +523,25 @@ function saveEditTask(event, taskId) {
             subTaskCount: 0
         };
 
-        success.classList.remove('display-none');
-        setTimeout(function () {
-            window.location.href = 'board.html';
-        }, 3000);
+        successEdit(taskIndex);
     } else if (priority.length === 0) {
-        prio.style.color = 'rgb(239, 136, 146)';
-        requiredBtn.forEach(function (btn) {
-            btn.style.border = '1px solid rgb(239, 136, 146)';
-        });
-        requiredText.style.color = 'rgb(239, 136, 146)';
+        notSelectedPrio();
     } else if (selectedCategory.length === 0) {
-        category.style.color = 'rgb(239, 136, 146)';
-        requiredText.style.color = 'rgb(239, 136, 146)';
-        requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+        notSelectedCategory();
     } else if (selectedContacts.length === 0) {
-        contactLabel.style.color = 'rgb(239, 136, 146)';
-        contactsContainer.style.border = '1px solid rgb(239, 136, 146)';
-        requiredText.style.color = 'rgb(239, 136, 146)';
+        notSelectedContacts();
     }
+}
+
+
+/**
+ * Function for success edit task
+ * 
+ * @param {*} taskIndex 
+ */
+function successEdit(taskIndex) {
+    initBoard();
+    closeModal('add-task-board', 'addTask-inner-modal');
+    clearAndCloseTaskEditWithDelay();
+    taskInfo(tasks[taskIndex]['id']);
 }

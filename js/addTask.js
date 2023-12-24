@@ -530,19 +530,11 @@ function createTask(event) {
     let descriptionValue = document.getElementById('description').value.trim();
     let description = descriptionValue.charAt(0).toUpperCase() + descriptionValue.slice(1);
     let dateValue = document.getElementById('date').value;
-    let prio = document.getElementById('prio');
-    let category = document.getElementById('category');
-    let requiredText = document.getElementById('required');
-    let requiredCategory = document.getElementById('selectedColor');
-    let requiredBtn = document.querySelectorAll('.requiredBtn');
-    let contactLabel = document.getElementById('contactLabel');
-    let contactsContainer = document.getElementById('contactsContainer');
     let contactFullname = selectedContacts.map(contact => contact.fullName);
     let contactLetters = selectedContacts.map(contact => contact.nameLetters);
     let contactColor = selectedContacts.map(contact => contact.color);
     let contactIndex = selectedContacts.map(contact => contact.index);
     let contactId = selectedContacts.map(contact => contact.id);
-    let success = document.getElementById('successAddtask');
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks.push({
@@ -564,23 +556,70 @@ function createTask(event) {
             subTaskCount: 0
         })
 
-        success.classList.remove('display-none');
-        setTimeout(function () {
-            window.location.href = 'board.html';
-        }, 3000);
+        successAddTask();
     } else if (priority.length === 0) {
-        prio.style.color = 'rgb(239, 136, 146)';
-        requiredBtn.forEach(function (btn) {
-            btn.style.border = '1px solid rgb(239, 136, 146)';
-        })
-        requiredText.style.color = 'rgb(239, 136, 146)'
+        notSelectedPrio();
     } else if (selectedCategory.length === 0) {
-        category.style.color = 'rgb(239, 136, 146)';
-        requiredText.style.color = 'rgb(239, 136, 146)'
-        requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+        notSelectedCategory();
     } else if (selectedContacts.length === 0) {
-        contactLabel.style.color = 'rgb(239, 136, 146)';
-        contactsContainer.style.border = '1px solid rgb(239, 136, 146)';
-        requiredText.style.color = 'rgb(239, 136, 146)';
+        notSelectedContacts();
     }
+}
+
+/**
+ * Function for action after success add task
+ */
+function successAddTask() {
+    let containers = document.querySelectorAll('.success-container');
+
+    containers.forEach(container => {
+        container.classList.remove('display-none');
+    });
+    setTimeout(function () {
+        window.location.href = 'board.html';
+    }, 3000);
+}
+
+
+/**
+ * Function if not selected prio
+ */
+function notSelectedPrio() {
+    let requiredBtn = document.querySelectorAll('.requiredBtn');
+    let prio = document.getElementById('prio');
+    let requiredText = document.getElementById('required');
+
+    prio.style.color = 'rgb(239, 136, 146)';
+    requiredText.style.color = 'rgb(239, 136, 146)'
+    requiredBtn.forEach(function (btn) {
+        btn.style.border = '1px solid rgb(239, 136, 146)';
+    })
+}
+
+
+/**
+ * Function if not selected category
+ */
+function notSelectedCategory() {
+    let requiredCategory = document.getElementById('selectedColor');
+    let category = document.getElementById('category');
+    let requiredText = document.getElementById('required');
+
+    category.style.color = 'rgb(239, 136, 146)';
+    requiredText.style.color = 'rgb(239, 136, 146)'
+    requiredCategory.style.border = '1px solid rgb(239, 136, 146)';
+}
+
+
+/**
+ * Function if not selected contact
+ */
+function notSelectedContacts() {
+    let requiredText = document.getElementById('required');
+    let contactLabel = document.getElementById('contactLabel');
+    let contactsContainer = document.getElementById('contactsContainer');
+
+    contactLabel.style.color = 'rgb(239, 136, 146)';
+    contactsContainer.style.border = '1px solid rgb(239, 136, 146)';
+    requiredText.style.color = 'rgb(239, 136, 146)';
 }

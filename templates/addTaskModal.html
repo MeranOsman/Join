@@ -1,6 +1,6 @@
 <section class="add-task">
     <h1 id="edit-heading">Add Task</h1>
-    <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal')"
+    <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal'); initBoard(); resetEdits()"
         class="close-task-pop pos hide">X</div>
     <form id="addTaskForm" onsubmit="createTask(event);">
         <div id="flex-edit" class="flex">
@@ -110,7 +110,8 @@
                         class="icon-cross"></span></button>
                 <button id="addTask-create" type="submit" class="btn-login margin-zero">Create Task<span
                         class="icon-check-new"></span></button>
-                <div id="edits-save-btn" class="display-none"></div>
+                <div id="edits-save-btn" class="display-none">
+                </div>
             </div>
         </div>
     </form>
