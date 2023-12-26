@@ -530,7 +530,6 @@
     border: dashed 3.5px black;
 }
 
-
 .select {
     box-sizing: border-box;
     width: 100%;
@@ -557,7 +556,6 @@
     cursor: pointer;
     border-radius: 50%;
 }
-
 
 .add-category {
     position: absolute;

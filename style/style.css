@@ -33,8 +33,7 @@ button {
     cursor: pointer;
 }
 
-/* input, textarea */
-
+/* input and textarea */
 input::placeholder {
     font-family: 'Roboto', sans-serif;
     font-size: 21px;
@@ -637,7 +636,7 @@ input::-webkit-datetime-edit {
     background: #f3f3f3;
 }
 
-/* sites */
+/* info pages */
 .distance {
     padding: 32px 110px 16px 110px;
 }

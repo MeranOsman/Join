@@ -32,7 +32,6 @@
     animation-fill-mode: forwards;
 }
 
-
 @keyframes bg-overlay-animation {
     0% {
         opacity: 1;

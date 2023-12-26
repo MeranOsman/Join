@@ -216,6 +216,7 @@ p {
     height: 100%;
 }
 
+
 /* media querrys*/
 @media screen and (max-width: 1450px) {
     .summary-container {
@@ -331,7 +332,6 @@ p {
 }
 
 @media screen and (max-width: 570px) {
-
     .summary-container,
     .medium-container {
         height: 100px;
@@ -339,7 +339,6 @@ p {
 }
 
 @media screen and (max-width: 420px) {
-
     #summary-pencil,
     #summary-checkmark,
     .medium-container img {

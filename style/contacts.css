@@ -177,7 +177,6 @@ li {
     height: 70px;
 }
 
-/* add contacts modal */
 .modal-outer {
     width: 100vw;
     height: 100vh;
@@ -304,7 +303,6 @@ li {
     color: var(--summary-background)
 }
 
-/* infobox */
 .names {
     color: black;
     font-size: 40px;
@@ -324,7 +322,6 @@ li {
     margin: 70px 0 60px 0;
 }
 
-/* dropdown edit contacts */
 .dropdown-contacts-con {
     width: 120px;
     height: 110px;
@@ -376,6 +373,7 @@ li {
     min-height: 110px;
     min-width: 110px;
 }
+
 
 /* media querrys*/
 @media screen and (max-width: 1440px) {

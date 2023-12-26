@@ -1,4 +1,3 @@
-/* drag and drop*/
 .drag-area-highlight {
     background: rgb(238, 238, 238) !important;
 }
@@ -7,7 +6,6 @@
     transform: rotate(4deg);
 }
 
-/* tasks info */
 .uncheck-icon {
     background: url(../img/uncheck.svg);
     height: 25px;
@@ -201,7 +199,6 @@ input#search-board {
     font-size: 15px;
 }
 
-/* progress bar settings start */
 .flex-start-progress {
     display: flex;
     justify-content: flex-start;
@@ -232,8 +229,6 @@ input#search-board {
     width: 0%;
     z-index: 1;
 }
-
-/* progress bar settings end */
 
 .task-progress-task {
     color: black;
@@ -297,7 +292,6 @@ input#search-board {
     content: url('../img/add-btn-hover.svg');
 }
 
-/* pop up tasks */
 .font-edits {
     font-size: 19px;
     font-family: 'Roboto', sans-serif;
@@ -520,9 +514,9 @@ input#search-board {
     background-position: calc(100% - 15%) 50% !important;
 }
 
+
 /* media querrys*/
 @media screen and (max-width: 1440px) {
-
     .flex-flow {
         flex-direction: column;
     }
@@ -555,7 +549,6 @@ input#search-board {
 }
 
 @media screen and (max-width: 960px) {
-
     input#search-board {
         min-width: 170px !important;
         margin-left: 16px;
