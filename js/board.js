@@ -527,13 +527,21 @@ async function saveEditTask(event, taskId) {
  * @param {*} taskIndex 
  */
 async function successEdit(taskId) {
+    let success = document.getElementById('successAddtask');
+    let successText = document.getElementById('successEdit');
+
+
+    success.classList.remove('display-none');
+    successText.innerHTML = 'Task edit successfully';
     await initBoard();
     closeModal('add-task-board', 'addTask-inner-modal');
     clearAndCloseTaskEditWithDelay();
     setTimeout(function () {
         taskInfo(Number(taskId));
         clearAndCloseTaskEdit();
-    }, 700);
+        success.classList.add('display-none');
+        successText.innerHTML = `Task added to Board <img src="img/board.svg">`;
+    }, 2000);
 }
 
 

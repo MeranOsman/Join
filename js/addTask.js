@@ -142,8 +142,6 @@ function selectContact(i, contactId) {
     let lastNameLowercase = contacts[i]['lastName'];
     let lastName = lastNameLowercase.charAt(0).toUpperCase() + lastNameLowercase.slice(1);
     let color = contacts[i]['color'];
-    let contactLabel = document.getElementById('contactLabel');
-    let contactsContainer = document.getElementById('contactsContainer');
 
     selectedContacts.push({
         fullName: firstName + ' ' + lastName,
@@ -152,6 +150,19 @@ function selectContact(i, contactId) {
         id: contactId,
         index: i
     });
+
+    changeContact(i);
+}
+
+
+/**
+ * Function for change design contact and render selected contacts
+ * 
+ * @param {*} i 
+ */
+function changeContact(i) {
+    let contactLabel = document.getElementById('contactLabel');
+    let contactsContainer = document.getElementById('contactsContainer');
 
     contactLabel.style.color = 'black';
     contactsContainer.style.border = '1px solid lightgray';
@@ -277,24 +288,34 @@ function showCloseContacts(event) {
  */
 function SelectPrioBtn(btnId, newClass, prio, imgName) {
     let btn = document.getElementById(btnId);
-    let urgentBtn = document.getElementById('urgentBtn');
-    let mediumBtn = document.getElementById('mediumBtn');
-    let lowBtn = document.getElementById('lowBtn');
-    let prioLabel = document.getElementById('prio');
-    let requiredBtn = document.querySelectorAll('.requiredBtn');
 
-    requiredBtn.forEach(function (btn) {
-        btn.style.border = 'none';
-    })
-    prioLabel.style.color = 'black';
-    urgentBtn.classList.remove('urgent-color');
-    mediumBtn.classList.remove('medium-color');
-    lowBtn.classList.remove('low-color');
+    changePrioBtn();
+
     btn.classList.add(newClass);
     priority[0] = {
         prio: prio,
         imgName: imgName
     };
+}
+
+
+/**
+ * Function channge design from prio-buttons
+ */
+function changePrioBtn() {
+    let requiredBtn = document.querySelectorAll('.requiredBtn');
+    let urgentBtn = document.getElementById('urgentBtn');
+    let mediumBtn = document.getElementById('mediumBtn');
+    let lowBtn = document.getElementById('lowBtn');
+    let prioLabel = document.getElementById('prio');
+
+    requiredBtn.forEach(function (btn) {
+        btn.style.border = 'none';
+    });
+    prioLabel.style.color = 'black';
+    urgentBtn.classList.remove('urgent-color');
+    mediumBtn.classList.remove('medium-color');
+    lowBtn.classList.remove('low-color');
 }
 
 
@@ -320,18 +341,30 @@ async function renderCategory() {
     for (let i = 0; i < category.length; i++) {
         let number = category[i]['numberColor'];
 
-        elements.innerHTML += /*html*/ `
-        <li onclick="addSelectedCategory(${i})">
-            <span>${category[i]['name']}</span>
-            <div class="display-flex">
-                <div class="edit-category">
-                    <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
-                </div>
-                <div class="render-circle ${bgColors[number]}"></div>
-            </div>
-        </li>
-        `;
+        elements.innerHTML += innerHtmlCategory(i, number);
     }
+}
+
+
+/**
+ * Function for inner HTMl Category
+ * 
+ * @param {*} i 
+ * @param {*} number 
+ * @returns 
+ */
+function innerHtmlCategory(i, number) {
+    return /*html*/ `
+    <li onclick="addSelectedCategory(${i})">
+        <span>${category[i]['name']}</span>
+        <div class="display-flex">
+            <div class="edit-category">
+                <img onclick="deleteCategory(event, ${i})" class="editDelete " src="img/delete.svg">
+            </div>
+            <div class="render-circle ${bgColors[number]}"></div>
+        </div>
+    </li>
+    `;
 }
 
 
@@ -341,6 +374,23 @@ async function renderCategory() {
  * @param {*} i 
  */
 function addSelectedCategory(i) {
+    changeSelectedCategory(i);
+    showCloseCategory();
+
+    selectedCategory[0] = {
+        name: category[i]['name'],
+        numberColor: category[i]['numberColor'],
+        index: i
+    };
+}
+
+
+/**
+ * Function for change design from selected category
+ * 
+ * @param {*} i 
+ */
+function changeSelectedCategory(i) {
     let selectBox = document.getElementById('selectedCategory');
     let background = document.getElementById('selectedColor');
     let number = category[i]['numberColor'];
@@ -354,13 +404,6 @@ function addSelectedCategory(i) {
     }
     selectBox.innerHTML = `${category[i]['name']}`;
     background.classList.add(`${bgColors[number]}`);
-    showCloseCategory();
-
-    selectedCategory[0] = {
-        name: category[i]['name'],
-        numberColor: category[i]['numberColor'],
-        index: i
-    };
 }
 
 
@@ -455,17 +498,28 @@ async function renderSubtask() {
     input.value = '';
 
     for (let i = 0; i < subtasks.length; i++) {
-        tasks.innerHTML += /*html*/ `
-        <li id="listnumber${i}">
-            <span>${subtasks[i]}</span>
-            <div class="edit-subtask">
-                <img onclick="editSubtask(${i})" class="editDelete " onclick="" src="img/edit.svg">
-                <div class="line"></div>
-                <img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
-            </div>
-        </li>
-        `;
+        tasks.innerHTML += innerHtmlSubtasks(i);
     }
+}
+
+
+/**
+ * Function for inner HTML subtasks
+ * 
+ * @param {*} i 
+ * @returns 
+ */
+function innerHtmlSubtasks(i) {
+    return /*html*/ `
+    <li id="listnumber${i}">
+        <span>${subtasks[i]}</span>
+        <div class="edit-subtask">
+            <img onclick="editSubtask(${i})" class="editDelete " onclick="" src="img/edit.svg">
+            <div class="line"></div>
+            <img onclick="deleteSubtask(${i})" class="editDelete " src="img/delete.svg">
+        </div>
+    </li>
+    `;
 }
 
 
@@ -564,7 +618,7 @@ function cancelSubtask() {
  */
 async function createTask(event) {
     event.preventDefault();
-
+    
     let titelValue = document.getElementById('title').value.trim();
     let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
     let descriptionValue = document.getElementById('description').value.trim();
@@ -595,7 +649,6 @@ async function createTask(event) {
             subtasks: subtasks,
             subTaskCount: 0
         })
-
         await setItem('tasks', JSON.stringify(tasks));
         successAddTask();
     } else if (priority.length === 0) {
