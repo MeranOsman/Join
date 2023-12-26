@@ -37,7 +37,6 @@
         </span>
     </div>
 
-    <!-- include add task modal-->
     <div id="add-task-board" class="modal-outer hide">
         <div id="addTask-inner-modal" class="add-task-modal-inner move-to-left-pop"
             w3-include-html="templates/addTaskModal.html"></div>
@@ -54,7 +53,7 @@
                 Task<span class="icon-plus"></span>
             </button>
         </div>
-        <!-- media btn-->
+
         <button onclick="showModal('add-task-board','addTask-inner-modal'),
                         removeHide('close-btn-addTask'); customizeAddtask()"
             class="btn-board media-hide-plus board"><img src="img/plus.svg" />
@@ -62,8 +61,6 @@
     </div>
 
     <div class="flex-container-board">
-
-
         <div class="flex-flow">
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
@@ -87,7 +84,6 @@
             </div>
         </div>
 
-
         <div class="flex-flow">
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
@@ -110,11 +106,9 @@
         </div>
     </div>
 
-    <!-- INSERT INFO POP UP FROM SINGLE TASK ### START ### -->
     <div id="task-info-modal" class="hide modal-outer">
         <div w3-include-html="templates/boardInfoModal.html"></div>
     </div>
-    <!-- INSERT INFO POP UP FROM SINGLE TAST ### END ### -->
 
     <footer w3-include-html="templates/sideboardResponsive.html"></footer>
 </body>

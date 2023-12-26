@@ -32,17 +32,14 @@
 
     <div class="flex-contacts">
         <div id="contacts-section" class="contacts-section flex-contacts-inner-left">
+            <div></div><button
+                onclick="removeHide('add-btn'), clearModal(), changeTextAddContact('heading-contacts-modal','subline-contact-modal'), showModal('contacts-modal','modal-inner'), addHide('edit-btn'), addHide('profile-contacts')"
+                class="flex-row-btn media-show contacts">Add new Contact<span><img
+                        src="img/person_add.svg" /></span></button>
 
-            <div></div><button onclick="removeHide('add-btn')
-                                        ,clearModal()
-                                        ,changeTextAddContact('heading-contacts-modal','subline-contact-modal')
-                                        ,showModal('contacts-modal','modal-inner')
-                                        ,addHide('edit-btn')
-                                        ,addHide('profile-contacts')" class="flex-row-btn media-show contacts">Add new
-                Contact<span><img src="img/person_add.svg" /></span></button>
+            <div id="contacts-list">
 
-            <div id="contacts-list"></div>
-
+            </div>
         </div>
         <div>
             <div id="contacts-bg" class="contacts-bg flex-row margin-t contacts">
@@ -51,30 +48,20 @@
                 <h2>Better with a team</h2>
             </div>
 
-            <!-- infomodal for contacts, appears on contact click ### START -->
             <div id="contacts-modal-info" class="hide">
                 <div w3-include-html="templates/contactInfoModal.html"></div>
             </div>
-            <!-- infomodal for contacts, appears on contact click ### END -->
         </div>
     </div>
 
-    <!-- modal for new contacts, appears on button click ### START -->
     <div id="contacts-modal" class="hide">
         <div w3-include-html="templates/addContactsModal.html"></div>
     </div>
-    <!-- ### modal for new contacts ### END -->
 
-    <!-- media btn for add contact ### START -->
-    <div onclick="removeHide('add-btn')
-    ,clearModal()
-    ,changeTextAddContact('heading-contacts-modal','subline-contact-modal')
-    ,showModal('contacts-modal','modal-inner')
-    ,addHide('edit-btn')
-    ,addHide('profile-contacts')" id="addContact-btn" class="media-hide btn">
+    <div onclick="removeHide('add-btn'), clearModal(), changeTextAddContact('heading-contacts-modal','subline-contact-modal'), showModal('contacts-modal','modal-inner'), addHide('edit-btn'), addHide('profile-contacts')"
+        id="addContact-btn" class="media-hide btn">
         <img src="img/add-contact-media.svg">
     </div>
-    <!-- ### media btn for add contact ### END -->
 
     <footer w3-include-html="templates/sideboardResponsive.html"></footer>
 </body>
