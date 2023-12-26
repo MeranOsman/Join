@@ -3,6 +3,7 @@
 *** INITIALISATION
 */
 async function initContacts() {
+    await loadContacts();
     await includeHTML();
     await loadUsers();
     await renderUserLetters();
@@ -188,7 +189,7 @@ function editContact(index) {
 /*
 *** function for save the edits on contact
 */
-function saveEdits(index) {
+async function saveEdits(index) {
     let inputName = document.getElementById('contacts-name');
     let inputMail = document.getElementById('contacts-mail');
     let inputPhone = document.getElementById('contacts-phone');
@@ -204,6 +205,7 @@ function saveEdits(index) {
     contact['email'] = inputMail.value;
     contact['phone'] = inputPhone.value;
 
+    await setItem('contacts', JSON.stringify(contacts));
     renderContactList();
     renderContactInfos(index);
 }
@@ -212,9 +214,10 @@ function saveEdits(index) {
 /*
 *** function to delete the contact
 */
-function deleteContact(index) {
+async function deleteContact(index) {
     contacts.splice(index, 1);
 
+    await setItem('contacts', JSON.stringify(contacts));
     renderContactInfos(0);
     renderContactList();
 }
@@ -223,7 +226,7 @@ function deleteContact(index) {
 /*
 *** function to add a new contact
 */
-function addContact() {
+async function addContact() {
     let fullName = document.getElementById('contacts-name').value;
     let email = document.getElementById('contacts-mail').value;
     let phone = document.getElementById('contacts-phone').value;
@@ -251,8 +254,17 @@ function addContact() {
     };
 
     contacts.push(newContact);
-
+    await setItem('contacts', JSON.stringify(contacts));
     renderContactList();
     renderContactInfos(0);
     closeAndClearModal();
+}
+
+
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItem('contacts'));
+    } catch (error) {
+        console.log('Kontakte nicht gefunden');
+    }
 }

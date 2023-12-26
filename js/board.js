@@ -4,6 +4,7 @@
 async function initBoard() {
     await includeHTML();
     await loadUsers();
+    await loadTasks();
     await renderUserLetters();
     await updateHTML();
     await renderSubtask();
@@ -115,10 +116,13 @@ function truncateText(taskDescription, maxLength) {
 *** function for set the new sort value
 */
 function moveTo(sorting) {
-    tasks[currentDraggedElement - 1]['sort'] = sorting;
-    removeHighlight(sorting);
-    noRotate(sorting);
-    updateHTML();
+    const index = tasks.indexOf(tasks.find(task => task.id === currentDraggedElement));
+    if (index !== -1) {
+        tasks[index]['sort'] = sorting;
+        removeHighlight(sorting);
+        noRotate(sorting);
+        setItem('tasks', JSON.stringify(tasks)).then(() => updateHTML());
+    }
 }
 
 
@@ -128,16 +132,18 @@ function moveTo(sorting) {
 */
 function taskInfo(taskId) {
     const task = tasks.find(t => t.id === taskId);
+    const dateParts = task.date.split('-');
+    const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
 
     document.getElementById('closeX').innerHTML = `<div onclick="closeModal('task-info-modal','task-pop-up'), updateHTML();" class="close-task-pop">X</div>`;
     document.getElementById('sorting').textContent = task.category;
     document.getElementById('sorting').classList = `task-pop-category ${task.categoryCol} upper-text margin-b-16`;
     document.getElementById('title-task').textContent = task.title;
     document.getElementById('description-task').textContent = task.description;
-    document.getElementById('date-task').textContent = task.date;
+    document.getElementById('date-task').textContent = formattedDate;
     document.getElementById('prio-task').innerHTML = `${task.prio} <img class="prio-pop" src="img/prio${task.prio.charAt(0).toUpperCase() + task.prio.slice(1)}.svg" />`;
-    document.getElementById('tasks-delete-btn').innerHTML = `<img src="img/delete.svg" onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')"><div class="subtask" onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')">Delete</div>`;
-    document.getElementById('task-edit-btn').innerHTML = `<img src="img/edit.svg" onclick="editTask(${taskId})"> <div class="subtask" onclick="editTask(${taskId})">Edit</div>`;
+    document.getElementById('tasks-delete-btn').innerHTML = `<div onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')" class="flex-start gap-s links link-pop-del"><img src="img/delete.svg"><div class="subtask">Delete</div></div>`;
+    document.getElementById('task-edit-btn').innerHTML = `<div onclick="editTask(${taskId})" class="flex-start gap-s links link-pop-edit"><img src="img/edit.svg" > <div class="subtask">Edit</div></div>`;
 
     const employeesHtml = task.employees.map((employee, index) => `
         <div class="flex-start">
@@ -199,11 +205,12 @@ function showTaskInfoModal() {
 /*
 *** function to delete the contact
 */
-function deleteTask(taskId) {
+async function deleteTask(taskId) {
     const taskIndex = tasks.findIndex(t => t.id === taskId);
 
     if (taskIndex !== -1) {
         tasks.splice(taskIndex, 1);
+        await setItem('tasks', JSON.stringify(tasks));
         updateHTML();
     } else {
         console.error('Task not found for deletion');
@@ -255,10 +262,7 @@ function editTaskDescription(task) {
  * @param {*} task 
  */
 function editTaskDate(task) {
-    const dateParts = task.date.split('/');
-    const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
-
-    document.getElementById('date').value = formattedDate;
+    document.getElementById('date').value = task.date;
 }
 
 
@@ -411,24 +415,6 @@ function clearAndCloseTaskEdit() {
 }
 
 
-/*
-*** function save the edits on board
-*/
-function saveTaskEdit(taskId) {
-    const taskToUpdate = tasks.find(t => t.id === taskId);
-
-    if (taskToUpdate) {
-        taskToUpdate.title = document.getElementById('title').value;
-        taskToUpdate.description = document.getElementById('description').value;
-        // Hier kannst du weitere Attribute aktualisieren, wenn nötig
-    } else {
-        console.error('Task not found');
-    }
-    updateHTML();
-}
-
-
-
 /**
  * Function to set progress bar in connection with the subtasks
  * 
@@ -487,7 +473,7 @@ function searchTask() {
  * @param {*} event 
  * @param {*} taskId 
  */
-function saveEditTask(event, taskId) {
+async function saveEditTask(event, taskId) {
     event.preventDefault();
 
     let titelValue = document.getElementById('title').value.trim();
@@ -505,7 +491,7 @@ function saveEditTask(event, taskId) {
 
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks[taskIndex] = {
-            id: taskId,
+            id: Number(taskId),
             sort: sort,
             title: titel,
             description: description,
@@ -523,7 +509,8 @@ function saveEditTask(event, taskId) {
             subTaskCount: 0
         };
 
-        successEdit(taskIndex);
+        await setItem('tasks', JSON.stringify(tasks));
+        successEdit(taskId);
     } else if (priority.length === 0) {
         notSelectedPrio();
     } else if (selectedCategory.length === 0) {
@@ -539,9 +526,21 @@ function saveEditTask(event, taskId) {
  * 
  * @param {*} taskIndex 
  */
-function successEdit(taskIndex) {
-    initBoard();
+async function successEdit(taskId) {
+    await initBoard();
     closeModal('add-task-board', 'addTask-inner-modal');
     clearAndCloseTaskEditWithDelay();
-    taskInfo(tasks[taskIndex]['id']);
+    setTimeout(function () {
+        taskInfo(Number(taskId));
+        clearAndCloseTaskEdit();
+    }, 700);
+}
+
+
+async function loadTasks() {
+    try {
+        tasks = JSON.parse(await getItem('tasks'));
+    } catch (error) {
+        console.log('Aufgaben nicht gefunden');
+    }
 }

@@ -4,6 +4,8 @@
 async function initAddtask() {
     await includeHTML();
     await loadUsers();
+    await loadContacts();
+    await loadCategory();
     await renderUserLetters();
     await renderSubtask();
     await renderCategory();
@@ -36,17 +38,29 @@ async function renderContacts() {
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactId = contact['id'];
-
-        elements.innerHTML += /*html*/ `
-            <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
-                <div class="flex-center gap">
-                    <span class="contacts-icon cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}</span>
-                    <span class="contacts upper-text">${contact['firstName']} ${contact['lastName']}</span>
-                </div>
-                <div id="contactCheckbox${i}" class="icon-checkbox"></div>
-            </li>
-        `;
+        elements.innerHTML += contactsInnerHtml(i, contact, contactId);
     }
+}
+
+
+/**
+ * Function for inner HTML contacts
+ * 
+ * @param {*} i 
+ * @param {*} contact 
+ * @param {*} contactId 
+ * @returns 
+ */
+function contactsInnerHtml(i, contact, contactId) {
+    return /*html*/ `
+    <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
+        <div class="flex-center gap">
+            <span class="contacts-icon cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}</span>
+            <span class="contacts upper-text">${contact['firstName']} ${contact['lastName']}</span>
+        </div>
+        <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+    </li>
+`;
 }
 
 
@@ -197,18 +211,33 @@ function searchContact() {
             let contact = contacts[i];
             let contactId = contact['id'];
 
-            elements.innerHTML += /*html*/ `
-                <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
-                    <div class="flex-center gap">
-                        <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
-                        <span class="contacts">${firstName} ${lastName}</span>
-                    </div>
-                    <div id="contactCheckbox${i}" class="icon-checkbox"></div>
-                </li>
-            `;
+            elements.innerHTML += searchInnerHtml(i, contactId, color, firstName, lastName);
             activateFilterContact(contactId, i);
         }
     }
+}
+
+
+/**
+ * Function for inner HTML search contact
+ * 
+ * @param {*} i 
+ * @param {*} contactId 
+ * @param {*} color 
+ * @param {*} firstName 
+ * @param {*} lastName 
+ * @returns 
+ */
+function searchInnerHtml(i, contactId, color, firstName, lastName) {
+    return /*html*/ `
+    <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
+        <div class="flex-center gap">
+            <span class="contacts-icon ${color}">${firstName.charAt(0)}${lastName.charAt(0)}</span>
+            <span class="contacts">${firstName} ${lastName}</span>
+        </div>
+        <div id="contactCheckbox${i}" class="icon-checkbox"></div>
+    </li>
+`;
 }
 
 
@@ -266,6 +295,15 @@ function SelectPrioBtn(btnId, newClass, prio, imgName) {
         prio: prio,
         imgName: imgName
     };
+}
+
+
+async function loadCategory() {
+    try {
+        category = JSON.parse(await getItem('category'));
+    } catch (error) {
+        console.log('Kategorie nicht gefunden');
+    }
 }
 
 
@@ -372,7 +410,7 @@ function selectColor(id, number) {
  * 
  * @returns 
  */
-function addCategory() {
+async function addCategory() {
     let colorBar = document.getElementById('color-section');
     let inputId = document.getElementById('inputCategory');
     let inputParts = inputId.value.trim().split(' ');
@@ -384,6 +422,7 @@ function addCategory() {
                 name: input,
                 numberColor: selectedColor[0]
             });
+            await setItem('category', JSON.stringify(category));
             colorBar.style.border = '1px solid lightgray';
             renderCategory();
         } else {
@@ -396,8 +435,9 @@ function addCategory() {
 /**
  * Function delete category
  */
-function deleteCategory(event, i) {
+async function deleteCategory(event, i) {
     category.splice(i, 1);
+    await setItem('category', JSON.stringify(category));
 
     renderCategory();
     event.stopPropagation();
@@ -522,7 +562,7 @@ function cancelSubtask() {
  * 
  * @param {*} event 
  */
-function createTask(event) {
+async function createTask(event) {
     event.preventDefault();
 
     let titelValue = document.getElementById('title').value.trim();
@@ -556,6 +596,7 @@ function createTask(event) {
             subTaskCount: 0
         })
 
+        await setItem('tasks', JSON.stringify(tasks));
         successAddTask();
     } else if (priority.length === 0) {
         notSelectedPrio();
