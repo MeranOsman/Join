@@ -1,6 +1,7 @@
 async function initSummary() {
     await includeHTML();
     await loadUsers();
+    await loadTasks();
     await renderData();
     await renderUserName();
     await greeting();
