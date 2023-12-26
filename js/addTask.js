@@ -248,7 +248,7 @@ function searchInnerHtml(i, contactId, color, firstName, lastName) {
         </div>
         <div id="contactCheckbox${i}" class="icon-checkbox"></div>
     </li>
-`;
+    `;
 }
 
 
@@ -618,7 +618,7 @@ function cancelSubtask() {
  */
 async function createTask(event) {
     event.preventDefault();
-    
+
     let titelValue = document.getElementById('title').value.trim();
     let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
     let descriptionValue = document.getElementById('description').value.trim();
@@ -659,6 +659,7 @@ async function createTask(event) {
         notSelectedContacts();
     }
 }
+
 
 /**
  * Function for action after success add task

@@ -61,6 +61,7 @@ function updateCategory(categoryId, categoryType) {
     }
 }
 
+
 /*
 *** function to track the tasks id
 */
@@ -74,8 +75,7 @@ function startDragging(id) {
 */
 function renderTasks(element, progressBarId) {
     let subtasksHtml = '';
-    //check if subtask is more then 0, if true then save html content in variable subtasksHtml
-    // if not, then subtasksHtml remains empty
+
     if (element.subtasks.length > 0) {
         subtasksHtml = `<div id="progress-${element['id']}" class="bar-distance">
             <div class="flex-start-progress">
@@ -86,21 +86,34 @@ function renderTasks(element, progressBarId) {
         </div>`;
     }
 
-    return `<div id="task-${element['id']}" onclick="taskInfo(${element['id']}), clearAndCloseTaskEdit()" class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})">
-            <p class="task-card-heading upper-text ${element.categoryCol}">${element.category}</p>
-            <p class="task-card-title">${element.title}</p>
-            <p class="task-card-note">${truncateText(element.description, 40)}</p>
-            ${subtasksHtml}
-            <div class="flex-btw">
-                <div class="flex-icons-task">
-                    ${element.employees.map((employee, index) => `
-                        <div class="contact-icons-task ${element.color[index]}${index > 0 ? ' margin-left-neg' : ''}">
-                            ${employee}
-                        </div>`).join('')}
-                </div>
-                <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
+    return innerHtmlTasks(element, subtasksHtml);
+}
+
+
+/**
+ * Function for return inner Html tasks
+ * 
+ * @param {*} element 
+ * @param {*} subtasksHtml 
+ * @returns 
+ */
+function innerHtmlTasks(element, subtasksHtml) {
+    return `
+    <div id="task-${element['id']}" onclick="taskInfo(${element['id']}), clearAndCloseTaskEdit()" class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})">
+        <p class="task-card-heading upper-text ${element.categoryCol}">${element.category}</p>
+        <p class="task-card-title">${element.title}</p>
+        <p class="task-card-note">${truncateText(element.description, 40)}</p>
+        ${subtasksHtml}
+        <div class="flex-btw">
+            <div class="flex-icons-task">
+                ${element.employees.map((employee, index) => `
+                    <div class="contact-icons-task ${element.color[index]}${index > 0 ? ' margin-left-neg' : ''}">
+                        ${employee}
+                    </div>`).join('')}
             </div>
-        </div>`;
+            <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
+        </div>
+    </div>`;
 }
 
 
@@ -132,6 +145,20 @@ function moveTo(sorting) {
 */
 function taskInfo(taskId) {
     const task = tasks.find(t => t.id === taskId);
+
+    contentTaskInfo(taskId, task);
+    employeesHtml(task);
+    subtasksHtml(taskId, task);
+    showTaskInfoModal();
+}
+
+
+/**
+ * Function for inner HTML content tasks
+ * 
+ * @param {*} task 
+ */
+function contentTaskInfo(taskId, task) {
     const dateParts = task.date.split('-');
     const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
 
@@ -144,7 +171,15 @@ function taskInfo(taskId) {
     document.getElementById('prio-task').innerHTML = `${task.prio} <img class="prio-pop" src="img/prio${task.prio.charAt(0).toUpperCase() + task.prio.slice(1)}.svg" />`;
     document.getElementById('tasks-delete-btn').innerHTML = `<div onclick="deleteTask(${taskId}),closeModal('task-info-modal','task-pop-up')" class="flex-start gap-s links link-pop-del"><img src="img/delete.svg"><div class="subtask">Delete</div></div>`;
     document.getElementById('task-edit-btn').innerHTML = `<div onclick="editTask(${taskId})" class="flex-start gap-s links link-pop-edit"><img src="img/edit.svg" > <div class="subtask">Edit</div></div>`;
+}
 
+
+/**
+ * Function for inner Html employees
+ * 
+ * @param {*} task 
+ */
+function employeesHtml(task) {
     const employeesHtml = task.employees.map((employee, index) => `
         <div class="flex-start">
             <div class="contact-icons-info ${task.color[index]}">${employee}</div>
@@ -153,7 +188,16 @@ function taskInfo(taskId) {
     `).join('');
 
     document.getElementById('task-employees').innerHTML = employeesHtml;
+}
 
+
+/**
+ * Function for inner Html subtasks
+ * 
+ * @param {*} taskId 
+ * @param {*} task 
+ */
+function subtasksHtml(taskId, task) {
     const subtasksHtml = task.subtasks.map((subtask, index) => {
         const subtaskId = `${taskId}-${index}`;
         const subtaskCheck = subtaskStatus[subtaskId] ? 'check-icon' : 'uncheck-icon';
@@ -165,7 +209,6 @@ function taskInfo(taskId) {
     }).join('');
 
     document.getElementById('task-subtask').innerHTML = subtasksHtml;
-    showTaskInfoModal();
 }
 
 
@@ -173,14 +216,11 @@ function taskInfo(taskId) {
 *** function handle the check icons
 */
 function checkIcon(subtaskId) {
-
     const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
     subtaskElement.classList.toggle('check-icon');
 
-    // update status
     subtaskStatus[subtaskId] = !subtaskStatus[subtaskId];
 
-    // Increase subTaskCount if check-icon is active
     const [taskId] = subtaskId.split('-');
     const task = tasks.find(t => t.id === parseInt(taskId));
 
@@ -326,30 +366,43 @@ function editTaskSubtasks(task) {
 function changeStyles(taskId) {
     closeModal('task-info-modal', 'task-pop-up');
     showModal('add-task-board', 'addTask-inner-modal');
+    changeStylesAdd();
+    changeStylesRemove();
 
     document.getElementById('edit-heading').innerHTML = 'Edit Task';
-    document.getElementById('close-btn-addTask').classList.add('display-none');
-    document.getElementById('close-btn-addTask-edit').classList.remove('display-none');
     document.getElementById('addTask-inner-modal').style.backgroundColor = 'white';
+    document.getElementById('edits-save-btn').innerHTML = `<button type="submit" class="btn-login edits">Save<span class="icon-check-new"></span></button>`;
+    document.getElementById('addTaskForm').onsubmit = function (event) { saveEditTask(event, `${taskId}`); }
+}
 
-    document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner');
+
+/**
+ * Function for add classlist
+ */
+function changeStylesAdd() {
+    document.getElementById('close-btn-addTask').classList.add('display-none');
     document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner-edit');
-
     document.getElementById('flex-edit').classList.add('flex-column-start');
+    document.getElementById('edit-section-l').classList.add('flex-column-start-edit');
+    document.getElementById('edit-section-r').classList.add('flex-column-start-edit');
+    document.getElementById('addTask-clear').classList.add('display-none');
+    document.getElementById('addTask-create').classList.add('display-none');
+
+}
+
+
+/**
+ * Function for remove classlist
+ */
+function changeStylesRemove() {
+    document.getElementById('close-btn-addTask-edit').classList.remove('display-none');
+    document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner');
     document.getElementById('edit-section-l').classList.remove('left-section');
     document.getElementById('edit-section-r').classList.remove('right-section');
     document.getElementById('edit-section-l').classList.remove('flex-column-start');
     document.getElementById('edit-section-r').classList.remove('flex-column-start');
-    document.getElementById('edit-section-l').classList.add('flex-column-start-edit');
-    document.getElementById('edit-section-r').classList.add('flex-column-start-edit');
-
     document.getElementById('flex-btn-edits').classList.remove('btn-addTask');
-    document.getElementById('addTask-clear').classList.add('display-none');
-    document.getElementById('addTask-create').classList.add('display-none');
     document.getElementById('edits-save-btn').classList.remove('display-none');
-    document.getElementById('edits-save-btn').innerHTML =
-        `<button type="submit" class="btn-login edits">Save<span class="icon-check-new"></span></button>`;
-    document.getElementById('addTaskForm').onsubmit = function (event) { saveEditTask(event, `${taskId}`); }
 }
 
 
@@ -391,27 +444,41 @@ function clearAndCloseTaskEditWithDelay() {
 *** function for close and clear the edit mode
 */
 function clearAndCloseTaskEdit() {
+    clearTaskEditAdd();
+    clearTaskEditRemove();
+
     document.getElementById('task-pop-up').style.setProperty('display', 'block');
-
     document.getElementById('edit-heading').innerHTML = 'Add Task';
-    document.getElementById('close-btn-addTask').classList.remove('display-none');
+}
+
+
+/**
+ * Function for add classList
+ */
+function clearTaskEditAdd() {
     document.getElementById('close-btn-addTask-edit').classList.add('display-none');
-
     document.getElementById('addTask-inner-modal').classList.add('add-task-modal-inner');
-    document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner-edit');
-
-    document.getElementById('flex-edit').classList.remove('flex-column-start');
     document.getElementById('edit-section-l').classList.add('left-section');
     document.getElementById('edit-section-r').classList.add('right-section');
     document.getElementById('edit-section-l').classList.add('flex-column-start');
     document.getElementById('edit-section-r').classList.add('flex-column-start');
+    document.getElementById('flex-btn-edits').classList.add('btn-addTask');
+    document.getElementById('edits-save-btn').classList.add('display-none');
+}
+
+
+/**
+ * Function for remove classList
+ */
+function clearTaskEditRemove() {
+    document.getElementById('close-btn-addTask').classList.remove('display-none');
+    document.getElementById('addTask-inner-modal').classList.remove('add-task-modal-inner-edit');
+    document.getElementById('flex-edit').classList.remove('flex-column-start');
     document.getElementById('edit-section-l').classList.remove('flex-column-start-edit');
     document.getElementById('edit-section-r').classList.remove('flex-column-start-edit');
-
-    document.getElementById('flex-btn-edits').classList.add('btn-addTask');
     document.getElementById('addTask-clear').classList.remove('display-none');
     document.getElementById('addTask-create').classList.remove('display-none');
-    document.getElementById('edits-save-btn').classList.add('display-none');
+
 }
 
 
@@ -438,7 +505,6 @@ function progressBar(element, progressBarId) {
 function searchTask() {
     let input = document.getElementById('search-board');
     let search = input.value.trim().toLowerCase();
-
     let allTasks = document.querySelectorAll('.tasks-card');
     let matchingTasks = Array.from(allTasks).filter(task => {
         const taskTitle = task.querySelector('.task-card-title').innerText.toLowerCase();
@@ -458,7 +524,6 @@ function searchTask() {
         allTasks.forEach(task => {
             task.style.display = 'none';
         });
-
     } else {
         allTasks.forEach(task => {
             task.style.display = matchingTasks.includes(task) ? 'block' : 'none';
@@ -508,7 +573,6 @@ async function saveEditTask(event, taskId) {
             subtasks: subtasks,
             subTaskCount: 0
         };
-
         await setItem('tasks', JSON.stringify(tasks));
         successEdit(taskId);
     } else if (priority.length === 0) {
@@ -529,7 +593,6 @@ async function saveEditTask(event, taskId) {
 async function successEdit(taskId) {
     let success = document.getElementById('successAddtask');
     let successText = document.getElementById('successEdit');
-
 
     success.classList.remove('display-none');
     successText.innerHTML = 'Task edit successfully';

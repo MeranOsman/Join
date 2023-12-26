@@ -83,7 +83,6 @@ async function addUser() {
                 email: email.value,
                 password: password.value
             });
-
             await setItem('users', JSON.stringify(users));
             success.classList.remove('display-none');
             setTimeout(function () {

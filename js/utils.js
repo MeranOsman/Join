@@ -27,90 +27,9 @@ let selectedCategory = [];
 let selectedColor = [];
 let priority = [];
 
-// contacts
-let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
-
 //board
 let currentDraggedElement;
 let subtaskStatus = {};
-
-let contacts = [
-    {
-        'id': '1',
-        'firstName': 'anton',
-        'lastName': 'mayer',
-        'email': 'antom@gmail.com',
-        'phone': '+49 0152 123 456 789',
-        'color': 'orange',
-    },
-    {
-        'id': '2',
-        'firstName': 'anja',
-        'lastName': 'schulz',
-        'email': 'schulz@hotmail.com',
-        'phone': '+49 0156 123 456 789',
-        'color': 'azur',
-    },
-    {
-        'id': '3',
-        'firstName': 'benedikt',
-        'lastName': 'ziegler',
-        'email': 'benedikt@gmail.com',
-        'phone': '+49 0172 123 456 789',
-        'color': 'blue',
-    },
-    {
-        'id': '4',
-        'firstName': 'david',
-        'lastName': 'eisenberg',
-        'email': 'davidberg@gmail.com',
-        'phone': '+49 0156 123 456 789',
-        'color': 'pink',
-    },
-    {
-        'id': '5',
-        'firstName': 'eva',
-        'lastName': 'fischer',
-        'email': 'eva@gmail.com',
-        'phone': '+49 0163 123 456 789',
-        'color': 'yell',
-    },
-    {
-        'id': '6',
-        'firstName': 'emmanuel',
-        'lastName': 'mauer',
-        'email': 'mauer@web.de',
-        'phone': '+49 0152 123 456 789',
-        'color': 'vio',
-    },
-    {
-        'id': '7',
-        'firstName': 'marcel',
-        'lastName': 'bauer',
-        'email': 'bauer@live.com',
-        'phone': '+49 0154 123 456 789',
-        'color': 'deep',
-    },
-    {
-        'id': '8',
-        'firstName': 'tatjana',
-        'lastName': 'wolf',
-        'email': 'wolfi@gmx.de',
-        'phone': '+49 0157 123 456 789',
-        'color': 'tango',
-    },
-    {
-        'id': '9',
-        'firstName': 'benjamin',
-        'lastName': 'bennewitz',
-        'email': 'ben@gmx.de',
-        'phone': '+49 0151 333 456 656',
-        'color': 'tango',
-    }
-];
-
-
-// board
 let tasks = [
     {
         'id': 1,
@@ -183,5 +102,82 @@ let tasks = [
         'prio': 'Urgent',
         'date': '2023-10-04',
         'color': ['orange', 'azur', 'pink']
+    }
+];
+
+//contacts
+let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
+let contacts = [
+    {
+        'id': '1',
+        'firstName': 'anton',
+        'lastName': 'mayer',
+        'email': 'antom@gmail.com',
+        'phone': '+49 0152 123 456 789',
+        'color': 'orange',
+    },
+    {
+        'id': '2',
+        'firstName': 'anja',
+        'lastName': 'schulz',
+        'email': 'schulz@hotmail.com',
+        'phone': '+49 0156 123 456 789',
+        'color': 'azur',
+    },
+    {
+        'id': '3',
+        'firstName': 'benedikt',
+        'lastName': 'ziegler',
+        'email': 'benedikt@gmail.com',
+        'phone': '+49 0172 123 456 789',
+        'color': 'blue',
+    },
+    {
+        'id': '4',
+        'firstName': 'david',
+        'lastName': 'eisenberg',
+        'email': 'davidberg@gmail.com',
+        'phone': '+49 0156 123 456 789',
+        'color': 'pink',
+    },
+    {
+        'id': '5',
+        'firstName': 'eva',
+        'lastName': 'fischer',
+        'email': 'eva@gmail.com',
+        'phone': '+49 0163 123 456 789',
+        'color': 'yell',
+    },
+    {
+        'id': '6',
+        'firstName': 'emmanuel',
+        'lastName': 'mauer',
+        'email': 'mauer@web.de',
+        'phone': '+49 0152 123 456 789',
+        'color': 'vio',
+    },
+    {
+        'id': '7',
+        'firstName': 'marcel',
+        'lastName': 'bauer',
+        'email': 'bauer@live.com',
+        'phone': '+49 0154 123 456 789',
+        'color': 'deep',
+    },
+    {
+        'id': '8',
+        'firstName': 'tatjana',
+        'lastName': 'wolf',
+        'email': 'wolfi@gmx.de',
+        'phone': '+49 0157 123 456 789',
+        'color': 'tango',
+    },
+    {
+        'id': '9',
+        'firstName': 'benjamin',
+        'lastName': 'bennewitz',
+        'email': 'ben@gmx.de',
+        'phone': '+49 0151 333 456 656',
+        'color': 'tango',
     }
 ];

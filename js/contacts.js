@@ -69,7 +69,7 @@ async function renderContactList() {
     let cList = document.getElementById('contacts-list');
     cList.innerHTML = '';
 
-    let currentInitial = ''; 
+    let currentInitial = '';
     sortNames();
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
@@ -79,16 +79,27 @@ async function renderContactList() {
             currentInitial = contactInitial;
             cList.innerHTML += `<div class="margin-t"><span>${currentInitial}</span><div class="underline"></div></div>`;
         }
-
-        cList.innerHTML += `
-            <div class="margin-t">
-                <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg'), renderContactInfos(${i})">
-                    <li><span class="contact-icons cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}</span></li>
-                    <li class="upper-text">${contact['firstName']} ${contact['lastName']}<br><span class="contacts-links lower-text">${contact['email']}</span></li>
-                </div>
-            </div>
-        `;
+        cList.innerHTML += contactsInnerHtml(i, contact);
     }
+}
+
+
+/**
+ * Function for inner Html contacts
+ * 
+ * @param {*} i 
+ * @param {*} contact 
+ * @returns 
+ */
+function contactsInnerHtml(i, contact) {
+    return `
+    <div class="margin-t">
+        <div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg'), renderContactInfos(${i})">
+            <li><span class="contact-icons cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}</span></li>
+            <li class="upper-text">${contact['firstName']} ${contact['lastName']}<br><span class="contacts-links lower-text">${contact['email']}</span></li>
+        </div>
+    </div>
+    `;
 }
 
 
@@ -106,7 +117,6 @@ function sortNames() {
         } else if (firstNameA > firstNameB) {
             return 1;
         } else {
-            // If first names are equal, compare by last name
             const lastNameA = a['lastName'].toLowerCase();
             const lastNameB = b['lastName'].toLowerCase();
 
@@ -137,22 +147,45 @@ function renderContactInfos(index) {
     contactMail.innerHTML = `${contact['email']}`;
     contactPhone.innerHTML = `${contact['phone']}`;
 
-    edit.innerHTML = `
-            <div onclick="  showModal('contacts-modal','modal-inner'), addHide('add-btn'),
-                            changeText('heading-contacts-modal','subline-contact-modal'),
-                            removeHide('edit-btn'), removeHide('profile-contacts'),
-                            editContact(${index})" class="icon-edit">Edit</div>`
+    edit.innerHTML = innerHtmlContactEdit(index)
     del.innerHTML = `<div class="icon-delete" onclick="deleteContact(${index})">Delete</div>`
-    editDrop.innerHTML = `
-                <div class="bg-color flex-center">
-                    <div class="icon-edit text" onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn'),
-                                                        changeText('heading-contacts-modal','subline-contact-modal'),
-                                                        removeHide('edit-btn'), removeHide('profile-contacts'),
-                                                        editContact(${index})">Edit</div>
-                </div>
-                <div class="bg-color snd flex-center">
-                    <div class="icon-delete text" onclick="deleteContact(${index})">Delete</div>
-                </div>`
+    editDrop.innerHTML = innerHtmlContactEditDrop(index);
+}
+
+
+/**
+ * Function for inner Html contact-edit
+ * 
+ * @param {*} index 
+ * @returns 
+ */
+function innerHtmlContactEdit(index) {
+    return `
+    <div onclick="  showModal('contacts-modal','modal-inner'), addHide('add-btn'),
+                    changeText('heading-contacts-modal','subline-contact-modal'),
+                    removeHide('edit-btn'), removeHide('profile-contacts'),
+                    editContact(${index})" class="icon-edit">Edit</div>`;
+}
+
+
+
+/**
+ * Function for inner Html contact edit drop
+ * 
+ * @param {*} index 
+ * @returns 
+ */
+function innerHtmlContactEditDrop(index) {
+    return `
+    <div class="bg-color flex-center">
+        <div class="icon-edit text" onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn'),
+                                            changeText('heading-contacts-modal','subline-contact-modal'),
+                                            removeHide('edit-btn'), removeHide('profile-contacts'),
+                                            editContact(${index})">Edit</div>
+    </div>
+    <div class="bg-color snd flex-center">
+        <div class="icon-delete text" onclick="deleteContact(${index})">Delete</div>
+    </div>`;
 }
 
 
@@ -169,20 +202,27 @@ function resetColor() {
 */
 function editContact(index) {
     let contact = contacts[index];
+    editContactChange(contact);
+
+    let deleteContact = document.getElementById('del-btn');
+    let saveContact = document.getElementById('save-btn');
+
+    deleteContact.innerHTML = `<button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal(),resetColorModal('profile-contacts'),deleteContact(${index})">Delete</button>`;
+    saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${index}),wait(wait),closeAndClearModal()">Save<span class="icon-check-new"></span></button>`;
+}
+
+/**
+ * Function for change content edit contact
+ * 
+ * @param {*} contact 
+ */
+function editContactChange(contact) {
     document.getElementById('profile-contacts').innerHTML = `${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}`;
     document.getElementById('profile-contacts').classList.add(`${contact['color']}`);
     document.getElementById('contacts-name').value = `${contact['firstName']} ${contact['lastName']}`;
     document.getElementById('contacts-mail').value = `${contact['email']}`;
     document.getElementById('contacts-phone').value = `${contact['phone']}`;
     document.getElementById('contactLogo').style.display = `none`;
-
-
-
-    let deleteContact = document.getElementById('del-btn');
-    deleteContact.innerHTML = `<button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal(),resetColorModal('profile-contacts'),deleteContact(${index})">Delete</button>`;
-
-    let saveContact = document.getElementById('save-btn');
-    saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${index}),wait(wait),closeAndClearModal()">Save<span class="icon-check-new"></span></button>`;
 }
 
 
@@ -231,19 +271,14 @@ async function addContact() {
     let email = document.getElementById('contacts-mail').value;
     let phone = document.getElementById('contacts-phone').value;
 
-    // split the name into first name and last name
     let nameParts = fullName.split(' ');
-    let firstName = nameParts[0] || ''; // fallback in case no first name is provided
-    let lastName = nameParts.slice(1).join(' ') || ''; // fallback in case no last name is provided
+    let firstName = nameParts[0] || '';
+    let lastName = nameParts.slice(1).join(' ') || '';
 
-    // Choose a color based on the index in the array
     let colorIndex = contacts.length % bgColors.length;
     let color = bgColors[colorIndex];
-
-    // generate a unique ID using the last three digits of the current timestamp
     let id = (new Date().getTime().toString().slice(-3));
 
-    // add a new contact to the array
     let newContact = {
         'id': id,
         'firstName': firstName,
@@ -252,12 +287,29 @@ async function addContact() {
         'phone': phone,
         'color': color,
     };
-
     contacts.push(newContact);
     await setItem('contacts', JSON.stringify(contacts));
     renderContactList();
     renderContactInfos(0);
     closeAndClearModal();
+    successAddContact();
+}
+
+
+/**
+ * Function for action after success add contact
+ */
+function successAddContact() {
+    let containers = document.querySelectorAll('.success-container');
+
+    containers.forEach(container => {
+        container.classList.remove('display-none');
+    });
+    setTimeout(function () {
+        containers.forEach(container => {
+            container.classList.add('display-none');
+        });
+    }, 1500);
 }
 
 
