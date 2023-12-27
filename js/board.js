@@ -1,6 +1,6 @@
-/*
-*** INITIALISATION
-*/
+/**
+ * Initiates rendering of various components.
+ */
 async function initBoard() {
     await includeHTML();
     await loadUsers();
@@ -13,20 +13,19 @@ async function initBoard() {
 }
 
 
-/* ########################################################################################   DRAG n DROP ### BLOCK */
-/*
-*** function for make elements moveable
-*/
+/**
+ * Makes an HTML element movable by enabling drag-and-drop functionality.
+ * 
+ * @param {Event} ev - The event object.
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
 
-/*
-*** function for calling each sorted category
-*** first = elements id
-*** snd   = array value from 'sort'
-*/
+/**
+ * Updates the HTML content for the categories 'toDo', 'inProgress', 'feedback', and 'done'.
+ */
 async function updateHTML() {
     updateCategory('toDo', 'toDo');
     updateCategory('inProgress', 'inProgress');
@@ -35,11 +34,12 @@ async function updateHTML() {
 }
 
 
-/*
-*** function for sorting the tasks
-*** checked the 'sort' value and arranged them
-*** check if there are content to render, if not then show a no task container
-*/
+/**
+ * Sorts tasks based on the 'sort' value and renders them; displays a container for no tasks if none exist.
+ * 
+ * @param {string} categoryId - The ID of the HTML container for the category.
+ * @param {string} categoryType - The type of the category used for filtering tasks.
+ */
 function updateCategory(categoryId, categoryType) {
     let categoryTasks = tasks.filter(t => t['sort'] == categoryType);
     let categoryContainer = document.getElementById(categoryId);
@@ -62,17 +62,23 @@ function updateCategory(categoryId, categoryType) {
 }
 
 
-/*
-*** function to track the tasks id
-*/
+/**
+ * Initiates dragging (Drag-and-Drop) of an element.
+ * 
+ * @param {string} id - Die ID des zu ziehenden Elements.
+ */
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
 
-/*
-*** function for render the tasks
-*/
+/**
+ * Renders tasks and their progress in the specified HTML element.
+ * 
+ * @param {Object} element - The task element containing task details.
+ * @param {string} progressBarId - The ID of the progress bar element.
+ * @returns {string} - The HTML representation of the rendered tasks.
+ */
 function renderTasks(element, progressBarId) {
     let subtasksHtml = '';
 
@@ -91,11 +97,11 @@ function renderTasks(element, progressBarId) {
 
 
 /**
- * Function for return inner Html tasks
+ * Generates the HTML representation of a task with optional subtasks.
  * 
- * @param {*} element 
- * @param {*} subtasksHtml 
- * @returns 
+ * @param {Object} element - The task element containing task details.
+ * @param {string} subtasksHtml - The HTML representation of subtasks, if any.
+ * @returns {string} - The HTML representation of the task.
  */
 function innerHtmlTasks(element, subtasksHtml) {
     return `
@@ -117,17 +123,23 @@ function innerHtmlTasks(element, subtasksHtml) {
 }
 
 
-/*
-*** shortens the description if longer then 40 chars
-*/
+/**
+ * Truncates the text to the specified maximum length if necessary.
+ * 
+ * @param {string} taskDescription - The text to truncate.
+ * @param {number} maxLength - Maximum length of the truncated text.
+ * @returns {string} - The truncated text or the original text if it's not too long.
+ */
 function truncateText(taskDescription, maxLength) {
     return taskDescription.length > maxLength ? taskDescription.slice(0, maxLength) + '...' : taskDescription;
 }
 
 
-/*
-*** function for set the new sort value
-*/
+/**
+ * Updates the sorting order of a task.
+ * 
+ * @param {number} sorting - The new sorting order of the task.
+ */
 function moveTo(sorting) {
     const index = tasks.indexOf(tasks.find(task => task.id === currentDraggedElement));
     if (index !== -1) {
@@ -139,10 +151,11 @@ function moveTo(sorting) {
 }
 
 
-/* ########################################################################################   TASKS INFOS AND EDITS ### BLOCK */
-/*
-*** function for render the task info
-*/
+/**
+ * Renders task information and displays it in a modal.
+ * 
+ * @param {number} taskId - The ID of the task to render information for.
+ */
 function taskInfo(taskId) {
     const task = tasks.find(t => t.id === taskId);
 
@@ -154,9 +167,10 @@ function taskInfo(taskId) {
 
 
 /**
- * Function for inner HTML content tasks
+ * Updates the display of task information in the modal.
  * 
- * @param {*} task 
+ * @param {number} taskId - The unique identifier of the task.
+ * @param {Object} task - The task object containing details.
  */
 function contentTaskInfo(taskId, task) {
     const dateParts = task.date.split('-');
@@ -175,9 +189,9 @@ function contentTaskInfo(taskId, task) {
 
 
 /**
- * Function for inner Html employees
+ * Generates HTML elements for employee information and updates the content of a specific HTML container.
  * 
- * @param {*} task 
+ * @param {Object} task - The task information.
  */
 function employeesHtml(task) {
     const employeesHtml = task.employees.map((employee, index) => `
@@ -192,10 +206,10 @@ function employeesHtml(task) {
 
 
 /**
- * Function for inner Html subtasks
+ * Generates HTML for subtasks and updates the corresponding element in the document.
  * 
- * @param {*} taskId 
- * @param {*} task 
+ * @param {number} taskId - The ID of the main task.
+ * @param {Object} task - The task object containing subtasks.
  */
 function subtasksHtml(taskId, task) {
     const subtasksHtml = task.subtasks.map((subtask, index) => {
@@ -212,9 +226,11 @@ function subtasksHtml(taskId, task) {
 }
 
 
-/*
-*** function handle the check icons
-*/
+/**
+ * Checks and updates the status icon for a subtask.
+ * 
+ * @param {number} subtaskId - The ID of the subtask.
+ */
 function checkIcon(subtaskId) {
     const subtaskElement = document.getElementById(`subtasks-${subtaskId}`);
     subtaskElement.classList.toggle('check-icon');
@@ -232,9 +248,9 @@ function checkIcon(subtaskId) {
 }
 
 
-/*
-*** function for show the info modal
-*/
+/**
+ * Displays the modal with task information.
+ */
 function showTaskInfoModal() {
     document.getElementById('task-info-modal').classList.remove('hide');
     document.getElementById('task-pop-up').style.setProperty('animation-direction', 'normal');
@@ -242,9 +258,11 @@ function showTaskInfoModal() {
 }
 
 
-/*
-*** function to delete the contact
-*/
+/**
+ * Deletes a task based on its ID.
+ * 
+ * @param {number} taskId - The ID of the task to be deleted.
+ */
 async function deleteTask(taskId) {
     const taskIndex = tasks.findIndex(t => t.id === taskId);
 
@@ -258,9 +276,11 @@ async function deleteTask(taskId) {
 }
 
 
-/*
-*** function to render the tasks informations in edit mode
-*/
+/**
+ * Edits a task based on the provided task ID.
+ * 
+ * @param {number} taskId - The ID of the task to be edited.
+ */
 function editTask(taskId) {
     changeStyles(taskId);
 
@@ -277,9 +297,9 @@ function editTask(taskId) {
 
 
 /**
- * Function to insert title as a value into the edit
+ * Edits the title of a task and updates the corresponding HTML element.
  * 
- * @param {*} task 
+ * @param {object} task - The task to be edited.
  */
 function editTaskTitle(task) {
     document.getElementById('title').value = task.title;
@@ -287,9 +307,9 @@ function editTaskTitle(task) {
 
 
 /**
- * Function to insert title as a value into the edit
+ * Edits the description of a task and updates the corresponding HTML element.
  * 
- * @param {*} task 
+ * @param {Object} task - The task to be edited.
  */
 function editTaskDescription(task) {
     document.getElementById('description').innerHTML = task.description;
@@ -297,9 +317,9 @@ function editTaskDescription(task) {
 
 
 /**
- * Function to insert date as a value into the edit
+ * Edits the date of a task and updates the corresponding HTML element.
  * 
- * @param {*} task 
+ * @param {object} task - The task to be edited.
  */
 function editTaskDate(task) {
     document.getElementById('date').value = task.date;
@@ -307,7 +327,9 @@ function editTaskDate(task) {
 
 
 /**
- * Function for check for prio value to trigger the right function
+ * Edits the priority of a task and adjusts the appearance accordingly.
+ * 
+ * @param {Object} task - The task to be edited.
  */
 function editTaskPrio(task) {
     switch (task.prio) {
@@ -325,9 +347,9 @@ function editTaskPrio(task) {
 
 
 /**
- * Function to push contacts into the edit
+ * Edits the contact information of a task.
  * 
- * @param {*} task 
+ * @param {object} task - The task to be edited.
  */
 function editTaskContact(task) {
     for (let i = 0; i < task.contactsIndex.length; i++) {
@@ -340,9 +362,9 @@ function editTaskContact(task) {
 
 
 /**
- * Function to push category into the edit
+ * Edits the category of a task.
  * 
- * @param {*} task 
+ * @param {object} task - The task to be edited.
  */
 function editTaskCategory(task) {
     addSelectedCategory(task.categoryIndex);
@@ -350,9 +372,9 @@ function editTaskCategory(task) {
 
 
 /**
- * Function to push subtasks into the edit
+ * Appends subtasks of a task and renders them.
  * 
- * @param {*} task 
+ * @param {Object} task - The task to be edited.
  */
 function editTaskSubtasks(task) {
     subtasks.push(...task.subtasks);
@@ -360,9 +382,11 @@ function editTaskSubtasks(task) {
 }
 
 
-/*
-*** function for edit a spcific task
-*/
+/**
+ * Changes the appearance of the user interface for editing a task.
+ * 
+ * @param {string} taskId - The ID of the task to be edited.
+ */
 function changeStyles(taskId) {
     closeModal('task-info-modal', 'task-pop-up');
     showModal('add-task-board', 'addTask-inner-modal');
@@ -377,7 +401,7 @@ function changeStyles(taskId) {
 
 
 /**
- * Function for add classlist
+ * Adds the style elements for the edit display.
  */
 function changeStylesAdd() {
     document.getElementById('close-btn-addTask').classList.add('display-none');
@@ -387,12 +411,11 @@ function changeStylesAdd() {
     document.getElementById('edit-section-r').classList.add('flex-column-start-edit');
     document.getElementById('addTask-clear').classList.add('display-none');
     document.getElementById('addTask-create').classList.add('display-none');
-
 }
 
 
 /**
- * Function for remove classlist
+ * Removes the style elements for the edit display.
  */
 function changeStylesRemove() {
     document.getElementById('close-btn-addTask-edit').classList.remove('display-none');
@@ -407,7 +430,7 @@ function changeStylesRemove() {
 
 
 /**
- * Function for costomize Addtask modal
+ * Customizes the 'customizeAddtask' function to update the button and set a click handler for cancellation.
  */
 function customizeAddtask() {
     document.getElementById('addTask-clear').innerHTML = 'Cancel <span class="icon-cross"></span>';
@@ -417,9 +440,9 @@ function customizeAddtask() {
 }
 
 
-/*
-*** function to reset the edits values
-*/
+/**
+ * Resets all edits and initializes the board anew.
+ */
 function resetEdits() {
     selectedContacts = [];
     priority = [];
@@ -429,9 +452,9 @@ function resetEdits() {
 }
 
 
-/*
-*** function delay the styles reset, prevents a screen flicker and empty selectedContacts-array
-*/
+/**
+ * Delays clearing and closing the task editor.
+ */
 function clearAndCloseTaskEditWithDelay() {
     setTimeout(function () {
         clearAndCloseTaskEdit();
@@ -440,9 +463,9 @@ function clearAndCloseTaskEditWithDelay() {
 }
 
 
-/*
-*** function for close and clear the edit mode
-*/
+/**
+ * Clears the input fields for task editing and closes the editing window.
+ */
 function clearAndCloseTaskEdit() {
     clearTaskEditAdd();
     clearTaskEditRemove();
@@ -453,7 +476,7 @@ function clearAndCloseTaskEdit() {
 
 
 /**
- * Function for add classList
+ * Adds any additional CSS classes that are no longer required for task editing.
  */
 function clearTaskEditAdd() {
     document.getElementById('close-btn-addTask-edit').classList.add('display-none');
@@ -468,7 +491,7 @@ function clearTaskEditAdd() {
 
 
 /**
- * Function for remove classList
+ * Removes any additionally added CSS classes that were required for task editing.
  */
 function clearTaskEditRemove() {
     document.getElementById('close-btn-addTask').classList.remove('display-none');
@@ -483,10 +506,10 @@ function clearTaskEditRemove() {
 
 
 /**
- * Function to set progress bar in connection with the subtasks
+ * Updates the progress bar based on the provided element information.
  * 
- * @param {*} element 
- * @param {*} progressBarId 
+ * @param {Object} element - The element containing progress information.
+ * @param {string} progressBarId - The ID of the progress bar HTML element.
  */
 function progressBar(element, progressBarId) {
     let progressBar = document.getElementById(progressBarId);
@@ -500,7 +523,7 @@ function progressBar(element, progressBarId) {
 
 
 /**
- * Function for search tasks
+ * Searches the task list for a search term and displays only matching tasks.
  */
 function searchTask() {
     let input = document.getElementById('search-board');
@@ -533,10 +556,10 @@ function searchTask() {
 
 
 /**
- * Function for save edit task
+ * Edits and saves an existing task.
  * 
- * @param {*} event 
- * @param {*} taskId 
+ * @param {Event} event - The event object for the form.
+ * @param {number} taskId - The ID of the task to be edited.
  */
 async function saveEditTask(event, taskId) {
     event.preventDefault();
@@ -586,9 +609,9 @@ async function saveEditTask(event, taskId) {
 
 
 /**
- * Function for success edit task
+ * Successfully edits a task and updates the user interface feedback.
  * 
- * @param {*} taskIndex 
+ * @param {number} taskId - The ID of the edited task.
  */
 async function successEdit(taskId) {
     let success = document.getElementById('successAddtask');
@@ -608,6 +631,9 @@ async function successEdit(taskId) {
 }
 
 
+/**
+ * Loads the tasks from the API and parses it as JSON.
+ */
 async function loadTasks() {
     try {
         tasks = JSON.parse(await getItem('tasks'));
