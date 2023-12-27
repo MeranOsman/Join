@@ -1,7 +1,6 @@
-/* ########################################################################################   GENERALS AND HELPS ### BLOCK */
-/*
-*** INITIALISATION
-*/
+/**
+ * Initiates rendering of various components.
+ */
 async function initContacts() {
     await loadContacts();
     await includeHTML();
@@ -11,9 +10,11 @@ async function initContacts() {
 }
 
 
-/*
-*** function for show and hide dropdown menu on contact info via opacity
-*/
+/**
+ * Shows or hides the dropdown menu based on its current state.
+ * 
+ * @param {Event} event - The event that triggered this function.
+ */
 function showDropdown(event) {
     var dropdown = document.getElementById('dropContacts');
     dropdown.classList.toggle('display-none');
@@ -22,27 +23,33 @@ function showDropdown(event) {
 }
 
 
-/*
-*** function for change the text on contact modal
-*/
+/**
+ * Changes the text content of HTML elements with the specified IDs.
+ * 
+ * @param {string} id1 - Die ID des ersten HTML-Elements.
+ * @param {*} {string} id2 - Die ID des zweiten HTML-Elements.
+ */
 function changeText(id1, id2) {
     document.getElementById(id1).innerHTML = 'Edit Contact';
     document.getElementById(id2).innerHTML = '';
 }
 
 
-/*
-*** function for change the text on contact modal
-*/
+/**
+ * Changes the text on a contact modal.
+ * 
+ * @param {string} id1 - The ID of the first HTML element.
+ * @param {*} {string} id2 - The ID of the second HTML element.
+ */
 function changeTextAddContact(id1, id2) {
     document.getElementById(id1).innerHTML = 'Add contact';
     document.getElementById(id2).innerHTML = 'Tasks are better with a team!';
 }
 
 
-/*
-*** function for clear and close the inputs from edit mode
-*/
+/**
+ * Closes the modal and clears the input fields.
+ */
 function closeAndClearModal() {
     closeModal('contacts-modal', 'modal-inner');
     document.getElementById('contacts-name').value = '';
@@ -51,9 +58,9 @@ function closeAndClearModal() {
 }
 
 
-/*
-*** function for clear the inputs from add new contact btn
-*/
+/**
+ * Clears the input fields in the modal.
+ */
 function clearModal() {
     document.getElementById('contacts-name').value = '';
     document.getElementById('contacts-mail').value = '';
@@ -61,10 +68,9 @@ function clearModal() {
 }
 
 
-/* ########################################################################################   RENDER CONTACT ### BLOCK */
-/*
-*** function for render contact list
-*/
+/**
+ * Renders the sorted and grouped contact list on the web page.
+ */
 async function renderContactList() {
     let cList = document.getElementById('contacts-list');
     cList.innerHTML = '';
@@ -85,11 +91,11 @@ async function renderContactList() {
 
 
 /**
- * Function for inner Html contacts
+ * Generates the HTML content for an individual contact in the contact list.
  * 
- * @param {*} i 
- * @param {*} contact 
- * @returns 
+ * @param {number} i - The index of the contact.
+ * @param {Object} contact - The contact object containing information.
+ * @returns {string} - The HTML content for the contact.
  */
 function contactsInnerHtml(i, contact) {
     return `
@@ -103,10 +109,9 @@ function contactsInnerHtml(i, contact) {
 }
 
 
-/*
-*** function for sorting the contacts by first names
-*** create an object an sort the hole NameSet
-*/
+/**
+ * Sorts contacts based on first and last names.
+ */
 function sortNames() {
     contacts.sort((a, b) => {
         const firstNameA = a['firstName'].toLowerCase();
@@ -126,10 +131,11 @@ function sortNames() {
 }
 
 
-/* ########################################################################################   INFO CONTACT ### BLOCK */
-/*
-*** function for render the contacts infos
-*/
+/**
+ * Renders the contact information for a specific index.
+ * 
+ * @param {number} index - The index of the contact in the contacts list.
+ */
 function renderContactInfos(index) {
     resetColor();
     let contact = contacts[index];
@@ -154,10 +160,10 @@ function renderContactInfos(index) {
 
 
 /**
- * Function for inner Html contact-edit
+ * Generates the HTML code for the "Edit" link in the contact information.
  * 
- * @param {*} index 
- * @returns 
+ * @param {number} index - The index of the contact in the contacts list.
+ * @returns {string} - The generated HTML code.
  */
 function innerHtmlContactEdit(index) {
     return `
@@ -170,10 +176,10 @@ function innerHtmlContactEdit(index) {
 
 
 /**
- * Function for inner Html contact edit drop
+ * Generates the HTML code for the "Edit" and "Delete" dropdown in the contact editing view.
  * 
- * @param {*} index 
- * @returns 
+ * @param {number} index - The index of the contact in the contacts list.
+ * @returns {string} - The generated HTML code for the dropdown menu.
  */
 function innerHtmlContactEditDrop(index) {
     return `
@@ -189,17 +195,19 @@ function innerHtmlContactEditDrop(index) {
 }
 
 
-/*
-*** function reset the color classes because of the classList.add
-*/
+/**
+ * Resets the colors of the 'initials-info' class by removing all color classes.
+ */
 function resetColor() {
     document.getElementById('initials-info').classList.remove('orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango');
 }
 
 
-/*
-*** function to edit the contact
-*/
+/**
+ * Edits a contact based on the specified index.
+ * 
+ * @param {number} index - The index of the contact to be edited.
+ */
 function editContact(index) {
     let contact = contacts[index];
     editContactChange(contact);
@@ -211,10 +219,11 @@ function editContact(index) {
     saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${index}),wait(wait),closeAndClearModal()">Save<span class="icon-check-new"></span></button>`;
 }
 
+
 /**
- * Function for change content edit contact
+ * Edits the contact information and updates the user profile.
  * 
- * @param {*} contact 
+ * @param {Object} contact - Der Kontakt, der bearbeitet werden soll.
  */
 function editContactChange(contact) {
     document.getElementById('profile-contacts').innerHTML = `${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}`;
@@ -226,9 +235,11 @@ function editContactChange(contact) {
 }
 
 
-/*
-*** function for save the edits on contact
-*/
+/**
+ * Saves edits to a contact.
+ * 
+ * @param {number} index - The index of the contact to be edited.
+ */
 async function saveEdits(index) {
     let inputName = document.getElementById('contacts-name');
     let inputMail = document.getElementById('contacts-mail');
@@ -251,9 +262,11 @@ async function saveEdits(index) {
 }
 
 
-/*
-*** function to delete the contact
-*/
+/**
+ * Deletes a contact from the list based on the specified index.
+ * 
+ * @param {number} index - The index of the contact to be deleted.
+ */
 async function deleteContact(index) {
     contacts.splice(index, 1);
 
@@ -263,9 +276,9 @@ async function deleteContact(index) {
 }
 
 
-/*
-*** function to add a new contact
-*/
+/**
+ * Adds a new contact.
+ */
 async function addContact() {
     let fullName = document.getElementById('contacts-name').value;
     let email = document.getElementById('contacts-mail').value;
@@ -297,7 +310,7 @@ async function addContact() {
 
 
 /**
- * Function for action after success add contact
+ * Displays success messages for adding contacts and hides them after 1.5 seconds.
  */
 function successAddContact() {
     let containers = document.querySelectorAll('.success-container');
@@ -313,6 +326,9 @@ function successAddContact() {
 }
 
 
+/**
+ * Loads the contacts from the API and parses it as JSON.
+ */
 async function loadContacts() {
     try {
         contacts = JSON.parse(await getItem('contacts'));
