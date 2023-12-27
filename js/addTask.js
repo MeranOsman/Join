@@ -1,5 +1,5 @@
 /**
- * Function for render all render functions
+ * Initiates rendering of various components.
  */
 async function initAddtask() {
     await includeHTML();
@@ -14,9 +14,10 @@ async function initAddtask() {
 
 
 /**
- * If you press Enter in the input field, onsubmit is prevented and another function is called
+ * Executes the provided callback function when the Enter key is pressed.
  * 
- * @param {*} event 
+ * @param {Function} callback - The function to be executed when the Enter key is pressed.
+ * @param {Event} event - The keyboard event object representing the key press.
  */
 function pressEnter(callback, event) {
     if (event.keyCode === 13) {
@@ -27,7 +28,9 @@ function pressEnter(callback, event) {
 
 
 /**
- * Function for render contacts and selected Contacts
+ * Asynchronously renders contacts in the 'contactAll' element, clearing existing content,
+ * sorting contacts by names, and appending generated HTML for each contact.
+ * 
  */
 async function renderContacts() {
     let elements = document.getElementById('contactAll');
@@ -44,12 +47,12 @@ async function renderContacts() {
 
 
 /**
- * Function for inner HTML contacts
+ * Function for generating HTML code for a contact.
  * 
- * @param {*} i 
- * @param {*} contact 
- * @param {*} contactId 
- * @returns 
+ * @param {number} i - The index of the contact.
+ * @param {Object} contact - The contact object.
+ * @param {number} contactId - The unique ID of the contact.
+ * @returns {string} The HTML code for the contact.
  */
 function contactsInnerHtml(i, contact, contactId) {
     return /*html*/ `
@@ -65,7 +68,7 @@ function contactsInnerHtml(i, contact, contactId) {
 
 
 /**
- * Function for only render selected Contacts
+ * Asynchronously renders selected contacts.
  */
 async function renderSelectedContacts() {
     let list = document.getElementById('selectedContacts');
@@ -80,10 +83,11 @@ async function renderSelectedContacts() {
 
 
 /**
- * Toggle-function for add or delete contact
+ * Toggles between selected and unselected contact.
  * 
- * @param {*} i 
-*/
+ * @param {number} i - Index of the contact.
+ * @param {string} contactId - The unique ID of the contact.
+ */
 function toggleFunction(i, contactId) {
     let list = document.getElementById(`liContact${i}`);
 
@@ -97,9 +101,9 @@ function toggleFunction(i, contactId) {
 
 
 /**
- * Function to remove contact from the dropdown
+ * Removes a selected contact based on the contact ID.
  * 
- * @param {*} contactId 
+ * @param {number} contactId - The ID of the contact to be removed.
  */
 function spliceSelectedContact(contactId) {
     const indexToRemove = selectedContacts.findIndex(contact => contact.id === contactId);
@@ -112,9 +116,9 @@ function spliceSelectedContact(contactId) {
 
 
 /**
- * Function for changing selected contact in the dropdown
+ * Disables a contact based on the provided contact ID.
  * 
- * @param {*} contactId 
+ * @param {number} contactId - The ID of the contact to be disabled.
  */
 function disableContact(contactId) {
     let indexToDisable = contacts.findIndex(contact => contact.id == contactId);
@@ -132,9 +136,10 @@ function disableContact(contactId) {
 
 
 /**
- * Function for push selected contact to array
+ * Selects a contact and adds it to the list of selected contacts.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the selected contact in the array.
+ * @param {string} contactId - The unique ID of the selected contact.
  */
 function selectContact(i, contactId) {
     let firstNameLowercase = contacts[i]['firstName'];
@@ -156,9 +161,9 @@ function selectContact(i, contactId) {
 
 
 /**
- * Function for change design contact and render selected contacts
+ * Changes the appearance of the contact area and updates the displayed contacts.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the selected contact.
  */
 function changeContact(i) {
     let contactLabel = document.getElementById('contactLabel');
@@ -172,9 +177,9 @@ function changeContact(i) {
 
 
 /**
- * Function for delete selected contact
+ * Deletes the selected contact based on the index.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the selected contact.
  */
 function deleteSelectedContact(i) {
     let contactId = selectedContacts[i]['id'];
@@ -187,9 +192,9 @@ function deleteSelectedContact(i) {
 
 
 /**
- * Toggle-function to change the design when selecting a contact
+ * Activates/Deactivates a contact based on the index.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the contact.
  */
 function activeContact(i) {
     let contact = document.getElementById(`contactCheckbox${i}`);
@@ -202,7 +207,7 @@ function activeContact(i) {
 
 
 /**
- * Filter function for contact list
+ * Searches the contact list for a specific contact based on the entered search term.
  */
 function searchContact() {
     let input = document.getElementById('inputSearch');
@@ -230,14 +235,14 @@ function searchContact() {
 
 
 /**
- * Function for inner HTML search contact
+ * Generates the HTML code for a contact list element based on the provided parameters.
  * 
- * @param {*} i 
- * @param {*} contactId 
- * @param {*} color 
- * @param {*} firstName 
- * @param {*} lastName 
- * @returns 
+ * @param {number} i - The index of the contact in the contact list.
+ * @param {number} contactId - The unique ID of the contact.
+ * @param {string} color - The color code of the contact.
+ * @param {string} firstName - The first name of the contact.
+ * @param {string} lastName - The last name of the contact.
+ * @returns {string} The generated HTML code for the contact list element.
  */
 function searchInnerHtml(i, contactId, color, firstName, lastName) {
     return /*html*/ `
@@ -253,10 +258,10 @@ function searchInnerHtml(i, contactId, color, firstName, lastName) {
 
 
 /**
- * Function to check if the ID are the same to mark the selected contacts
+ * Activates the filter for the contact with the specified ID and activates the contact at the specified position.
  * 
- * @param {*} contactId 
- * @param {*} i 
+ * @param {number} contactId - The ID of the contact to be filtered.
+ * @param {number} i - The position of the contact to be activated.
  */
 function activateFilterContact(contactId, i) {
     let indexToDisable = selectedContacts.findIndex(selectedContact => selectedContact.id == contactId);
@@ -269,9 +274,9 @@ function activateFilterContact(contactId, i) {
 
 
 /**
- * Function opens, closes dropdown menu contacts
+ * Shows or hides the dropdown contact list based on the provided event.
  * 
- * @param {click} event - This is a cursor click
+ * @param {Event} event - The event that triggered the function call.
  */
 function showCloseContacts(event) {
     document.getElementById('dropdownContact').classList.toggle('display-none');
@@ -281,10 +286,12 @@ function showCloseContacts(event) {
 
 
 /**
- * Function for select only one prio and change design from prio-button
+ * Updates the appearance and priority of a button on click.
  * 
- * @param {*} btnId 
- * @param {*} newClass 
+ * @param {string} btnId - The ID of the button.
+ * @param {string} newClass - The new CSS class to be added.
+ * @param {string} prio - The new priority of the button.
+ * @param {string} imgName - The name of the image for the priority.
  */
 function SelectPrioBtn(btnId, newClass, prio, imgName) {
     let btn = document.getElementById(btnId);
@@ -300,7 +307,7 @@ function SelectPrioBtn(btnId, newClass, prio, imgName) {
 
 
 /**
- * Function channge design from prio-buttons
+ * Modifies the appearance of priority buttons and the priority label.
  */
 function changePrioBtn() {
     let requiredBtn = document.querySelectorAll('.requiredBtn');
@@ -319,6 +326,9 @@ function changePrioBtn() {
 }
 
 
+/**
+ * Loads the category from the API and parses it as JSON.
+ */
 async function loadCategory() {
     try {
         category = JSON.parse(await getItem('category'));
@@ -329,7 +339,7 @@ async function loadCategory() {
 
 
 /**
- * Function for render categories
+ * Renders the categories on the webpage by updating the HTML of the categories.
  */
 async function renderCategory() {
     let elements = document.getElementById('categories');
@@ -347,11 +357,11 @@ async function renderCategory() {
 
 
 /**
- * Function for inner HTMl Category
+ * Generates the HTML for a category and returns it.
  * 
- * @param {*} i 
- * @param {*} number 
- * @returns 
+ * @param {number} i - The index of the category in the array.
+ * @param {number} number - The color number of the category.
+ * @returns {string} The generated HTML for the category.
  */
 function innerHtmlCategory(i, number) {
     return /*html*/ `
@@ -369,9 +379,9 @@ function innerHtmlCategory(i, number) {
 
 
 /**
- * Function push category and color-number in array, show selected category and color
+ * Adds the selected category.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the selected category.
  */
 function addSelectedCategory(i) {
     changeSelectedCategory(i);
@@ -386,9 +396,9 @@ function addSelectedCategory(i) {
 
 
 /**
- * Function for change design from selected category
+ * Changes the selected category and updates its associated styling.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the selected category.
  */
 function changeSelectedCategory(i) {
     let selectBox = document.getElementById('selectedCategory');
@@ -408,9 +418,9 @@ function changeSelectedCategory(i) {
 
 
 /**
- * Function opens, closes dropdown menu category
+ * Shows or hides the dropdown category based on the event.
  * 
- * @param {*} event 
+ * @param {Event} event - The triggering event.
  */
 function showCloseCategory(event) {
     document.getElementById('dropdownCategory').classList.toggle('display-none');
@@ -423,7 +433,7 @@ function showCloseCategory(event) {
 
 
 /**
- * Function cancel adding category
+ * Sets the value of the element with the ID 'inputCategory' to an empty string.
  */
 function cancelCategory() {
     document.getElementById('inputCategory').value = '';
@@ -431,10 +441,10 @@ function cancelCategory() {
 
 
 /**
- * Function change selected circle border and push color-number in the first position from array
+ * Selects the color with the specified ID and updates the visual state.
  * 
- * @param {*} id 
- * @param {*} number 
+ * @param {string} id - The ID of the HTML element representing the color.
+ * @param {number} number - The number of the selected color.
  */
 function selectColor(id, number) {
     let color = document.getElementById(id);
@@ -449,9 +459,7 @@ function selectColor(id, number) {
 
 
 /**
- * Function push category with color-number to array
- * 
- * @returns 
+ * Pushes a new category with color number to the array.
  */
 async function addCategory() {
     let colorBar = document.getElementById('color-section');
@@ -476,7 +484,10 @@ async function addCategory() {
 
 
 /**
- * Function delete category
+ * Deletes the category at the specified position and updates the display.
+ * 
+ * @param {Event} event - The triggering event.
+ * @param {number} i - The position of the category to be deleted.
  */
 async function deleteCategory(event, i) {
     category.splice(i, 1);
@@ -488,7 +499,7 @@ async function deleteCategory(event, i) {
 
 
 /**
- * Function for render subtasks
+ * Async function for rendering subtasks, clears the element and resets the input.
  */
 async function renderSubtask() {
     let tasks = document.getElementById('subtasks');
@@ -504,10 +515,10 @@ async function renderSubtask() {
 
 
 /**
- * Function for inner HTML subtasks
+ * Function to generate HTML code for a subtask.
  * 
- * @param {*} i 
- * @returns 
+ * @param {number} i - Index of the subtask.
+ * @returns {string} - HTML code for the subtask.
  */
 function innerHtmlSubtasks(i) {
     return /*html*/ `
@@ -524,9 +535,9 @@ function innerHtmlSubtasks(i) {
 
 
 /**
- * Function edit subtask
+ * Edits a subtask by updating the HTML content.
  * 
- * @param {*} i 
+ * @param {number} i - The index number of the subtask.
  */
 function editSubtask(i) {
     document.getElementById(`listnumber${i}`).innerHTML = /*html*/ `
@@ -543,9 +554,9 @@ function editSubtask(i) {
 
 
 /**
- * Function for add change subtask
+ * Modifies the element at the specified index in the subtasks array with the new value from the 'input-edit' element.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the subtask to be modified.
  */
 function addChange(i) {
     let input = document.getElementById('input-edit');
@@ -558,9 +569,7 @@ function addChange(i) {
 
 
 /**
- * Function push subtask to array
- * 
- * @returns 
+ * Adds a subtask and then renders it.
  */
 function addSubtask() {
     let inputId = document.getElementById('subtask');
@@ -575,9 +584,9 @@ function addSubtask() {
 
 
 /**
- * Function delete subtask
+ * Deletes a subtask from the array based on the index and renders the updated subtasks.
  * 
- * @param {*} i 
+ * @param {number} i - The index of the subtask to be deleted.
  */
 function deleteSubtask(i) {
     subtasks.splice(i, 1);
@@ -587,8 +596,7 @@ function deleteSubtask(i) {
 
 
 /**
- * Function change the input img from subtask
- *  
+ * Changes the image for subtasks.
  */
 function changeSubtaskImg() {
     document.getElementById('imgChange').innerHTML = /*html*/ `
@@ -602,8 +610,7 @@ function changeSubtaskImg() {
 
 
 /**
- * Function cancel adding subtasks
- * 
+ * Cancels the process of adding subtasks by resetting the subtask image and clearing the subtask field.
  */
 function cancelSubtask() {
     document.getElementById('imgChange').innerHTML = '<img onclick="changeSubtaskImg()" src="img/plusAddTask.svg" alt="plus-task">';
@@ -612,9 +619,9 @@ function cancelSubtask() {
 
 
 /**
- * Function for add new task
+ * Creates a new task based on the entered information and saves it.
  * 
- * @param {*} event 
+ * @param {Event} event - The event object that triggered the function call.
  */
 async function createTask(event) {
     event.preventDefault();
@@ -662,7 +669,7 @@ async function createTask(event) {
 
 
 /**
- * Function for action after success add task
+ * Displays success messages for adding a task and redirects to the 'board.html' page after 3 seconds.
  */
 function successAddTask() {
     let containers = document.querySelectorAll('.success-container');
@@ -677,7 +684,7 @@ function successAddTask() {
 
 
 /**
- * Function if not selected prio
+ * This function is called when no priority is selected.
  */
 function notSelectedPrio() {
     let requiredBtn = document.querySelectorAll('.requiredBtn');
@@ -693,7 +700,7 @@ function notSelectedPrio() {
 
 
 /**
- * Function if not selected category
+ * This function is called when no category is selected.
  */
 function notSelectedCategory() {
     let requiredCategory = document.getElementById('selectedColor');
@@ -707,7 +714,7 @@ function notSelectedCategory() {
 
 
 /**
- * Function if not selected contact
+ * This function is called when no contact is selected.
  */
 function notSelectedContacts() {
     let requiredText = document.getElementById('required');
