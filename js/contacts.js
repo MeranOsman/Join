@@ -174,7 +174,6 @@ function innerHtmlContactEdit(index) {
 }
 
 
-
 /**
  * Generates the HTML code for the "Edit" and "Delete" dropdown in the contact editing view.
  * 

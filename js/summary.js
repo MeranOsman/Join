@@ -1,3 +1,6 @@
+/**
+ * Initiates rendering of various components.
+ */
 async function initSummary() {
     await includeHTML();
     await loadUsers();
@@ -9,7 +12,7 @@ async function initSummary() {
 
 
 /**
- * Function for render user name in summary-html
+ * Renders the user name and the first letter of the user name on the page.
  */
 async function renderUserName() {
     userName = document.getElementById('userName');
@@ -28,7 +31,7 @@ async function renderUserName() {
 
 
 /**
- * Function changes greeting according to time and add opacity
+ * Greeting function that displays an appropriate greeting based on the current time of day.
  */
 async function greeting() {
     let name = document.getElementById('welcome');
@@ -46,8 +49,9 @@ async function greeting() {
     name.classList.add('opacity');
 }
 
+
 /**
- * Function for render data in summary-tasks
+ * Renders the data on the interface by displaying the count of tasks in various categories.
  */
 async function renderData() {
     let tasksId = document.getElementById('amountTasks');
@@ -75,10 +79,10 @@ async function renderData() {
 
 
 /**
- * Function to sort the dates by earliest
+ * Finds the earliest date in a list of tasks.
  * 
- * @param {*} tasks 
- * @returns 
+ * @param {Array} tasks - The list of tasks.
+ * @returns {Object} - The task with the earliest date.
  */
 function findEarliestDate(tasks) {
     tasks.sort((a, b) => {
@@ -91,10 +95,10 @@ function findEarliestDate(tasks) {
 
 
 /**
- * Function converts a date string into javascript date object
+ * Converts a date string into a JavaScript Date object.
  * 
- * @param {*} dateString 
- * @returns 
+ * @param {string} dateString - The date string in the "Day/Month/Year" format.
+ * @returns {Date} - The JavaScript Date object.
  */
 function parseDate(dateString) {
     const [day, month, year] = dateString.split('/');
@@ -103,10 +107,10 @@ function parseDate(dateString) {
 
 
 /**
- * Function to display the date in the desired format
+ * Displays the date in the desired format.
  * 
- * @param {*} dateString 
- * @returns 
+ * @param {Date} date - The date object to be formatted.
+ * @returns {string} The formatted date in the desired format.
  */
 function formatDate(dateString) {
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
