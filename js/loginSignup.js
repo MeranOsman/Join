@@ -1,5 +1,5 @@
 /**
- * Function for load user data
+ * Asynchronously loads user data.
  */
 async function loadUsers() {
     try {
@@ -11,7 +11,7 @@ async function loadUsers() {
 
 
 /**
- * Function for login with user data
+ * Validates email and password for login, redirects to 'summary.html' on success.
  */
 function login() {
     let email = document.getElementById('mail');
@@ -20,7 +20,7 @@ function login() {
     let user = users.find(u => u.email == email.value && u.password == password.value);
 
     if (user) {
-       window.location.href ='summary.html';
+        window.location.href = 'summary.html';
     } else {
         email.style.border = '1px solid red';
         password.style.border = '1px solid red';
@@ -28,36 +28,36 @@ function login() {
     }
 }
 
+
 /**
- * Function for guest login
+ * Performs a guest login and redirects to the 'summary.html' page.
  */
 function guestLogin() {
     users.splice(0, users.length);
     setItem('users', JSON.stringify(users));
-    window.location.href='summary.html';
+    window.location.href = 'summary.html';
 }
 
 
-/*
-* Function for changing the checkbox image on click
-* checked and unchecked image
-*/
+/**
+ * Changes the appearance of the checkbox icon for login and sign-up.
+ */
 function checkboxImgChange() {
     let checkboxLogIn = document.getElementById('checkbox');
     let checkboxSignUp = document.getElementById('checkbox-sign-up');
 
-    if(checkboxLogIn){
+    if (checkboxLogIn) {
         checkboxLogIn.classList.toggle('icon-checkbox-active');
     }
 
-    if(checkboxSignUp){
+    if (checkboxSignUp) {
         checkboxSignUp.classList.toggle('icon-checkbox-active');
     }
 }
 
 
 /**
- * Function set the first letter of the name to uppercase and insert the data into the api array
+ * Adds a user, validates data, capitalizes first letter of the name, and inserts into the API array.
  */
 async function addUser() {
     let name = document.getElementById('name-sign-up');
@@ -79,7 +79,7 @@ async function addUser() {
         } else {
             users.push({
                 name: fullName,
-                nameLetters: nameLetters, 
+                nameLetters: nameLetters,
                 email: email.value,
                 password: password.value
             });

@@ -1,5 +1,5 @@
 /**
- * Function for render several render functions
+ * Initiates rendering of various components.
  */
 async function initInfoPages() {
   await includeHTML();
@@ -9,7 +9,7 @@ async function initInfoPages() {
 
 
 /**
- * Function for include templates
+ * Loads HTML templates for elements with the attribute 'w3-include-html' and inserts them.
  */
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -27,7 +27,9 @@ async function includeHTML() {
 
 
 /**
- * Function to open, close menu and prevent an event
+ * Displays or hides the menu.
+ * 
+ * @param {Event} event - The event that triggered the function.
  */
 function showMenu(event) {
   document.getElementById('menuNav').classList.toggle('display-none');
@@ -37,7 +39,7 @@ function showMenu(event) {
 
 
 /**
- * Function should hide dropdown menu when clicked elsewhere
+ * Closes dropdown menus when the user clicks outside the menu area.
  */
 document.addEventListener('click', function (event) {
   let menuIds = ['menuNav', 'dropdownContact', 'dropdownCategory', 'dropContacts'];
@@ -53,12 +55,12 @@ document.addEventListener('click', function (event) {
 
 
 /**
- * Function for render letters from user in header
+ * Renders the user letters on the page.
  */
 async function renderUserLetters() {
   userLetter = document.getElementById('userLetter');
-  userLetter.style.setProperty('color','var(--ci-blue)','important');
-  
+  userLetter.style.setProperty('color', 'var(--ci-blue)', 'important');
+
 
   if (users[0]) {
     userLetter.innerHTML = `${users[0]['nameLetters']}`;
