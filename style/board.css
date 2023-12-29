@@ -276,9 +276,9 @@ input#search-board {
 }
 
 .tasks-heading {
+    color: #42516E;
     font-size: 22px;
     font-weight: 500;
-    color: var(--sidebar-background);
 }
 
 .on-hover img {
