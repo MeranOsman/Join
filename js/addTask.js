@@ -41,7 +41,7 @@ async function renderContacts() {
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactId = contact['id'];
-        elements.innerHTML += contactsInnerHtml(i, contact, contactId);
+        elements.innerHTML += addTaskContactsInnerHtml(i, contact, contactId);
     }
 }
 
@@ -54,7 +54,7 @@ async function renderContacts() {
  * @param {number} contactId - The unique ID of the contact.
  * @returns {string} The HTML code for the contact.
  */
-function contactsInnerHtml(i, contact, contactId) {
+function addTaskContactsInnerHtml(i, contact, contactId) {
     return /*html*/ `
     <li onclick="toggleFunction(${i}, ${contactId})" id="liContact${i}">
         <div class="flex-center gap">
@@ -63,7 +63,7 @@ function contactsInnerHtml(i, contact, contactId) {
         </div>
         <div id="contactCheckbox${i}" class="icon-checkbox"></div>
     </li>
-`;
+    `;
 }
 
 
