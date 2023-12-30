@@ -34,14 +34,6 @@
         font-size: 48px;
     }
 
-    .bg-overlay {
-        background: var(--sidebar-background) !important;
-    }
-
-    .main-logo.animated {
-        content: url(../img/logo-white.svg);
-    }
-
     .flex-row-btn {
         flex-direction: column;
         justify-content: center;

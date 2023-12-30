@@ -848,7 +848,7 @@ header h4 {
 
 .menu-nav {
     justify-content: space-evenly;
-    position: absolute;
+    position: fixed;
     right: 25px;
     top: 100px;
     width: 145px;

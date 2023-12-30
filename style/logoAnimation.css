@@ -4,6 +4,7 @@
     height: 100vh;
     background: var(--summary-background);
     z-index: 999;
+    overflow: hidden;
 }
 
 .bg-overlay img {
