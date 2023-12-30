@@ -1,0 +1,289 @@
+/* login */
+.hrLog {
+    border: none;
+    height: 3px;
+    width: 75%;
+    background-color: var(--summary-h2-color);
+    border-radius: 30px;
+}
+
+.login-bg {
+    min-width: 40vw;
+    min-height: 50vh;
+    background-color: var(--header-bg);
+    gap: 30px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 15px rgba(119, 119, 119, 0.1);
+    padding: 24px 16px;
+}
+
+.login-p {
+    font-size: 20px !important;
+    color: black !important;
+}
+
+.login-bg form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+}
+
+.login {
+    padding: 10px 12px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 50%;
+    height: 24px;
+}
+
+.flex-row-btn {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.icon-mail {
+    background: url(../img/mail.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.icon-lock {
+    background: url(../img/lock.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.icon-call {
+    background: url(../img/call.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.icon-person {
+    background: url(../img/person.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+}
+
+.icon-cross {
+    background: url(../img/cross.svg);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: calc(100% - 10px) 50%;
+    padding-left: 48px;
+}
+
+.icon-check-new {
+    background: url(../img/check-new.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 10px) 50%;
+    padding-left: 40px;
+}
+
+.icon-search {
+    background: url(../img/search.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
+.icon-plus {
+    background: url(../img/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: calc(100% - 16px) 50%;
+    padding-left: 48px;
+}
+
+.icon-edit {
+    background: url(../img/edit.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left: 24px;
+}
+
+.icon-edit:hover {
+    background: url(../img/edit-link.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+}
+
+.icon-edit.text:hover {
+    cursor: pointer;
+    background: url(../img/edit.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left: 24px;
+}
+
+.icon-delete {
+    background: url(../img/delete.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left: 24px;
+}
+
+.icon-delete:hover {
+    background: url(../img/delete-link.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+}
+
+.icon-delete.text:hover {
+    cursor: pointer;
+    background: url(../img/delete.svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    height: 24px;
+    width: 24px;
+    padding-left: 24px;
+}
+
+
+.login::placeholder {
+    color: var(--link-color);
+    font-size: 16px;
+}
+
+.notice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
+.notice span {
+    color: red;
+    font-size: 12px;
+}
+
+.success-container {
+    position: fixed;
+    z-index: 9999;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+}
+
+.success {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: var(--sidebar-background);
+    padding: 24px;
+    color: white;
+    font-size: 24px;
+    border-radius: 28px;
+    width: max-content;
+}
+
+/* sign up */
+.flex-row p {
+    font-size: 21px;
+}
+
+.pos-sign-up {
+    position: absolute;
+    top: 40px;
+    right: 64px;
+}
+
+.btn-sign-up {
+    all: unset;
+    background-color: var(--sidebar-background);
+    border: 1px solid var(--sidebar-background);
+    color: var(--header-bg);
+    font-size: 20px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    height: 32px;
+}
+
+.btn-sign-up:hover {
+    background-color: var(--summary-h2-color);
+    border-color: var(--summary-h2-color);
+    box-shadow: 0 3px 5px rgba(119, 119, 119, 0.9);
+    transition: all 250ms;
+}
+
+.back-to-index {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-to-index:hover {
+    border-radius: 20px;
+    background: #f3f3f3;
+}
+
+/* checkbox */
+.container-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    position: relative;
+    height: 32px;
+    width: 50%;
+}
+
+.container-checkbox-sign-up {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    height: 32px;
+    width: 100%;
+}
+
+.icon-checkbox {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    background: url(../img/uncheck.svg);
+}
+
+.icon-checkbox-active {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    background: url(../img/check.svg);
+}
