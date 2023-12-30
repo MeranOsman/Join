@@ -1,0 +1,246 @@
+@media screen and (max-width: 1200px) {
+    .login {
+        width: 75%;
+    }
+
+    .container-checkbox {
+        width: 70%;
+    }
+
+    .login-bg {
+        width: 470px;
+        min-height: 50vh;
+    }
+
+    .pos-logo img {
+        height: 70px !important;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .flex-row {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .flex-row p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    .bg-overlay {
+        background: var(--sidebar-background) !important;
+    }
+
+    .main-logo.animated {
+        content: url(../img/logo-white.svg);
+    }
+
+    .flex-row-btn {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .pos-bottom {
+        bottom: 8px;
+        gap: 35px;
+    }
+
+    .pos-sign-up {
+        display: none !important;
+    }
+
+    .bottom-distance {
+        bottom: 28px !important;
+    }
+
+    .login-bg {
+        width: 80vw
+    }
+
+    .btn-login {
+        margin: 0;
+        width: 200px;
+    }
+
+    .btn-guest {
+        width: 200px;
+    }
+
+    .media-hide {
+        display: flex !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .headline-board {
+        font-size: 26px;
+    }
+
+    .back-to-index {
+        left: 7px;
+        top: 17px;
+    }
+
+    .login {
+        width: 85%;
+    }
+
+    .btn-login,
+    .btn-guest,
+    .btn-clear {
+        font-size: 16px !important;
+        width: 140px;
+    }
+
+    .btn-login {
+        padding: 14px 10px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .sideboard {
+        width: 175px;
+    }
+
+    .content-size {
+        margin: 90px 0 0 175px;
+        height: calc(100vh - 90px);
+        width: calc(100vw - 175px);
+    }
+
+    .header {
+        width: calc(100% - 175px);
+        margin-left: 175px;
+        height: 90px;
+    }
+
+    .menu-nav {
+        top: 90px
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .sideboard {
+        width: 150px;
+    }
+
+    .modal-inner.modal {
+        left: 150px !important;
+        width: calc(100% - 150px) !important;
+    }
+
+    .content-size {
+        margin: 90px 0 0 150px;
+        height: calc(100vh - 90px);
+        width: calc(100vw - 150px);
+    }
+
+    .header {
+        width: calc(100% - 150px);
+        margin-left: 150px;
+        height: 90px;
+    }
+
+    .header-right {
+        margin-right: 16px;
+        gap: 6px;
+    }
+
+    header h4 {
+        margin-left: 4%;
+        font-size: 18px;
+    }
+
+    .menu-nav {
+        right: 4px;
+    }
+
+    .distance {
+        padding: 16px 40px;
+    }
+
+    .return {
+        top: 110px;
+        right: 20px;
+        background: white;
+        border-radius: 50%;
+        padding: 6px 6px 4px 6px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .sideboard {
+        display: none;
+    }
+
+    .sideboard-bottom {
+        display: initial;
+    }
+
+    .success {
+        font-size: 21px;
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .content-size {
+        margin: 80px 0;
+        width: 100vw;
+        height: calc(100vh - 160px);
+    }
+
+    .header {
+        margin: 0;
+        width: 100vw;
+        height: 80px;
+    }
+
+    .menu-nav {
+        top: 80px;
+    }
+
+    header h4 {
+        font-size: 16px;
+        margin-right: 16px;
+    }
+
+    .header-right span {
+        width: 20px;
+        font-size: 18px;
+    }
+
+    .distance {
+        padding: 16px 20px 95px 20px;
+    }
+
+    .header-logo {
+        display: initial;
+        margin-left: 16px;
+    }
+
+    .add-task {
+        width: 100% !important;
+    }
+
+    .privacy h1,
+    .legal h1,
+    .help h1 {
+        line-height: normal;
+        margin-top: 14px;
+        margin-right: 42px;
+        margin: 10px 42px 48px 0;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .sideboard-bottom a {
+        padding: 7px 0;
+    }
+}

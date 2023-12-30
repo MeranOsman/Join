@@ -1,0 +1,164 @@
+@media screen and (max-width: 1250px) {
+    .low-btn {
+        background-position: calc(100% - 25%) 50%;
+    }
+
+    .medium-btn {
+        background-position: calc(100% - 10%) 50%;
+    }
+
+    .add-category {
+        right: 1px;
+        width: 80px;
+    }
+
+    .urgent-btn {
+        background-position: calc(100% - 13%) 50%;
+    }
+
+    .add-task {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section {
+        padding: 0;
+        border: 0;
+        width: 90%;
+    }
+
+    .right-section {
+        padding: 0;
+        width: 90%;
+    }
+
+    .content-size {
+        overflow: hidden auto;
+    }
+
+    .add-task h1 {
+        text-align: center;
+    }
+
+    .lower-area {
+        width: 90%;
+        margin: 160px auto 0 auto;
+    }
+
+    .btn-addTask {
+        gap: 8px;
+    }
+
+    .required {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .lower-area {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .btn-addTask {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media (max-width: 610px) {
+    .input-category::placeholder {
+        font-size: 19px;
+    }
+
+    .add-category {
+        right: 1px;
+        width: 80px;
+    }
+
+    .input-category {
+        font-size: 19px;
+    }
+
+    .sideboard-bottom {
+        z-index: 10;
+    }
+
+    .lower-area {
+        padding-bottom: 105px;
+
+    }
+
+    .contacts {
+        font-size: 19px;
+    }
+
+    .dropdown-category span {
+        font-size: 19px;
+    }
+
+    input::-webkit-datetime-edit {
+        font-size: 19px;
+    }
+
+    input::placeholder {
+        font-size: 19px;
+    }
+
+    #description::placeholder {
+        font-size: 19px;
+    }
+
+    .select {
+        font-size: 19px;
+    }
+
+    .add-task h1 {
+        padding-top: 64px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .prio {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 32px;
+        gap: 10px;
+    }
+
+    .success-newTask {
+        font-size: 21px;
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .success-newTask img {
+        width: 24px;
+    }
+
+    .input-category::placeholder {
+        font-size: 16px;
+    }
+
+    .input-category {
+        padding: 12px 80px 12px 12px;
+    }
+
+    .prio button {
+        width: 80%;
+        margin: 0;
+    }
+
+    .urgent-btn,
+    .medium-btn,
+    .low-btn {
+        background-position: calc(100% - 20%) 50%;
+    }
+}

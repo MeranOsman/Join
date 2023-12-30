@@ -1,0 +1,154 @@
+@media screen and (max-width: 1450px) {
+    .summary-container {
+        width: 45.5%;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .distance-summary {
+        padding: 0px 40px 16px 40px;
+    }
+
+    .summary-container {
+        width: 44.5%;
+    }
+
+    .welcome h2 {
+        font-size: 30px;
+    }
+
+    .name {
+        font-size: 38px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .welcome h2 {
+        font-size: 32px;
+    }
+
+    .welcome {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    #summary-responsive {
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+
+    .welcome {
+        flex-direction: row;
+        align-items: center;
+        margin: 38px 0 26px 0;
+        gap: 6px;
+    }
+
+    .summary-section {
+        margin-right: 0;
+        align-content: center;
+    }
+
+    .name {
+        margin: 0;
+        font-size: 30px;
+    }
+
+    .distance-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 35px 16px 35px;
+        ;
+    }
+
+    .blue-line {
+        display: none;
+    }
+
+    .summary-h2 {
+        font-size: 24px;
+    }
+
+    #responsive-headline {
+        border-bottom: 4px solid var(--summary-h2-color);
+        margin-top: 10px;
+    }
+
+    .welcome h2 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    #responsive-headline {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .summary-h2 {
+        margin: 0 0 12px 0;
+        font-size: 22px;
+    }
+
+    .welcome h2 {
+        font-size: 22px;
+    }
+
+    .name {
+        font-size: 26px;
+    }
+
+    .summary-flex-row {
+        width: 100%;
+    }
+
+    #responsive-headline h1 {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .summary-container,
+    .medium-container {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #summary-pencil,
+    #summary-checkmark,
+    .medium-container img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .counts-sum {
+        font-size: 40px;
+    }
+
+    .summary-container {
+        padding: 0 5px;
+    }
+
+    .medium-container {
+        padding: 8px;
+    }
+
+    .summary-section h3 {
+        font-size: 18px;
+    }
+
+    .summary-section span {
+        font-size: 16px;
+    }
+
+    .welcome {
+        flex-direction: column;
+        margin: 18px 0 40px 0;
+        gap: 2px;
+    }
+}
