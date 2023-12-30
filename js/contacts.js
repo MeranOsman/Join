@@ -302,26 +302,41 @@ async function addContact() {
     contacts.push(newContact);
     await setItem('contacts', JSON.stringify(contacts));
     renderContactList();
-    renderContactInfos(0);
     closeAndClearModal();
-    successAddContact();
+    successAddContact(id);
 }
 
 
 /**
  * Displays success messages for adding contacts and hides them after 1.5 seconds.
  */
-function successAddContact() {
+function successAddContact(id) {
     let containers = document.querySelectorAll('.success-container');
 
     containers.forEach(container => {
         container.classList.remove('display-none');
     });
+    showAddedContact(id);
     setTimeout(function () {
         containers.forEach(container => {
             container.classList.add('display-none');
         });
     }, 1500);
+}
+
+
+/**
+ * Displays the added contact information.
+ * 
+ * @param {number} id - The ID of the added contact.
+ */
+function showAddedContact(id) {
+    let newId = contacts.findIndex(contact => contact.id === id);
+
+    addZindex('addContact-btn');
+    removeHide('contacts-modal-info');
+    addHide('contacts-bg');
+    renderContactInfos(newId);
 }
 
 
