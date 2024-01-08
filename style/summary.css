@@ -62,11 +62,21 @@ p {
     margin: 0;
 }
 
+#summary-responsive {
+    width: 1780px;
+    margin: auto;
+    margin-top: 32px;
+}
+
+#responsive-headline {
+    margin-top: 18px;
+}
+
 .summary-flex-row {
     gap: 12px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 

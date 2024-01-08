@@ -1,3 +1,10 @@
+@media screen and (max-width: 2000px) {
+    .add-task {
+        width: 80%;
+    }
+}
+
+
 @media screen and (max-width: 1250px) {
     .low-btn {
         background-position: calc(100% - 25%) 50%;
@@ -48,7 +55,7 @@
 
     .lower-area {
         width: 90%;
-        margin: 160px auto 0 auto;
+        margin: 56px auto 0 auto;
     }
 
     .btn-addTask {
@@ -141,10 +148,6 @@
 
     .success-newTask img {
         width: 24px;
-    }
-
-    .input-category::placeholder {
-        font-size: 16px;
     }
 
     .input-category {

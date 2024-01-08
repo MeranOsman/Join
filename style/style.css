@@ -86,6 +86,10 @@ input::-webkit-datetime-edit {
     display: block !important;
 }
 
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
 .media-show-icons {
     display: block;
 }
@@ -223,13 +227,6 @@ input::-webkit-datetime-edit {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-
-.absolute {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .flex-column {

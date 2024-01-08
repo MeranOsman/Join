@@ -1,3 +1,11 @@
+@media screen and (max-width: 2000px) {
+    .add-task-modal-inner-edit {
+        width: 28%;
+        padding: 0;
+    }
+}
+
+
 @media screen and (max-width: 1440px) {
     .flex-flow {
         flex-direction: column;
@@ -110,8 +118,8 @@
 
     .btn-board {
         position: absolute;
-        top: 134px;
-        right: 30px;
+        top: 125px;
+        right: 42px;
         padding: 0 !important;
         min-width: 44px !important;
         min-height: 40px !important;
@@ -151,7 +159,7 @@
     }
 
     .task-container-card {
-        padding: 24px 24px 64px 24px;
+        padding: 24px;
         width: 85%;
     }
 
@@ -185,8 +193,7 @@
     }
 
     .btn-board {
-        top: 120px !important;
-        right: 32px;
+        right: 16px;
     }
 
     .flex-btw-board {
@@ -211,7 +218,7 @@
 
     .task-container-card {
         width: 95%;
-        padding: 16px 10px 32px 10px;
+        padding: 16px;
     }
 
     .add-task-modal-inner-edit {

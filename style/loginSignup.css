@@ -8,7 +8,7 @@
 }
 
 .login-bg {
-    min-width: 40vw;
+    width: 800px;
     min-height: 50vh;
     background-color: var(--header-bg);
     gap: 30px;
@@ -18,7 +18,7 @@
 }
 
 .login-p {
-    font-size: 20px !important;
+    font-size: 20px;
     color: black !important;
 }
 
@@ -162,10 +162,16 @@
     padding-left: 24px;
 }
 
-
 .login::placeholder {
     color: var(--link-color);
     font-size: 16px;
+}
+
+.position-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .notice {
@@ -207,13 +213,22 @@
 
 /* sign up */
 .flex-row p {
-    font-size: 21px;
+    font-size: 20px;
+    margin: 0;
+    font-weight: 300;
 }
 
 .pos-sign-up {
     position: absolute;
-    top: 40px;
+    top: 32px;
     right: 64px;
+}
+
+.absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .btn-sign-up {

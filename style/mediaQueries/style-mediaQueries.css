@@ -1,3 +1,10 @@
+@media screen and (max-width: 2100px) {
+    .login-bg {
+        width: 40vw;
+    }
+}
+
+
 @media screen and (max-width: 1200px) {
     .login {
         width: 75%;
@@ -13,8 +20,26 @@
     }
 
     .pos-logo img {
-        height: 70px !important;
-        width: auto;
+        height: 70px;
+    }
+
+    @keyframes main-logo-animation {
+        0% {
+            height: 320px;
+            width: auto;
+        }
+
+        100% {
+            height: 70px;
+            width: auto;
+            left: 64px;
+            top: 32px;
+            transform: translateY(0);
+        }
+    }
+
+    .bg-overlay img {
+        padding: 0;
     }
 }
 
@@ -22,10 +47,6 @@
     .flex-row {
         justify-content: center;
         padding: 0;
-    }
-
-    .flex-row p {
-        font-size: 16px;
     }
 }
 
@@ -40,8 +61,7 @@
     }
 
     .pos-bottom {
-        bottom: 8px;
-        gap: 35px;
+        bottom: 0px;
     }
 
     .pos-sign-up {
@@ -67,32 +87,6 @@
 
     .media-hide {
         display: flex !important;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .headline-board {
-        font-size: 26px;
-    }
-
-    .back-to-index {
-        left: 7px;
-        top: 17px;
-    }
-
-    .login {
-        width: 85%;
-    }
-
-    .btn-login,
-    .btn-guest,
-    .btn-clear {
-        font-size: 16px !important;
-        width: 140px;
-    }
-
-    .btn-login {
-        padding: 14px 10px;
     }
 }
 
@@ -228,6 +222,69 @@
         margin-top: 14px;
         margin-right: 42px;
         margin: 10px 42px 48px 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .headline-board {
+        font-size: 26px;
+    }
+
+    .pos-logo {
+        left: 32px;
+        top: 14px;
+    }
+
+    .pos-logo img {
+        height: 60px;
+    }
+
+    @keyframes main-logo-animation {
+        0% {
+            height: 320px;
+            width: auto;
+        }
+
+        100% {
+            height: 60px;
+            width: auto;
+            left: 32px;
+            top: 14px;
+            transform: translateY(0);
+        }
+    }
+
+    .login-bg form {
+        gap: 16px;
+    }
+
+    .position-container {
+        top: 47%;
+    }
+
+    .login-bg {
+        padding-top: 0;
+        padding-bottom: 20px;
+    }
+
+    .back-to-index {
+        left: 7px;
+        top: 17px;
+    }
+
+    .login {
+        width: 85%;
+    }
+
+    .btn-login,
+    .btn-guest,
+    .btn-clear {
+        font-size: 16px !important;
+        width: 140px;
+    }
+
+    .btn-login {
+        padding: 14px 10px;
     }
 }
 

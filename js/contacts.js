@@ -150,8 +150,8 @@ function renderContactInfos(index) {
     contactInitials.innerHTML = `${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}`;
     contactInitials.classList.add(`${contact['color']}`);
     contactName.innerHTML = `${contact['firstName']} ${contact['lastName']}`;
-    contactMail.innerHTML = `${contact['email']}`;
-    contactPhone.innerHTML = `${contact['phone']}`;
+    contactMail.innerHTML = `<a href="mailto:${contact['email']}">${contact['email']}</a>`;
+    contactPhone.innerHTML = `<a href="tel:${contact['phone']}">${contact['phone']}</a>`;
 
     edit.innerHTML = innerHtmlContactEdit(index)
     del.innerHTML = `<div class="icon-delete" onclick="deleteContact(${index})">Delete</div>`

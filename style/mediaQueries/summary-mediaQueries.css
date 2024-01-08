@@ -1,3 +1,14 @@
+@media screen and (max-width: 2100px) {
+    #summary-responsive {
+        width: 100%;
+    }
+
+    .summary-flex-row {
+        justify-content: flex-start;
+    }
+}
+
+
 @media screen and (max-width: 1450px) {
     .summary-container {
         width: 45.5%;
@@ -112,6 +123,7 @@
 }
 
 @media screen and (max-width: 570px) {
+
     .summary-container,
     .medium-container {
         height: 100px;
@@ -119,11 +131,16 @@
 }
 
 @media screen and (max-width: 420px) {
+
     #summary-pencil,
     #summary-checkmark,
     .medium-container img {
         width: 56px;
         height: 56px;
+    }
+
+    #summary-responsive {
+        margin-bottom: 70px;
     }
 
     .counts-sum {
