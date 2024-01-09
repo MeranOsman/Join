@@ -272,7 +272,6 @@ function activateFilterContact(contactId, i) {
 }
 
 
-
 /**
  * Shows or hides the dropdown contact list based on the provided event.
  * 
@@ -550,6 +549,18 @@ function editSubtask(i) {
         </div>
     </div>        
     `;
+
+    subtaskValue(i);
+}
+
+
+/**
+ * Sets the value of the editing input field to the value of the subtask with the specified index.
+ * 
+ * @param {number} i - The index of the subtask.
+ */
+function subtaskValue(i) {
+    document.getElementById('input-edit').value = `${subtasks[i]}`;
 }
 
 
@@ -623,7 +634,7 @@ function cancelSubtask() {
  * 
  * @param {Event} event - The event object that triggered the function call.
  */
-async function createTask(event) {
+async function createTask(event, sort) {
     event.preventDefault();
 
     let titelValue = document.getElementById('title').value.trim();
@@ -640,7 +651,7 @@ async function createTask(event) {
     if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
         tasks.push({
             id: (new Date().getTime()),
-            sort: 'toDo',
+            sort: sort,
             title: titel,
             description: description,
             contacts: contactFullname,

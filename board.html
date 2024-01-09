@@ -13,7 +13,9 @@
     <script src="js/loginSignup.js"></script>
     <script src="js/main.js"></script>
     <script src="js/addTask.js"></script>
+    <script src="js/renderAddTask.js"></script>
     <script src="js/board.js"></script>
+    <script src="js/renderBoard.js"></script>
     <script src="js/contacts.js"></script>
     <script src="js/modalAnimation.js"></script>
 
@@ -54,7 +56,7 @@
             <input oninput="searchTask()" id="search-board" required type="text" placeholder="Find Task"
                 class="login icon-search">
             <button onclick="showModal('add-task-board','addTask-inner-modal'),
-                            removeHide('close-btn-addTask'); customizeAddtask()"
+                            removeHide('close-btn-addTask'); customizeAddtask('toDo')"
                 class="btn-board margin-l-s media-show board">Add
                 Task<span class="icon-plus"></span>
             </button>
@@ -71,7 +73,7 @@
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">To Do</p><img
-                        onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'); customizeAddtask()"
+                        onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'); customizeAddtask('toDo')"
                         src="img/add-btn.svg" />
                 </div>
                 <div id="toDo" ondrop="moveTo('toDo')" ondragleave="removeHighlight('toDo'), noRotate('toDo')"
@@ -81,7 +83,7 @@
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">In Progress</p><img
-                        onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'), customizeAddtask()"
+                        onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'); customizeAddtask('inProgress')"
                         src="img/add-btn.svg" />
                 </div>
                 <div id="inProgress" ondrop="moveTo('inProgress')"
@@ -94,7 +96,7 @@
             <div class="flex-column-board">
                 <div class="flex-btw-board on-hover">
                     <p class="tasks-heading">Await Feedback</p><img
-                        onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'), customizeAddtask()"
+                        onclick="showModal('add-task-board','addTask-inner-modal'), removeHide('close-btn-addTask'); customizeAddtask('feedback')"
                         src="img/add-btn.svg" />
                 </div>
                 <div id="feedback" ondrop="moveTo('feedback')"

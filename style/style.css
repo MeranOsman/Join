@@ -272,6 +272,10 @@ input::-webkit-datetime-edit {
     gap: 32px;
 }
 
+.link-bfdi {
+    word-wrap: break-word;
+}
+
 .pos-logo {
     position: absolute;
     top: 32px;

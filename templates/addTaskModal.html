@@ -2,7 +2,7 @@
     <h1 id="edit-heading">Add Task</h1>
     <div id="close-btn-addTask" onclick="closeModal('add-task-board','addTask-inner-modal'); initBoard(); resetEdits()"
         class="close-task-pop pos hide">X</div>
-    <form id="addTaskForm" onsubmit="createTask(event);">
+    <form id="addTaskForm" onsubmit="createTask(event, 'toDo');">
         <div id="flex-edit" class="flex">
             <div id="edit-section-l" class="left-section flex-column-start">
                 <div id="close-btn-addTask-edit"

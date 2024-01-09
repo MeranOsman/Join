@@ -259,6 +259,15 @@ li {
     height: 60px;
 }
 
+.contact-desktop-edit {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+    margin: 0;
+    margin-top: 18px;
+}
+
 .heading-contacts {
     font-size: 50px;
     font-weight: 900;

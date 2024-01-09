@@ -118,7 +118,7 @@
     .contacts-section {
         width: 50%;
         height: calc(100vh - 90px);
-        padding: 0;
+        padding: 0 0 32px 0;
     }
 
     .btn-guest {
@@ -170,7 +170,7 @@
 
     .contacts-section {
         width: 100%;
-        padding: 0;
+        padding-bottom: 145px;
     }
 
     .media-pos {
@@ -271,6 +271,7 @@
 @media screen and (max-width: 570px) {
     .contacts-section {
         height: calc(100vh - 166px);
+        padding: 0;
     }
 
     .flex-col-contacts-inner {

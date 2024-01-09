@@ -189,7 +189,7 @@ function innerHtmlContactEditDrop(index) {
                                             editContact(${index})">Edit</div>
     </div>
     <div class="bg-color snd flex-center">
-        <div class="icon-delete text" onclick="deleteContact(${index})">Delete</div>
+        <div class="icon-delete text" onclick="deleteContact(${index}); addHide('dropContacts')">Delete</div>
     </div>`;
 }
 
@@ -215,7 +215,7 @@ function editContact(index) {
     let saveContact = document.getElementById('save-btn');
 
     deleteContact.innerHTML = `<button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal(),resetColorModal('profile-contacts'),deleteContact(${index})">Delete</button>`;
-    saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${index}),wait(wait),closeAndClearModal()">Save<span class="icon-check-new"></span></button>`;
+    saveContact.innerHTML = `<button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${index}), closeAndClearModal()">Save<span class="icon-check-new"></span></button>`;
 }
 
 
@@ -272,6 +272,7 @@ async function deleteContact(index) {
     await setItem('contacts', JSON.stringify(contacts));
     renderContactInfos(0);
     renderContactList();
+    window.location.href = 'contacts.html';
 }
 
 

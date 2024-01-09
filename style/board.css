@@ -237,8 +237,8 @@ input#search-board {
 }
 
 .contact-icons-task {
-    height: 32px;
-    width: 32px;
+    min-height: 32px;
+    min-width: 32px;
     border-radius: 50%;
     border: solid 1px #fff;
     display: flex;
@@ -253,6 +253,21 @@ input#search-board {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: nowrap;
+    overflow: auto;
+    width: 80%;
+    padding-bottom: 6px;
+}
+
+.flex-icons-task::-webkit-scrollbar {
+    max-width: 6px;
+    max-height: 1.5px;
+}
+
+.flex-icons-task::-webkit-scrollbar-thumb {
+    background-color: var(--summary-h2-color);
+    border-radius: 6px;
+    max-height: 2px;
 }
 
 .tasks-card-empty {
@@ -385,7 +400,6 @@ input#search-board {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    max-height: 215px;
 }
 
 .pop-task-description {

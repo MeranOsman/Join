@@ -1,7 +1,16 @@
-// login / sign up
+/**
+ * Array for storing user data and other information.
+ * 
+ * @type {Array}
+ */
 let users = [];
 
-// summary
+
+/**
+ * Array containing a summary with information about various tasks.
+ * 
+ * @type {Array}
+ */
 let summary = [{
     tasks: 5,
     toDo: 1,
@@ -12,7 +21,12 @@ let summary = [{
     deadline: '19/07/2023'
 }];
 
-// add task
+
+/**
+ * Arrays for the creation of a task.
+ * 
+ * @type {Array}
+ */
 let selectedContacts = [];
 let subtasks = [];
 let category = [{
@@ -27,7 +41,12 @@ let selectedCategory = [];
 let selectedColor = [];
 let priority = [];
 
-//board
+
+/**
+ * Arrays for the created tasks.
+ * 
+ * @type {Array}
+ */
 let currentDraggedElement;
 let subtaskStatus = {};
 let tasks = [
@@ -105,7 +124,12 @@ let tasks = [
     }
 ];
 
-//contacts
+
+/**
+ * Arrays for contacts.
+ * 
+ * @type {Array}
+ */
 let bgColors = ['orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango'];
 let contacts = [
     {

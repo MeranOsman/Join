@@ -283,6 +283,10 @@
         width: 140px;
     }
 
+    .privacy h2 {
+        font-size: 22px;
+    }
+
     .btn-login {
         padding: 14px 10px;
     }
