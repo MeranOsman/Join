@@ -21,6 +21,8 @@ function updateCategory(categoryId, categoryType) {
                 progressBar(element, progressBarId);
             } catch (error) {
             }
+
+            dropdownContent(element);
         }
     }
 }
@@ -58,9 +60,12 @@ function renderTasks(element, progressBarId) {
  * @returns {string} - The HTML representation of the task.
  */
 function innerHtmlTasks(element, subtasksHtml) {
-    return `
+    return /*html*/ `
     <div id="task-${element['id']}" onclick="taskInfo(${element['id']}), clearAndCloseTaskEdit()" class="tasks-card" draggable="true" ondragstart="startDragging(${element['id']})">
-        <p class="task-card-heading upper-text ${element.categoryCol}">${element.category}</p>
+        <div class="task-header">
+            <p class="task-card-heading upper-text ${element.categoryCol}">${element.category}</p>
+            <img onclick="showMenu(event, 'moveTask-${element['id']}')" src="img/exchange.png">
+        </div>
         <p class="task-card-title">${element.title}</p>
         <p class="task-card-note">${truncateText(element.description, 40)}</p>
         ${subtasksHtml}
@@ -73,7 +78,95 @@ function innerHtmlTasks(element, subtasksHtml) {
             </div>
             <img src="img/prio${element.prio.charAt(0).toUpperCase() + element.prio.slice(1)}.svg" />
         </div>
-    </div>`;
+
+        <nav onclick="dropdownClick(event)" id="moveTask-${element['id']}" class="move-task display-none">
+
+        </nav>
+    </div>
+    `;
+}
+
+
+/**
+ * Modifies the content of a dropdown menu based on the provided element.
+ * 
+ * @param {Object} element - The element whose properties are used to generate the dropdown content.
+ */
+function dropdownContent(element) {
+    let dropdownId = document.getElementById(`moveTask-${element['id']}`)
+    if (element['sort'] == 'toDo') {
+        dropdownId.innerHTML = innerHtmlToDo(element);
+    } else if (element['sort'] == 'inProgress') {
+        dropdownId.innerHTML = innerHtmlInProgress(element);
+    } else if (element['sort'] == 'feedback') {
+        dropdownId.innerHTML = innerHtmlAwaitFeedback(element);
+    } else if (element['sort'] == 'done') {
+        dropdownId.innerHTML = innerHtmlDone(element);
+    }
+}
+
+
+/**
+ * Generates the HTML content for the dropdown menu when the element is in the "To-Do" state.
+ * 
+ * @param {Object} element - The element for which the HTML content is generated.
+ * @returns {string} The generated HTML content for the dropdown menu in the "To-Do" state.
+ */
+function innerHtmlToDo(element) {
+    return `
+    <h3>Move to:</h3>
+    <span onclick="startDragging(${element['id']}); moveTo('inProgress')">In Progress</span>
+    <span onclick="startDragging(${element['id']}); moveTo('feedback')">Await Feedback</span>
+    <span onclick="startDragging(${element['id']}); moveTo('done')">Done</span>
+    `;
+}
+
+
+/**
+ * Generates the HTML content for a dropdown menu in the "In Progress" state.
+ * 
+ * @param {Object} element - The element for which the HTML content is generated.
+ * @returns {string} The generated HTML content.
+ */
+function innerHtmlInProgress(element) {
+    return `
+    <h3>Move to:</h3>
+    <span onclick="startDragging(${element['id']}); moveTo('toDo')">To Do</span>
+    <span onclick="startDragging(${element['id']}); moveTo('feedback')">Await Feedback</span>
+    <span onclick="startDragging(${element['id']}); moveTo('done')">Done</span>
+    `;
+}
+
+
+/**
+ * Generates the HTML content for a dropdown menu in the "Awaiting Feedback" status based on the provided element.
+ * 
+ * @param {Object} element - The element whose properties are used for generating the HTML content.
+ * @returns {string} - The generated HTML content for the dropdown menu.
+ */
+function innerHtmlAwaitFeedback(element) {
+    return `
+    <h3>Move to:</h3>
+    <span onclick="startDragging(${element['id']}); moveTo('toDo')">To Do</span>
+    <span onclick="startDragging(${element['id']}); moveTo('inProgress')">In Progress</span>
+    <span onclick="startDragging(${element['id']}); moveTo('done')">Done</span>
+    `;
+}
+
+
+/**
+ * Generates the HTML content for the dropdown menu when an element is in the "Done" state.
+ * 
+ * @param {Object} element - The element for which the HTML content is generated.
+ * @returns {string} The generated HTML content for the dropdown menu.
+ */
+function innerHtmlDone(element) {
+    return `
+    <h3>Move to:</h3>
+    <span onclick="startDragging(${element['id']}); moveTo('toDo')">To Do</span>
+    <span onclick="startDragging(${element['id']}); moveTo('inProgress')">In Progress</span>
+    <span onclick="startDragging(${element['id']}); moveTo('feedback')">Await Feedback</span>
+    `;
 }
 
 

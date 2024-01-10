@@ -11,6 +11,10 @@
         flex-direction: column;
     }
 
+    .task-header img {
+        opacity: 1;
+    }
+
     .task-container-card {
         width: 45%;
     }

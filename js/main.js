@@ -30,9 +30,10 @@ async function includeHTML() {
  * Displays or hides the menu.
  * 
  * @param {Event} event - The event that triggered the function.
+ * @param {string} id - The ID of the container.
  */
-function showMenu(event) {
-  document.getElementById('menuNav').classList.toggle('display-none');
+function showMenu(event, id) {
+  document.getElementById(id).classList.toggle('display-none');
 
   event.stopPropagation();
 }
@@ -43,6 +44,10 @@ function showMenu(event) {
  */
 document.addEventListener('click', function (event) {
   let menuIds = ['menuNav', 'dropdownContact', 'dropdownCategory', 'dropContacts'];
+
+  for (let i = 0; i < tasks.length; i++) {
+    menuIds.push(`moveTask-${tasks[i].id}`);
+  }
 
   for (let i = 0; i < menuIds.length; i++) {
     let currentMenu = document.getElementById(menuIds[i]);

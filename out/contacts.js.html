@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: contacts.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: contacts.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Initiates rendering of various components.
+ */
+async function initContacts() {
+    await loadContacts();
+    await includeHTML();
+    await loadUsers();
+    await renderUserLetters();
+    await renderContactList();
+}
+
+
+/**
+ * Shows or hides the dropdown menu based on its current state.
+ * 
+ * @param {Event} event - The event that triggered this function.
+ */
+function showDropdown(event) {
+    let dropdown = document.getElementById('dropContacts');
+    dropdown.classList.toggle('display-none');
+
+    event.stopPropagation();
+}
+
+
+/**
+ * Changes the text content of HTML elements with the specified IDs.
+ * 
+ * @param {string} id1 - Die ID des ersten HTML-Elements.
+ * @param {*} {string} id2 - Die ID des zweiten HTML-Elements.
+ */
+function changeText(id1, id2) {
+    document.getElementById(id1).innerHTML = 'Edit Contact';
+    document.getElementById(id2).innerHTML = '';
+}
+
+
+/**
+ * Changes the text on a contact modal.
+ * 
+ * @param {string} id1 - The ID of the first HTML element.
+ * @param {*} {string} id2 - The ID of the second HTML element.
+ */
+function changeTextAddContact(id1, id2) {
+    document.getElementById(id1).innerHTML = 'Add contact';
+    document.getElementById(id2).innerHTML = 'Tasks are better with a team!';
+}
+
+
+/**
+ * Closes the modal and clears the input fields.
+ */
+function closeAndClearModal() {
+    closeModal('contacts-modal', 'modal-inner');
+    document.getElementById('contacts-name').value = '';
+    document.getElementById('contacts-mail').value = '';
+    document.getElementById('contacts-phone').value = '';
+}
+
+
+/**
+ * Clears the input fields in the modal.
+ */
+function clearModal() {
+    document.getElementById('contacts-name').value = '';
+    document.getElementById('contacts-mail').value = '';
+    document.getElementById('contacts-phone').value = '';
+}
+
+
+/**
+ * Renders the sorted and grouped contact list on the web page.
+ */
+async function renderContactList() {
+    let cList = document.getElementById('contacts-list');
+    cList.innerHTML = '';
+
+    let currentInitial = '';
+    sortNames();
+    for (let i = 0; i &lt; contacts.length; i++) {
+        let contact = contacts[i];
+        let contactInitial = contact['firstName'].charAt(0).toUpperCase();
+
+        if (contactInitial !== currentInitial) {
+            currentInitial = contactInitial;
+            cList.innerHTML += `&lt;div class="margin-t">&lt;span>${currentInitial}&lt;/span>&lt;div class="underline">&lt;/div>&lt;/div>`;
+        }
+        cList.innerHTML += contactsInnerHtml(i, contact);
+    }
+}
+
+
+/**
+ * Generates the HTML content for an individual contact in the contact list.
+ * 
+ * @param {number} i - The index of the contact.
+ * @param {Object} contact - The contact object containing information.
+ * @returns {string} - The HTML content for the contact.
+ */
+function contactsInnerHtml(i, contact) {
+    return `
+    &lt;div class="margin-t">
+        &lt;div class="flex-contacts-inner-li" tabindex="0" onclick="addZindex('addContact-btn'), removeHide('contacts-modal-info'), addHide('contacts-bg'), renderContactInfos(${i})">
+            &lt;li>&lt;span class="contact-icons cap-text ${contact['color']}">${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}&lt;/span>&lt;/li>
+            &lt;li class="upper-text">${contact['firstName']} ${contact['lastName']}&lt;br>&lt;span class="contacts-links lower-text">${contact['email']}&lt;/span>&lt;/li>
+        &lt;/div>
+    &lt;/div>
+    `;
+}
+
+
+/**
+ * Sorts contacts based on first and last names.
+ */
+function sortNames() {
+    contacts.sort((a, b) => {
+        const firstNameA = a['firstName'].toLowerCase();
+        const firstNameB = b['firstName'].toLowerCase();
+
+        if (firstNameA &lt; firstNameB) {
+            return -1;
+        } else if (firstNameA > firstNameB) {
+            return 1;
+        } else {
+            const lastNameA = a['lastName'].toLowerCase();
+            const lastNameB = b['lastName'].toLowerCase();
+
+            return lastNameA.localeCompare(lastNameB);
+        }
+    });
+}
+
+
+/**
+ * Renders the contact information for a specific index.
+ * 
+ * @param {number} index - The index of the contact in the contacts list.
+ */
+function renderContactInfos(index) {
+    resetColor();
+    let contact = contacts[index];
+    let contactInitials = document.getElementById('initials-info');
+    let contactName = document.getElementById('names-info');
+    let contactMail = document.getElementById('mail-info');
+    let contactPhone = document.getElementById('phone-info');
+    let edit = document.getElementById('contact-edit');
+    let del = document.getElementById('contact-delete');
+    let editDrop = document.getElementById('dropContacts');
+
+    contactInitials.innerHTML = `${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}`;
+    contactInitials.classList.add(`${contact['color']}`);
+    contactName.innerHTML = `${contact['firstName']} ${contact['lastName']}`;
+    contactMail.innerHTML = `&lt;a href="mailto:${contact['email']}">${contact['email']}&lt;/a>`;
+    contactPhone.innerHTML = `&lt;a href="tel:${contact['phone']}">${contact['phone']}&lt;/a>`;
+
+    edit.innerHTML = innerHtmlContactEdit(index)
+    del.innerHTML = `&lt;div class="icon-delete" onclick="deleteContact(${index})">Delete&lt;/div>`
+    editDrop.innerHTML = innerHtmlContactEditDrop(index);
+}
+
+
+/**
+ * Generates the HTML code for the "Edit" link in the contact information.
+ * 
+ * @param {number} index - The index of the contact in the contacts list.
+ * @returns {string} - The generated HTML code.
+ */
+function innerHtmlContactEdit(index) {
+    return `
+    &lt;div onclick="  showModal('contacts-modal','modal-inner'), addHide('add-btn'),
+                    changeText('heading-contacts-modal','subline-contact-modal'),
+                    removeHide('edit-btn'), removeHide('profile-contacts'),
+                    editContact(${index})" class="icon-edit">Edit&lt;/div>`;
+}
+
+
+/**
+ * Generates the HTML code for the "Edit" and "Delete" dropdown in the contact editing view.
+ * 
+ * @param {number} index - The index of the contact in the contacts list.
+ * @returns {string} - The generated HTML code for the dropdown menu.
+ */
+function innerHtmlContactEditDrop(index) {
+    return `
+    &lt;div class="bg-color flex-center">
+        &lt;div class="icon-edit text" onclick="showModal('contacts-modal','modal-inner'), addHide('add-btn'),
+                                            changeText('heading-contacts-modal','subline-contact-modal'),
+                                            removeHide('edit-btn'), removeHide('profile-contacts'),
+                                            editContact(${index})">Edit&lt;/div>
+    &lt;/div>
+    &lt;div class="bg-color snd flex-center">
+        &lt;div class="icon-delete text" onclick="deleteContact(${index}); addHide('dropContacts')">Delete&lt;/div>
+    &lt;/div>`;
+}
+
+
+/**
+ * Resets the colors of the 'initials-info' class by removing all color classes.
+ */
+function resetColor() {
+    document.getElementById('initials-info').classList.remove('orange', 'vio', 'blue', 'pink', 'yell', 'azur', 'deep', 'tango');
+}
+
+
+/**
+ * Edits a contact based on the specified index.
+ * 
+ * @param {number} index - The index of the contact to be edited.
+ */
+function editContact(index) {
+    let contact = contacts[index];
+    editContactChange(contact);
+
+    let deleteContact = document.getElementById('del-btn');
+    let saveContact = document.getElementById('save-btn');
+
+    deleteContact.innerHTML = `&lt;button type="button" class="btn-guest media show contacts" onclick="closeAndClearModal(),resetColorModal('profile-contacts'),deleteContact(${index})">Delete&lt;/button>`;
+    saveContact.innerHTML = `&lt;button type="submit" class="btn-login media" id="edit-save-btn" onclick="saveEdits(${index}), closeAndClearModal()">Save&lt;span class="icon-check-new">&lt;/span>&lt;/button>`;
+}
+
+
+/**
+ * Edits the contact information and updates the user profile.
+ * 
+ * @param {Object} contact - Der Kontakt, der bearbeitet werden soll.
+ */
+function editContactChange(contact) {
+    document.getElementById('profile-contacts').innerHTML = `${contact['firstName'].charAt(0)}${contact['lastName'].charAt(0)}`;
+    document.getElementById('profile-contacts').classList.add(`${contact['color']}`);
+    document.getElementById('contacts-name').value = `${contact['firstName']} ${contact['lastName']}`;
+    document.getElementById('contacts-mail').value = `${contact['email']}`;
+    document.getElementById('contacts-phone').value = `${contact['phone']}`;
+    document.getElementById('contactLogo').style.display = `none`;
+}
+
+
+/**
+ * Saves edits to a contact.
+ * 
+ * @param {number} index - The index of the contact to be edited.
+ */
+async function saveEdits(index) {
+    let inputName = document.getElementById('contacts-name');
+    let inputMail = document.getElementById('contacts-mail');
+    let inputPhone = document.getElementById('contacts-phone');
+
+    let fullName = inputName.value.split(' ');
+    let firstName = fullName[0] || '';
+    let lastName = fullName.slice(1).join('') || '';
+
+    let contact = contacts[index];
+
+    contact['firstName'] = firstName;
+    contact['lastName'] = lastName;
+    contact['email'] = inputMail.value;
+    contact['phone'] = inputPhone.value;
+
+    await setItem('contacts', JSON.stringify(contacts));
+    renderContactList();
+    renderContactInfos(index);
+}
+
+
+/**
+ * Deletes a contact from the list based on the specified index.
+ * 
+ * @param {number} index - The index of the contact to be deleted.
+ */
+async function deleteContact(index) {
+    contacts.splice(index, 1);
+
+    await setItem('contacts', JSON.stringify(contacts));
+    renderContactInfos(0);
+    renderContactList();
+    window.location.href = 'contacts.html';
+}
+
+
+/**
+ * Adds a new contact.
+ */
+async function addContact() {
+    let fullName = document.getElementById('contacts-name').value;
+    let email = document.getElementById('contacts-mail').value;
+    let phone = document.getElementById('contacts-phone').value;
+
+    let nameParts = fullName.split(' ');
+    let firstName = nameParts[0] || '';
+    let lastName = nameParts.slice(1).join(' ') || '';
+
+    let colorIndex = contacts.length % bgColors.length;
+    let color = bgColors[colorIndex];
+    let id = (new Date().getTime().toString().slice(-3));
+
+    let newContact = {
+        'id': id,
+        'firstName': firstName,
+        'lastName': lastName,
+        'email': email,
+        'phone': phone,
+        'color': color,
+    };
+    contacts.push(newContact);
+    await setItem('contacts', JSON.stringify(contacts));
+    renderContactList();
+    closeAndClearModal();
+    successAddContact(id);
+}
+
+
+/**
+ * Displays success messages for adding contacts and hides them after 1.5 seconds.
+ */
+function successAddContact(id) {
+    let containers = document.querySelectorAll('.success-container');
+
+    containers.forEach(container => {
+        container.classList.remove('display-none');
+    });
+    showAddedContact(id);
+    setTimeout(function () {
+        containers.forEach(container => {
+            container.classList.add('display-none');
+        });
+    }, 1500);
+}
+
+
+/**
+ * Displays the added contact information.
+ * 
+ * @param {number} id - The ID of the added contact.
+ */
+function showAddedContact(id) {
+    let newId = contacts.findIndex(contact => contact.id === id);
+
+    addZindex('addContact-btn');
+    removeHide('contacts-modal-info');
+    addHide('contacts-bg');
+    renderContactInfos(newId);
+}
+
+
+/**
+ * Loads the contacts from the API and parses it as JSON.
+ */
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItem('contacts'));
+    } catch (error) {
+        console.log('Kontakte nicht gefunden');
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#SelectPrioBtn">SelectPrioBtn</a></li><li><a href="global.html#activateFilterContact">activateFilterContact</a></li><li><a href="global.html#activeContact">activeContact</a></li><li><a href="global.html#addCategory">addCategory</a></li><li><a href="global.html#addChange">addChange</a></li><li><a href="global.html#addContact">addContact</a></li><li><a href="global.html#addHide">addHide</a></li><li><a href="global.html#addSelectedCategory">addSelectedCategory</a></li><li><a href="global.html#addSubtask">addSubtask</a></li><li><a href="global.html#addTaskContactsInnerHtml">addTaskContactsInnerHtml</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#addZindex">addZindex</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#bgColors">bgColors</a></li><li><a href="global.html#cancelCategory">cancelCategory</a></li><li><a href="global.html#cancelSubtask">cancelSubtask</a></li><li><a href="global.html#changeContact">changeContact</a></li><li><a href="global.html#changePrioBtn">changePrioBtn</a></li><li><a href="global.html#changeSelectedCategory">changeSelectedCategory</a></li><li><a href="global.html#changeStyles">changeStyles</a></li><li><a href="global.html#changeStylesAdd">changeStylesAdd</a></li><li><a href="global.html#changeStylesRemove">changeStylesRemove</a></li><li><a href="global.html#changeSubtaskImg">changeSubtaskImg</a></li><li><a href="global.html#changeText">changeText</a></li><li><a href="global.html#changeTextAddContact">changeTextAddContact</a></li><li><a href="global.html#checkIcon">checkIcon</a></li><li><a href="global.html#checkboxImgChange">checkboxImgChange</a></li><li><a href="global.html#clearAndCloseTaskEdit">clearAndCloseTaskEdit</a></li><li><a href="global.html#clearAndCloseTaskEditWithDelay">clearAndCloseTaskEditWithDelay</a></li><li><a href="global.html#clearModal">clearModal</a></li><li><a href="global.html#clearTaskEditAdd">clearTaskEditAdd</a></li><li><a href="global.html#clearTaskEditRemove">clearTaskEditRemove</a></li><li><a href="global.html#closeAndClearModal">closeAndClearModal</a></li><li><a href="global.html#closeModal">closeModal</a></li><li><a href="global.html#contactsInnerHtml">contactsInnerHtml</a></li><li><a href="global.html#contentTaskInfo">contentTaskInfo</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeAddtask">customizeAddtask</a></li><li><a href="global.html#deleteCategory">deleteCategory</a></li><li><a href="global.html#deleteContact">deleteContact</a></li><li><a href="global.html#deleteSelectedContact">deleteSelectedContact</a></li><li><a href="global.html#deleteSubtask">deleteSubtask</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#disableContact">disableContact</a></li><li><a href="global.html#dropdownClick">dropdownClick</a></li><li><a href="global.html#dropdownContent">dropdownContent</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#editContactChange">editContactChange</a></li><li><a href="global.html#editSubtask">editSubtask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#editTaskCategory">editTaskCategory</a></li><li><a href="global.html#editTaskContact">editTaskContact</a></li><li><a href="global.html#editTaskDate">editTaskDate</a></li><li><a href="global.html#editTaskDescription">editTaskDescription</a></li><li><a href="global.html#editTaskPrio">editTaskPrio</a></li><li><a href="global.html#editTaskSubtasks">editTaskSubtasks</a></li><li><a href="global.html#editTaskTitle">editTaskTitle</a></li><li><a href="global.html#employeesHtml">employeesHtml</a></li><li><a href="global.html#findEarliestDate">findEarliestDate</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#getItem">getItem</a></li><li><a href="global.html#greeting">greeting</a></li><li><a href="global.html#guestLogin">guestLogin</a></li><li><a href="global.html#hideAgain">hideAgain</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#includeHTML">includeHTML</a></li><li><a href="global.html#initAddtask">initAddtask</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initContacts">initContacts</a></li><li><a href="global.html#initInfoPages">initInfoPages</a></li><li><a href="global.html#initSummary">initSummary</a></li><li><a href="global.html#innerHtmlAwaitFeedback">innerHtmlAwaitFeedback</a></li><li><a href="global.html#innerHtmlCategory">innerHtmlCategory</a></li><li><a href="global.html#innerHtmlContactEdit">innerHtmlContactEdit</a></li><li><a href="global.html#innerHtmlContactEditDrop">innerHtmlContactEditDrop</a></li><li><a href="global.html#innerHtmlDone">innerHtmlDone</a></li><li><a href="global.html#innerHtmlInProgress">innerHtmlInProgress</a></li><li><a href="global.html#innerHtmlSubtasks">innerHtmlSubtasks</a></li><li><a href="global.html#innerHtmlTasks">innerHtmlTasks</a></li><li><a href="global.html#innerHtmlToDo">innerHtmlToDo</a></li><li><a href="global.html#loadCategory">loadCategory</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadTasks">loadTasks</a></li><li><a href="global.html#loadUsers">loadUsers</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#noRotate">noRotate</a></li><li><a href="global.html#notSelectedCategory">notSelectedCategory</a></li><li><a href="global.html#notSelectedContacts">notSelectedContacts</a></li><li><a href="global.html#notSelectedPrio">notSelectedPrio</a></li><li><a href="global.html#parseDate">parseDate</a></li><li><a href="global.html#pressEnter">pressEnter</a></li><li><a href="global.html#progressBar">progressBar</a></li><li><a href="global.html#removeHide">removeHide</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderCategory">renderCategory</a></li><li><a href="global.html#renderContactInfos">renderContactInfos</a></li><li><a href="global.html#renderContactList">renderContactList</a></li><li><a href="global.html#renderContacts">renderContacts</a></li><li><a href="global.html#renderData">renderData</a></li><li><a href="global.html#renderSelectedContacts">renderSelectedContacts</a></li><li><a href="global.html#renderSubtask">renderSubtask</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderUserLetters">renderUserLetters</a></li><li><a href="global.html#renderUserName">renderUserName</a></li><li><a href="global.html#resetColor">resetColor</a></li><li><a href="global.html#resetColorModal">resetColorModal</a></li><li><a href="global.html#resetEdits">resetEdits</a></li><li><a href="global.html#rotate">rotate</a></li><li><a href="global.html#saveEditTask">saveEditTask</a></li><li><a href="global.html#saveEdits">saveEdits</a></li><li><a href="global.html#searchContact">searchContact</a></li><li><a href="global.html#searchInnerHtml">searchInnerHtml</a></li><li><a href="global.html#searchTask">searchTask</a></li><li><a href="global.html#selectColor">selectColor</a></li><li><a href="global.html#selectContact">selectContact</a></li><li><a href="global.html#selectedContacts">selectedContacts</a></li><li><a href="global.html#setItem">setItem</a></li><li><a href="global.html#showAddedContact">showAddedContact</a></li><li><a href="global.html#showCloseCategory">showCloseCategory</a></li><li><a href="global.html#showCloseContacts">showCloseContacts</a></li><li><a href="global.html#showDropdown">showDropdown</a></li><li><a href="global.html#showMenu">showMenu</a></li><li><a href="global.html#showModal">showModal</a></li><li><a href="global.html#showTaskInfoModal">showTaskInfoModal</a></li><li><a href="global.html#sortNames">sortNames</a></li><li><a href="global.html#spliceSelectedContact">spliceSelectedContact</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#subtaskValue">subtaskValue</a></li><li><a href="global.html#subtasksHtml">subtasksHtml</a></li><li><a href="global.html#successAddContact">successAddContact</a></li><li><a href="global.html#successAddTask">successAddTask</a></li><li><a href="global.html#successEdit">successEdit</a></li><li><a href="global.html#summary">summary</a></li><li><a href="global.html#taskInfo">taskInfo</a></li><li><a href="global.html#toggleFunction">toggleFunction</a></li><li><a href="global.html#truncateText">truncateText</a></li><li><a href="global.html#updateCategory">updateCategory</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#users">users</a></li><li><a href="global.html#wait">wait</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Jan 10 2024 18:53:22 GMT+0100 (GMT+01:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

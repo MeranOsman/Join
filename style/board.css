@@ -163,6 +163,7 @@ input#search-board {
 }
 
 .tasks-card {
+    position: relative;
     background: #ffffff;
     height: fit-content;
     min-width: 270px;
@@ -431,6 +432,68 @@ input#search-board {
     gap: 16px;
     align-items: center;
     margin: 20px 0;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-header img {
+    width: 22px;
+    height: auto;
+    background-color: rgb(238, 238, 238);
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.task-header img:hover {
+    transform: scale(1.25);
+}
+
+.tasks-card:hover img {
+    opacity: 1;
+}
+
+.move-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 44px;
+    right: 16px;
+    width: 145px;
+    background-color: rgb(44, 54, 70);
+    border-radius: 20px 0 20px 20px;
+    z-index: 99;
+    padding: 16px;
+    padding: 8px 0;
+    box-sizing: border-box;
+}
+
+.move-task span {
+    width: 90%;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 6px 0;
+}
+
+.move-task h3 {
+    margin: 0 0 8px 0;
+    color: var(--sidebar-color);
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.move-task span:hover {
+    background-color: rgb(46, 61, 87);
 }
 
 .prio-pop {

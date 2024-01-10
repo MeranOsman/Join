@@ -40,6 +40,11 @@
         width: 90%;
     }
 
+    .edit-subtask,
+    .edit-category {
+        opacity: 1;
+    }
+
     .right-section {
         padding: 0;
         width: 90%;

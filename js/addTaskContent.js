@@ -67,51 +67,49 @@ async function renderSubtask() {
 
 
 /**
- * Creates a new task based on the entered information and saves it.
- * 
- * @param {Event} event - The event object that triggered the function call.
+ * Modifies the appearance of priority buttons and the priority label.
  */
-async function createTask(event, sort) {
-    event.preventDefault();
+function changePrioBtn() {
+    let requiredBtn = document.querySelectorAll('.requiredBtn');
+    let urgentBtn = document.getElementById('urgentBtn');
+    let mediumBtn = document.getElementById('mediumBtn');
+    let lowBtn = document.getElementById('lowBtn');
+    let prioLabel = document.getElementById('prio');
 
-    let titelValue = document.getElementById('title').value.trim();
-    let titel = titelValue.charAt(0).toUpperCase() + titelValue.slice(1);
-    let descriptionValue = document.getElementById('description').value.trim();
-    let description = descriptionValue.charAt(0).toUpperCase() + descriptionValue.slice(1);
-    let dateValue = document.getElementById('date').value;
-    let contactFullname = selectedContacts.map(contact => contact.fullName);
-    let contactLetters = selectedContacts.map(contact => contact.nameLetters);
-    let contactColor = selectedContacts.map(contact => contact.color);
-    let contactIndex = selectedContacts.map(contact => contact.index);
-    let contactId = selectedContacts.map(contact => contact.id);
+    requiredBtn.forEach(function (btn) {
+        btn.style.border = 'none';
+    });
+    prioLabel.style.color = 'black';
+    urgentBtn.classList.remove('urgent-color');
+    mediumBtn.classList.remove('medium-color');
+    lowBtn.classList.remove('low-color');
+}
 
-    if (priority.length !== 0 && selectedCategory.length !== 0 && selectedContacts.length !== 0) {
-        tasks.push({
-            id: (new Date().getTime()),
-            sort: sort,
-            title: titel,
-            description: description,
-            contacts: contactFullname,
-            contactsIndex: contactIndex,
-            contactId: contactId,
-            employees: contactLetters,
-            color: contactColor,
-            date: dateValue,
-            prio: priority[0]['prio'],
-            category: selectedCategory[0]['name'],
-            categoryIndex: selectedCategory[0]['index'],
-            categoryCol: bgColors[selectedCategory[0]['numberColor']],
-            subtasks: subtasks,
-            subTaskCount: 0
-        })
-        await setItem('tasks', JSON.stringify(tasks));
-        successAddTask();
-    } else if (priority.length === 0) {
-        notSelectedPrio();
-    } else if (selectedCategory.length === 0) {
-        notSelectedCategory();
-    } else if (selectedContacts.length === 0) {
-        notSelectedContacts();
+
+/**
+ * Searches the contact list for a specific contact based on the entered search term.
+ */
+function searchContact() {
+    let input = document.getElementById('inputSearch');
+    let search = input.value.trim().toLowerCase();
+
+    let elements = document.getElementById('contactAll');
+    elements.innerHTML = '';
+
+    for (let i = 0; i < contacts.length; i++) {
+        let firstNameLowercase = contacts[i]['firstName'];
+        let firstName = firstNameLowercase.charAt(0).toUpperCase() + firstNameLowercase.slice(1);
+        let lastNameLowercase = contacts[i]['lastName'];
+        let lastName = lastNameLowercase.charAt(0).toUpperCase() + lastNameLowercase.slice(1);
+        let color = contacts[i]['color'];
+
+        if (firstName.toLocaleLowerCase().includes(search) || lastName.toLocaleLowerCase().includes(search)) {
+            let contact = contacts[i];
+            let contactId = contact['id'];
+
+            elements.innerHTML += searchInnerHtml(i, contactId, color, firstName, lastName);
+            activateFilterContact(contactId, i);
+        }
     }
 }
 
