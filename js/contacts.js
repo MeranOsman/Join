@@ -16,7 +16,7 @@ async function initContacts() {
  * @param {Event} event - The event that triggered this function.
  */
 function showDropdown(event) {
-    var dropdown = document.getElementById('dropContacts');
+    let dropdown = document.getElementById('dropContacts');
     dropdown.classList.toggle('display-none');
 
     event.stopPropagation();
